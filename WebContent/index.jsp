@@ -7,6 +7,6 @@
 <title>index</title>
 </head>
 <body>
-
+	<!-- 파일이름 수정 -->
 </body>
 </html>
