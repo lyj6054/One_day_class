@@ -7,6 +7,7 @@
 <title>index</title>
 </head>
 <body>
+<<<<<<< HEAD
 	<!-- header -->
 	<jsp:include page="header.jsp"></jsp:include>
 
@@ -21,5 +22,8 @@
 
 	<!-- footer -->
 	<jsp:include page="footer.jsp"></jsp:include>
+=======
+	<!-- 파일이름 수정3 -->
+>>>>>>> b21cea7bd17411df991b018e9f28f71deaf23c08
 </body>
 </html>
