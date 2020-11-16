@@ -74,7 +74,7 @@
 	    float: right;
 	    width: 30px;
 	    height: 26px;
-	    background: url(http://localhost:9000/one_day_class/images/search.png) no-repeat center/15px;
+	    background: url(http://localhost:9000/One_day_class/images/search.png) no-repeat center/15px;
 	   	border: none;
 	    cursor: pointer;
 	}
@@ -113,7 +113,7 @@
 	<header>
 		<div class="container">
 			<h1 class="logo">
-				<a href="http://localhost:9000/one_day_class/index.jsp"><img src="http://localhost:9000/one_day_class/images/logo.png"></a>
+				<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
 			</h1>
 			<div class="hd_bar">
 				<div class="hd_search_box">
@@ -128,10 +128,10 @@
 			<nav class="hd_right">
 				<ul class="gnb">
 					<li>
-						<a href="http://localhost:9000/one_day_class/tutor/tutor.jsp">튜터등록</a>
+						<a href="http://localhost:9000/One_day_class/tutor/tutor.jsp">튜터등록</a>
 					</li>
 					<li>
-						<a href="http://localhost:9000/one_day_class/login/login.jsp">로그인</a>
+						<a href="http://localhost:9000/One_day_class/login/login.jsp">로그인</a>
 					</li>
 				</ul>
 			</nav>

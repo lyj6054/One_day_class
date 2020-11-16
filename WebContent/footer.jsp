@@ -119,10 +119,10 @@
 						<p class="title">POLICIES</p>
 						<ul class="depth2">
 							<li>
-								<a href="http://localhost:9000/one_day_class/support/rule.jsp">이용약관</a>
+								<a href="http://localhost:9000/One_day_class/support/rule.jsp">이용약관</a>
 							</li>
 							<li>
-								<a href="http://localhost:9000/one_day_class/support/privacy.jsp"><b style="text-decoration:underline">개인정보처리방침</b></a>
+								<a href="http://localhost:9000/One_day_class/support/privacy.jsp"><b style="text-decoration:underline">개인정보처리방침</b></a>
 							</li>
 						</ul>
 					</li>
@@ -130,17 +130,17 @@
 						<p class="title">SUPPORT</p>
 						<ul class="depth2">
 							<li>
-								<a href="http://localhost:9000/one_day_class/support/faq.jsp">FAQ</a>
+								<a href="http://localhost:9000/One_day_class/support/faq.jsp">FAQ</a>
 							</li>
 							<li>
-								<a href="http://localhost:9000/one_day_class/support/center.jsp">탈잉센터</a>
+								<a href="http://localhost:9000/One_day_class/support/center.jsp">탈잉센터</a>
 							</li>
 						</ul>
 					</li>
 					<li class="depth1 tc">
 						<p class="title">TALING CENTER</p>
 						<ul class="depth2">
-							<li><a href="http://localhost:9000/one_day_class/support/question.jsp" style="color:#ff005a">1:1 문의</a></li>
+							<li><a href="http://localhost:9000/One_day_class/support/question.jsp" style="color:#ff005a">1:1 문의</a></li>
 							<li>
 								<p>운영시간</p>
 								<p>평일 오전 10시 ~ 오후 5시  점심 오후 1시 ~ 2시</p>
@@ -156,11 +156,11 @@
 					<p>Copyright ⓒ2020 taling inc, ltd. All rights reserved</p>
 				</div>
 				<ul class="f_sns">
-					<li><a href="https://www.facebook.com/taling.me"><img src="http://localhost:9000/one_day_class/images/sns01.png"></a></li>
-					<li><a href="https://www.instagram.com/taling_class/"><img src="http://localhost:9000/one_day_class/images/sns02.png"></a></li>
-					<li><a href="https://www.youtube.com/channel/UCuFmmpVLaNNFoy-cHqELl_A"><img src="http://localhost:9000/one_day_class/images/sns03.png"></a></li>
-					<li><a href="https://post.naver.com/taling_me"><img src="http://localhost:9000/one_day_class/images/sns04.png"></a></li>
-					<li><a href="https://1boon.kakao.com/taling"><img src="http://localhost:9000/one_day_class/images/sns05.png"></a></li>
+					<li><a href="https://www.facebook.com/taling.me"><img src="http://localhost:9000/One_day_class/images/sns01.png"></a></li>
+					<li><a href="https://www.instagram.com/taling_class/"><img src="http://localhost:9000/One_day_class/images/sns02.png"></a></li>
+					<li><a href="https://www.youtube.com/channel/UCuFmmpVLaNNFoy-cHqELl_A"><img src="http://localhost:9000/One_day_class/images/sns03.png"></a></li>
+					<li><a href="https://post.naver.com/taling_me"><img src="http://localhost:9000/One_day_class/images/sns04.png"></a></li>
+					<li><a href="https://1boon.kakao.com/taling"><img src="http://localhost:9000/One_day_class/images/sns05.png"></a></li>
 				</ul>
 			</div>
 		</div>
