@@ -7,6 +7,19 @@
 <title>index</title>
 </head>
 <body>
+	<!-- header -->
+	<jsp:include page="header.jsp"></jsp:include>
 
+	<!-- content -->
+	<div class="content">
+		<section>
+			<div style=width:100px;height:500px;>
+				
+			</div>
+		</section>
+	</div>
+
+	<!-- footer -->
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
