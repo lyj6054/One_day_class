@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>footer</title>
 <style>
+	*{
+		box-sizing: border-box;
+	}
 	footer {
 		padding: 10px 0 300px;
 	    border-top: 1px solid #ccc;
