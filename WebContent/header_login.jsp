@@ -31,9 +31,25 @@
 		width: 94px;
     	height: 57px;
 	}
+	.all_hd_bar > div {
+		/* border:1px solid red; */
+		width:50%; height:300px;
+		display:inline-block;
+	}
 	.hd_bar {
-   	 	float: left;
-    	margin-left: 124px;
+		/* border:1px solid red; */
+   	 	/* float: left; */
+    	margin-left: 130px;
+    	border:1px solid lightgray;
+	}
+	 .all_hd_bar div a img.all {
+		/* border:1px solid red; */
+		position:absolute;
+		left:380px;
+		top:58px;
+		width:35px; height:35px;
+		float:left;
+		
 	}
 	fieldset {
 	    margin-inline-start: 2px;
@@ -46,9 +62,9 @@
 	    border: 0 none;
 	}
 	.hd_search_box {	
-	    width: 250px;
+	    width: 390px;
 	    height: 26px;
-	    margin-left: 20px;
+	    margin-left: 10px;
 	    content: '';
 	    display: block;
 	    clear: both;
@@ -127,9 +143,19 @@
 		padding:0 0 10px 38px;
 		border-radius:0px 0px 3px 3px;
 		font-weight:bold;
+		text-decoration:none;
+		display:block;
+	}
+	.Item_Container:hover {
+		background-color:lightgray;
 	}
 	.Item_Container > span.Item_RankNum {
 		padding-right:5px;
+		text-decoration:none;
+	}
+	.Item_Container > span.Item_RankText {
+		padding-right:5px;
+		text-decoration:none;
 	}
 	.Search_Container {
 	 box-shadow:rgba(0,0,0,0.02) 0px 0px 5px,
@@ -142,6 +168,46 @@
 	 background-color:white;
 	 display:block;
 	}
+	
+	.gnb li.depth_my_page {
+		height: 36px;
+		padding-right:4px;
+	    position: relative;
+	}
+	
+	.gnb .depth_my_page p {
+	 	margin: 0px;
+	    padding: 0px;
+		padding-right:11px;
+		background-image:url('http://localhost:9000/One_day_class/images/down.png');
+		background-repeat:no-repeat;
+		background-position:right 57%;
+		background-size:10px 7px;
+		cursor:pointer;
+	}
+	p {
+	   margin: 0px;
+	    padding: 0px;
+		font-weight: bold;
+		display:inline-block;
+		font-size:13px;
+		line-height:21px;
+		color:#111;
+		margin-block-start : 1em;
+		margin-block-end : 1em;
+		margin-inline-start : 0px;
+		margin-inline-start : 0px;
+	}
+	
+	.gnb .profile_img {
+		display: block;
+		overflow: hidden;
+		width:36px;
+		height:36px;
+		border-radius:50%;
+		background-position:center;
+		background-size:cover;
+	}
 </style>
 </head>
 <body>
@@ -151,44 +217,50 @@
 			<h1 class="logo">
 				<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
 			</h1>
-			<div class="hd_bar">
-				<div class="hd_search_box">
-					<form name="search" action="#" method="get">
-						<fieldset>
-							<input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
-									placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox">
-							<button class=search_btn type="submit"></button>
-						</fieldset>
-					</form>			
-				</div> <!-- hd_search_box -->
-					<div aria-hidden="false" class="SearchInputBox_false"></div>					
-					<div aria-hidden="true" class="SearchInputBox_true"></div>					
-						<div class="Search_Container" >
-								<div class="Search_Container_Header">
-									<h3 class="Search_Container_HeaderText">인기 검색어</h3>
-								</div> <!-- Search_Contatiner_Header -->
-								<div class="Item_Container">
-									<span class="Item_RankNum">1</span>
-									<span class="Item_RankText">아이패드</span>
-								</div>
-								<div class="Item_Container">
-									<span class="Item_RankNum">2</span>
-									<span class="Item_RankText">퍼스널컬러</span>
-								</div>
-								<div class="Item_Container">
-									<span class="Item_RankNum">3</span>
-									<span class="Item_RankText">피티</span>
-								</div>
-								<div class="Item_Container">
-									<span class="Item_RankNum">4</span>
-									<span class="Item_RankText">공방</span>
-								</div>
-								<div class="Item_Container">
-									<span class="Item_RankNum">5</span>
-									<span class="Item_RankText">영어회화</span>
-								</div>
-				</div> <!-- Search_Container -->
-			</div> <!-- hd_bar -->
+			<div class="all_hd_bar">
+				<div>
+				<a href=""><img src="http://localhost:9000/One_day_class/images/menu.png" class="all"></a>
+				<div class="hd_bar">
+				 	<div class="all_search">
+					<div class="hd_search_box">
+						<form name="search" action="#" method="get">
+							<fieldset>
+								<input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
+										placeholder="      배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox">
+								<button class=search_btn type="submit"></button>
+							</fieldset>
+						</form>			
+					</div> <!-- hd_search_box -->
+				 	</div> <!-- all_search -->
+						<div aria-hidden="false" class="SearchInputBox_false"></div>					
+						<div aria-hidden="true" class="SearchInputBox_true"></div>					
+							<div class="Search_Container" >
+									<div class="Search_Container_Header">
+										<h3 class="Search_Container_HeaderText">인기 검색어</h3>
+									</div> <!-- Search_Contatiner_Header -->
+									<div class="Item_Container"><a href="#">
+										<span class="Item_RankNum">1</span>
+										<span class="Item_RankText">아이패드</span></a>
+									</div>
+									<div class="Item_Container"><a href="#">
+										<span class="Item_RankNum">2</span>
+										<span class="Item_RankText">퍼스널컬러</span></a>
+									</div>
+									<div class="Item_Container"><a href="#">
+										<span class="Item_RankNum">3</span>
+										<span class="Item_RankText">피티</span></a>
+									</div>
+									<div class="Item_Container"><a href="#">
+										<span class="Item_RankNum">4</span>
+										<span class="Item_RankText">공방</span></a>
+									</div>
+									<div class="Item_Container"><a href="#">
+										<span class="Item_RankNum">5</span>
+										<span class="Item_RankText">영어회화</span></a>
+									</div>
+					</div> <!-- Search_Container -->
+				</div> <!-- hd_bar -->
+				</div>
 			<nav class="hd_right">
 				<ul class="gnb">
 					<li>
@@ -205,17 +277,21 @@
 					</li>
 					<li class="depth_my_page" >
 						<p role="button">
-							<span class="profile_img">
-							<img src="http://localhost:9000/One_day_class/images/sns01.png" width=30px; height=30.px;>
-							
+							<span class="profile_img" style="background-image:url('http://localhost:9000/One_day_class/images/profile.png');">
 							</span>
 						</p>
-					</li>
-					<li>
-						<a href="http://localhost:9000/One_day_class/login/login.jsp">로그인</a>
+						<div class="profile_list_container">
+							<ul class="profile_list">
+								<li><a href="">내 프로필</a></li>
+								<li><a href="">비밀번호 변경</a></li>
+								<li><a href="">회원탈퇴</a></li>
+								<li><a href="">로그아웃</a></li>
+							</ul>
+						</div>
 					</li>
 				</ul>
 			</nav>
+			</div> <!-- all_hd_bar -->
 		 </div>
 		</div>
 	</header>
