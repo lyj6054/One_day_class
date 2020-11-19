@@ -1,0 +1,1201 @@
+@charset "UTF-8";
+/**
+	tutor_reg 스타일
+*/
+div.content {
+	margin: 0px;
+	padding: 0px;
+}
+.head_cont {
+	/* 헤더 여백 30 넣음*/
+	margin-top: 30px;
+    color: #fff;
+    height:711px;
+    width:100%;
+    text-align: center;
+    background-size: cover;
+    background-position: center; 
+    background-image: url("http://localhost:9000/One_day_class/images/img_introduce_top.png");
+}
+.inbox {
+	padding-top :520px;
+}
+.inbox button{
+	border:none;
+	display:iinline-block;
+	margin:auto;
+	width:290px;
+	height:71px;
+	border-radius:4px;
+	color: white;
+	background-color: rgb(255,0,90);
+	font-size:20px;
+}
+
+.inbox button:hover{
+	background-color:rgb(255,128,173);
+}
+
+.how_box {
+    padding-top: 100px;
+    background: #fff;
+    text-align: center;
+    padding-bottom: 430px;
+}
+
+.how_box .title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #222;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.8px;
+    line-height: 0.8;
+    z-index: 10;
+}
+
+.how_box .title_bar {
+    /* margin: -5px auto 0 auto; */
+    background: #ff005a;
+    width: 299px;
+    height: 15px;
+    opacity: 0.2;
+    margin-left: 10px;
+    display: inline-block;
+    margin-top: 19px;
+}
+
+.how_box .flows {
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 110px;
+}
+
+.how_box .flows .flow {
+    width: 255px;
+}
+
+.how_box .flows .flow .top1 {
+    height: 150px;
+}
+
+.how_box .flows .flow .step {
+    color: rgba(153, 153, 153, 0.99);
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: -0.4px;
+    margin-top: 25px;
+    padding: 10px 0;
+}
+
+.how_box .flows .flow .top2 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.how_box .flows .flow .top3 {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666;
+    letter-spacing: -0.4px;
+    line-height: 1.5;
+}
+
+.how_box .flows .bar {
+    width: 80px;
+    padding-top: 157px;
+}
+
+.how_box .flows .flow {
+    width: 255px;
+}
+
+.how_box .flows .flow .top1 {
+    height: 150px;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.how_box .flows .flow .step {
+    color: rgba(153, 153, 153, 0.99);
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: -0.4px;
+    margin-top: 25px;
+    padding: 10px 0;
+}
+
+.how_box .flows .flow .top2 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.how_box .flows .flow .top3 {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666;
+    letter-spacing: -0.4px;
+    line-height: 1.5;
+}
+
+.how_box .flows .bar {
+    width: 80px;
+    padding-top: 157px;
+}
+
+.how_box .flows .flow {
+    width: 255px;
+}
+
+.how_box .flows .flow .top1 {
+    height: 150px;
+}
+
+.how_box .flows .flow .step {
+    color: rgba(153, 153, 153, 0.99);
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: -0.4px;
+    margin-top: 25px;
+    padding: 10px 0;
+}
+
+.how_box .flows .flow .top2 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.how_box .flows .flow .top3 {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666;
+    letter-spacing: -0.4px;
+    line-height: 1.5;
+}
+
+.how_box2 {
+    padding: 520px 0 150px 0;
+    background-image: url(https://front-img.taling.me/Content/Images/cont/manual_bg01.png);
+}
+
+.how_box2 .vdo {
+    width: 1100px;
+    position: absolute;
+    background: #f1f1f1;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 0 0 rgba(0, 0, 0, 0.15);
+    height: 700px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: -870px;
+    box-sizing: border-box;
+}
+
+.how_box2 .title {
+    color: #fff;
+}
+
+.how_box2 .title_bar {
+    background: #000;
+}
+
+.how_box2 .slides {
+    width: 1480px;
+    margin: 20px auto 0 auto;
+}
+
+.slides .carousel {
+    height: 385px;
+    overflow: hidden;
+}
+.carousel {
+    position: relative;
+}
+body, div, table, ul, li, ol, dl, dt, dd, h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Noto Sans KR' !important;
+}
+
+.carousel-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+}
+
+.how_box2 .slides .carousel-indicators li {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background: none;
+}
+
+.how_box2 .slides .carousel-inner {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.how_box2 .slides .carousel-item {
+    height: 200px;
+    padding: 40px 0 0 40px;
+}
+
+.how_box2 .slides .carousel-item .left {
+    float: left;
+    width: 20%;
+    box-sizing: border-box;
+}
+
+.how_box2 .slides .carousel-item .left .bgpf {
+    position: absolute;
+    z-index: -10;
+    margin-left: -126px;
+    margin-top: -30px;
+}
+
+element.style {
+    background-image: url(https://img.taling.me/Content/Uploads/Profile/9748f52….png);
+}
+.how_box2 .slides .carousel-item .left .pf {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+.how_box2 .slides .carousel-item .left .name {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: -0.4px;
+    padding-top: 24px;
+}
+
+.how_box2 .slides .carousel-item .right {
+    float: left;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+element.style {
+    padding-top: 70px;
+}
+.how_box2 .slides .carousel-item .right .triangle-border {
+    padding: 30px 30px 30px 50px;
+    width: 850px;
+    height: 275px;
+    text-align: left;
+    
+}
+
+.how_box2 .slides .carousel-item .right .triangle-border span {
+    font-size: 35px;
+    color: #333366;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -2px;
+}
+
+.how_box2 .slides .carousel-item .right .triangle-border font {
+    color: rgba(102, 102, 102, 0.8);
+    font-size: 16px;
+    margin-top: 33px;
+    line-height: 1.5;
+}
+
+.how_box2 .slides .carousel-item {
+    height: 200px;
+    padding: 40px 0 0 40px;
+}
+.carousel-item {
+    position: relative;
+    display: none;
+    align-items: center;
+    width: 100%;
+    transition: transform .6s ease;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.how_box2 .slides .carousel-item .left .name {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: -0.4px;
+    padding-top: 24px;
+}
+
+.how_box2 .slides .carousel-item .right {
+    float: left;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+element.style {
+    padding-top: 50px;
+}
+.how_box2 .slides .carousel-item .right .triangle-border {
+    padding: 30px 30px 30px 50px;
+    width: 850px;
+    height: 275px;
+    text-align: left;
+}
+.how_box2 .slides .carousel-item {
+    height: 200px;
+    padding: 40px 0 0 40px;
+}
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    display: block;
+}
+.fixone {
+    width: 300px;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+}
+.fixone:hover {
+    opacity:0.5;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+.how_box2 .slides .carousel-item .left {
+    float: left;
+    width: 20%;
+    box-sizing: border-box;
+}
+.how_box2 .slides .carousel-item .left .bgpf {
+    position: absolute;
+    z-index: -10;
+    margin-left: -126px;
+    margin-top: -30px;
+}
+element.style {
+    background-image: url(https://img.taling.me/Content/Uploads/Profile/9daa768….png);
+}
+.how_box2 .slides .carousel-item .left .pf {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+}
+.how_box2 .slides .carousel-control-prev-icon {
+    height: 50px;
+    background-image: url(https://front-img.taling.me/Content/Images/cont/btn_tutor_prev.png);
+}
+.carousel-control-prev-icon {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E);
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+}
+.carousel-control-next, .carousel-control-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    color: #fff;
+    text-align: center;
+    opacity: .5;
+}
+.triangle-border {
+    position: relative;
+    margin: 1em 0 3em;
+    border: 5px solid #fff;
+    color: #333;
+    background: #fff;
+    border-radius: 10px;
+}
+.triangle-border.left::before {
+    top: 70px;
+    bottom: auto;
+    left: -30px;
+    border-width: 15px 30px 15px 0;
+    border-color: transparent #fff;
+}
+.triangle-border::before {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    display: block;
+    width: 0;
+}
+.how_box3 .qnas {
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 100px;
+    border-top: 1px solid #888;
+    width: 1100px;
+}
+.how_box3 .qnas .qna {
+    overflow: hidden;
+}
+.how_box3 .qnas .qna .head {
+    padding: 30px 60px;
+    color: #222;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    border-bottom: 1px solid #f1f1f1;
+}
+.how_box3 .qnas .qna .text b, .how_box3 .qnas .qna .head b {
+    position: absolute;
+    margin-left: -30px;
+    font-size: 22px;
+    color: #ff005a;
+}
+.how_box3 .qnas .qna .head img {
+    display: inline;
+    float: right;
+    cursor: pointer;
+}
+.how_box3 .qnas .qna .text {
+    padding: 30px 60px;
+    background: #f1f1f1;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.4px;
+    color: #333;
+}
+.how_box3 .qnas .qna .text span {
+    color: #ff005a;
+}
+.how_box3 {
+    padding-bottom: 100px;
+}
+
+/**
+	tutor_reg_1 스타일
+*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textfield;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+form#frm-register-detail{
+	margin-top:50px;
+}
+.tutor_cont select.len320 {
+    width: 320px;
+}
+div.content {
+	margin: 0px;
+	padding: 0px;
+}
+input, textarea {
+    font-size: 14px;
+    font-weight: 400;
+}
+input {
+    padding: 0 14px;
+}
+input, select, button, textarea {
+    padding: 0;
+    border: 1px solid #ddd;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.tutor_cont {
+    width: 1040px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+.tutor_cont, .tutor_cont div {
+    box-sizing: border-box;
+}
+.tutor_cont .dim {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    z-index: 15;
+    background: #333;
+    left: 0;
+    opacity: 0.8;
+    display: none;
+}
+.phone_box {
+    position: fixed;
+    width: 500px;
+    border-radius: 10px;
+    background: #fff;
+    margin: 190px auto;
+    left: 0;
+    right: 0;
+    z-index: 20;
+}
+.phone_box .head {
+    border-top-left-radius: 10px;
+    background: #ff005a;
+    border-top-right-radius: 10px;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.phone_box .head span {
+    float: right;
+    color: #fff;
+}
+a, span {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-decoration: none;
+}
+.tutor_cont .phone_box .box {
+    padding: 30px;
+    display: block;
+    border-bottom: none;
+}
+element.style {
+    overflow: hidden;
+    margin: 10px 0;
+}
+.phone_box .box input {
+    padding: 10px 15px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    float: left;
+    box-sizing: border-box;
+}
+.tutor_cont .verify {
+    display: inline-block;
+    font-size: 14px;
+    color: #444;
+    border-radius: 4px;
+    padding: 12px 20px;
+    border: solid 1px #aaa;
+    cursor: pointer;
+}
+.left10 {
+    margin-left: 10px;
+}
+.tutor_cont .pink {
+    color: #ff005a;
+}
+.tutor_cont .title_box {
+    overflow: hidden;
+    margin-top: 30px;
+    padding: 19px 0;
+    border-bottom: 1px solid #c9c9c9;
+}
+.tutor_cont .title_box h3 {
+    float: left;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 26px;
+    color: #333;
+}
+.tutor_cont .title_box .steps {
+    display: flex;
+    float: right;
+    font-size: 16px;
+    color: #aaaaaa;
+}
+.tutor_cont .title_box .steps .on {
+    color: #ff005a;
+}
+.tutor_cont .title_box .steps li {
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: -0.5px;
+    color: #aaa;
+}
+.tutor_cont .title_box .steps b {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 3px;
+}
+.tutor_cont .title_box .steps img {
+    width: 8px;
+    margin-top: 6px;
+    height: initial;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+}
+img, fieldset, iframe {
+    border: 0 none;
+}
+.tutor_cont .info1 {
+    margin-top: 10px;
+    padding: 20px 0;
+    text-align: right;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 1px solid #d8d9db;
+    letter-spacing: -0.35px;
+}
+.tutor_cont .box {
+    display: flex;
+    padding: 30px 0;
+    border-bottom: 1px solid #d8d9db;
+}
+.tutor_cont .box .title {
+    width: 220px;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 14px;
+    font-weight: bold;
+}
+.tutor_cont input.phone {
+    width: 320px;
+}
+.tutor_cont input.basic, .tutor_cont select.basic, .tutor_cont textarea.basic {
+    padding: 12px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+.tutor_cont .verifys {
+    color: #444;
+    border-radius: 4px;
+    padding: 12px 20px;
+    border: solid 1px #aaa;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.tutor_cont .box .caution {
+    line-height: 1.57;
+    letter-spacing: -0.4px;
+}
+.tutor_cont .box .caution1 {
+    background: #fbebe7;
+}
+.tutor_cont .box .caution {
+    border-radius: 4px;
+    padding: 12px 24px;
+    width: 880px;
+}
+.tutor_cont .verified {
+    display: inline-block;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 4px;
+    padding: 12px 20px;
+    border: solid 1px #ff005a;
+    background-color: #ff005a;
+    display: none;
+}
+.tutor_cont .box .pf {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-top: 20px;
+    float: left;
+    margin-right: 20px;
+}
+.tutor_cont .box .caution {
+    border-radius: 4px;
+    padding: 12px 24px;
+    width: 880px;
+}
+.tutor_cont .box .upf_b {
+    position: absolute;
+    margin-left: 95px;
+    margin-top: 90px;
+}
+.tutor_cont .box .upf {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+}
+.tutor_cont .box .sample1 {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.tutor_cont .box .sample1 .arw {
+    right: 0;
+    float: right;
+    padding-top: 5px;
+}
+.tutor_cont .box .sample1 span {
+    font-size: 14px;
+    color: #555;
+}
+.tutor_cont .box .caution2 {
+    background: #edf0f4;
+}
+.tutor_cont .box .inner1 {
+    margin-top: 30px;
+    overflow: hidden;
+}
+.tutor_cont .box .inner1 .title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    padding: 0;
+    width: initial;
+}
+.tutor_cont input.len652 {
+    width: 652px;
+}
+.tutor_cont .plus {
+    color: #fff;
+    background: #555;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 12px 20px;
+    display: inline-block;
+} 
+.tutor_cont .box .title .gray8 {
+    line-height: 1.29;
+    font-size: 14px;
+}
+.tutor_cont .gray8 {
+    color: #888;
+}
+.tutor_cont .box .caution ul li {
+    list-style-type: disc;
+    margin-left: 17px;
+}
+
+.tutor_cont input.nick {
+    width: 880px;
+    height: 46px;
+}
+.tutor_cont .button_box {
+    display: flex;
+    width: 480px;
+    margin: 40px auto 0 auto;
+}
+.tutor_cont .next.prev {
+    background: #555;
+    margin-right: 10px;
+}
+.tutor_cont .next {
+    background: #888;
+    color: #fff;
+    padding: 20px 30px;
+    width: 230px;
+    margin: 40px auto;
+    font-size: 16px;
+    border-radius: 6px;
+    text-align: center;
+}
+.tutor_cont .next.on {
+    background: #ff005a;
+    /* margin: 0 auto; */
+}
+.tutor_cont .next {
+    background: #888;
+    color: #fff;
+    padding: 20px 30px;
+    width: 230px;
+    margin: 40px auto;
+    font-size: 16px;
+    border-radius: 6px;
+    text-align: center;
+}
+/**
+	tutor_reg_2 , 3 스타일
+*/
+form {
+	/** 헤더에서 띄우는 여백*/
+	 display: block;
+	margin-top: 50px;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+input {
+	-webkit-writing-mode: horizontal-tb !important;
+	text-rendering: auto;
+	color: -internal-light-dark(black, white);
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+	appearance: textfield;
+	background-color: -internal-light-dark(rgb(255, 255, 255),
+		rgb(59, 59, 59));
+	-webkit-rtl-ordering: logical;
+	cursor: text;
+	margin: 0em;
+	font: 400 13.3333px Arial;
+	padding: 1px 2px;
+	border-width: 2px;
+	border-style: inset;
+	border-color: -internal-light-dark(rgb(118, 118, 118),
+		rgb(133, 133, 133));
+	border-image: initial;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button, pre {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #111;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+}
+element.style {
+    display: none;
+}
+.tutor_cont {
+    width: 1040px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+element.style {
+    display: block;
+}
+.tutor_cont .dim {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    z-index: 15;
+    background: #333;
+    left: 0;
+    opacity: 0.8;
+    display: none;
+}
+.phone_box {
+    position: fixed;
+    width: 500px;
+    border-radius: 10px;
+    background: #fff;
+    margin: 190px auto;
+    left: 0;
+    right: 0;
+    z-index: 20;
+}
+.tutor_cont .title_box {
+    overflow: hidden;
+    margin-top: 30px;
+    padding: 19px 0;
+    border-bottom: 1px solid #c9c9c9;
+}
+.tutor_cont .box .rds .rd {
+    width: 36.3%;
+    padding-left: 25px;
+}
+.tutor_cont .box .rds {
+    display: flex;
+    width: 330px;
+}
+.tutor_cont .box .rds .rd label {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    position: absolute;
+    margin-top: 2px;
+    margin-left: -25px;
+    cursor: pointer;
+    background-image: url(https://front-img.taling.me/Content/Images/Tutor/Images/radio_normal.png);
+    background-position: center;
+    background-size: cover;
+}
+.tutor_cont .box .inner3.gray5 {
+    line-height: 1.57;
+}
+.tutor_cont .box .inner3 {
+    margin-top: 15px;
+}
+.tutor_cont .gray5 {
+    color: #555;
+}
+
+.tutor_cont input.nick {
+    width: 880px;
+    height: 46px;
+}
+.tutor_cont select.len290 {
+    width: 290px;
+}
+.tutor_cont .box .inner2 {
+    margin-top: 20px;
+}
+.tutor_cont .box .drag_cont .drag_box {
+    background: #edf0f4;
+    color: #555;
+    font-size: 16px;
+    width: 550px;
+    height: 353px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding-top: 146px;
+    text-align: center;
+}
+.tutor_cont .box .drag_cont {
+    display: flex;
+}
+.tutor_cont .box .drag_cont .right {
+    margin-left: 20px;
+}
+.tutor_cont .plus {
+    color: #fff;
+    background: #555;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 12px 20px;
+    display: inline-block;
+}
+.tutor_cont .box .caution2 .rs {
+    width: 50%;
+    text-align: right;
+    float: right;
+    color: #555;
+    font-size: 20px;
+}
+.tutor_cont .box.process .left b {
+    font-size: 20px;
+    color: #333; 
+    line-height: 1.2;
+}
+.tutor_cont .box.process .right .top1 {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    text-align: center;
+}
+.tutor_cont .box.process .right .top1 .bar_p {
+    border-top: 1px solid #ff005a;
+    position: absolute;
+    margin-top: 20px;
+    width: 98%;
+    left: 1%;
+}
+.tutor_cont .box.process .right .top1 .bar_g {
+    border-top: 1px solid #aaa;
+    position: absolute;
+    margin-top: 40px;
+    width: 98%;
+    left: 1%;
+    z-index: -5;
+}
+.tutor_cont .box.process .right .stone {
+    background: #ff005a;
+    border-radius: 60px;
+    width: 130px;
+    padding: 18px 0px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: -0.4px;
+    line-height: 1.5;
+    font-size: 16px;
+    display: inline-block;
+    z-index: 0;
+}
+.tutor_cont .box.process .right .bar {
+    width: 2.5%;
+    text-align: center;
+    padding-top: 15px;
+}
+.tutor_cont .box.process .right .top2 {
+    display: flex;
+    justify-content: space-between;
+}
+.tutor_cont .box.process .right .top2 .lt .frame {
+    border-right: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    width: 250px;
+    height: 68px;
+    z-index: -5;
+    border-bottom-right-radius: 30px;
+    margin-top: -15px;
+}
+.tutor_cont .box.process .right .top2 .lt img {
+    position: absolute;
+    margin-left: 200px;
+    margin-top: -7px;
+}
+.tutor_cont .box.process .right .top2 .lt .stone {
+    position: absolute;
+    margin-top: -36px;
+    margin-left: 50px;
+    padding: 18px 32px;
+    background: #333366;
+}
+.tutor_cont .box.process {
+    display: flex;
+}
+.tutor_cont .box.process .right .top2 .lt .cbar {
+    border-right: 1px solid #aaa;
+    height: 131px;
+    z-index: -5;
+    margin-top: -15px;
+    width: 50%;
+}
+.tutor_cont .box.process .right .top2 .lt .cir {
+    background: #aaa;
+    border-radius: 50%;
+    margin: -5px auto;
+    width: 10px;
+    height: 10px;
+}
+.tutor_cont .box.process .right .top2 .info {
+    width: 100%;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.43;
+    letter-spacing: -0.4px;
+    text-align: center;
+    padding-top: 20px;
+}
+.tutor_cont .box.process .right .top2 .rt {
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+}
+.tutor_cont .box.process .right .top2 .rt .cbar {
+    border-right: 1px solid #aaa;
+    height: 185px;
+    z-index: -5;
+    margin-top: -15px;
+    width: 50%;
+}
+.tutor_cont .box.process .right .top2 .rt .cir {
+    background: #aaa;
+    border-radius: 50%;
+    margin: -5px auto;
+    width: 10px;
+    height: 10px;
+}
+.tutor_cont .box.process .right .top2 .rt .cbar.pi {
+    border-right: 1px solid #ff005a;
+}
+.tutor_cont .box.process .right .top2 .rt .cir.pi {
+    background: #ff005a;
+}
+.triangle-border {
+    position: relative;
+    margin: 1em 0 3em;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.43;
+    background-color: #f2f2f2;
+}
+.triangle-border span {
+    color: #ff005a;
+}
+.tutor_cont .box.process .right .top2 .info b.fix {
+    color: #ff005a;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+/**
+	tutor_reg_4 스타일
+*/
+.tutor_cont textarea.hei190 {
+    height: 190px;
+}
+.tutor_cont textarea.len980 {
+    width: 880px;
+    height: 140px;
+    background: #fff;
+}
+.tutor_cont .box .curri .box {
+    overflow: hidden;
+    padding: 0;
+    border-bottom: none;
+}
+.tutor_cont .box .curri .index b {
+    color: #ff005a;
+    font-size: 24px;
+    margin-right: 3px;
+}
+.tutor_cont .box .curri .photo {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 40px;
+    margin-top: 10px;
+    display: none;
+    width: 880px;
+    overflow: hidden;
+}
+.tutor_cont .box .curri .imgnonefile {
+    position: absolute;
+    opacity: 0;
+}
+.tutor_cont .box .curri .img_upld {
+    float: right;
+    margin-top: 10px;
+}
+.tutor_cont div.curri {
+    margin-top: 30px;
+    overflow: hidden;
+}
