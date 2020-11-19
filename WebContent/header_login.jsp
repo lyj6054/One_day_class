@@ -23,33 +23,29 @@
     	margin: 0 auto;
 	}
 	.logo{
+		/* border:1px solid red; */
 		position: absolute;
     	top: 30px;
-    	width: 124px;
+    	width: 170px;
+    	height:80px;
 	}
 	.logo img{
+	/* border:1px solid red; */
 		width: 94px;
     	height: 57px;
 	}
-	.all_hd_bar > div {
+	  a img.all {
 		/* border:1px solid red; */
-		width:50%; height:300px;
-		display:inline-block;
+		width:40px; height:40px;
+		margin-left:22px;
+		margin-bottom:-7px;
+		padding:0px;
 	}
 	.hd_bar {
-		/* border:1px solid red; */
-   	 	/* float: left; */
-    	margin-left: 130px;
-    	border:1px solid lightgray;
-	}
-	 .all_hd_bar div a img.all {
-		/* border:1px solid red; */
-		position:absolute;
-		left:380px;
-		top:58px;
-		width:35px; height:35px;
-		float:left;
-		
+		/*  border:1px solid blue; */
+   	 	float: left; 
+    	margin-left: 160px;
+    	border:1px solid lightgray; 
 	}
 	fieldset {
 	    margin-inline-start: 2px;
@@ -61,10 +57,12 @@
 	    min-inline-size: min-content;
 	    border: 0 none;
 	}
+	
 	.hd_search_box {	
-	    width: 390px;
+		/* border:1px solid red; */
+	    width: 370px;
 	    height: 26px;
-	    margin-left: 10px;
+	    margin-left: 7px;
 	    content: '';
 	    display: block;
 	    clear: both;
@@ -216,22 +214,19 @@
 		 <div class="container hd_wrap">
 			<h1 class="logo">
 				<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
-			</h1>
-			<div class="all_hd_bar">
-				<div>
+				<span></span>
 				<a href=""><img src="http://localhost:9000/One_day_class/images/menu.png" class="all"></a>
+			</h1>
 				<div class="hd_bar">
-				 	<div class="all_search">
 					<div class="hd_search_box">
 						<form name="search" action="#" method="get">
 							<fieldset>
 								<input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
-										placeholder="      배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox">
+										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox">
 								<button class=search_btn type="submit"></button>
 							</fieldset>
 						</form>			
 					</div> <!-- hd_search_box -->
-				 	</div> <!-- all_search -->
 						<div aria-hidden="false" class="SearchInputBox_false"></div>					
 						<div aria-hidden="true" class="SearchInputBox_true"></div>					
 							<div class="Search_Container" >
@@ -260,7 +255,6 @@
 									</div>
 					</div> <!-- Search_Container -->
 				</div> <!-- hd_bar -->
-				</div>
 			<nav class="hd_right">
 				<ul class="gnb">
 					<li>
@@ -291,7 +285,6 @@
 					</li>
 				</ul>
 			</nav>
-			</div> <!-- all_hd_bar -->
 		 </div>
 		</div>
 	</header>
