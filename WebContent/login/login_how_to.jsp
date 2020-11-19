@@ -167,9 +167,9 @@
 	<section class="login_how_to container">
 		<div class="box_login login_main">
 			<h2 class="tit">
-			"간편하게 로그인하고 탈잉의"
+			간편하게 로그인하고 탈잉의
 			<br>
-			" 다양한 튜터를 만나보세요"
+			  다양한 튜터를 만나보세요
 			</h2>
 			<a class="btn_kakao" href="https://kauth.kakao.com/oauth/authorize?client_
 			id=b603e46e56dfe3f2cff347af112acd50&amp;redirect_uri=https%3A%2F%2Ftaling.me
