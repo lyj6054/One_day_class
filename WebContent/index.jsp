@@ -21,6 +21,5 @@
 
 	<!-- footer -->
 	<jsp:include page="footer.jsp"></jsp:include>
-	<!-- 파일이름 수정3 -->
 </body>
 </html>
