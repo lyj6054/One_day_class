@@ -7,14 +7,14 @@
 <title>Insert title here</title>
 <style>
 	div.review{
-		width:1700px;
+		width:1200px;
 		margin:auto;
 	}
-	hr {
+	hr.line {
 		opacity:0.5;
 		margin-bottom:40px;
 		margin-top:20px;
-		width:1120px;
+		width:1200px;
 	}
 	hr.top-hr {
 		margin-top:50px;
@@ -38,7 +38,8 @@
 		background-color:rgb(255,221,211);
 		display:inline-block;
 		margin-bottom:46px;
-		margin-left:290px;
+		margin-left:40px;
+		
 		border-radius:7px;
 		width:1120px;
 		height:70px;
@@ -63,8 +64,8 @@
 		text-align:center;
 		width:1120px;
 		height:180px;
-		margin-left:290px;
 		margin-bottom:50px;
+		margin-left:40px;
 		
 	}
 	div.review-box1>hr.middle-hr {
@@ -113,16 +114,19 @@
 	div.review-box2 {
 		text-align:center;
 		margin-bottom:30px;
+		margin-left:40px;
 	}
 	div.review-box2>h2.rb5 {
-		margin-right:1024px;
+		margin-right:1100px;
+		width:200px;
+		text-align:left;
 	}
 	div.review-box3{
+		margin-left:40px;
 	}
 	div.review-box3>div.rb6 {
 		display:inline-block;
 		clear:left;
-		margin-left:290px;
 		padding-right:170px;
 		margin-bottom:50px;
 		padding-bottom:30px;
@@ -138,9 +142,11 @@
 	div.review-box4 {
 		text-align:center;
 		margin-bottom:500px;
+		margin-left:40px;
 	}
 	div.review-box4>h2.rb7 {
-		margin-right:965px;
+		width:300px;
+		text-align:left;
 	}
 </style>
 </head>
@@ -154,7 +160,7 @@
 		<div class="tb">
 			<h1 class="rt">박민수님의 리뷰작성 현황</h1>
 		</div>
-		<hr>
+		<hr class="line">
 		<div class="review-box">
 			<img src="http://localhost:9000/One_day_class/images/day.png">
 			<span class="bar">| &nbsp;</span><span>현재 튜터님의 수업 일정이 등록되어 있지 않습니다. 2주 이내로 시간/날짜를 설정 하시면 노출도를 100% 이상 증가시킬 수 있습니다.</span>

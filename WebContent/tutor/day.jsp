@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 <style>
 	div.new-day {
-		width:1700px;
+		width:1200px;
 		margin:auto;
 	}
-	hr {
+	hr.line {
 		opacity:0.5;
 		margin-bottom:40px;
 		margin-top:20px;
@@ -52,7 +52,7 @@
 		display:inline-block;
 		margin-top:50px;
 		margin-bottom:46px;
-		margin-left:290px;
+		margin-left:40px;
 		border-radius:7px;
 		width:1120px;
 		height:70px;
@@ -76,7 +76,7 @@
 		vertical-align:middle;
 		height:310px;
 		width:1200px;
-		margin-left:290px;
+		margin-left:40px;
 	}
 	div.day-box1>div.db {
 		display:inline-block;
@@ -125,6 +125,7 @@
 		width:910px;
 		margin-bottom:20px;
 		float:left;
+		opacity:0.7;
 	}
 	div.day-box1>div.db5 {
 		display:inline-block;
@@ -146,7 +147,7 @@
 		vertical-align:middle;
 		height:310px;
 		width:1200px;
-		margin-left:290px;
+		margin-left:40px;
 		margin-top:20px;
 	}
 	div.day-box2>div.db6 {
@@ -198,7 +199,7 @@
 				<span><span class="red">*</span>필수</span>
 			</div>
 		</div>
-		<hr>
+		<hr class="line">
 		<div class="day-box">
 			<img src="http://localhost:9000/One_day_class/images/day.png">
 			<span class="bar">| &nbsp;</span><span>현재 튜터님의 수업 일정이 등록되어 있지 않습니다. 2주 이내로 시간/날짜를 설정 하시면 노출도를 100% 이상 증가시킬 수 있습니다.</span>
@@ -225,7 +226,7 @@
 			</div>
 		
 		</div>
-		<hr>
+		<hr class="line">
 		<div class="day-box2">
 			<div class="db6">
 				<h2><span class="red">* </span>장소 및 추가비용</h2>
@@ -239,7 +240,7 @@
  (ex. 시간당 1,000원 ~ 1,500원 정도의 스터디룸비는 별도입니다)" id="RegionContent" name="RegionContent"></textarea>
 			</div>
 		</div>
-			<hr>
+			<hr class="line">
 		<div class="day-box2">
 			<div class="db6">
 				<h2><span class="red">* </span>신청 학생에게</h2>
@@ -250,7 +251,7 @@
  수강생과 수업 연결 시에 메시지가 전달됩니다." id="RegionContent" name="RegionContent"></textarea>
 			</div>
 		</div>
-		<hr>
+		<hr class="line">
 		<div class="day-button1">
 			<button>저장하기</button>
 		</div>
