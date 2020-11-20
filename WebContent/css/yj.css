@@ -278,10 +278,6 @@ body, div, table, ul, li, ol, dl, dt, dd, h1, h2, h3, h4, h5, h6, p {
     margin-left: -126px;
     margin-top: -30px;
 }
-
-element.style {
-    background-image: url(https://img.taling.me/Content/Uploads/Profile/9748f52….png);
-}
 .how_box2 .slides .carousel-item .left .pf {
     width: 200px;
     height: 200px;
@@ -302,10 +298,6 @@ element.style {
     float: left;
     width: 80%;
     box-sizing: border-box;
-}
-
-element.style {
-    padding-top: 70px;
 }
 .how_box2 .slides .carousel-item .right .triangle-border {
     padding: 30px 30px 30px 50px;
@@ -357,10 +349,6 @@ element.style {
     width: 80%;
     box-sizing: border-box;
 }
-
-element.style {
-    padding-top: 50px;
-}
 .how_box2 .slides .carousel-item .right .triangle-border {
     padding: 30px 30px 30px 50px;
     width: 850px;
@@ -398,9 +386,6 @@ img {
     margin-left: -126px;
     margin-top: -30px;
 }
-element.style {
-    background-image: url(https://img.taling.me/Content/Uploads/Profile/9daa768….png);
-}
 .how_box2 .slides .carousel-item .left .pf {
     width: 200px;
     height: 200px;
@@ -413,7 +398,9 @@ element.style {
     background-image: url(https://front-img.taling.me/Content/Images/cont/btn_tutor_prev.png);
 }
 .carousel-control-prev-icon {
-    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E);
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http:
+    //www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25
+     0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E);
 }
 .sr-only {
     position: absolute;
@@ -611,10 +598,6 @@ a, span {
     padding: 30px;
     display: block;
     border-bottom: none;
-}
-element.style {
-    overflow: hidden;
-    margin: 10px 0;
 }
 .phone_box .box input {
     padding: 10px 15px;
@@ -909,16 +892,10 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 400;
 }
-element.style {
-    display: none;
-}
 .tutor_cont {
     width: 1040px;
     margin: 0 auto;
     padding-bottom: 100px;
-}
-element.style {
-    display: block;
 }
 .tutor_cont .dim {
     width: 100vw;
@@ -964,7 +941,8 @@ element.style {
     margin-top: 2px;
     margin-left: -25px;
     cursor: pointer;
-    background-image: url(https://front-img.taling.me/Content/Images/Tutor/Images/radio_normal.png);
+    background-image: url(https://front-img.taling.me/Content/Images/
+    Tutor/Images/radio_normal.png);
     background-position: center;
     background-size: cover;
 }
@@ -1198,4 +1176,316 @@ element.style {
 .tutor_cont div.curri {
     margin-top: 30px;
     overflow: hidden;
+}
+/**
+	tutor_guide 스타일
+*/
+.container.info-page h1 {
+    height: 50px;
+    margin-top: 50px;
+    color: #333;
+    font-size: 26px;
+    letter-spacing: -0.65px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.container.info-page .guide-image-box {
+    height: 340px;
+    display: flex;
+}
+.container.info-page .guide-image-box .image-box:first-child {
+    margin-left: 0;
+}
+.container.info-page .guide-image-box .image-box {
+    width: 340px;
+    height: 340px;
+    margin-left: 40px;
+    padding: 40px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 2.25;
+    letter-spacing: -0.8px;
+    font-weight: normal;
+    cursor: pointer;
+}
+.container.info-page .guide-image-box .image-box b {
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    font-weight: 500;
+}
+.container.info-page h2 {
+    text-align: left;
+    font-style: normal;
+    color: #333;
+    letter-spacing: -0.5px;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 50px 0 30px 0;
+}
+.container.info-page .info-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 30px;
+    color: #555;
+    font-size: 14px;
+    line-height: 2.14;
+}
+.caution-box {
+    display: flex;
+}
+.caution-box .caution {
+    border-radius: 4px;
+    padding: 30px;
+    width: 100%;
+}
+.caution-box .caution2 {
+    background: #edf0f4;
+}
+.caution-box .caution {
+    line-height: 1.57;
+    letter-spacing: -0.4px;
+}
+.caution-box .caution p {
+    padding-left: 30px;
+    margin: 10px 0;
+    color: #666;
+}
+.container .pink {
+    color: #ff005a;
+}
+.caution-box .caution p b {
+    font-size: 18px;
+    position: absolute;
+    margin-left: -25px;
+    margin-top: -6px;
+    line-height: 1.8;
+}
+.guide-image-box>a{
+	margin-left:20px;
+}
+.guide-image-box>a:nth-child(1){
+	margin-left:0px;
+}
+/** 
+	tutor_guid_1 스타일
+*/
+.container.info-page h1 .refund-tabs {
+    position: absolute;
+    right: 0;
+    margin-top: -15px;
+}
+.container.info-page h1 .refund-tabs .refund-tab.on {
+    border-bottom: 2px solid #333;
+    color: #333;
+    font-weight: 500;
+}
+.container.info-page h1 .refund-tabs .refund-tab {
+    padding: 20px 15px;
+    display: inline-block;
+    color: #555;
+    letter-spacing: -0.4px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+.container.info-page .icon-box.refund {
+    background: #f1f1f1;
+    padding: 40px;
+    overflow: initial;
+}
+.container.info-page .icon-box.guide {
+    padding: 72px 40px;
+}
+.container.info-page h2 {
+    text-align: left;
+    font-style: normal;
+    color: #333;
+    letter-spacing: -0.5px;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 50px 0 30px 0;
+}
+.container.info-page .icon-box.guide h2 {
+    margin: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+}
+.container.info-page .icon-box.refund div {
+    overflow: initial;
+}
+.container.info-page .icon-box.refund .icons {
+    width: 700px;
+    margin: 0 auto;
+    display: flex;
+}
+.container.info-page .icon-box.refund .box {
+    text-align: center;
+    font-size: 19px;
+    color: #333;
+    letter-spacing: -0.5px;
+}
+.container.info-page .icon-box.refund .box .cir-box {
+    height: 160px;
+    font-size: 19px;
+    letter-spacing: -0.5px;
+}
+.container.info-page .icon-box.refund .box .cir {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #fff;
+    border: 10px solid #dbdcdf;
+    box-sizing: border-box;
+    padding-top: 30px;
+    text-align: center;
+}
+.container.info-page .icon-box.guide .box .cir {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    border: none;
+    padding-top: 32px;
+    background: none;
+    background-image: url(https://front-img.taling.me/Content/Images/guide/myPage/bg_round_step.png);
+    background-size: contain;
+}
+.container.info-page .icon-box.guide .icons .bar {
+    border: none;
+    width: 150px;
+}
+.container .title-box {
+    position: relative;
+    padding-top: 60px;
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+.container.info-page h2 .info {
+    color: #888;
+    font-size: 14px;
+    letter-spacing: -0.35px;
+    margin-left: 8px;
+}
+.container .title-box .class-option {
+    width: 400px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 4px;
+    padding: 9px 11px;
+    float: right;
+    margin-top: -5px;
+    color: #888;
+    letter-spacing: -0.35px;
+}
+.container.info-page .chart-box_pc {
+    border: 1px solid #ddd;
+    margin-top: 30px;
+    padding: 30px 10px;
+}
+.container.info-page .chart-box_pc.grid {
+    display: flex;
+}
+.container.info-page .chart-box_pc.grid .graph-box {
+    width: 33.3%;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: -0.35px;
+    margin-left: 40px;
+}
+#donutchart_g > div, #donutchart_b > div, #donutchart_y > div {
+    z-index: -1;
+}
+.container.info-page .chart-box_pc.grid .graph-box .title {
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+/** 
+	tutor_guid_2 스타일
+*/
+#yes_line {
+    border-bottom: 2px solid #333;
+    color: #333;
+    font-weight: 500;
+}
+#no_line{
+	border-bottom: 0px solid #333;
+    color: #555;
+    font-weight: 0;
+}
+.container.info-page .icon-box.guide .icons .best-details {
+    width: 50%;
+    margin-top: 10px;
+}
+.container.info-page .icon-box.guide .icons .best-details div {
+    margin-bottom: 36px;
+    text-align: left;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: -0.35px;
+}
+.container.info-page .icon-box.guide .icons .best-details img {
+    position: absolute;
+    margin-left: -40px;
+    margin-top: -5px;
+}
+.container.info-page .info-text.bar {
+    border-bottom: 1px solid #ddd;
+}
+.container.info-page .info-text {
+    line-height: 1.57;
+    font-size: 14px;
+    padding: 30px 0;
+    letter-spacing: -0.35px;
+    color: #555;
+}
+.container .class-box {
+    border-bottom: 1px solid #cccfd3;
+    margin-bottom: 30px;
+}
+.container .class-box .class-info .image {
+    width: 320px;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+.container .class-box .class-info {
+    padding-bottom: 30px;
+    display: flex;
+}
+.container .class-box .class-info .information-box {
+    width: 690px;
+    padding-top: 10px;
+    margin-left: 30px;
+}
+.container .class-box .class-info .information-box p {
+    font-size: 14px;
+    color: #888;
+    letter-spacing: -0.35px;
+}
+.container .class-box .class-info .information-box h3 {
+    color: #333;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    font-weight: 500;
+    line-height: 2;
+    height: 40px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.container .class-box .class-info .information-box .price {
+    font-size: 24px;
+    letter-spacing: -0.6px;
+    color: #ff005a;
+    font-weight: 500;
+    text-align: right;
+    margin-top: -25px;
+}
+.container .class-box .class-info .information-box .price font {
+    font-size: 14px;
 }
