@@ -16,7 +16,7 @@
 	}
 	div.static-box {
 		height:300px;
-		margin-left:280px;
+		margin-left:265px;
 	}
 	div.static-box>div.box {
 		width:700px;
@@ -193,10 +193,10 @@
 </head>
 <body>
 	
+	<div class="new_class">
 	<!--header -->
 	<jsp:include page="../header.jsp" />
 		<hr class="top-hr">
-	<div class="new_class">
 	
 		<div class="title-box">
 		<h1 class="tt">내 수업</h1>
@@ -257,12 +257,13 @@
 		<div class="image1">
 			<a href="http://localhost:9000/One_day_class/tutor/day.jsp">
 			<img src="http://localhost:9000/One_day_class/images/new_class_bottom1.png"></a>
-			<img src="http://localhost:9000/One_day_class/images/new_class_bottom2.png">
+			<a href="http://localhost:9000/One_day_class/tutor/review.jsp">
+			<img src="http://localhost:9000/One_day_class/images/new_class_bottom2.png"></a>
 		</div>
 	
-	</div>
 	<!--header -->
 	<jsp:include page="../footer.jsp" />
+	</div>
 	
 </body>
 </html>

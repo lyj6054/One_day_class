@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	div.review{
+		width:1700px;
+		margin:auto;
+	}
 	hr {
 		opacity:0.5;
 		margin-bottom:40px;
@@ -18,7 +22,6 @@
 		width:100%
 	}
 	div.tb {
-		border:1px solid red;
 		text-align:center;
 		margin-top:50px;
 	}
@@ -35,7 +38,7 @@
 		background-color:rgb(255,221,211);
 		display:inline-block;
 		margin-bottom:46px;
-		margin-left:507px;
+		margin-left:290px;
 		border-radius:7px;
 		width:1120px;
 		height:70px;
@@ -60,7 +63,8 @@
 		text-align:center;
 		width:1120px;
 		height:180px;
-		margin-left:500px;
+		margin-left:290px;
+		margin-bottom:50px;
 		
 	}
 	div.review-box1>hr.middle-hr {
@@ -72,12 +76,10 @@
 		color:lightgray;
 	}
 	div.review-box1>div.rb {
-		border:1px solid red;
 		height:100px;
 		padding-top:25px;
 	}
 	div.review-box1>div.rb3{
-		border:1px solid green;
 		display:inline-block;
 		margin-bottom:20px;
 		
@@ -109,15 +111,41 @@
 		font-weight:bold;
 	}
 	div.review-box2 {
-		
+		text-align:center;
+		margin-bottom:30px;
 	}
 	div.review-box2>h2.rb5 {
-		
+		margin-right:1024px;
 	}
-	
+	div.review-box3{
+	}
+	div.review-box3>div.rb6 {
+		display:inline-block;
+		clear:left;
+		margin-left:290px;
+		padding-right:170px;
+		margin-bottom:50px;
+		padding-bottom:30px;
+		vertical-align:top;
+	}
+	div.review-box3>div.rb-img-box {
+		display:inline-block;
+	}
+	div.review-box3>div.rb-img-box>img.rb-img {
+		width:385px;
+		height:253px;
+	}
+	div.review-box4 {
+		text-align:center;
+		margin-bottom:500px;
+	}
+	div.review-box4>h2.rb7 {
+		margin-right:965px;
+	}
 </style>
 </head>
 <body>
+	<div class="review">
 	<!--header -->
 	<jsp:include page="../header.jsp" />
 
@@ -147,15 +175,30 @@
 		<div class="review-box2">
 			<h2 class="rb5">리뷰 가이드</h2>
 		</div>
-		<div>
-			<div>
-				
+		<div class="review-box3">
+			<div class="rb6">
+				<span>리뷰를 받는 데는 정해진 방법은 없지만,<br>
+					옆의 대화처럼 직접 부탁을 드리는 방법이 가장 좋은 것은 이미 증명된 사실입니다.<br>
+					수강생분에게 직접 리뷰를 부탁해 보세요!<br><br>
+
+					탈잉이 생각하는 좋은 리뷰는<br>
+					수업을 들으신 분이 어떤 분인지(직장인, 대학생, 프리랜서), 어떤 상황에 듣게 되었는지,<br>
+					수업을 듣고나니 어떤 변화가 있었는지를 명확히 써주는 리뷰입니다.<br>
+					단순히 “좋았어요“ 라고 하는 리뷰보다 10배 이상의 가치가 있다고 보고 있습니다.<br>
+					물론 이를 위해서 좋은 수업을 준비하셔야 하는 것은 필수겠죠~?! 지금 리뷰를 부탁해보세요!
+				</span>
+			</div>
+			<div class="rb-img-box">
+				<img src="http://localhost:9000/One_day_class/images/review.png" class="rb-img">
 			</div>
 		</div>
-		
+		<div class="review-box4">
+			<h2 class="rb7">리뷰를 받아보세요</h2>
+		</div>
 	
 	
 	<!--header -->
 	<jsp:include page="../footer.jsp" />
+	</div>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <style>
 	div.new-day {
-		width:2130px;
+		width:1700px;
 		margin:auto;
 	}
 	hr {
@@ -52,7 +52,7 @@
 		display:inline-block;
 		margin-top:50px;
 		margin-bottom:46px;
-		margin-left:507px;
+		margin-left:290px;
 		border-radius:7px;
 		width:1120px;
 		height:70px;
@@ -76,7 +76,7 @@
 		vertical-align:middle;
 		height:310px;
 		width:1200px;
-		margin-left:500px;
+		margin-left:290px;
 	}
 	div.day-box1>div.db {
 		display:inline-block;
@@ -146,7 +146,7 @@
 		vertical-align:middle;
 		height:310px;
 		width:1200px;
-		margin-left:500px;
+		margin-left:290px;
 		margin-top:20px;
 	}
 	div.day-box2>div.db6 {
@@ -187,11 +187,11 @@
 </style>
 </head>
 <body>
+	<div class="new-day">
 	<!--header -->
 	<jsp:include page="../header.jsp" />
 	
 		<hr class="top-hr">
-	<div class="new-day">
 		<div class="title-box">
 			<h1 class="dt">장소/일정</h1>
 			<div class="title-box1">
@@ -254,9 +254,9 @@
 		<div class="day-button1">
 			<button>저장하기</button>
 		</div>
-	</div>
 
 	<!--header -->
 	<jsp:include page="../footer.jsp" />
+	</div>
 </body>
 </html>
