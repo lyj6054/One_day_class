@@ -66,7 +66,7 @@
 	}
 	.box_inp .line_inp input {
 		width:90%;
-		height:48px;
+		height:45px;
 	 	border:none;
 		border-bottom:1px solid #ccc;
 	}
