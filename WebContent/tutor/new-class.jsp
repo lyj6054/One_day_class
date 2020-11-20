@@ -7,16 +7,18 @@
 <title>index</title>
 <style>
 	div.new_class{
-		width:1700px;
+		width:1200px;
 		margin:auto;
 	}
 	div.title-box {
+		width:1100px;
 		text-align:center;
 		margin-top:50px;
+		margin-left:40px;
 	}
 	div.static-box {
 		height:300px;
-		margin-left:280px;
+		margin-left:40px;
 	}
 	div.static-box>div.box {
 		width:700px;
@@ -90,15 +92,14 @@
 		display:inline-block;
 		width:150px; height:50px;
 		font-size:25px;
-		margin-right:25px;
 		text-align:left;
+		float:left;
 		
 	}
 	div>select.title {
 		border:1px solid gray;
 		width:450px; height:50px;
 		float:right;
-		margin-right:500px;
 		margin-bottom:10px;
 		border-radius:5px;
 		padding:10px 3px;
@@ -111,14 +112,14 @@
 		opacity:0.5;
 		width:100%
 	}
-	hr {
+	hr.line {
 		opacity:0.5;
 		margin-bottom:-5px;
 		margin-top:20px;
 		width:1120px;
 	}
 	div.container3 {
-		margin-left:280px;
+		margin-left:40px;
 	}
 	div.static-box h3.tt1 {
 		font-size:20px;
@@ -168,7 +169,7 @@
 	}
 	div.container2 {
 		display:inline-block;
-		margin-left:280px;
+		margin-left:40px;
 		
 	}
 	div.container2>div.con3>h3.tt3 {
@@ -180,7 +181,7 @@
 	}
 	div.image1{
 		display:inline-block;
-		margin-left:280px;
+		margin-left:40px;
 		margin-top:40px;
 		margin-bottom:40px;
 	}
@@ -193,10 +194,10 @@
 </head>
 <body>
 	
+	<div class="new_class">
 	<!--header -->
 	<jsp:include page="../header.jsp" />
 		<hr class="top-hr">
-	<div class="new_class">
 	
 		<div class="title-box">
 		<h1 class="tt">내 수업</h1>
@@ -204,7 +205,7 @@
 			<option valuse="흔들어보자">흔들어보자</option>
 		</select>
 		</div>
-		<hr>
+		<hr class="line">
 		<div class="static-box">
 			<h3 class="tt1">심사중</h3>
 			<div class="image">
@@ -257,12 +258,13 @@
 		<div class="image1">
 			<a href="http://localhost:9000/One_day_class/tutor/day.jsp">
 			<img src="http://localhost:9000/One_day_class/images/new_class_bottom1.png"></a>
-			<img src="http://localhost:9000/One_day_class/images/new_class_bottom2.png">
+			<a href="http://localhost:9000/One_day_class/tutor/review.jsp">
+			<img src="http://localhost:9000/One_day_class/images/new_class_bottom2.png"></a>
 		</div>
 	
-	</div>
 	<!--header -->
 	<jsp:include page="../footer.jsp" />
+	</div>
 	
 </body>
 </html>
