@@ -56,7 +56,7 @@
 		margin-bottom:18px;
 	}
 	.box_inp .line_inp .id_img, .box_inp .line_inp .pw_img{
-		 widthz20; height=20;
+		 width=20; height=20;
 	}
 </style>
 </head>
