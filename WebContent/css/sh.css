@@ -1,0 +1,461 @@
+/*
+	공통
+*/
+	*{
+		box-sizing: border-box;
+	}
+	div, form {
+		display: block;
+	}
+	body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button, pre {
+	    margin: 0;
+	    padding: 0;
+	    font-size: 14px;
+	    color: #111;
+	    font-family: 'Noto Sans KR';
+	    font-weight: 400;
+	}
+	input, select, button, textarea {
+	    padding: 0;
+	    border: 1px solid #ddd;
+	    font-family: 'Noto Sans KR';
+	}
+	input{
+		font-size: 14px;
+    	font-weight: 400;
+    	padding: 0 14px;
+	}
+	button, input, select, textarea {
+	    margin: 0;
+	    font: inherit;
+	    color: inherit;
+	}
+	
+/*
+	mypage, classForm, classList, wishList 공통
+*/
+	.c_container {
+	    width: 1040px;
+	    margin: 0 auto;
+	}
+	.c_container .title {
+	    position: relative;
+	    padding-top: 60px;
+	    border-bottom: 1px solid #e4e4e4;
+	    margin-bottom: 40px;
+	    overflow: hidden;
+	}
+	.c_container .title h1 {
+	    float: left;
+	    font-size: 26px;
+	    color: #333;
+	    padding-bottom: 10px;
+	}
+
+/*
+	mypage 스타일
+*/
+	.c_container .profile .p_info {
+	    border-bottom: 1px solid #e4e4e4;
+    	padding: 30px 0;
+	}
+	.c_container .profile .p_info:after {
+	    content: '';
+	    display: block;
+	    clear: both;
+	}
+	.c_container .profile .p_info .p_image {
+	    width: 130px;
+	    height: 130px;
+	    margin: 10px auto;
+	    background-size: cover;
+	    background-position: center;
+	    background-image: url('http://localhost:9000/One_day_class/images/mp_pf_img.png');
+	    border-radius: 50%;
+	    overflow: visible;
+	}
+	.c_container .profile .p_info .p_image .p_camera {
+	    margin-left: 96px;
+	    margin-top: 96px;
+	}
+	.c_container .profile .p_info .p_image input {
+	    position: absolute;
+	    width: 30px;
+	    height: 30px;
+	    margin-top: 100px;
+	    margin-left: -30px;
+	    opacity: 0;
+	}
+	.c_container .profile .p_info .p_label {
+	    width: 20%;
+	    float: left;
+	    font-size: 16px;
+	    font-weight: 500;
+	    color: #333;
+	}
+	.c_container .profile .p_info .p_contents {
+	    float: left;
+	    width: 80%;
+	    font-size: 14px;
+	    color: #888;
+	}
+	.c_container .profile .p_info input[type=text],
+	.c_container .profile .p_info textarea {
+	    padding: 9px;
+	    border-radius: 4px;
+	    background: #fff;
+	    border: 1px solid #ddd;
+	    font-size: 14px;
+	    color: #666;
+	}
+	.c_container input.nickname, .c_container textarea.introduction {
+	    width: 100%;
+	}
+	.c_container .profile .p_info .p_contents p {
+	    color: #888;
+	    margin: 0;
+	}
+	.c_container .profile .p_info .count_char {
+		color: #888;
+	    font-size: 14px;
+	    text-align: right;
+	    padding: 5px;
+	}
+	.c_container textarea.introduction {
+	    height: 140px;
+	}
+	.c_container .pink_submit {
+	    background: #ff005a;
+	    color: #fff;
+	    border-radius: 6px;
+	    padding: 17px;
+	    width: 71px;
+	    color: #fff;
+	    font-size: 16px;
+	    width: 200px;
+	    height: 60px;
+	    box-sizing: border-box;
+	    margin: 30px auto;
+	    text-align: center;
+	}
+
+/*
+	classForm, classList, wishList 공통
+*/
+	.c_container .myclass{
+		position: relative;
+		width: 1040px;
+		overflow:hidden;
+		height:auto;
+		margin-bottom: 40px;
+	}
+	.c_container .myclass .class {
+	    width: 1040px;
+	    padding: 20px;
+	    height: 220px;
+	    text-align: left;
+	    box-sizing: border-box;
+	    margin-bottom: 40px;
+	    border: 1px solid #e4e4e4;
+	    display: flex;
+	    border-radius: 20px;
+	}
+	.c_container .myclass .class .profile {
+	    width: 25%;
+	}
+	.c_container .myclass .class .profile .pf_img {
+	    width: 230px;
+	    height: 170px;
+	    background-size: cover;
+	    background-position: center;
+	}
+	.c_container .myclass .class .info {
+	    width: 70%;
+	}
+	.c_container .myclass .class .info .date {
+	    font-size: 14px;
+    	color: #888;
+	}
+	.c_container .myclass .class .info h3 {
+	    color: #333;
+	    font-weight: bold;
+	    font-size: 20px;
+	    letter-spacing: -0.5px;
+	    margin-top: 10px;
+	    overflow: hidden;
+	    height: 60px;
+	}
+	.c_container .myclass .class .info .stars-box,
+	.c_container .myclass .class .info .startdate {
+		color: #888;
+	    font-size: 14px;
+	    letter-spacing: -0.35px;
+	}
+	.c_container .myclass .class:hover {
+		border: 1px solid #333;
+	}
+/*
+	classForm 스타일
+*/
+	.c_container .myclass .class:nth-child(even) {
+		margin-left: 38px;
+	}
+	.c_container .myclass .class .profile .pf_name {
+	   font-size: 14px;
+	    color: #888;
+	    text-align: center;
+	    margin-top: 10px;
+	}
+	.c_container .myclass .class .info .status {
+		color: #ff005a;
+	    letter-spacing: -0.35px;
+	    font-weight: 400;
+	    margin-top: 15px;
+	}
+
+/*
+	classList스타일
+*/
+	.c_container .myclass .class .info .stars-box .class-stars img {
+	    width: 15px;
+	    margin-left: -2px;
+	    margin-bottom: 3px;
+	    vertical-align: middle;
+	}
+	.c_container .myclass .class .info .myreview p {
+		color: #ff005a;
+	    letter-spacing: -0.35px;
+	    font-size: 15px;
+	    font-weight: 400;
+	    margin-top: 30px;
+		display: inline-block;
+		padding-right: 11px;
+		background-image: url('http://localhost:9000/One_day_class/images/arrow_down.png');
+		background-repeat: no-repeat;
+	    background-position: right 57%;
+	    background-size: 10px 10px;
+	    cursor: pointer;
+	}
+	.c_container .myclass .class .info .price {
+		color: #ff005a;
+	    letter-spacing: -0.35px;
+	    font-size: 20px;
+	    font-weight: 600;
+	    margin-top: -30px;
+	    float: right;
+	}
+	
+/*
+	memberDelete, passEdit 공통
+*/
+	.p_title {
+		position: relative;
+		width: 100%;
+		background: #333;
+		margin-top: 40px;
+	}
+	.p_tit {
+		position: absolute;
+		width: 1000px;
+		left: 50%;
+		top: 50%;
+		transform: translateY(-50%);
+		margin-left: -500px;
+		font-size: 50px;
+		color: #fff;
+		font-weight: normal;
+		text-align: center;
+	}
+	.p_img {
+		height: 220px;
+		overflow: hidden;
+		text-align: center;
+	}
+	.p_img img {
+		height: 220px;
+		overflow: hidden;
+		max-width: 100%;
+		max-height: 100%;
+		vertical-align: top;
+	}
+
+/*
+	memberDelete 스타일
+*/
+	.m_container {
+	    width: 100%;
+	    min-width: 1200px;
+	    background: #fff;
+	    height: 1000px;
+	    padding-top: 40px;
+	}
+	.m_container .box {
+	    width: 1020px;
+	    height: 620px;
+	    border: 1px solid #ccc;
+	    margin: 0 auto;
+	}
+	.m_container .box .title_box {
+	    width: 100%;
+	    height: 140px;
+	    padding-top: 40px;
+	    border-bottom: 1px solid #ccc;
+	    letter-spacing: 1px;
+	    color: black;
+	}
+	.m_container .box .title_box .tit_top {
+	    width: 80%;
+	    height: 50px;
+	    float: left;
+	    padding-left: 50px;
+	    font-size: 120%;
+	}
+	.m_container .box .top_box {
+	    width: 60%;
+	    height: 160px;
+	    margin: 0 auto;
+	    margin-top: 20px;
+	    padding-top: 10px;
+	}
+	.m_container .box .top_box .input_box {
+	    width: 90%;
+	    height: 40px;
+	    margin: 0 auto;
+	    margin-top: 20px;
+	}
+	.m_container .box .top_box .input_box .left_box {
+	    width: 27%;
+	    float: left;
+	    color: black;
+	    letter-spacing: 1px;
+	}
+	.m_container .box .top_box .input_box .right_box {
+	    width: 65%;
+	    float: left;
+	    color: black;
+	    letter-spacing: 1px;
+	}
+	.m_container .box .top_box .input_box .left_box2 {
+	    width: 27%;
+	    float: left;
+	    margin-top: 10px;
+	    color: black;
+	    letter-spacing: 1px;
+	}
+	.m_container .box .top_box .cancel {
+	    width: 100%;
+	    height: 130px;
+	    letter-spacing: 1px;
+	    border: 1px solid #ccc;
+	    font-weight: 300;
+	    border-radius: 5px;
+	    color: black;
+	    line-height: 150%;
+	    margin-bottom: 30px;
+	    resize: none;
+	}
+	.m_container .box .bottom_box {
+	    width: 50%;
+	    margin: 0 auto;
+	    text-align: center;
+	    margin-top: 50px;
+	}
+	.m_container .box .bottom_box .button {
+	    background-color: #fff;
+	    padding: 8px 40px;
+	    color: #ff005a;
+	    border-color: #ff005a;
+	    border-radius: 5px;
+	    cursor: pointer;
+	}
+	.m_container .box .bottom_box .button:hover {
+	    border-color: #2916f3;
+	    color: #2916f3;
+	}
+
+/*
+ passEdit 스타일
+*/
+	.p_container {
+	    width: 100%;
+	    min-width: 1200px;
+	    background: #fff;
+	    height: 600px;
+	    padding-top: 30px;
+	}
+	.p_container .box {
+	    width: 1020px;
+	    height: 420px;
+	    border: 1px solid #ccc;
+	    margin: 0 auto;
+	    margin-top: 80px;
+	}
+	.p_container .box .title_box {
+	    width: 100%;
+	    height: 90px;
+	    padding-top: 40px;
+	    border-bottom: 1px solid #ccc;
+	    letter-spacing: 1px;
+	    color: black;
+	}
+	.p_container .box .title_box .t_name {
+	    width: 80%;
+	    height: 50px;
+	    float: left;
+	    padding-left: 50px;
+	    font-weight: 800;
+	}
+	.p_container .box .top_box {
+	    width: 50%;
+	    margin: 0 auto;
+	    margin-top: 20px;
+	    padding-top: 10px;
+	}
+	.p_container .box .top_box .input_box {
+	    width: 90%;
+	    height: 40px;
+	    margin: 0 auto;
+	    margin-top: 20px;
+	}
+	.p_container .box .top_box .input_box .left_box {
+	    width: 27%;
+	    float: left;
+	    margin-top: 10px;
+	    font-weight: 600;
+	    color: black;
+	    letter-spacing: 1px;
+	}
+	.p_container .box .top_box .input_box .right_box {
+	    width: 65%;
+	    float: left;
+	    font-weight: 600;
+	    color: black;
+	    letter-spacing: 1px;
+	}
+	.p_container .box .top_box .input_box .right_box .pw_box {
+	    width: 95%;
+	    height: 30px;
+	    padding-left: 5%;
+	    border: 1px solid #999;
+	    font-size: 16px;
+	    font-weight: 600;
+	    border-radius: 7px;
+	}
+	.p_container .box .bottom_box {
+	    width: 50%;
+	    margin: 0 auto;
+	    text-align: center;
+	    margin-top: 50px;
+	}
+	.p_container .box .bottom_box .button {
+	    background-color: #fff;
+	    padding: 6px 40px;
+	    color: #ff005a;
+	    border-color: #ff005a;
+	    border-radius: 5px;
+	    cursor: pointer;
+	}
+	.p_container .box .bottom_box .button:hover {
+	    border-color: #2916f3;
+	    color: #2916f3;
+	}
