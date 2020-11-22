@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>eamil_login</title>
 <style>
 	* {
 	box-sizing : border-box;
