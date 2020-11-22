@@ -56,9 +56,6 @@
 		margin-bottom:20px;
 		border:1px 
 	}
-	.line_pw {
-		position:relative;
-	}
 	.box_inp .line_inp img.id_img, .box_inp .line_inp img.pw_img{
 		 width:25px; height:25px;
 		 position:relative;
@@ -69,6 +66,9 @@
 		height:45px;
 	 	border:none;
 		border-bottom:1px solid #ccc;
+	}
+	.line_pw {
+		position:relative;
 	}
 	.line_pw input {
 		padding:0 40px 0 14px;

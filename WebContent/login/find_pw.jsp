@@ -4,8 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>find_pw</title>
 <style>
+	* {
+	box-sizing : border-box;
+	}
+	section, div {
+		display:block;
+	}
 	.login_how_to {
 		min-height: calc(100vh - 484px);
 		padding: 130px 0 200px;
@@ -22,7 +28,6 @@
 		height:379px;
 	}
 	.box_login { /* css로 묶을 때 전체적용에 넣어주기*/
-		border:1px solid red;
 		width:420px;
 		margin: 0 auto;
 		padding:35px 20px;
@@ -35,6 +40,13 @@
 		line-height:33px;
 		letter-spacing:-0.6px;
 	}
+	h2 {
+		display:block;
+		margin-block-start:0.83em;
+		margin-block-endt:0.83em;
+		margin-inline-start:0px;
+		margin-inline-start:0px;
+	}
 	.box_inp {
 		margin-top:35px;
 		padding:0 20px;
@@ -43,15 +55,14 @@
 		margin-bottom:15px;
 	}
 	.box_inp .line_inp img {
-	border:1px solid green;
-		width:30px; height:30px;
-		text-align:center;
+		 width:25px; height:28px;
+		 position:relative;
+		 top:12px;
 	}
 	.box_inp .line_inp input {
-		 border:1px solid green;
-		width:80%;
-		height:48px;
-	 	/* border:none; */
+		width:90%;
+		height:45px;
+	 	border:none;
 		border-bottom:1px solid #ccc;
 	} /* 이메일 틀리기 전 */
 	
@@ -95,6 +106,7 @@
 	.box_login .info_error.act {
 		display:block;
 	}
+	
 	.btn_submit {
 		width:100%;
 		height:48px;
