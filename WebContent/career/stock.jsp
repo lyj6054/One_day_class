@@ -5,6 +5,83 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	* {
+		box-sizing:border-box;
+	}
+	div, section {
+		display:block;
+	}
+	.p2p_class_wrap {
+	    width: 97%;
+	    position:relative;
+	    margin:40px auto 0;
+	}
+	.p2p_class_container {
+		margin-right:20px;
+		float:left;
+		width:calc(100% - 420px);
+	}
+	.p2p_class_info {
+		margin-bottom:28px;
+	}
+	.p2p_class_info .p_info_sum {
+		display:flex;
+		-webkit-box-align: center;
+		align-items:center;
+	}
+	ul {
+	    list-style-type: disc;
+	    margin-block-start: 1em;
+	    margin-block-end: 1em;
+	    margin-inline-start: 0px;
+	    margin-inline-end: 0px;
+	    padding-inline-start: 40px;
+	}
+	.p2p_class_info .p_info_sum li {
+		position:relative;
+		margin-right:10px;
+		font-size:14px;
+		font-weight:bold;
+		color:#ff0045;
+		letter-spacing:-0.35px;
+	}
+	li {
+		list-style:none;
+		display:list-item;
+		text-align:-webkit-match-parent;
+	}
+	.p2p_class_info .p_info_sum li::after {
+		content:'';
+		position:absolute;
+		top:50%;
+		right:-4px;
+		transform:translateY(-50%);
+		width:2px;
+		height:2px;
+		background-color:#ff0045;
+	}
+	.p2p_class_info .p_info_sum li:last-child {
+	    margin-right: 0;
+	}
+	.p2p_class_info .p_title {
+		margin:6px 0 12px;
+		font-size:30px;
+		line-height:42px;
+		font-weight:bold;
+		letter-spacing:-0.45px;
+		word-break:break-all;
+	}
+	:-webkit-any(article, aside, nav, section) h1 {
+	    margin-block-start: 0.83em;
+	    margin-block-end: 0.83em;
+	}
+	h1 {
+	    display: block;
+	    margin-inline-start: 0px;
+	    margin-inline-end: 0px;
+	}
+</style>
 </head>
 <body>
 	<!-- header/footer -->
@@ -315,9 +392,202 @@
             		</div>
             		<button type="button" class="btn_cmt" onclick="writeReview(12658,'newReview',0,1);">리뷰 작성하기</button>
             		<!-- 댓글 영역 -->
+            		<div id="innerReviewDiv">
+            			<ul class="cmt_wrap">
+            				<li class="lsit">
+            					<div class="tutee_info">
+            						<span class="img">
+            							<img src="http://localhost:9000/One_day_class/images/profile-default.thumb.jpg" alt>
+            						</span>
+            						<div class="tutee">
+            							<span class="name">이제희</span>
+            							<div class="date">
+            								<p>2020-10-18 14:34:39</p>
+            							</div>
+            						</div>
+            					</div>
+            					<div class="cmt">
+            						<p>지금까지는 추천받은 종목 위주로 운에맡긴 투자를 했다면, 앞으로는 기업의 가치를 파악하고 투자할 수 있을 것 같습니다.</p>
+            					</div>
+            				</li>
+            				<li class="list">
+            					<div class="tutee_info">
+            						<span class="img">
+            							<img src="//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_9253970251242ad694ed85ea662d1a4c657e9ca7.jpg" alt="">
+            						</span>
+            						<div class="tutee">
+            							<span class="name">성동기</span>
+            							<div class="date">
+            								<p>2020-10-18 13:11:01</p>
+            							</div>
+            						</div>
+            					</div>
+            					<div class="cmt">
+            						<p>주식투자를 위한 기본적인 재무제표 보는법으로 시작해 가치투자를 하는 법까지 배울 수 있었습니다. 감사합니다:)</p>
+            					</div>
+            				</li>
+            				<li class="list">
+            					<div class="tutee_info">
+            						<span class="img">
+            							<img src="//img.taling.me/Content/Images/placeholders/profile-default.thumb.jpg" alt="">
+            						</span>
+            						<div class="tutee">
+            							<span class="name">신협</span>
+            							<div class="date">
+            								<p>2020-09-04 22:17:23</p>
+            							</div>
+            						</div>
+            					</div>
+            					<div class="cmt">
+            						<p>예시를 들어주시면서 설명해주셔서 너무 쉬웠고 설명을 너무 잘해주셔서 주식초보인데도 어렵지 않게 수업 들었습니다 꼭 들어보세요~~~!</p>
+            					</div>
+            				</li>
+            				<li class="list">
+            					<div class="tutee_info">
+            						<span class="img">
+            							<img src="//img.taling.me/Content/Uploads/Profile/271a05fffb40ba7880a233ddb553bf7f3836637f.jpg" alt="">
+            						</span>
+            						<div class="tutee">
+            							<span class="name">윤재서</span>
+            							<div class="date">
+            								<p>2020-09-04 22:09:56</p>
+            							</div>
+            						</div>
+            					</div>
+            					<div class="cmt">
+            						<p>너무 재밌게 잘들었네요.<br>감사합니다.<br></p>
+            					</div>
+            				</li>
+							<li class="list">
+								<div class="tutee_info">
+									<span class="img">
+										<img src="//img.taling.me/Content/Images/placeholders/profile-default.thumb.jpg" alt="">
+									</span>
+									<div class="tutee">
+										<span class="name">이유리</span>
+										<div class="date"><p>2020-08-19 02:00:51</p></div>
+									</div>
+								</div>
+								<div class="cmt">
+									<p>주식초보인데 이해가기쉽게 설명해주셔서 이해가 쏙쏙됐어요 혼자공부할땐 몰랐던걸 많이알게되어서 좋았어요 알찬수업이었습니다<br>마지막에 추천해주신 책 감사합니다~</p>
+									<ul class="photo_list">
+										<li>
+											<img src="//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Review/370e48cbc0053747f9b2563c64234a0a3416b53d.png" alt="" onclick="photoReviewPop(this)">
+										</li>
+									</ul>
+								</div>
+							</li>
+            			</ul>
+            		</div>
+            		<!--// 댓글영역 --> <!-- 위에 무슨 부분이있는데 뭔지 모르겠다 ㅠ 일단 지웠음  -->
+            		<!-- 수강생 리뷰 페이지네이션 -->
+            		<div id="innerPageDiv" class="pagination">
+            			<a class="navi left" onclick="inReviewDiv(12658,0)"><span class="blind">왼쪽</span></a>
+            			<a class="active" onclick="inReviewDiv(12658, 1)">1</a>
+            			<a onclick="inReviewDiv(12658,2)">2</a>
+            			<a onclick="inReviewDiv(12658,3)">3</a>
+            			<a onclick="inReviewDiv(12658,4)">4</a>
+            			<a onclick="inReviewDiv(12658,5)">5</a>
+            			<a class="navi right" onclick="inReviewDiv(12658,2)"><span class="blind">오른쪽</span></a>
+            		</div>
+            		<!--// 수강생 리뷰 페이지네이션 -->
             	</div>
             </section> <!-- class="idx sec_common p2p_class_cmt" id="review" -->
+            <!--//수강생 리뷰 -->
 		</div> <!-- class="p2p_class_info" -->
+		<!--//p2p_class_container-->
+		<!-- pc 수업 신청 부분 -->
+		<aside class="sticky_area fixed">
+			<div class="sticky_navi">
+				<h2>수업일정</h2>
+				<ul class="schedule_list mCustomScrollbar _mCS_1 mCS-autoHide" style="overflow: visible;">
+					<div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
+						<div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px;" dir="ltr">
+                             <li>
+		                        <p class="c_schedule">11월 24일 (화)<span> 6:00-9:00 </span></p>
+		                        <!--다회차 수업일 경우-->
+		                        <!--//다회차 수업일 경우-->
+		                        <span class="c_place"><span>상세장소: </span>Zoom 라이브로 진행됩니다!</span>
+		                        <b class="c_location">온라인 Live</b>
+		                    </li>
+		                    <li>
+		                        <p class="c_schedule">11월 29일 (일)<span>14:00-17:00</span></p>
+		                        <!--다회차 수업일 경우-->
+		                        <!--//다회차 수업일 경우-->
+		                        <span class="c_place"><span>상세장소: </span>녹화영상이므로 수업일정은 완전 자율입니다! 영상의 URL을 문자로 발송드립니다 :)</span>
+		                        <b class="c_location">녹화영상</b>
+		                    </li>
+		                    <li>
+		                        <p class="c_schedule">12월 05일 (토)<span>11:00-14:00</span></p>
+		                        <!--다회차 수업일 경우-->
+		                        <!--//다회차 수업일 경우-->
+		                        <span class="c_place"><span>상세장소: </span>강남역 11번 출구 부근 스터디룸,  온라인 실시간 생중계로 Zoom 참여도 가능합니다. 메시지에 남겨주세요!</span>
+		                        <b class="c_location">강남</b>
+		                    </li>
+		                    <li>
+		                        <p class="c_schedule">협의 후 날짜, 시간 결정<span></span></p>
+		                        <span class="c_place"><span>상세장소: </span>수업 장소 및 일정이 맞지 않으신 경우 신청 주세요!　연락드려 조율하겠습니다 :)</span>
+		                        <b class="c_location">온라인 Live</b>
+		                    </li>
+		                    <li>
+		                        <p class="c_schedule">협의 후 날짜, 시간 결정<span></span></p>
+		                        <!--다회차 수업일 경우-->
+		                        <!--//다회차 수업일 경우-->
+		                        <span class="c_place"><span>상세장소: </span>수업자료의 요약본을 파일로 제공해드립니다 ^^</span>
+		                        <b class="c_location">튜터전자책</b>
+		                    </li>
+		                 </div>
+		              </div>
+		            <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block;">
+		            	<div class="mCSB_draggerContainer">
+		            		<div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; display: block; height: 118px; max-height: 226px; top: 0px;">
+		            			<div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+		            		</div>
+		            		<div class="mCSB_draggerRail"></div>
+		            	</div>
+		            </div>
+		         </ul>
+		         <p class="price_info">
+                        <span class="per">23,000원 / 시간</span>
+                   		<span class="total">
+                        	<b>69,000원 /</b>
+                        	<span class="time">총 1회 3시간</span>
+                    	</span>
+                 </p>
+                 <ul class="btn_area">
+                    <li class="wish">
+                    	<a href="/Account/LoginPage.php" onclick="alert('로그인이 필요합니다')"><span class="blind">찜하기</span></a>
+                    </li>
+                    <li class="apply">
+                        <a onclick="alert('로그인이 필요합니다');" href="/Account/LoginPage.php">수업 신청하기</a>
+                    </li>
+                </ul>
+			</div>
+			<!-- pc 앱설치 유도 배너 -->
+			<div class="banner_app">
+                <ul class="logo_app">
+                    <li><img src="https://front-img.taling.me/Content/app3/images/p2p_class/p2p_ico_logo_app.png" alt="탈잉"></li>
+                    <li>언제 어디서나 탈잉하기</li>
+                </ul>
+                <ul class="ico_apps">
+                    <li>
+                        <a href="https://play.google.com/store/apps/details?id=com.taling" target="_blank">
+                            <img src="https://front-img.taling.me/Content/app3/images/p2p_class/p2o_ico_aos.png" alt="구글 플레이스토어로 이동합니다.">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://itunes.apple.com/kr/app/탈잉-taling/id1153218962?l=en&amp;mt=8" target="_blank">
+                            <img src="https://front-img.taling.me/Content/app3/images/p2p_class/p2p_ico_ios.png" alt="앱스토어로 이동합니다.">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--// pc 앱설치 유도 배너 -->
+            <!-- 실시간톡 -->
+            <div class="btn_livechat p2p_class_wrap">
+                    <a onclick="alert('로그인이 필요합니다'); " href="/Account/LoginPage.php"><span class="blind">실시간톡</span></a>
+            </div>
+		</aside>
 	</div> <!-- class="p2p_class_wrap" -->
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
