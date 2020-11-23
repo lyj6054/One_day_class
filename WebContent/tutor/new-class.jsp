@@ -16,7 +16,7 @@
 	}
 	div.static-box {
 		height:300px;
-		margin-left:280px;
+		margin-left:265px;
 	}
 	div.static-box>div.box {
 		width:700px;
@@ -50,8 +50,20 @@
 		width:600px; height:40px;
 		margin-left:38px;
 	}
+	div.static-box>div.box>div.box2>button.btn1:hover,
+	div.static-box>div.box>div.box2>a>button.btn3:hover {
+		background-color:lightgray;
+		border:1px solid lightgray;
+	}
 	div.static-box>div.box>div.box2>button.btn1 {
 		margin:5px 5px 50px 5px;
+		width:100px; height:40px;
+		background-color:rgb(85,85,85);
+		color:white;
+		border-radius:3px;
+	}
+	div.static-box>div.box>div.box2>a>button.btn3 {
+		margin:5px 8px 50px 5px;
 		width:100px; height:40px;
 		background-color:rgb(85,85,85);
 		color:white;
@@ -61,6 +73,9 @@
 		width:75px; height:40px;
 		border-radius:3px;
 		border:1px solid lightgray;
+	}
+	div.static-box>div.box>div.box2>button.btn2:hover {
+		background-color:rgb(85,85,85);
 	}
 	div.static-box>div.image {
 		display:inline-block;
@@ -169,14 +184,18 @@
 		margin-top:40px;
 		margin-bottom:40px;
 	}
+	div.image1>img:hover,
+	div.image1>a>img:hover{
+		border:1px solid black;
+	}
 
 </style>
 </head>
 <body>
 	
+	<div class="new_class">
 	<!--header -->
 	<jsp:include page="../header.jsp" />
-	<div class="new_class">
 		<hr class="top-hr">
 	
 		<div class="title-box">
@@ -200,9 +219,9 @@
 				<div class="box2">
 					<button class="btn1"><span>심사 취소하기</span></button>
 					<button class="btn1"><span>수업 수정하기</span></button>
-					<button class="btn1"><span>시간/날짜 설정</span></button>
+					<a href="http://localhost:9000/One_day_class/tutor/day.jsp"><button class="btn3"><span>시간/날짜 설정</span></button></a>
 					<button class="btn2"><span>미리보기</span></button>
-			</div>
+				</div>
 			</div>
 		</div>
 		<div class="container3">
@@ -236,13 +255,15 @@
 			</div>
 		</div>
 		<div class="image1">
-			<img src="http://localhost:9000/One_day_class/images/new_class_bottom1.png">
-			<img src="http://localhost:9000/One_day_class/images/new_class_bottom2.png">
+			<a href="http://localhost:9000/One_day_class/tutor/day.jsp">
+			<img src="http://localhost:9000/One_day_class/images/new_class_bottom1.png"></a>
+			<a href="http://localhost:9000/One_day_class/tutor/review.jsp">
+			<img src="http://localhost:9000/One_day_class/images/new_class_bottom2.png"></a>
 		</div>
 	
-	</div>
 	<!--header -->
 	<jsp:include page="../footer.jsp" />
+	</div>
 	
 </body>
 </html>
