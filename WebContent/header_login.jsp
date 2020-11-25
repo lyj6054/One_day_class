@@ -184,6 +184,17 @@
 		background-size:10px 7px;
 		cursor:pointer;
 	}
+	
+	.gnb .depth_my_page.act p {
+	 	margin: 0px;
+	    padding: 0px;
+		padding-right:11px;
+		background-image:url('http://localhost:9000/One_day_class/images/up.png');
+		background-repeat:no-repeat;
+		background-position:right 57%;
+		background-size:10px 7px;
+		cursor:pointer;
+	}
 	p {
 	   margin: 0px;
 	    padding: 0px;
@@ -207,7 +218,14 @@
 		background-position:center;
 		background-size:cover;
 	}
-
+	
+	.profile_list_container {
+		overflow:hidden;
+		display:none;
+	}
+	.profile_list_container.act {
+		display:block;
+	}
 	.Search_Container.on {
 		display:block;
 	}
@@ -275,16 +293,14 @@
 					<li>
 						<a href="#">위시리스트</a>
 					</li>
-					<li class="depth_my_page" >
-						<p role="button">
+					<li class="depth_my_page" id="depth_my_page" >
+						<p role="button" onclick="depth()" >
 							<span class="profile_img" style="background-image:url('http://localhost:9000/One_day_class/images/profile.png');">
 							</span>
 						</p>
-						<div class="profile_list_container">
+						<div class="profile_list_container" id="profile_list_container">
 							<ul class="profile_list">
 								<li><a href="">내 프로필</a></li>
-								<li><a href="">비밀번호 변경</a></li>
-								<li><a href="">회원탈퇴</a></li>
 								<li><a href="">로그아웃</a></li>
 							</ul>
 						</div>
@@ -306,8 +322,15 @@
 		function search_end() {
 				
 				document.getElementById("bar_true_list").classList.remove('on');
-				
+				document.getElementById("depth_my_page").classList.remove('act');
+				document.getElementById("profile_list_container").classList.remove('act');
 			} 
+		function depth() {
+			document.getElementById("depth_my_page").classList.add('act');
+			document.getElementById("profile_list_container").classList.add('act');
+		}
+		
+		
 		
    </script>
 </body>

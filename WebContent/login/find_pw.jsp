@@ -65,6 +65,12 @@
 	 	border:none;
 		border-bottom:1px solid #ccc;
 	} /* 이메일 틀리기 전 */
+	.box_inp .line_inp input.error {
+		width:90%;
+		height:45px;
+	 	border:none;
+		border-bottom:1px solid #ccc;
+	} 
 	
 	input {
 		font-size : 14px;
@@ -87,7 +93,17 @@
 		font: 400 13.3333px Arial;
 	}
 	.box_login .info_error {
-		/* display:none; */ /* 안틀렸을 때 */
+		display:none;  /* 안틀렸을 때 */
+		margin-top:10px;
+		padding-left:25px;
+		text-align:left;
+		font-size:12px;
+		color:#fe0045;
+		background:url(http://localhost:9000/One_day_class/images/icon_info_pink.png)
+		no-repeat 5px bottom/16px;
+	}
+	.box_login .info_error.error {
+		display:block;  /* 안틀렸을 때 */
 		margin-top:10px;
 		padding-left:25px;
 		text-align:left;
@@ -101,10 +117,6 @@
   		margin-block-end: 1em;
     	margin-inline-start: 0px;
     	margin-inline-end: 0px;
-	}
-	/* 틀렸을 때 */
-	.box_login .info_error.act {
-		display:block;
 	}
 	
 	.btn_submit {
@@ -160,23 +172,44 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 <!-- content -->
 	<section class="login_how_to container" id="inputView">
-		<div class="box_login find_pwd">
-			<h2 class="tit">
-			이메일로 비밀번호<br> 변경 링크를 보내드려요
-			</h2>
-			<div class="box_inp">
-				<div class="line_inp">
-					<img src="http://localhost:9000/One_day_class/images/email.png">
-					<input type="text" name="email" id="email" placeholder="가입하신 이메일 주소를 입력해주세요">
-					<p class="info_error" id="emailError1">입력하신 계정을 찾을 수 없습니다.</p>
-				</div> <!-- class="line_inp" -->
-			</div><!-- class="box_inp" -->
-			<div class="box_btn">
-				<button class="btn_submit" type="submit" id="btn-resend-passwd">비밀번호 찾기</button>
-			</div>
-		</div> <!-- class="box_login find_pwd" -->
+		<form name="findId" action="#" method="get">
+			<div class="box_login find_pwd">
+				<h2 class="tit">
+				이메일로 비밀번호<br> 변경 링크를 보내드려요
+				</h2>
+				<div class="box_inp">
+					<div class="line_inp">
+						<img src="http://localhost:9000/One_day_class/images/email.png">
+						<input type="text" name="email" id="email" placeholder="가입하신 이메일 주소를 입력해주세요">
+						<p class="info_error" id="emailError1">입력하신 계정을 찾을 수 없습니다.</p>
+					</div> <!-- class="line_inp" -->
+				</div><!-- class="box_inp" -->
+				<div class="box_btn">
+					<button class="btn_submit" type="button" id="btn-resend-passwd" onclick="findPw()">비밀번호 찾기</button>
+				</div>
+			</div> <!-- class="box_login find_pwd" -->
+		</form>
 	</section> <!-- class="login_how_to container" id="inputView" -->
 <!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
+	<script>
+		function findPw() {
+			var email;
+			email = document.getElementById("email");
+			
+			if(email.value == "" || email.value != "test") {
+				document.getElementById("email").classList.add('error');
+		 		document.getElementById("emailError1").classList.add('error');
+		 		email.focus();
+		 		return false; 
+		 			
+		 		} else {
+	 				document.getElementById("email").classList.remove('error');
+			 		document.getElementById("emailError1").classList.remove('error');
+			 		findId.submit();
+	 			}
+		 		
+		}
+	</script>
 </body>
 </html>

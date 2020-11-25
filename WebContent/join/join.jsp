@@ -80,8 +80,21 @@
 		margin:0em;
 		font: 400 13.3333px Arial;
 	}
+	/* 틀렸을 때 */
+	.box_inp .line_inp .error {
+		border-color:#fe0045;
+	}
 	.box_login .info_error {
-		/* display:none; */
+		display:none;
+		margin-top:10px;
+		padding-left:25px;
+		text-align:left;
+		font-size:12px;
+		color:#fe0045;
+		background:url(http://localhost:9000/One_day_class/images/icon_info_pink.png) no-repeat 5px bottom/16px;
+	}
+	.box_login .info_error.error {
+		display:block;
 		margin-top:10px;
 		padding-left:25px;
 		text-align:left;
@@ -121,10 +134,7 @@
 	    background-position: center;
 	    background-size: 19px 12px;
 	} */
-	/* 틀렸을 때 */
-	.box_inp .line_inp .error {
-		border-color:#fe0045;
-	}
+	
 	.box_btn {
 		margin-top:10px;
 	}
@@ -230,7 +240,7 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 	<!-- content -->
 	<section class="login_how_to container" id="accountJoin">
-		<form action="#" method="post" id="frm-join">
+		<form name="joinForm" action="#" method="post" id="frm-join">
 			<div class="box_login box_join">
 				<h2 class="tit">
 					간편하게 가입하고 탈잉의<br> 다양한 튜터를 만나보세요
@@ -238,10 +248,10 @@
 				<div class="box_inp">
 					<div class="line_inp">
 						<input type="text" name="name" id="userName" placeholder="이름(실명)을 입력해주세요">
-						<p class="info_error id="nameError1">이름(실명)을 입력해주세요</p>
+						<p class="info_error" id="nameError1">이름(실명)을 입력해주세요</p>
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp">
-						<input type="text" name="email" id="userEmail" placeholder="이메일 주소를 입력해주세요">
+						<input type="text" name="email" id="userEmail" placeholder="이메일 주소를 입력해주세요" onblur="emailCheck()">
 						<p class="info_error" id="emailError1">이메일 형식에 맞지 않습니다</p>
 						<p class="info_error" id="emailError2">이메일 주소를 입력해주세요</p>
 					</div> <!-- class="line_inp" -->
@@ -252,7 +262,7 @@
 						<p class="info_error" id="passError2">비밀번호를 입력해주세요</p>
 					</div> <!-- class="line_inp line_pw" -->
 					<div class="line_inp line_pw">
-						<input type="password" name="password" id="userPassword" placeholder="비밀번호를 재입력해주세요">
+						<input type="password" name="password" id="userPassword_check" placeholder="비밀번호를 재입력해주세요">
 						<button type="button" class="type_pwd hide"></button>
 						<p class="info_error" id="confirmError1">입력하신 비밀번호가 서로 다릅니다</p>
 					</div> <!-- class="line_inp line_pw" -->
@@ -260,7 +270,7 @@
 						<label>성 &nbsp;&nbsp;&nbsp;별</label>
 						<div>
 							<input type="radio" name="rdo" id="userSex1"><span class="rchk">남&nbsp;&nbsp;자</span>
-							<input type="radio" name="rdo" id="userSex2"><span class="rchk">여&nbsp;&nbsp;자</span>
+							<input type="radio" name="rdo" ><span class="rchk">여&nbsp;&nbsp;자</span>
 						</div>
 					</div>
 					<div class="age">
@@ -277,34 +287,34 @@
 					<div class="area">
 						<label>거주&nbsp;지역</label>
 						<select name="area" class="area_select">
-							<option value="지역">거주 지역 선택</option>
-							<option value="서울" id="userArea1">서울</option>
-							<option value="경기" id="userArea2">경기</option>
-							<option value="인천" id="userArea3">인천</option>
-							<option value="부산" id="userArea4">부산</option>
-							<option value="경상,대구,울산" id="userArea5">경상,대구,울산</option>
-							<option value="대전,충청" id="userArea6">대전,충청</option>
-							<option value="강원" id="userArea7">강원</option>
-							<option value="광주,전라,제주" id="userArea8">광주,전라,제주</option>
-							<option value="온라인" id="userArea9">온라인</option>
+							<option value="지역" id="userArea">거주 지역 선택</option>
+							<option value="서울" >서울</option>
+							<option value="경기" >경기</option>
+							<option value="인천" >인천</option>
+							<option value="부산" >부산</option>
+							<option value="경상,대구,울산">경상,대구,울산</option>
+							<option value="대전,충청" >대전,충청</option>
+							<option value="강원" >강원</option>
+							<option value="광주,전라,제주" >광주,전라,제주</option>
+							<option value="온라인" >온라인</option>
 						</select>
 					</div>
 					<div class="hope_class">
 						<label>희망&nbsp;수업</label>
 						<select name="hope_class" class="hope_class_select">
-							<option value="수업">희망 수업 선택</option>
-							<option value="뷰티/헬스" id="userClass1">뷰티/헬스</option>
-							<option value="액티비티" id="userClass2">액티비티</option>
-							<option value="라이프" id="userClass3">라이프</option>
-							<option value="취미/공예" id="userClass4">취미/공예</option>
-							<option value="커리어" id="userClass5">커리어</option>
-							<option value="외국어" id="userClass6">외국어</option>
-							<option value="기타" id="userClass7">기타</option>
+							<option value="수업" id="userClass">희망 수업 선택</option>
+							<option value="뷰티/헬스" >뷰티/헬스</option>
+							<option value="액티비티" >액티비티</option>
+							<option value="라이프">라이프</option>
+							<option value="취미/공예" >취미/공예</option>
+							<option value="커리어" >커리어</option>
+							<option value="외국어" >외국어</option>
+							<option value="기타">기타</option>
 						</select>
 					</div>
 				</div> <!--class="box_inp" -->
 				<div class="box_btn">
-					<button class="btn_submit" type="submit">다음</button>
+					<button class="btn_submit" type="button" onclick="joinSubmit()">다음</button>
 				</div> <!-- class="box_btn" -->
 			</div> <!-- class="box_login box_join" -->
 		</form>
@@ -312,5 +322,60 @@
 	
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
+	
+	<script>
+	
+		function joinSubmit() {
+			var userName, userEmail, userPassword, userPassword_check;
+			
+			
+			userName = document.getElementById("userName");
+			userEmail = document.getElementById("userEmail");
+			userPassword = document.getElementById("userPassword");
+			userPassword_check = document.getElementById("userPassword_check");
+			
+			if(userName.value == "") {
+				document.getElementById("userName").classList.add('error');
+		 		document.getElementById("nameError1").classList.add('error');
+		 		userName.focus();
+				return false;
+			} else if(userName.value != "") {
+				document.getElementById("userName").classList.remove('error');
+		 		document.getElementById("nameError1").classList.remove('error');
+		 		userEmail.focus();
+			 		if(userEmail.value == "") {
+			 			document.getElementById("userEmail").classList.add('error');
+				 		document.getElementById("emailError2").classList.add('error');
+				 		userEmail.focus();
+						return false;
+			 		} else {
+			 			userPassword.focus();
+			 		}
+			}
+		}
+		
+		/** 이메일 주소 */
+		function emailCheck() {
+			
+			var userEmail = document.getElementById("userEmail");
+		    var emailErrCheck= /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+
+		    	if(userEmail.value != "") {
+		    		
+		         if (!emailErrCheck.test(userEmail.value)) {
+		        	document.getElementById("userEmail").classList.add('error');
+		 			document.getElementById("emailError2").classList.remove('error');
+			 		document.getElementById("emailError1").classList.add('error');
+			 		userEmail.focus();
+		            return false;
+		        } else {
+		 			document.getElementById("userEmail").classList.remove('error');
+			 		document.getElementById("emailError1").classList.remove('error');
+			 		document.getElementById("emailError2").classList.remove('error');
+			 		return true;
+		 		} 
+		    }
+		}
+	</script>
 </body>
 </html>

@@ -89,7 +89,7 @@
 		background-color:#666;
 	}
 	
-	.box_login .box_btn .btn:last-child::before {
+	.box_login .box_btn .btn:nth-child(3)::before {
 		content:"";
 		display:block;
 		position:absolute;
@@ -188,10 +188,10 @@
 					::before
 					"페이스북"
 				</button></a>
-				<a class="btn" href="#">
+				<a class="btn" href="email_login.jsp">
 					이메일
 				</a>
-				<a class="btn" href="#">아이디 찾기</a>
+				<a class="btn" href="find_id.jsp">아이디 찾기</a>
 			</div>
 		</div>
 	</section>

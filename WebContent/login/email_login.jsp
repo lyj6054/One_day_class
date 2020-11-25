@@ -61,12 +61,7 @@
 		 position:relative;
 		 top:10px;
 	}
-	.box_inp .line_inp input {
-		width:90%;
-		height:45px;
-	 	border:none;
-		border-bottom:1px solid #ccc;
-	}
+	
 	.line_pw {
 		position:relative;
 	}
@@ -97,8 +92,8 @@
 		font: 400 13.3333px Arial;
 	}
 	
-	.box_login .info_error {
-		/* display:none; */
+	.box_login .info_error, .box_login .info_error2 {
+		display:none;
 		margin-top:10px;
 		padding-left:25px;
 		text-align:left;
@@ -112,8 +107,36 @@
     	margin-inline-start: 0px;
     	margin-inline-end: 0px;
 	}
+	.box_inp .line_inp .info_error.error {
+		display: block;
+		margin-top:10px;
+		padding-left:25px;
+		text-align:left;
+		font-size:12px;
+		color:#fe0045;
+		background:url(http://localhost:9000/One_day_class/images/icon_info_pink.png) no-repeat 5px bottom/16px;
+	}
+	.box_inp .line_inp.line_pw .info_error.error, .box_inp .line_inp.line_pw .info_error2.error {
+		display: block;
+		margin-top:10px;
+		padding-left:25px;
+		text-align:left;
+		font-size:12px;
+		color:#fe0045;
+		background:url(http://localhost:9000/One_day_class/images/icon_info_pink.png) no-repeat 5px bottom/16px;
+	}
+	 
+	.box_inp .line_inp input {
+		width:90%;
+		height:45px;
+	 	border:none;
+		border-bottom:1px solid #ccc;
+	}
 	/* 틀렸을 때 */
-	.box_inp .line_inp .error {
+	.box_inp .line_inp input.error {
+		border-color:#fe0045;
+	}
+	.box_inp .line_inp.line_pw input.error {
 		border-color:#fe0045;
 	}
 	.box_btn {
@@ -203,7 +226,7 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 	<!-- content -->
 	<section class="login_how_to container">
-		<form action="#" method="post" id="frm-login">
+		<form name="loginForm" action="#" method="post" id="frm-login">
 			<div class="box_login login_email">
 				<h2 class="tit">
 				간편하게 로그인하고 탈잉의
@@ -220,11 +243,11 @@
 						<img class="pw_img" src="http://localhost:9000/One_day_class/images/password.png">
 						<input type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요">
 						<p class="info_error" id="passError1">비밀번호를 입력해주세요</p>
-						<p class="info_error" id="passError2">이메일 또는 비밀번호를 확인해주세요</p>
+						<p class="info_error2" id="passError2">이메일 또는 비밀번호를 확인해주세요</p>
 					</div> <!-- class="line_inp line_pw" -->
 				</div> <!-- class="box_inp" -->
 				<div class="box_btn">
-					<button class="btn_submit" type="submit">로그인 하기</button>
+					<button class="btn_submit" type="button" onclick="login()">로그인 하기</button>
 					<a class="btn" href="#">비밀번호 찾기</a>
 					<a class="btn" href="#">회원가입</a>
 				</div> <!-- class="box_btn" -->
@@ -236,5 +259,52 @@
 	
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
+	
+	<script>
+	 	function login() {
+	 		var email, password;
+	 		email = document.getElementById("email");
+	 		password = document.getElementById("password");
+	 		
+	 		if(email.value == "") {
+		 		document.getElementById("email").classList.add('error');
+		 		document.getElementById("emailError1").classList.add('error');
+		 		email.focus();
+		 		return false;
+	 		} else if(email.value != "") {
+		 		document.getElementById("email").classList.remove('error');
+		 		document.getElementById("emailError1").classList.remove('error');
+		 		password.focus();
+			 		if (password.value == "") {
+			 			document.getElementById("password").classList.add('error');
+				 		document.getElementById("passError1").classList.add('error');
+				 		password.focus(); 
+				 			} 
+			 		else if (password.value != "") {
+			 			document.getElementById("password").classList.remove('error');
+				 		document.getElementById("passError1").classList.remove('error');
+				 		password.focus(); 
+						 		 if (email.value != "test" || password.value != "123") {
+						 			document.getElementById("password").classList.add('error');
+							 		document.getElementById("passError2").classList.add('error');
+							 		 email.value ="";
+							 		 password.value ="";
+						             email.focus();
+							 		return false;
+						 		} else {
+						 			loginForm.submit();
+						 		}
+				 			}
+			 		}
+	 		}   
+	 	
+	</script>
 </body>
 </html>
+
+
+
+
+
+
+
