@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj.css">
+<link rel="stylesheet"
+	href="http://localhost:9000/One_day_class/css/yj.css">
 </head>
 <body>
 	<!--  header  -->
@@ -53,13 +54,70 @@
 					</div>
 					<div class="cont">
 						<input type="text" id="phone" name="phone" class="basic phone"
-							placeholder="개인연락처를 - 없이 입력해주세요." value="01032124746"> <span
-							class="verifys" id="veriPhone">번호변경</span> <input type="hidden"
-							name="isAuth" id="isAuth" value="1"> <span
-							class="verified left10" id="verifiedPhone"
-							style="display: inline-block;">인증완료</span>
+							placeholder="개인연락처를 - 없이 입력해주세요." value=""> <span
+							class="verifys" id="veriPhone">인증하기</span> <span
+							class="verified left10" id="verifiedPhone">인증완료</span> <input
+							type="hidden" name="isAuth" id="isAuth" value="0">
 					</div>
 				</div>
+				<script>
+					$('#phoneCls').click(function() {
+						$('#dim').hide();
+						$('#phone_box').hide();
+					});
+
+					var panInterval;
+
+					$('#veriPhone')
+							.click(
+									function() {
+										var phone = $('#phone').val();
+										if (/\d\d\d\-?\d\d\d\d?\-?\d\d\d\d/
+												.test(phone)) {
+											sendPhoneConfirm(phone);
+
+										} else {
+											alert('올바른 전화번호를 입력하세요');
+											$('#Phone').focus();
+											return false;
+										}
+										$('#dim').show();
+										$('#phone_box').show();
+
+										clearInterval(panInterval);
+										var fiveMinutes = 60 * 5, display = document
+												.querySelector('#time');
+										startTimer(fiveMinutes, display);
+									});
+
+					function startTimer(duration, display) {
+						var timer = duration, minutes, seconds;
+						panInterval = setInterval(function() {
+							minutes = parseInt(timer / 60, 10);
+							seconds = parseInt(timer % 60, 10);
+
+							minutes = minutes < 10 ? "0" + minutes : minutes;
+							seconds = seconds < 10 ? "0" + seconds : seconds;
+
+							display.textContent = minutes + ":" + seconds;
+
+							if (--timer < 0) {
+								clearInterval(panInterval);
+							}
+						}, 1000);
+					}
+
+					function confirm() {
+						var phone = $('#phone').val();
+
+						var code = $('#code').val();
+						if (/\d\d\d\-?\d\d\d\d?\-?\d\d\d\d/.test(phone)) {
+							phoneConfirm4(code, phone);
+						} else {
+							alert('올바른 전화번호를 입력하세요');
+						}
+					}
+				</script>
 				<div class="box">
 					<div class="title">
 						프로필사진<b class="pink">*</b>
@@ -91,16 +149,34 @@
 							<img class="upf_b button"
 								src="https://front-img.taling.me/Content/Images/tutor/Images/btn_pfimg.png">
 							<div class="upf" id="picture-cover" id="ProfileThumbnailUrl"
-								style="background-image: url('//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_f1039af208b4d283b1bdd74d2ac1fa9b500dff61.jpg')">
+								style="background-image: url('//img.taling.me/Content/Uploads/Profile/af05f31a72bae56ff8921165f51aca4aff3700b6.jpg')">
 								<img
-									src="//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_f1039af208b4d283b1bdd74d2ac1fa9b500dff61.jpg"
+									src="//img.taling.me/Content/Uploads/Profile/af05f31a72bae56ff8921165f51aca4aff3700b6.jpg"
 									style="width: 300px; height: 132px; float: right; margin-left: 582px; position: absolute; opacity: 0;" />
 								<input type="hidden" id="ProfileThumbnailUrl"
-									value="//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_f1039af208b4d283b1bdd74d2ac1fa9b500dff61.jpg" />
+									value="//img.taling.me/Content/Uploads/Profile/af05f31a72bae56ff8921165f51aca4aff3700b6.jpg" />
 								<input type="file" id="picture" name="picture"
 									style="width: 150px; height: 130px; opacity: 0;" />
 							</div>
 						</div>
+						<script>
+							$('#picture')
+									.change(
+											function(e) {
+												var file = (e.target || window.event.srcElement).files[0];
+
+												var reader = new FileReader();
+												reader.onload = function() {
+													$('#picture-cover')
+															.css(
+																	"background-image",
+																	"url('"
+																			+ reader.result
+																			+ "')");
+												}
+												reader.readAsDataURL(file);
+											});
+						</script>
 						<div class="sample1">
 							<div class="arw">
 								<img class="button"
@@ -125,7 +201,7 @@
 					<div class="cont">
 						<input type="text" class="basic nick" id="Description"
 							name="Description"
-							placeholder="튜터님의 정체성을 가장 잘 드러낼 수 있는 별명을 입력해주세요." value="탈잉배껴버려">
+							placeholder="튜터님의 정체성을 가장 잘 드러낼 수 있는 별명을 입력해주세요." value="">
 					</div>
 				</div>
 				<div class="box">
@@ -139,7 +215,7 @@
 						</div>
 						<div class="inner1">
 							<div class="gray5 title">
-								자격증 <font class="gray8">날짜/자격증/주관사 공인 확인 가능한 자격증 사본(최대
+								자격증<font class="gray8">날짜/자격증/주관사 공인 확인 가능한 자격증 사본(최대
 									10개)</font>
 							</div>
 							<input type="hidden" name="deleteCert" id="deleteCert" value="">
@@ -154,11 +230,24 @@
 										style="float: none; margin: 0 auto; position: relative; overflow: hidden; max-width: 400px;" />
 								</div>
 							</div>
+							<script>
+								function deleteCert(val) {
+									if ($('#deleteCert').val() == '') {
+										$('#deleteCert').val(val);
+									} else {
+										$('#deleteCert').val(
+												$('#deleteCert').val() + ","
+														+ val);
+									}
+								}
+							</script>
+							<!--innerHTML로 엘리멘트를 생성해서 넣으면 change 이벤트를 받지 못해서 미리 여러개를 생성해놓고 show하는 방안으로 임시 처리함-->
 							<div class="certificate" id="cert1"
 								style="position: relative; display: none;">
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert1"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -171,6 +260,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert2"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -183,6 +273,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert3"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -195,6 +286,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert4"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -207,6 +299,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert5"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -219,6 +312,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert6"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -231,6 +325,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert7"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -243,6 +338,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert8"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -255,6 +351,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert9"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -267,6 +364,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert10"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -279,6 +377,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert11"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -291,6 +390,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert12"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -303,6 +403,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert13"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -315,6 +416,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert14"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -327,6 +429,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert15"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -339,6 +442,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert16"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -351,6 +455,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert17"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -363,6 +468,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert18"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -375,6 +481,7 @@
 								<input type="text" class="basic len652" name="certName[]"
 									placeholder="예) 토익900,HSK 6급,GTQ1급, 임상경력 등">
 								<div class="verify left10">업로드</div>
+								<!--div class="verify left10" onclick="$(this).parent().remove();"><img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_del_bk.png"> 삭제</div-->
 								<input type="file" name="cert[]" input-file="img-Cert19"
 									style="width: 80px; height: 50px; position: absolute; top: 0; left: 668px; opacity: 0; cursor: pointer;" />
 								<div style="padding-top: 10px;">
@@ -389,7 +496,30 @@
 							</div>
 						</div>
 					</div>
-				</div> 
+				</div>
+				<script>
+					$('[input-file]')
+							.change(
+									function(e) {
+										var file = (e.target || window.event.srcElement).files[0];
+										var targetId = $(this).attr(
+												'input-file');
+										var reader = new FileReader();
+										reader.onload = function() {
+											$('#' + targetId).attr('src',
+													reader.result).show();
+										}
+										reader.readAsDataURL(file);
+										$('#' + targetId + '-alert').hide();
+									});
+
+					var certNum = 1;
+
+					function add_certificate() {
+						$('#cert' + certNum).show();
+						certNum++;
+					}
+				</script>
 				<div class="box">
 					<div class="title">
 						소셜미디어<br>
@@ -413,8 +543,8 @@
 				</div>
 				<div class="button_box">
 					<div class="next button prev" onclick="setMode(0);">임시저장</div>
-					<a href="http://localhost:9000/One_day_class/tutor/tutor_reg_2.jsp"><div class="next button on" onclick="setMode(1);">저장 후 다음단계
-						(1/4)</div></a>
+					<div class="next button on" onclick="setMode(1);">저장 후 다음단계
+						(1/4)</div>
 				</div>
 			</div>
 		</form>
