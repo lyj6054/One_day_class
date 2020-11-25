@@ -2,6 +2,13 @@
 /**
 	tutor_reg 스타일
 */
+button {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    vertical-align: top;
+}
 div.content {
 	margin: 0px;
 	padding: 0px;
@@ -1488,4 +1495,367 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button
 }
 .container .class-box .class-info .information-box .price font {
     font-size: 14px;
+}
+/**
+	search - 라이프
+*/
+#container {
+    width: 100%;
+   /*  헤더에 겹쳐서 마진 추가 */
+    margin-top:33px;
+}
+.fixed {
+    width: 100%;
+    position: absolute;
+    height: 300px;
+    z-index: 10;
+    margin-top: 50px;
+}
+.fixed {
+    display: none;
+    height: 240px;
+}
+.main3_cont {
+    width: 100%;
+    margin: 0 auto;
+}
+.main3_cont .cate_list {
+    overflow: hidden;
+}
+.main3_cont .cate_list ul {
+    display: flex;
+    width: 1252px;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 61px;
+    z-index: 50;
+}
+.main3_cont .cate_list ul li { 
+    background: #fff;
+    width: 15%;
+    text-align: center;
+    padding: 22px 0;
+    font-size: 16px;
+    color: #555;
+    letter-spacing: -0.4px;
+    border-bottom: 1px solid #c9c9c9;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+a:visited {
+    color: #000;
+    text-decoration: none;
+}
+a:link {
+    color: #000;
+    text-decoration: none;
+}
+.main3_cont .cate_list ul li:last-child {
+    width: 4%;
+    border-left: 1px solid #c9c9c9;
+    border-right: 1px solid #c9c9c9;
+}
+.main3_cont .cate_list ul li:last-child img:first-child {
+    display: block;
+    padding-left: 11px;
+}
+.main3_cont .cate_list ul li:last-child img:last-child {
+    display: none;
+}
+.main3_cont .catesub_list {
+    border-bottom: 1px solid #c9c9c9;
+    border-top: 1px solid #c9c9c9;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: white;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* border-top: none; */
+    z-index: 1000;
+    margin-top: -1px;
+}
+.main3_cont .catesub_list {
+    position: static;
+    height: 217px;
+    z-index: 10;
+}
+.main3_cont .catesub_list.cates {
+    position: absolute;
+}
+.main3_cont .catesub_list .main {
+    width: 1180px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.main3_cont .catesub_list .main li {
+    color: #555;
+    font-size: 14px;
+    padding: 12px 30px;
+    display: inline-block;
+}
+.main3_cont .catesub_list .main li:nth-child(1) {
+    padding-left: 40;
+}
+.main3_cont .catesub_list.filter {
+    background: #f1f1f1;
+    z-index: 100;
+}
+.main3_cont .catesub_list.filter .inbox {
+    height: 45px;
+    margin: 15px 0;
+}
+.main3_cont .catesub_list.filter .inbox .left {
+    padding-top: 13px;
+    float: left;
+    width: 100px;
+    font-size: 16px;
+    color: #333;
+    letter-spacing: -0.4px;
+    font-weight: bold;
+}
+.main3_cont .catesub_list.filter .inbox .right {
+    float: left;
+    width: 1000px;
+}
+.main3_cont .catesub_list.filter .inbox .right select {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #555;
+    padding: 5px 15px;
+    font-size: 14px;
+    height: 44px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.main3_cont .catesub_list.filter .inbox .right .days, .main3_cont .catesub_list.filter .inbox .right .days ul {
+    display: inline-block;
+}
+.main3_cont .catesub_list.filter .inbox .right .days li {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0 5px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 15px 15px;
+    cursor: pointer;
+}
+.main3_cont .catesub_list.filter .inbox .right .days li:first-child {
+    margin-left: 0;
+    z-index: 10;
+}
+ /* 메인 */
+.main3_cont .filter_head {
+    width: 1040px;
+    margin: 0 auto;
+    color: black;
+    font-size: 14px;
+    text-align: right;
+    margin-bottom: 20px;
+    font-weight: bold;
+    overflow: hidden;
+}
+.main3_cont .filter_head {
+    padding-top: 30px;
+}
+.bd_num {
+    padding: 0 !important;
+}
+.main3_cont .num_class {
+    color: #333;
+    font-size: 14px;
+    text-align: right;
+    padding: 10px;
+    float: left;
+    display: inline;
+}
+.main3_cont .cont2_box {
+    background-color: white;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    width: 1040px;
+    margin: 0 auto;
+}
+.cont2 {
+    padding-bottom: 20px;
+    overflow: hidden;
+    margin:auto;
+}
+.cont2 .cont2_class {
+    height: 400px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    width: calc(40%);
+    float: left;
+    cursor: pointer;
+    background-color: white;
+    margin-bottom: 30px;
+    position: relative;
+}
+.cont2 .cont2_class .img {
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+.cont2 .cont2_class .img .day {
+    width: 80px;
+    background-color: #f58500;
+    color: white;
+    font-size: 14px;
+    height: 20px;
+    text-align: center;
+    opacity: 0.85;
+}
+.cont2 .cont2_class .img .sale {
+    width: 80px;
+    background-color: #ff005a;
+    color: white;
+    font-size: 14px;
+    height: 20px;
+    text-align: center;
+    opacity: 0.85;
+}
+.cont2 .cont2_class .img .d_day {
+    width: 80px;
+    background-color: #333873;
+    color: white;
+    font-size: 14px;
+    height: 20px;
+    text-align: center;
+    opacity: 0.85;
+}
+.cont2 .cont2_class .profile_box {
+    box-sizing: border-box;
+    width: 100px;
+    float: right;
+    margin-left: 290px;
+    position: absolute;
+    height: 180px;
+    margin-top: 75px;
+    text-align: center;
+}
+.cont2 .cont2_class .profile {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    float: left;
+    margin-left: 22px;
+}
+.cont2 .cont2_class .profile {
+    z-index: 10;
+}
+.cont2 .cont2_class .title {
+    float: left;
+    width: 64%;
+    margin-left: 5%;
+    margin-top: 44px;
+    height: 40px;
+    font-size: 14px;
+    overflow: hidden;
+    color: black;
+    font-weight: bold;
+    line-height: 1.4;
+}
+.cont2 .cont2_class .price {
+    margin-top: 90px;
+    padding: 0 0 0px 15px;
+}
+.cont2 .cont2_class .price .sale {
+    width: 40px;
+    height: 17px;
+    float: left;
+    background-image: url(https://front-img.taling.me/Content/Images/50per-02.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cont2 .cont2_class .price .price1 {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+    height: 15px;
+    display: inline;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.cont2 .cont2_class .price .price2 {
+    font-size: 16px;
+    color: #ff005a;
+    font-weight: bold;
+    display: inline;
+}
+.cont2 .cont2_class .info .info2 {
+    padding: 35px 5px 5px 5px;
+    overflow: hidden;
+    padding-left: 15px;
+    position: absolute;
+}
+.cont2 .cont2_class .info .info2 .star {
+    float: left;
+    color: #ffc600;
+}
+.cont2 .cont2_class .info .info2 .review {
+    float: left;
+    color: #999;
+}
+.cont2 .cont2_class .info .info2 .location {
+    float: left;
+    border-left: 1px solid #ccc;
+    padding-left: 10px;
+    color: #999;
+}
+.cont2 .cont2_class .profile_box .name {
+    width: 100%;
+    margin-top: 60px;
+    overflow: hidden;
+    color: black;
+}
+.cont2 .cont2_class .profile_box .nick {
+    width: 100%;
+    overflow: hidden;
+    font-size: 10px;
+}
+.cont2 .cont2_class .img {
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+.cont2 .cont2_class:nth-child(n+1) {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.main3_cont .page {
+    font-weight: bold;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+.main3_cont .border {
+    border: 1px solid #e0e0e0;
+}
+.main3_cont .page a {
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    color: #afafaf;
+}
+.main3_cont .page b {
+    color: #ff005a;
 }
