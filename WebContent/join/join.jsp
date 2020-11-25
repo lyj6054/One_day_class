@@ -114,10 +114,10 @@
 	.line_pw input {
 		padding:0 40px 0 14px;
 	}
-	input[type="password" i] {
+	/* input[type="password" i] {
 	    -webkit-text-security: disc !important;
 	    padding: 1px 2px;
-	}
+	} */
 	/* .line_pw .type_pwd.hide {
 	    background-image: url(http://localhost:9000/One_day_class/images/inp_pwd.png);
 	    background-position: center 11px;
@@ -251,12 +251,12 @@
 						<p class="info_error" id="nameError1">이름(실명)을 입력해주세요</p>
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp">
-						<input type="text" name="email" id="userEmail" placeholder="이메일 주소를 입력해주세요" onblur="emailCheck()">
+						<input type="text" name="email" id="userEmail" placeholder="이메일 주소를 입력해주세요" > <!-- onblur="emailCheck()" -->
 						<p class="info_error" id="emailError1">이메일 형식에 맞지 않습니다</p>
 						<p class="info_error" id="emailError2">이메일 주소를 입력해주세요</p>
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp line_pw">
-						<input type="password" name="password" id="userPassword" placeholder="비밀번호를 입력해주세요">
+						<input type="password" name="password" id="userPassword" placeholder="비밀번호를 입력해주세요" onblur="pwCheck()">
 						<button type="button" class="type_pwd hide"></button> <!-- 패스워드 확인할지 말지 -->
 						<p class="info_error" id="passError1">비밀번호는 영문 숫자조합 8자리 이상 입력해주세요</p>
 						<p class="info_error" id="passError2">비밀번호를 입력해주세요</p>
@@ -327,7 +327,8 @@
 	
 		function joinSubmit() {
 			var userName, userEmail, userPassword, userPassword_check;
-			
+			var emailErrCheck= /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+			var passCheck = /^[a-zA-Z0-9]{8,20}$/;
 			
 			userName = document.getElementById("userName");
 			userEmail = document.getElementById("userEmail");
@@ -338,7 +339,6 @@
 				document.getElementById("userName").classList.add('error');
 		 		document.getElementById("nameError1").classList.add('error');
 		 		userName.focus();
-				return false;
 			} else if(userName.value != "") {
 				document.getElementById("userName").classList.remove('error');
 		 		document.getElementById("nameError1").classList.remove('error');
@@ -347,35 +347,44 @@
 			 			document.getElementById("userEmail").classList.add('error');
 				 		document.getElementById("emailError2").classList.add('error');
 				 		userEmail.focus();
-						return false;
-			 		} else {
+			 		}  else if (!emailErrCheck.test(userEmail.value)) {
+			        	document.getElementById("userEmail").classList.add('error');
+			 			document.getElementById("emailError2").classList.remove('error');
+				 		document.getElementById("emailError1").classList.add('error');
+				 		userEmail.focus();
+			            return false;
+			        } else  {
+			 			document.getElementById("userEmail").classList.remove('error');
+				 		document.getElementById("emailError1").classList.remove('error');
+				 		document.getElementById("emailError2").classList.remove('error');
 			 			userPassword.focus();
+				 			if(userPassword.value == "") {
+								document.getElementById("userPassword").classList.add('error');
+					 			document.getElementById("passError2").classList.add('error');
+						 		userPassword.focus();
+								return false;
+							} 
 			 		}
-			}
+			} // userName else if
 		}
 		
-		/** 이메일 주소 */
-		function emailCheck() {
-			
-			var userEmail = document.getElementById("userEmail");
-		    var emailErrCheck= /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
-
-		    	if(userEmail.value != "") {
-		    		
-		         if (!emailErrCheck.test(userEmail.value)) {
-		        	document.getElementById("userEmail").classList.add('error');
-		 			document.getElementById("emailError2").classList.remove('error');
-			 		document.getElementById("emailError1").classList.add('error');
-			 		userEmail.focus();
-		            return false;
-		        } else {
-		 			document.getElementById("userEmail").classList.remove('error');
-			 		document.getElementById("emailError1").classList.remove('error');
-			 		document.getElementById("emailError2").classList.remove('error');
-			 		return true;
-		 		} 
-		    }
+		
+		
+		/** 비빌번호 */
+		
+		function check(){
+			var str = /^(?=.*[a-zA-Z]{1,})(?=.*[0-9]{1,}).{8,}$/;
+			if(document.joinForm.passwd.userPassword.length < 8){
+				alert("영문+숫자+특수기호 8자리 이상으로 구성하여야합니다.");
+				return false;
+			}
+			if(!str.test(document.frm.passwd.value)){
+				alert("영문+숫자+특수기호 8자리 이상으로 구성하여야합니다.");
+				return false;
+			}
+			return true;
 		}
+		
 	</script>
 </body>
 </html>
