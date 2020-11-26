@@ -164,7 +164,8 @@
 	 border-radius:0px 0px 3px 3px;
 	 visibility:visible;
 	 background-color:white;
-	 display:block;
+		overflow:hidden;
+		display:none;
 	}
 	
 	.gnb li.depth_my_page {
@@ -178,6 +179,17 @@
 	    padding: 0px;
 		padding-right:11px;
 		background-image:url('http://localhost:9000/One_day_class/images/down.png');
+		background-repeat:no-repeat;
+		background-position:right 57%;
+		background-size:10px 7px;
+		cursor:pointer;
+	}
+	
+	.gnb .depth_my_page.act p {
+	 	margin: 0px;
+	    padding: 0px;
+		padding-right:11px;
+		background-image:url('http://localhost:9000/One_day_class/images/up.png');
 		background-repeat:no-repeat;
 		background-position:right 57%;
 		background-size:10px 7px;
@@ -206,11 +218,25 @@
 		background-position:center;
 		background-size:cover;
 	}
+	
+	.profile_list_container {
+		overflow:hidden;
+		display:none;
+	}
+	.profile_list_container.act {
+		display:block;
+	}
+	.Search_Container.on {
+		display:block;
+	}
+	.aaa {
+		width:100%; height:1000px;
+	}
 </style>
 </head>
 <body>
 	<header>
-		<div class="container">
+		<div class="container" >
 		 <div class="container hd_wrap">
 			<h1 class="logo">
 				<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
@@ -222,38 +248,36 @@
 						<form name="search" action="#" method="get">
 							<fieldset>
 								<input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
-										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox">
+										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox" onclick="search_list()">
 								<button class=search_btn type="submit"></button>
 							</fieldset>
 						</form>			
 					</div> <!-- hd_search_box -->
-						<div aria-hidden="false" class="SearchInputBox_false"></div>					
-						<div aria-hidden="true" class="SearchInputBox_true"></div>					
-							<div class="Search_Container" >
-									<div class="Search_Container_Header">
-										<h3 class="Search_Container_HeaderText">인기 검색어</h3>
-									</div> <!-- Search_Contatiner_Header -->
-									<div class="Item_Container"><a href="#">
-										<span class="Item_RankNum">1</span>
-										<span class="Item_RankText">아이패드</span></a>
-									</div>
-									<div class="Item_Container"><a href="#">
-										<span class="Item_RankNum">2</span>
-										<span class="Item_RankText">퍼스널컬러</span></a>
-									</div>
-									<div class="Item_Container"><a href="#">
-										<span class="Item_RankNum">3</span>
-										<span class="Item_RankText">피티</span></a>
-									</div>
-									<div class="Item_Container"><a href="#">
-										<span class="Item_RankNum">4</span>
-										<span class="Item_RankText">공방</span></a>
-									</div>
-									<div class="Item_Container"><a href="#">
-										<span class="Item_RankNum">5</span>
-										<span class="Item_RankText">영어회화</span></a>
-									</div>
-					</div> <!-- Search_Container -->
+							<div class="Search_Container" id="bar_true_list" >
+								<div class="Search_Container_Header" id="bar_true_text">
+									<h3 class="Search_Container_HeaderText">인기 검색어</h3>
+								</div> <!-- Search_Contatiner_Header -->	
+								<div class="Item_Container"><a href="#">
+	                              <span class="Item_RankNum">1</span>
+	                              <span class="Item_RankText">아이패드</span></a>
+	                           </div>
+	                           <div class="Item_Container"><a href="#">
+	                              <span class="Item_RankNum">2</span>
+	                              <span class="Item_RankText">퍼스널컬러</span></a>
+	                           </div>
+	                           <div class="Item_Container"><a href="#">
+	                              <span class="Item_RankNum">3</span>
+	                              <span class="Item_RankText">피티</span></a>
+	                           </div>
+	                           <div class="Item_Container"><a href="#">
+	                              <span class="Item_RankNum">4</span>
+	                              <span class="Item_RankText">공방</span></a>
+	                           </div>
+	                           <div class="Item_Container"><a href="#">
+	                              <span class="Item_RankNum">5</span>
+	                              <span class="Item_RankText">영어회화</span></a>
+	                           </div>
+							</div>
 				</div> <!-- hd_bar -->
 			<nav class="hd_right">
 				<ul class="gnb">
@@ -269,16 +293,14 @@
 					<li>
 						<a href="#">위시리스트</a>
 					</li>
-					<li class="depth_my_page" >
-						<p role="button">
+					<li class="depth_my_page" id="depth_my_page" >
+						<p role="button" onclick="depth()" >
 							<span class="profile_img" style="background-image:url('http://localhost:9000/One_day_class/images/profile.png');">
 							</span>
 						</p>
-						<div class="profile_list_container">
+						<div class="profile_list_container" id="profile_list_container">
 							<ul class="profile_list">
 								<li><a href="">내 프로필</a></li>
-								<li><a href="">비밀번호 변경</a></li>
-								<li><a href="">회원탈퇴</a></li>
 								<li><a href="">로그아웃</a></li>
 							</ul>
 						</div>
@@ -288,5 +310,28 @@
 		 </div>
 		</div>
 	</header>
+	
+	<div class="aaa" onclick="search_end()"> </div>
+	
+	<script>
+		function search_list() {
+				
+				document.getElementById("bar_true_list").classList.add('on');
+				
+			} 
+		function search_end() {
+				
+				document.getElementById("bar_true_list").classList.remove('on');
+				document.getElementById("depth_my_page").classList.remove('act');
+				document.getElementById("profile_list_container").classList.remove('act');
+			} 
+		function depth() {
+			document.getElementById("depth_my_page").classList.add('act');
+			document.getElementById("profile_list_container").classList.add('act');
+		}
+		
+		
+		
+   </script>
 </body>
 </html>

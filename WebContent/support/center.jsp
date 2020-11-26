@@ -78,6 +78,16 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p,
 .c_container .center .info_three .info:nth-child(3) {
     margin-right: 0;
 }
+.c_container .center .map {
+    margin-bottom: 148px;
+}
+.c_container .center .map .title {
+    border-bottom: 1px solid #2e2e2e;
+    padding-bottom: 22px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 28px;
+}
 </style>
 </head>
 <body>
@@ -104,6 +114,28 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p,
 					<h3>전화/이메일</h3>
 					<span>1877-1233<br>help@taling.me
 					</span>
+				</div>
+			</div>
+			<div class="map">
+				<div class="title">
+					INFORMATION &amp; MAP
+				</div>
+				<div style="overflow:hidden">
+					<!-- 1. 약도 노드 -->
+					<div id="daumRoughmapContainer1605863043188" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+					
+					<!-- 2. 설치 스크립트 -->
+					<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+					
+					<!-- 3. 실행 스크립트 -->
+					<script charset="UTF-8">
+						new daum.roughmap.Lander({
+							"timestamp" : "1605863043188",
+							"key" : "232th",
+							"mapWidth" : "1040",
+							"mapHeight" : "500"
+						}).render();
+					</script>
 				</div>
 			</div>
 		</div>
