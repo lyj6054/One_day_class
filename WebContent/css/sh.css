@@ -32,7 +32,7 @@
 	}
 	
 /*
-	mypage, classForm, classList, wishList 공통
+	myPage, myClassForm, myClassList, myWishList 공통
 */
 	.c_container {
 	    width: 1040px;
@@ -53,7 +53,7 @@
 	}
 
 /*
-	mypage 스타일
+	myPage 스타일
 */
 	.c_container .profile .p_info {
 	    border-bottom: 1px solid #e4e4e4;
@@ -107,6 +107,7 @@
 	    border: 1px solid #ddd;
 	    font-size: 14px;
 	    color: #666;
+	    resize: none;
 	}
 	.c_container input.nickname, .c_container textarea.introduction {
 	    width: 100%;
@@ -140,7 +141,7 @@
 	}
 
 /*
-	classForm, classList, wishList 공통
+	myClassForm, myClassList, myWishList 공통
 */
 	.c_container .myclass{
 		position: relative;
@@ -195,7 +196,7 @@
 		border: 1px solid #333;
 	}
 /*
-	classForm 스타일
+	myClassForm 스타일
 */
 	.c_container .myclass .class:nth-child(even) {
 		margin-left: 38px;
@@ -214,7 +215,7 @@
 	}
 
 /*
-	classList스타일
+	myClassList스타일
 */
 	.c_container .myclass .class .info .stars-box .class-stars img {
 	    width: 15px;
@@ -236,6 +237,20 @@
 	    background-size: 10px 10px;
 	    cursor: pointer;
 	}
+	.c_container .myclass .class .info .myreview p.review_btn.on {
+		color: #ff005a;
+	    letter-spacing: -0.35px;
+	    font-size: 15px;
+	    font-weight: 400;
+	    margin-top: 30px;
+		display: inline-block;
+		padding-right: 11px;
+		background-image: url('http://localhost:9000/One_day_class/images/arrow_up.png');
+		background-repeat: no-repeat;
+	    background-position: right 57%;
+	    background-size: 10px 10px;
+	    cursor: pointer;
+	}
 	.c_container .myclass .class .info .price {
 		color: #ff005a;
 	    letter-spacing: -0.35px;
@@ -244,9 +259,62 @@
 	    margin-top: -30px;
 	    float: right;
 	}
+	.c_container .myclass .my_review {
+		display: none;
+	}
+	.c_container .myclass .my_review.on {
+		width: 1040px;
+	    padding: 20px;
+	    height: 180px;
+	    text-align: left;
+	    box-sizing: border-box;
+	    border: 1px solid #e4e4e4;
+	    display: flex;
+	}
+	.c_container .myclass .my_review .profile {
+	    width: 15%;
+	}
+	.c_container .myclass .my_review .profile .profile_img {
+	    width: 230px;
+	    height: 170px;
+	    background-size: cover;
+	    background-position: center;
+	}
+	.c_container .myclass .my_review .review_content {
+	    width: 85%;
+	}
+	.c_container .myclass .my_review .review_content .r_name {
+	    font-size: 14px;
+    	color: #333;
+	}
+	.c_container .myclass .my_review .review_content .r_date {
+	    font-size: 14px;
+    	color: #888;
+    	float: right;
+		margin-top: -20px;
+	}
+	.c_container .myclass .my_review .review_content .r_date button {
+	    font-size: 14px;
+    	color: #888;
+		padding: 7px;
+		margin-right: 5px;
+		background-color: white;
+		cursor: pointer;
+	}
+	.c_container .myclass .my_review .review_content .r_date button.r_delete {
+		margin-right: 30px;
+	}
+	.c_container .myclass .my_review .review_content .r_stars_box .class_stars img {
+	    width: 15px;
+	    margin-bottom: 3px;
+	    vertical-align: middle;
+	}
+	.c_container .myclass .my_review .review_content .r_cont p {
+	    color: #888;
+	}
 	
 /*
-	memberDelete, passEdit 공통
+	myMemberDelete, myPassEdit 공통
 */
 	.p_title {
 		position: relative;
@@ -280,7 +348,7 @@
 	}
 
 /*
-	memberDelete 스타일
+	myMemberDelete 스타일
 */
 	.m_container {
 	    width: 100%;
@@ -374,7 +442,7 @@
 	}
 
 /*
- passEdit 스타일
+ 	myPassEdit 스타일
 */
 	.p_container {
 	    width: 100%;

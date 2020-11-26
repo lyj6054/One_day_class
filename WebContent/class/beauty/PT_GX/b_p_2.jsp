@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index_login</title>
+<title>index</title>
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="header_login.jsp"></jsp:include>
+	<jsp:include page="../../../header.jsp"></jsp:include>
 
 	<!-- content -->
 	<div class="content">
@@ -20,7 +20,6 @@
 	</div>
 
 	<!-- footer -->
-	<jsp:include page="footer.jsp"></jsp:include>
-	<!-- 파일이름 수정3 -->
+	<jsp:include page="../../../footer.jsp"></jsp:include>
 </body>
 </html>
