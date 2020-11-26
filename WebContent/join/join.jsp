@@ -102,6 +102,15 @@
 		color:#fe0045;
 		background:url(http://localhost:9000/One_day_class/images/icon_info_pink.png) no-repeat 5px bottom/16px;
 	}
+	.box_login .info_error.error_check {
+		display:block;
+		margin-top:10px;
+		padding-left:25px;
+		text-align:left;
+		font-size:12px;
+		color:blue;
+		
+	}
 	p {
 		margin-block-start: 1em;
   		margin-block-end: 1em;
@@ -256,15 +265,16 @@
 						<p class="info_error" id="emailError2">이메일 주소를 입력해주세요</p>
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp line_pw">
-						<input type="password" name="password" id="userPassword" placeholder="비밀번호를 입력해주세요" onblur="pwCheck()">
+						<input type="password" name="password" id="userPassword" placeholder="비밀번호를 입력해주세요">
 						<button type="button" class="type_pwd hide"></button> <!-- 패스워드 확인할지 말지 -->
 						<p class="info_error" id="passError1">비밀번호는 영문 숫자조합 8자리 이상 입력해주세요</p>
 						<p class="info_error" id="passError2">비밀번호를 입력해주세요</p>
 					</div> <!-- class="line_inp line_pw" -->
 					<div class="line_inp line_pw">
-						<input type="password" name="password" id="userPassword_check" placeholder="비밀번호를 재입력해주세요">
+						<input type="password" name="password" id="userPassword_check" placeholder="비밀번호를 재입력해주세요" onblur="passCheck()">
 						<button type="button" class="type_pwd hide"></button>
 						<p class="info_error" id="confirmError1">입력하신 비밀번호가 서로 다릅니다</p>
+						<p class="info_error" id="confirmError2">비밀번호가 일치합니다.</p>
 					</div> <!-- class="line_inp line_pw" -->
 					<div class="sex">
 						<label>성 &nbsp;&nbsp;&nbsp;별</label>
@@ -276,18 +286,18 @@
 					<div class="age">
 						<label>나 &nbsp;&nbsp;&nbsp;이</label>
 						<div>
-							<input type="checkbox" name="age" id="userAge1"><span class="rchk">10대</span>
-							<input type="checkbox" name="age" id="userAge2"><span class="rchk">20대</span>
-							<input type="checkbox" name="age" id="userAge3"><span class="rchk">30대</span>
-							<input type="checkbox" name="age" id="userAge4"><span class="rchk">40대</span>
-							<input type="checkbox" name="age" id="userAge5"><span class="rchk">50대</span>
-							<input type="checkbox" name="age" id="userAge6"><span class="rchk">60대이상</span>
+							<input type="radio" name="age" id="userAge1"><span class="rchk">10대</span>
+							<input type="radio" name="age" ><span class="rchk">20대</span>
+							<input type="radio" name="age" ><span class="rchk">30대</span>
+							<input type="radio" name="age" ><span class="rchk">40대</span>
+							<input type="radio" name="age" ><span class="rchk">50대</span>
+							<input type="radio" name="age" ><span class="rchk">60대이상</span>
 						</div>
 					</div>
 					<div class="area">
 						<label>거주&nbsp;지역</label>
-						<select name="area" class="area_select">
-							<option value="지역" id="userArea">거주 지역 선택</option>
+						<select name="area" class="area_select" id="userArea">
+							<option value="거주 지역 선택" >거주 지역 선택</option>
 							<option value="서울" >서울</option>
 							<option value="경기" >경기</option>
 							<option value="인천" >인천</option>
@@ -301,8 +311,8 @@
 					</div>
 					<div class="hope_class">
 						<label>희망&nbsp;수업</label>
-						<select name="hope_class" class="hope_class_select">
-							<option value="수업" id="userClass">희망 수업 선택</option>
+						<select name="hope_class" class="hope_class_select" id="userClass">
+							<option value="희망 수업 선택">희망 수업 선택</option>
 							<option value="뷰티/헬스" >뷰티/헬스</option>
 							<option value="액티비티" >액티비티</option>
 							<option value="라이프">라이프</option>
@@ -326,14 +336,17 @@
 	<script>
 	
 		function joinSubmit() {
-			var userName, userEmail, userPassword, userPassword_check;
+			
+			var userName, userEmail, userPassword, userPassword_check, userArea, userClass;
 			var emailErrCheck= /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
-			var passCheck = /^[a-zA-Z0-9]{8,20}$/;
+			var passErrCheck = /^[a-zA-Z0-9]{8,30}$/;
 			
 			userName = document.getElementById("userName");
 			userEmail = document.getElementById("userEmail");
 			userPassword = document.getElementById("userPassword");
 			userPassword_check = document.getElementById("userPassword_check");
+			userArea = document.getElementById("userArea");
+			userClass = document.getElementById("userClass");
 			
 			if(userName.value == "") {
 				document.getElementById("userName").classList.add('error');
@@ -363,7 +376,34 @@
 					 			document.getElementById("passError2").classList.add('error');
 						 		userPassword.focus();
 								return false;
-							} 
+							} else if (!ruleCheck(userPassword,passErrCheck)) {
+								return false;
+							} else {
+								if(userPassword_check.value == "") {
+									document.getElementById("userPassword_check").classList.add('error');
+						 			document.getElementById("confirmError1").classList.add('error');
+						 			userPassword_check.focus();
+									return false;
+								} else if(userPassword.value == userPassword_check.value){
+									 if(CheckCount("rdo") == 0) {
+										alert("성별을 선택해주세요");
+										document.getElementById("userSex1").focus();
+										return false;
+									}else if(CheckCount("age") == 0) {
+										alert("나이을 선택해주세요");
+										document.getElementById("userAge1").focus();
+										return false;
+									}else if(userArea.value == "거주 지역 선택") {
+										alert("거주 지역을 선택해주세요");
+										userArea.focus();
+								        return false;
+									}else if(userClass.value == "희망 수업 선택") {
+										alert("희망 수업을 선택해주세요");
+										userClass.focus();
+								        return false;
+									}
+								}
+							}
 			 		}
 			} // userName else if
 		}
@@ -372,19 +412,62 @@
 		
 		/** 비빌번호 */
 		
-		function check(){
-			var str = /^(?=.*[a-zA-Z]{1,})(?=.*[0-9]{1,}).{8,}$/;
-			if(document.joinForm.passwd.userPassword.length < 8){
-				alert("영문+숫자+특수기호 8자리 이상으로 구성하여야합니다.");
+		function ruleCheck(obj, passErrCheck){
+
+			if(obj.value.length < 8){
+				document.getElementById("userPassword").classList.add('error');
+	 			document.getElementById("passError2").classList.remove('error');
+	 			document.getElementById("passError1").classList.add('error');
 				return false;
 			}
-			if(!str.test(document.frm.passwd.value)){
-				alert("영문+숫자+특수기호 8자리 이상으로 구성하여야합니다.");
-				return false;
+			else {
+				if(passErrCheck.test(obj.value)) {
+					document.getElementById("userPassword").classList.remove('error');
+		 			document.getElementById("passError2").classList.remove('error');
+		 			document.getElementById("passError1").classList.remove('error');
+		 			document.getElementById("userPassword_check").focus();
+					return true;
+				} else {
+					document.getElementById("userPassword").classList.add('error');
+		 			document.getElementById("passError2").classList.remove('error');
+		 			document.getElementById("passError1").classList.add('error');
+		 			obj.focus();
+					return false;
+				}
 			}
 			return true;
 		}
 		
+		/** 비밀번호 체크 */
+		function passCheck() {
+			var userPassword = document.getElementById("userPassword"); 
+			var userPassword_check = document.getElementById("userPassword_check"); 
+			
+			if(userPassword.value != "" && userPassword_check.value != "") {
+				if(userPassword.value == userPassword_check.value) {
+					document.getElementById("userPassword_check").classList.remove('error');
+		 			document.getElementById("confirmError1").classList.remove('error');
+		 			document.getElementById("confirmError2").classList.add('error_check');
+					return true;
+				}else {
+					document.getElementById("userPassword_check").classList.add('error');
+		 			document.getElementById("confirmError1").classList.add('error');
+		 			userPassword_check.focus();
+		 			return false;
+				}
+			}
+		}
+		
+		/** 성별 count 출력 */
+		function CheckCount(name) {
+			var name_list = document.getElementsByName(name);
+			var count = 0;
+			
+			for(var i=0; i<name_list.length; i++) {
+				if(name_list[i].checked) count++;
+			}
+			return count;
+		}
 	</script>
 </body>
 </html>
