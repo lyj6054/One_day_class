@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header_login.jsp"></jsp:include>
+	<jsp:include page="../header.jsp"></jsp:include>
 
 	<!-- content -->
 	<div class="p_title">
