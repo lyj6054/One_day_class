@@ -311,7 +311,7 @@
 		</div>
 	</header>
 	
-	<div class="aaa" onclick="search_end()"> </div>
+	<!-- <div class="aaa" onclick="search_end()"> </div> -->
 	
 	<script>
 		function search_list() {
