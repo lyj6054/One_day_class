@@ -225,12 +225,15 @@
 	}
 	.profile_list_container.act {
 		display:block;
+		position: absolute;
+		z-index: 2;
+		width: 100px;
 	}
 	.Search_Container.on {
-		display:block;
-	}
-	.aaa {
-		width:100%; height:1000px;
+		z-index: 2;
+		width: 380px;
+		display: block;
+		position: absolute;
 	}
 </style>
 </head>
@@ -241,7 +244,7 @@
 			<h1 class="logo">
 				<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
 				<span></span>
-				<a href=""><img src="http://localhost:9000/One_day_class/images/menu.png" class="all"></a>
+				<!-- <a href=""><img src="http://localhost:9000/One_day_class/images/menu.png" class="all"></a> -->
 			</h1>
 				<div class="hd_bar">
 					<div class="hd_search_box">

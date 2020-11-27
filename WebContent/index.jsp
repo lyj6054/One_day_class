@@ -50,6 +50,9 @@
 	    border: none;
 	    vertical-align: top;
 	}
+	button:focus {
+	    outline: none;
+	}
 	table {
 	    width: 100%;
 	    border-collapse: collapse;
@@ -321,7 +324,7 @@
 	    width: 30%;
 	    height: 190px;
 	    margin-bottom: 10px;
-	    padding: 17px 20px 16px;
+	    padding: 0 10px;
 	    border: 1px solid #eee;
 	    border-radius: 10px;
 	    background-color: #fff;
@@ -405,6 +408,198 @@
 	    color: #ccc;
 	    letter-spacing: -0.35px;
 	}
+	.group_area > .wrapper {
+	    overflow: visible;
+	}
+	.swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
+	    height: auto;
+	}
+	.swiper-container-autoheight .swiper-wrapper {
+	    align-items: flex-start;
+	    transition-property: transform,height;
+	}
+	.group_area .group_slide {
+	    background: #fff;
+	}
+	.talents_group {
+	    padding: 36px 0;
+	}
+	.main_cont .talent_box {
+	    overflow: hidden;
+	    padding-bottom: 40px;
+	}
+	.talent_box .main_title {
+	    margin-bottom: 16px;
+	    font-weight: bold;
+	    font-size: 22px;
+	    line-height: 28px;
+	}
+	.talent_list {
+	    overflow: visible;
+	}
+	.talent_list li {
+	    pointer-events: auto !important;
+	}
+	.swiper-container-free-mode>.swiper-wrapper {
+	    transition-timing-function: ease-out;
+	    margin: 0 auto;
+	}
+	.talent_list .thumb {
+	    position: relative;
+	    max-width: 320px;
+	    height: 210px;
+	    margin-bottom: 10px;
+	    border-radius: 10px;
+	    background-size: cover;
+	    background-position: center;
+	}
+	.talent_list .talent_title {
+	    display: -webkit-box;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    -webkit-box-orient: vertical;
+	    -webkit-line-clamp: 2;
+	    height: 44px;
+	    font-weight: 500;
+	    margin-bottom: 5px;
+	    line-height: 20px;
+	    font-size: 16px;
+	}
+	.talent_list .talent_info {
+		margin: 15px 0;
+		display: flex;
+    	align-items: center;
+	}
+	.talent_list .talent_info span{
+		display: inline-block;
+    	color: #999;
+	}
+	.talent_list .talent_info .profile{
+		overflow: hidden;
+	    width: 24px;
+	    height: 24px;
+	    margin-right: 5px;
+	}
+	.roundImg {
+	    width: 100%;
+	    height: 100%;
+	    object-fit: cover;
+	    object-position: center;
+	    border-radius: 50%;
+	}
+	.talent_list .talent_info .name::after{
+		content: "ㆍ";
+	}
+	.talent_list .talent_info .d_day::after{
+		content: "ㆍ";
+	}
+	.talent_list .talent_info .location::after{
+		content: "ㆍ";
+	}
+	.talent_list .talent_info .review {
+	    display: flex;
+	    align-items: center;
+	}
+	.talent_list .talent_info .review .star_img {
+	    display: inline-block;
+	    width: 14px;
+	    height: 14px;
+	}
+	.talent_list .btn_wish {
+	    position: absolute;
+	    right: 6px;
+	    top: 6px;
+	    width: 46px;
+	    height: 46px;
+	    background: url('http://localhost:9000/One_day_class/images/icon_wish.png') no-repeat center/46px;
+	}
+	.talent_list .btn_wish.on {
+	    background-image: url('http://localhost:9000/One_day_class/images/icon_wish_clicked.png');
+	}
+	.swiper-button-next, .swiper-button-prev {
+	    position: absolute;
+	    top: 50%;
+	    width: calc(var(--swiper-navigation-size)/ 44 * 27);
+	    height: var(--swiper-navigation-size);
+	    margin-top: calc(-1 * var(--swiper-navigation-size)/ 2);
+	    z-index: 10;
+	    cursor: pointer;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    color: var(--swiper-navigation-color,var(--swiper-theme-color));
+	}
+	.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+	    left: 10px;
+	    right: auto;
+	}
+	.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+	    opacity: .35;
+	    cursor: auto;
+	    pointer-events: none;
+	}
+	.talent_list .btn_swiper, .high_score .btn_swiper {
+	    top: -42px;
+	    width: 25px;
+	    height: 25px;
+	    margin-top: 0;
+	    opacity: 1 !important;
+	}
+	.talent_list .swiper-button-prev, .high_score .swiper-button-prev {
+	    left: initial;
+	    right: 32px;
+	    background: url('http://localhost:9000/One_day_class/images/btn-category-left-active.png') no-repeat center/25px;
+	}
+	.talent_list .swiper-button-next, .high_score .swiper-button-next {
+	    right: 0;
+	    background: url('http://localhost:9000/One_day_class/images/btn-category-right-active.png') no-repeat center/25px;
+	}
+	.talent_list .swiper-button-prev.swiper-button-disabled, .high_score .swiper-button-prev.swiper-button-disabled {
+	    background-image: url('http://localhost:9000/One_day_class/images/btn-category-left.png');
+	}
+	.talent_list .swiper-button-next.swiper-button-disabled, .high_score .swiper-button-next.swiper-button-disabled {
+	    background-image: url('http://localhost:9000/One_day_class/images/btn-category-right.png');
+	}
+	.swiper-container .swiper-notification {
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    pointer-events: none;
+	    opacity: 0;
+	    z-index: -1000;
+	}
+	.high_score {
+	    overflow: visible;
+	}
+	.high_score li {
+	    text-align: center;
+	}
+	.main_cont .talent_box .high_score li {
+	    max-width: 124px;
+	    margin-right: 37px;
+	    pointer-events: auto;
+	}
+	.high_score .profile {
+	    width: 120px;
+	    height: 120px;
+	    margin-bottom: 7px;
+	    border-radius: 50%;
+	    background-size: cover;
+	    background-position: center;
+	}
+	.high_score p {
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	.high_score .cate_main {
+	    font-weight: bold;
+	    font-size: 15px;
+	}
+	.high_score .name {
+	    font-size: 13px;
+	    margin-top: -10px;
+	}
 </style>
 <script>
 	function category_on(){
@@ -412,6 +607,14 @@
 	}
 	function category_off(){
 		document.getElementById("all_category").classList.remove('on');
+	}
+	function addWish(){
+		document.getElementById("btn_wish").classList.add('on');
+		document.getElementById("btn_wish").setAttribute('onclick',"deleteWish()");
+	}
+	function deleteWish(){
+		document.getElementById("btn_wish").classList.remove('on');
+		document.getElementById("btn_wish").setAttribute('onclick',"addWish()");
 	}
 </script>
 </head>
@@ -600,7 +803,373 @@
 				        <a class="link_join" href="">회원가입</a>
 				    </div>
 				</div>
-			</section>	
+			</section>
+			<section class="group_area">
+				<div class="wrapper swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-autoheight">
+					<div class="swiper-wraper">
+						<div class="swiper-slide group_slide swiper-slide-active" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
+							<div class="talents_group main_cont">
+								<div class="talent_box">
+									<h2 class="main_title">가장 빠른 수업</h2>
+									<div class="talent_list swiper-container swiper_early_class swiper-container-initialized swiper-container-horizontal swiper-container-free-mode">
+										<ul class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+											<li class="swiper-slide swiper-slide-active" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/beauty/b_m_1_1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
+										            	</span>					    
+										            	<span class="name">홍하율</span>						
+										            	<span class="d_day">11월 26일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(728)</span></span>
+								                        </span>				
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										    <li class="swiper-slide swiper-slide-next" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/beauty/b_m_1_1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
+										            	</span>					    
+										            	<span class="name">홍하율</span>						
+										            	<span class="d_day">11월 26일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(728)</span></span>
+								                        </span>				
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										    <li class="swiper-slide swiper-slide" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/beauty/b_m_1_1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
+										            	</span>					    
+										            	<span class="name">홍하율</span>						
+										            	<span class="d_day">11월 26일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(728)</span></span>
+								                        </span>				
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										</ul>
+										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
+										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
+										<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+									</div>
+								</div>
+								<div class="talent_box">
+									<h2 class="main_title">유저들이 가장 많이 찾는 수업</h2>
+									<div class="talent_list swiper-container swiper_popular_class swiper-container-initialized swiper-container-horizontal swiper-container-free-mode">
+										<ul class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+											<li class="swiper-slide swiper-slide-active" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
+										            	</span>					    
+										            	<span class="name">심효정</span>						
+										            	<span class="d_day">11월 27일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(75)</span></span>
+								                        </span>				
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										    <li class="swiper-slide swiper-slide-next" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
+										            	</span>					    
+										            	<span class="name">심효정</span>						
+										            	<span class="d_day">11월 27일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(75)</span></span>
+								                        </span>					
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										    <li class="swiper-slide swiper-slide" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
+										            	</span>					    
+										            	<span class="name">심효정</span>						
+										            	<span class="d_day">11월 27일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(75)</span></span>
+								                        </span>					
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										</ul>
+										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
+										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
+										<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+									</div>
+								</div>
+								<div class="talent_box">
+									<h2 class="main_title">오늘의 인기 원데이</h2>
+									<div class="talent_list swiper-container swiper_popular_oneday swiper-container-initialized swiper-container-horizontal swiper-container-free-mode">
+										<ul class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+											<li class="swiper-slide swiper-slide-active" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/beauty/b_m_1_1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
+										            	</span>					    
+										            	<span class="name">홍하율</span>						
+										            	<span class="d_day">11월 26일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(728)</span></span>
+								                        </span>				
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										    <li class="swiper-slide swiper-slide-next" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/beauty/b_m_1_1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
+										            	</span>					    
+										            	<span class="name">홍하율</span>						
+										            	<span class="d_day">11월 26일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(728)</span></span>
+								                        </span>				
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										    <li class="swiper-slide swiper-slide" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/beauty/b_m_1_1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
+										            	</span>					    
+										            	<span class="name">홍하율</span>						
+										            	<span class="d_day">11월 26일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(728)</span></span>
+								                        </span>				
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										</ul>
+										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
+										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
+										<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+									</div>
+								</div>
+								<div class="talent_box">
+									<h2 class="main_title">MD 추천 클래스</h2>
+									<div class="talent_list swiper-container swiper_md_recommend swiper-container-initialized swiper-container-horizontal swiper-container-free-mode">
+										<ul class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+											<li class="swiper-slide swiper-slide-active" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
+										            	</span>					    
+										            	<span class="name">심효정</span>						
+										            	<span class="d_day">11월 27일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(75)</span></span>
+								                        </span>					
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										    <li class="swiper-slide swiper-slide-next" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
+										            	</span>					    
+										            	<span class="name">심효정</span>						
+										            	<span class="d_day">11월 27일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(75)</span></span>
+								                        </span>					
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										    <li class="swiper-slide swiper-slide" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
+										            </div>
+										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
+										            	</span>					    
+										            	<span class="name">심효정</span>						
+										            	<span class="d_day">11월 27일 </span>						
+										            	<span class="location">강남</span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">4.9<span>(75)</span></span>
+								                        </span>					
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										    </li>
+										</ul>
+										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
+										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
+										<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+									</div>
+								</div>
+								<div class="talent_box">
+									<h2 class="main_title">높은 리뷰 평점</h2>
+									<div class="high_score swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-free-mode">
+										<ul class="swiper-wrapper">
+											<li class="swiper-slide swiper-slide-active" style="width: 123px; margin-right: 60px;">
+												<a href="">
+													<div class="profile lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img2.png');"></div>
+													<p class="cate_main">메이크업</p>
+													<p class="name">홍하율</p>
+												</a>
+											</li>
+											<li class="swiper-slide swiper-slide-next" style="width: 123px; margin-right: 60px;">
+												<a href="">
+													<div class="profile lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img1.jpg');"></div>
+													<p class="cate_main">메이크업</p>
+													<p class="name">심효정</p>
+												</a>
+											</li>
+											<li class="swiper-slide swiper-slide" style="width: 123px; margin-right: 60px;">
+												<a href="">
+													<div class="profile lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img2.png');"></div>
+													<p class="cate_main">메이크업</p>
+													<p class="name">홍하율</p>
+												</a>
+											</li>
+											<li class="swiper-slide swiper-slide" style="width: 123px; margin-right: 60px;">
+												<a href="">
+													<div class="profile lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img1.jpg');"></div>
+													<p class="cate_main">메이크업</p>
+													<p class="name">홍하율</p>
+												</a>
+											</li>
+											<li class="swiper-slide swiper-slide" style="width: 123px; margin-right: 60px;">
+												<a href="">
+													<div class="profile lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img2.png');"></div>
+													<p class="cate_main">메이크업</p>
+													<p class="name">심효정</p>
+												</a>
+											</li>
+											<li class="swiper-slide swiper-slide" style="width: 123px; margin-right: 60px;">
+												<a href="">
+													<div class="profile lazyloaded" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img1.jpg');"></div>
+													<p class="cate_main">메이크업</p>
+													<p class="name">심효정</p>
+												</a>
+											</li>
+										</ul>
+										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
+										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
+										<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 	</main>
 
