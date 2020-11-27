@@ -128,7 +128,11 @@
 	.terms_lst .terms_chk_all .inp_chkbox::before {
 		background-image: url(http://localhost:9000/One_day_class/images/mb_check_off_over.png);
 	}
-	.label_wrap .inp_label:checked + label::before {
+	.label_wrap .inp_label+ label::before {
+    	background-image: url(http://localhost:9000/One_day_class/images/mb_check_off.png);
+	}
+	
+	.label_wrap .inp_label.all + label::before {
     	background-image: url(http://localhost:9000/One_day_class/images/mb_check_on.png);
 	}
 	.label_wrap .inp_chkbox::before {
@@ -221,7 +225,7 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 	
 	<!-- content -->
-	<section class="login_how_to container" id="accountAgree" style>
+	<section class="login_how_to container" id="accountAgree">
 		<form action="#" method="post" id="frm-agree">
 			<div class="box_login box_terms">
 				<h2 class="tit">
@@ -230,13 +234,13 @@
 				</h2>
 				<ul class="terms_lst">
 					<li class="terms_chk_all">
-						<div class="label_wrap">
-							<input class="blind inp_label all" type="checkbox" name="checkAll" id="checkAll">
+						<div class="label_wrap" id="terms_all_wrap" >
+							<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll" onclick="terms_all()" >
 							<label for="checkAll" class="inp_chkbox">전체동의</label>
 						</div> <!-- class="label_wrap" -->
 					</li> <!-- class="terms_chk_all" -->
 					<li>
-						<div class="label_wrap">
+						<div class="label_wrap" >
 							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsService" value="termsService">
 							<label for="termsService" class="inp_chkbox">서비스 이용약관 (필수)</label>
 							<a href="#" class="link_more" target="_blank">보기</a>
@@ -246,7 +250,7 @@
 						</article>
 					</li>
 					<li>
-						<div class="label_wrap">
+						<div class="label_wrap" >
 							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsPrivacy" value="termsPrivacy">
 							<label for="termsPrivacy" class="inp_chkbox">개인정보처리방침 (필수)</label>
 							<a href="#" class="link_more" target="_blank">보기</a>
@@ -266,5 +270,22 @@
 	
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
+	
+	<script>
+		function terms_all() { 
+	 		document.getElementById("checkAll").classList.add('all');
+	 		document.getElementById("termsService").classList.add('all');
+	 		document.getElementById("termsPrivacy").classList.add('all');
+	 		document.getElementById("checkAll").setAttribute("onclick","terms_all_off()"); 
+		}
+		function terms_all_off() { 
+	 		document.getElementById("checkAll").classList.remove('all');
+	 		document.getElementById("termsService").classList.remove('all');
+	 		document.getElementById("termsPrivacy").classList.remove('all');
+	 		document.getElementById("checkAll").setAttribute("onclick","terms_all()");
+		}  
+		
+		
+	</script>
 </body>
 </html>

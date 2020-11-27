@@ -248,8 +248,8 @@
 				</div> <!-- class="box_inp" -->
 				<div class="box_btn">
 					<button class="btn_submit" type="button" onclick="login()">로그인 하기</button>
-					<a class="btn" href="#">비밀번호 찾기</a>
-					<a class="btn" href="#">회원가입</a>
+					<a class="btn" href="find_pw.jsp">비밀번호 찾기</a>
+					<a class="btn" href="../join/join.jsp">회원가입</a>
 				</div> <!-- class="box_btn" -->
 			</div> <!-- class="box_login login_email" -->
 			<input type="hidden" name="redirectUrl" id="redirectUrl" value="https://taling.me/"> <!-- 뭔지 모르지만 일단 넣다 ㅇㅅㅇ -->
