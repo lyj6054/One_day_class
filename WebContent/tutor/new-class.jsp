@@ -53,11 +53,13 @@
 		margin-left:38px;
 	}
 	div.static-box>div.box>div.box2>button.btn1:hover,
+	div.static-box>div.box>div.box2>a>button.btn1:hover,
 	div.static-box>div.box>div.box2>a>button.btn3:hover {
 		background-color:lightgray;
 		border:1px solid lightgray;
 	}
-	div.static-box>div.box>div.box2>button.btn1 {
+	div.static-box>div.box>div.box2>button.btn1,
+	div.static-box>div.box>div.box2>a>button.btn1 {
 		margin:5px 5px 50px 5px;
 		width:100px; height:40px;
 		background-color:rgb(85,85,85);
@@ -219,7 +221,7 @@
 				</div>
 				<div class="box2">
 					<button class="btn1"><span>심사 취소하기</span></button>
-					<button class="btn1"><span>수업 수정하기</span></button>
+					<a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp"><button class="btn1"><span>수업 수정하기</span></button></a>
 					<a href="http://localhost:9000/One_day_class/tutor/day.jsp"><button class="btn3"><span>시간/날짜 설정</span></button></a>
 					<button class="btn2"><span>미리보기</span></button>
 				</div>

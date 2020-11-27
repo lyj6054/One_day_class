@@ -32,12 +32,13 @@
 		margin-bottom:25px;
 		}
 		div.pt>h1.rt {
-		font-size:27px;
+		font-size:25px;
 	}
 	div.pt {
 		display:inline-block;
 		float:left;
 		margin-top:10px;
+		margin-left:8px;
 	}
 	div.pt1 {
 		display:inline-block;
@@ -53,14 +54,10 @@
 		width:600px;
 		height:100px;
 	}
-	hr.top-hr {
-		margin-top:50px;
-		opacity:0.5;
-		width:100%;
-	}
 	div.pt-box {
 		width:1046px;
 		margin-left:70px;
+		margin-top:65px;
 	}
 	div.rf-box1 {
 		text-align:center;
@@ -87,9 +84,6 @@
 	div.pt1>div.pt1-2>a:visited {
 		color:black;
 	}
-	div.pt1>div.pt1-2>a:active {
-		border-bottom:2px solid black;
-	}
 	div.pt2>span.pt2-1 {
 		font-size:19px;
 	}
@@ -101,7 +95,6 @@
 		color:rgb(85,85,85);
 	}
 	div.pt2>div.rf1 {
-		border:1px solid blue;
 		text-align:center;
 		margin-left:340px;
 	}
@@ -111,7 +104,6 @@
 	<div class="refund">
 	<!--header -->
 	<jsp:include page="../header.jsp" />
-		<hr class="top-hr">
 		
 		<div class="pt-box">
 			<div class="pt">
@@ -161,7 +153,14 @@
 			</div>
 		</div>
 		<hr class="line3">
-		
+		<div class="pt2">
+			<span class="pt2-1">신청해주신 수업료는 영업일 기준 3일 이내에 송금 됩니다.</span>
+			<div class="pt2-2">
+				<ul>
+					<li>튜터님께서 신청해주신 수업료는 영업일 기준 3일 이내에 송금해 드립니다. 조금만 기다려 주세요.</li><br>
+				</ul>
+			</div>
+		<hr class="line2">
 	<!--header -->
 	<jsp:include page="../footer.jsp" />
 	</div>

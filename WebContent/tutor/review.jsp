@@ -16,11 +16,6 @@
 		margin-top:20px;
 		width:1200px;
 	}
-	hr.top-hr {
-		margin-top:50px;
-		opacity:0.5;
-		width:100%
-	}
 	div.tb {
 		text-align:center;
 		margin-top:50px;
@@ -155,7 +150,7 @@
 	<!--header -->
 	<jsp:include page="../header.jsp" />
 
-	<hr class="top-hr">
+	
 	
 		<div class="tb">
 			<h1 class="rt">박민수님의 리뷰작성 현황</h1>

@@ -32,12 +32,13 @@
 		margin-bottom:25px;
 		}
 		div.pt>h1.rt {
-		font-size:27px;
+		font-size:25px;
 	}
 	div.pt {
 		display:inline-block;
 		float:left;
 		margin-top:10px;
+		margin-left:8px;
 	}
 	div.pt1 {
 		display:inline-block;
@@ -53,14 +54,11 @@
 		width:600px;
 		height:100px;
 	}
-	hr.top-hr {
-		margin-top:50px;
-		opacity:0.5;
-		width:100%;
-	}
+	
 	div.pt-box {
 		width:1046px;
 		margin-left:70px;
+		margin-top:65px;
 	}
 	div.rf-box1 {
 		text-align:center;
@@ -87,9 +85,6 @@
 	div.pt1>div.pt1-2>a:visited {
 		color:black;
 	}
-	div.pt1>div.pt1-2>a:active {
-		border-bottom:2px solid black;
-	}
 	div.pt2>span.pt2-1 {
 		font-size:19px;
 	}
@@ -106,7 +101,6 @@
 	<div class="refund">
 	<!--header -->
 	<jsp:include page="../header.jsp" />
-		<hr class="top-hr">
 		
 		<div class="pt-box">
 			<div class="pt">
@@ -114,7 +108,7 @@
 			</div>
 			<div class="pt1">
 				<div class="pt1-2">
-					<a href="http://localhost:9000/One_day_class/tutor/prom.jsp"><span>수업료 받기</span></a>
+					<a href="http://localhost:9000/One_day_class/tutor/refund1.jsp"><span>수업료 받기</span></a>
 				</div>
 				<div class="pt1-1">
 					<span>환불</span>

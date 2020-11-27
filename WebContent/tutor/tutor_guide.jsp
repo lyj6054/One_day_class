@@ -25,13 +25,13 @@
 						당신의 재능을 더욱 빛나게하는<br> <b>튜터수업가이드</b>
 					</div>
 				</a> <a
-					href="http://localhost:9000/One_day_class/tutor/tutor_guide_3.jsp">
+					href="http://localhost:9000/One_day_class/tutor/promotion.jsp">
 					<div class="image-box"
 						style="background-image: url(https://front-img.taling.me/Content/Images/guide/bg_guide_02.png)">
 						더 많은 수업 홍보를 위한<br> <b>프로모션 가이드</b>
 					</div>
 				</a> <a
-					href="http://localhost:9000/One_day_class/tutor/tutor_guide_5.jsp">
+					href="http://localhost:9000/One_day_class/tutor/refund.jsp">
 					<div class="image-box"
 						style="background-image: url(https://front-img.taling.me/Content/Images/guide/bg_guide_03.png)">
 						환불/ 환급 가이드<br> <b>환불/ 환급 가이드</b>

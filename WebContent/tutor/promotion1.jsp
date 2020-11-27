@@ -26,25 +26,23 @@
 		width:1046px;
 		margin-bottom:400px;
 		}
-	hr.top-hr {
-		margin-top:50px;
-		opacity:0.5;
-		width:100%;
-	}
 	div.pt>h1.rt {
-		font-size:27px;
+		font-size:25px;
 	}
 	div.pt-box {
 		width:1046px;
 		margin-left:70px;
+		margin-top:65px;
 	}
 	div.pt-box1 {
 		text-align:center;
+		margin-top:-10px;
 	}
 	div.pt {
 		display:inline-block;
 		float:left;
 		margin-top:10px;
+		margin-left:8px;
 	}
 	div.pt1 {
 		display:inline-block;
@@ -122,8 +120,7 @@
 	<div class="promotion">
 	<!--header -->
 	<jsp:include page="../header.jsp" />
-		<hr class="top-hr">
-		
+	
 		<div class="pt-box">
 			<div class="pt">
 				<h1 class="rt">튜터 수업 가이드</h1>
