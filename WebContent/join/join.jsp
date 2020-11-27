@@ -109,7 +109,7 @@
 		text-align:left;
 		font-size:12px;
 		color:blue;
-		
+		background:url(http://localhost:9000/One_day_class/images/pass_check.png) no-repeat 5px bottom/16px;
 	}
 	p {
 		margin-block-start: 1em;
@@ -227,6 +227,7 @@
 		position:relative;
 		right:72px;
 		font-size:13px;
+		height:25px;
 	}
 	.box_inp div.hope_class {
 		margin-bottom:45px;
@@ -241,6 +242,7 @@
 		position:relative;
 		right:72px;
 		font-size:13px;
+		height:25px;
 	}
 </style>
 </head>
@@ -401,6 +403,10 @@
 										alert("희망 수업을 선택해주세요");
 										userClass.focus();
 								        return false;
+									} else { 
+										joinForm.submit();
+										
+										return true;
 									}
 								}
 							}
