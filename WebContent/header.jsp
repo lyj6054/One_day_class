@@ -18,7 +18,7 @@
 	    font-weight: 400;
 	}
 	.container{
-		padding: 28px 0 41px;
+		padding: 28px 0 20px;
 		width: 1040px;
     	margin: 0 auto;
 	}
@@ -112,29 +112,31 @@
 <body>
 	<header>
 		<div class="container">
-			<h1 class="logo">
-				<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
-			</h1>
-			<div class="hd_bar">
-				<div class="hd_search_box">
-					<form name="search" action="#" method="get">
-						<fieldset>
-							<input class="inp" type="text" name="query">
-							<button class=search_btn type="submit"></button>
-						</fieldset>
-					</form>										
+			<div class="container hd_wrap">
+				<h1 class="logo">
+					<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
+				</h1>
+				<div class="hd_bar">
+					<div class="hd_search_box">
+						<form name="search" action="#" method="get">
+							<fieldset>
+								<input class="inp" type="text" name="query">
+								<button class=search_btn type="submit"></button>
+							</fieldset>
+						</form>										
+					</div>
 				</div>
+				<nav class="hd_right">
+					<ul class="gnb">
+						<li>
+							<a href="http://localhost:9000/One_day_class/tutor/tutor.jsp">튜터등록</a>
+						</li>
+						<li>
+							<a href="http://localhost:9000/One_day_class/login/login.jsp">로그인</a>
+						</li>
+					</ul>
+				</nav>
 			</div>
-			<nav class="hd_right">
-				<ul class="gnb">
-					<li>
-						<a href="http://localhost:9000/One_day_class/tutor/tutor.jsp">튜터등록</a>
-					</li>
-					<li>
-						<a href="http://localhost:9000/One_day_class/login/login.jsp">로그인</a>
-					</li>
-				</ul>
-			</nav>
 		</div>
 	</header>
 </body>

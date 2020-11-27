@@ -18,7 +18,7 @@
 	    font-weight: 400;
 	}
 	.container{
-		padding: 28px 0 41px;
+		padding: 28px 0 20px;
 		width: 1040px;
     	margin: 0 auto;
 	}

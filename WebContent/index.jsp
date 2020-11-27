@@ -64,7 +64,7 @@
 	    overflow:hidden;
 		height:auto;
 	    margin: 0 auto;
-	    padding: 50px 0;
+	    padding: 30px 0;
 	}
 	.main_content {
 	    position: relative;
