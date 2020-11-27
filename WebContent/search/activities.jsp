@@ -58,7 +58,8 @@
 				var sub6 = '<div class="catesub_list cates" id="sub6"  >';
 				sub6 += '<div class="main"><li><a href="?cateSub=41">영어회화</a></li><li><a href="?cateSub=42">기타회화</a></li>                     </div>';
 				sub6 += '</div>';
-
+				
+					
 				if (str == "sub1") {
 					document.getElementById("show_detail").innerHTML = sub1;
 				} else if (str == "sub2") {
@@ -71,7 +72,7 @@
 					document.getElementById("show_detail").innerHTML = sub5;
 				} else if (str == "sub6") {
 					document.getElementById("show_detail").innerHTML = sub6;
-				}
+				} 
 			}
 		</script>
 		<div id="container">
@@ -85,13 +86,13 @@
 						</a></li>
 						<li class="cate" onmouseover="menuView(2)" id="menu2"><a
 							href="http://localhost:9000/One_day_class/search/activities.jsp">
-								<div id="cate2">액티비티</div>
+								<div id="cate2">
+									<b>액티비티</b>
+									</div>
 						</a></li>
 						<li class="cate" onmouseover="menuView(3)" id="menu3"><a
 							href="http://localhost:9000/One_day_class/search/life.jsp">
-								<div id="cate3">
-									<b>라이프</b>
-									</div>
+								<div id="cate3">라이프</div>
 						</a></li>
 						<li class="cate" onmouseover="menuView(4)" id="menu4"><a
 							href="http://localhost:9000/One_day_class/search/hobby.jsp">
@@ -142,7 +143,7 @@
                         <div class="main">
                             <li><a href="?cateSub=41">영어회화</a></li><li><a href="?cateSub=42">기타회화</a></li>                     </div>
                     </div> -->
-				<div class="catesub_list filter" id="sub9" style="display: block;">
+				<div class="catesub_list filter" id="sub9" style="">
 					<div class="main">
 						<div class="inbox">
 							<div class="left">지역</div>
@@ -163,107 +164,116 @@
 								</select> <select id="regionSubLayer0" style="margin-left: 10px;"
 									class="off" onchange="regionSubSelect(this.value)">
 									<option
-										value="1,4,19,5,9,14,11,2,6,7,21,13,17,10,77,119,15,8,25,22,18,16,24,107,12,101,108,3,109,112,100">서울
-										ALL(334)</option>
-									<option value="1">강남(99)</option>
-									<option value="4">신촌홍대(60)</option>
-									<option value="19">마포(23)</option>
-									<option value="5">종로(20)</option>
-									<option value="9">잠실(19)</option>
-									<option value="14">건대(17)</option>
-									<option value="11">신림(12)</option>
-									<option value="2">사당(8)</option>
-									<option value="6">영등포(8)</option>
-									<option value="7">성북(8)</option>
-									<option value="21">목동(6)</option>
-									<option value="13">회기(6)</option>
-									<option value="17">노원(5)</option>
-									<option value="10">왕십리(5)</option>
-									<option value="77">강서(5)</option>
-									<option value="119">교대(4)</option>
-									<option value="15">용산(4)</option>
-									<option value="8">혜화(4)</option>
+										value="1,4,2,14,9,11,19,7,8,10,6,15,22,5,21,18,100,12,16,13,17,77,23,97,25,24,134,116,122,108,129,101,20,125,119,3,107">서울
+										ALL(530)</option>
+									<option value="1">강남(116)</option>
+									<option value="4">신촌홍대(78)</option>
+									<option value="2">사당(58)</option>
+									<option value="14">건대(57)</option>
+									<option value="9">잠실(45)</option>
+									<option value="11">신림(26)</option>
+									<option value="19">마포(13)</option>
+									<option value="7">성북(13)</option>
+									<option value="8">혜화(13)</option>
+									<option value="10">왕십리(10)</option>
+									<option value="6">영등포(9)</option>
+									<option value="15">용산(9)</option>
+									<option value="22">구로(8)</option>
+									<option value="5">종로(7)</option>
+									<option value="21">목동(7)</option>
+									<option value="18">수유(7)</option>
+									<option value="100">올림픽공원(6)</option>
+									<option value="12">동작(6)</option>
+									<option value="16">충무로(5)</option>
+									<option value="13">회기(5)</option>
+									<option value="17">노원(4)</option>
+									<option value="77">강서(4)</option>
+									<option value="23">청량리(3)</option>
+									<option value="97">천호동(3)</option>
 									<option value="25">미아(3)</option>
-									<option value="22">구로(3)</option>
-									<option value="18">수유(3)</option>
-									<option value="16">충무로(2)</option>
 									<option value="24">은평(2)</option>
-									<option value="107">서대문(1)</option>
-									<option value="12">동작(1)</option>
-									<option value="101">잠실새내(1)</option>
+									<option value="134">상봉(2)</option>
+									<option value="116">약수역(2)</option>
+									<option value="122">대치(1)</option>
 									<option value="108">이태원(1)</option>
+									<option value="129">중구(1)</option>
+									<option value="101">잠실새내(1)</option>
+									<option value="20">정릉(1)</option>
+									<option value="125">동대입구(1)</option>
+									<option value="119">교대(1)</option>
 									<option value="3">신사(1)</option>
-									<option value="109">논현(1)</option>
-									<option value="112">성수(1)</option>
-									<option value="100">올림픽공원(1)</option>
+									<option value="107">서대문(1)</option>
 								</select> <select id="regionSubLayer1" style="margin-left: 10px;"
 									class="off" onchange="regionSubSelect(this.value)">
 									<option
-										value="26,28,30,27,80,92,81,106,29,95,85,84,121,96,132,83">경기
-										ALL(86)</option>
-									<option value="26">분당(24)</option>
-									<option value="28">일산(16)</option>
-									<option value="30">수원(16)</option>
-									<option value="27">서현(6)</option>
-									<option value="80">안양(4)</option>
-									<option value="92">부천(3)</option>
-									<option value="81">남양주(3)</option>
-									<option value="106">김포(3)</option>
+										value="30,26,28,80,92,85,83,84,111,96,81,106,29,95,27,113,65,121,127">경기
+										ALL(95)</option>
+									<option value="30">수원(29)</option>
+									<option value="26">분당(20)</option>
+									<option value="28">일산(13)</option>
+									<option value="80">안양(5)</option>
+									<option value="92">부천(4)</option>
+									<option value="85">파주(3)</option>
+									<option value="83">안산(3)</option>
+									<option value="84">용인(2)</option>
+									<option value="111">시흥(2)</option>
+									<option value="96">이천(2)</option>
+									<option value="81">남양주(2)</option>
+									<option value="106">김포(2)</option>
 									<option value="29">의정부(2)</option>
-									<option value="95">하남(2)</option>
-									<option value="85">파주(2)</option>
-									<option value="84">용인(1)</option>
+									<option value="95">하남(1)</option>
+									<option value="27">서현(1)</option>
+									<option value="113">모란(1)</option>
+									<option value="65">에버랜드(1)</option>
 									<option value="121">화성(1)</option>
-									<option value="96">이천(1)</option>
-									<option value="132">양평(1)</option>
-									<option value="83">안산(1)</option>
+									<option value="127">평택시(1)</option>
 								</select> <select id="regionSubLayer2" style="margin-left: 10px;"
 									class="off" onchange="regionSubSelect(this.value)">
-									<option value="33,32,31,104,34">인천 ALL(17)</option>
-									<option value="33">부평(7)</option>
-									<option value="32">구월동(3)</option>
-									<option value="31">송도(3)</option>
-									<option value="104">주안(2)</option>
-									<option value="34">계양(2)</option>
+									<option value="33,31,34,32">인천 ALL(18)</option>
+									<option value="33">부평(10)</option>
+									<option value="31">송도(6)</option>
+									<option value="34">계양(1)</option>
+									<option value="32">구월동(1)</option>
 								</select> <select id="regionSubLayer3" style="margin-left: 10px;"
 									class="off" onchange="regionSubSelect(this.value)">
-									<option value="36,39,35,78,37,38">부산 ALL(15)</option>
-									<option value="36">부산서면(8)</option>
-									<option value="39">부산해운대(3)</option>
-									<option value="35">부산대(1)</option>
-									<option value="78">광안리(1)</option>
-									<option value="37">부산부경대(1)</option>
+									<option value="36,39,35,69,38,78">부산 ALL(17)</option>
+									<option value="36">부산서면(5)</option>
+									<option value="39">부산해운대(4)</option>
+									<option value="35">부산대(4)</option>
+									<option value="69">부산동래(2)</option>
 									<option value="38">부산남포(1)</option>
+									<option value="78">광안리(1)</option>
 								</select> <select id="regionSubLayer4" style="margin-left: 10px;"
 									class="off" onchange="regionSubSelect(this.value)">
-									<option value="48,43,47">경상,대구,울산 ALL(8)</option>
-									<option value="48">대구중앙(5)</option>
-									<option value="43">울산시청(2)</option>
-									<option value="47">대구동성로(1)</option>
+									<option value="48,47,42,117,126,40">경상,대구,울산 ALL(10)</option>
+									<option value="48">대구중앙(3)</option>
+									<option value="47">대구동성로(2)</option>
+									<option value="42">울산대(2)</option>
+									<option value="117">두류동(1)</option>
+									<option value="126">양산시(1)</option>
+									<option value="40">포항(1)</option>
 								</select> <select id="regionSubLayer5" style="margin-left: 10px;"
 									class="off" onchange="regionSubSelect(this.value)">
-									<option value="56,73,74,52,55,91">대전,충청 ALL(17)</option>
-									<option value="56">청주(6)</option>
-									<option value="73">둔산(4)</option>
-									<option value="74">천안(4)</option>
+									<option value="55,91,74,52">대전,충청 ALL(6)</option>
+									<option value="55">대전역(2)</option>
+									<option value="91">세종시(2)</option>
+									<option value="74">천안(1)</option>
 									<option value="52">유성구(1)</option>
-									<option value="55">대전역(1)</option>
-									<option value="91">세종시(1)</option>
 								</select> <select id="regionSubLayer6" style="margin-left: 10px;"
 									class="off" onchange="regionSubSelect(this.value)">
-									<option value="58">강원 ALL(1)</option>
-									<option value="58">원주(1)</option>
+									<option value="57,59">강원 ALL(3)</option>
+									<option value="57">강릉(2)</option>
+									<option value="59">춘천(1)</option>
 								</select> <select id="regionSubLayer7" style="margin-left: 10px;"
 									class="off" onchange="regionSubSelect(this.value)">
-									<option value="61,62">광주,전라,제주 ALL(2)</option>
-									<option value="61">군산(1)</option>
+									<option value="63,62">광주,전라,제주 ALL(2)</option>
+									<option value="63">제주(1)</option>
 									<option value="62">전주(1)</option>
 								</select> <select id="regionSubLayer8" style="margin-left: 10px;"
 									class="off" onchange="regionSubSelect(this.value)">
-									<option value="64,140,139">온라인 ALL(121)</option>
-									<option value="64">온라인 Live(114)</option>
-									<option value="140">튜터전자책(5)</option>
-									<option value="139">녹화영상(2)</option>
+									<option value="64,139">온라인 ALL(10)</option>
+									<option value="64">온라인 Live(9)</option>
+									<option value="139">녹화영상(1)</option>
 								</select>
 
 
@@ -408,7 +418,7 @@
 
 										region = $("#region").val();
 										regionMain = $("#regionMain").val();
-										cateMain = "7";
+										cateMain = "10";
 										cateSub = "";
 
 										query = "";
@@ -486,7 +496,7 @@
 				<div class="filter_head">
 					<!-- VOD 검색 -->
 					<!-- //VOD 검색 -->
-					<div class="num_class bd_num">465개의 수업</div>
+					<div class="num_class bd_num">488개의 수업</div>
 					<!--select name="fluit" onchange="go(this.value)">
 				<option value="5" >추천도순</option>
 				<option value="3" >낮은 가격순</option>
@@ -494,7 +504,7 @@
 			</select-->
 					<script>
 						function go(val) {
-							cateMain = "7";
+							cateMain = "10";
 							cateSub = "";
 							region = "";
 							query = "";
@@ -513,243 +523,197 @@
 				<div class="cont2_box" id="top-space">
 					<div class="cont2">
 						<div class="cont2_class">
-							<a href="/Talent/Detail/29792" target="_blank">
+							<a href="/Talent/Detail/2761" target="_blank">
 								<div class="img"
-									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_e5e7044d970f090f2078296952a84df880dabcd8.jpg);">
+									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_7def0addeeca93ec86a7c35e97991823f78c3830.jpeg);">
 									<div class="day">1DAY수업</div>
-									<div class="sale">30%할인</div>
-									<div class="d_day">D-36</div>
+									<div class="d_day">3429명 찜</div>
 									<!--a class="heart2"></a-->
 								</div>
 								<div class="profile_box">
 									<div class="profile"
-										style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_b031d16e5a375c7074a6bf09c19648617c1d3aff.jpg);">
+										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_0a4b88d644242d2f6376a635c5d5b5447b8b516a.png);">
 									</div>
-									<div class="name">지수민</div>
-									<div class="nick">Vet.Ji</div>
+									<div class="name">ddoEdo</div>
+									<div class="nick">또이도</div>
 								</div>
-								<div class="title">우리 고양이, 더 건강하게! 수의사가 알려주는 원데이 집사 필수 지식
-								</div>
+								<div class="title">[KPOP] 블랙핑크, 마마무, 지연 세뇨리따 하루만에 마스터하고 영상
+									남기자!</div>
 								<div class="price">
-									<div class="sale"
-										style="background-image: url(//front-img.taling.me/Content/Images/50per-02.png); color: white; padding-left: 5px; font-size: 13px;">
-										30%</div>
-									<div class="price1">
+									<div class="price2">
+										<span>￦<span><span>12,500<span>
+									</div>
+								</div>
+								<div class="info">
+									<div class="info2">
+										<div class="star">★★★★★</div>
+										<div class="review" style="margin-right: 15px;">(227)</div>
+
+										<div class="location">사당</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="cont2_class">
+							<a href="/Talent/Detail/1767" target="_blank">
+								<div class="img"
+									style="background-image: url(//img.taling.me/Content/Uploads/Cover/s_5ad0fde4d533bfda9f468e3992fb45d0c417f709.jpeg);">
+									<div class="day">1DAY수업</div>
+									<div class="d_day">2719명 찜</div>
+									<!--a class="heart2"></a-->
+								</div>
+								<div class="profile_box">
+									<div class="profile"
+										style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_bb7bd3d906f92c610be69d3b14bcd66530512173.png);">
+									</div>
+									<div class="name">로미</div>
+									<div class="nick">로미</div>
+								</div>
+								<div class="title">[방송댄스]압도적 재수강율!프로모션 영상맛집!체계적으로 배우는
+									춤입문/럽식걸즈,아캔스탑미</div>
+								<div class="price">
+									<div class="price2">
+										<span>￦<span><span>12,500<span>
+									</div>
+								</div>
+								<div class="info">
+									<div class="info2">
+										<div class="star">★★★★★</div>
+										<div class="review" style="margin-right: 15px;">(137)</div>
+
+										<div class="location">사당</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="cont2_class">
+							<a href="/Talent/Detail/14822" target="_blank">
+								<div class="img"
+									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_46d394cb9443b5c1e116aa517f79ea13dbe81c92.jpeg);">
+									<div class="day">1DAY수업</div>
+									<div class="d_day">2580명 찜</div>
+									<!--a class="heart2"></a-->
+								</div>
+								<div class="profile_box">
+									<div class="profile"
+										style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_1a44cd22f81b254622cbd04b2519f2ba75ed65c4.png);">
+									</div>
+									<div class="name">서영쌤</div>
+									<div class="nick">걸음마티쳐</div>
+								</div>
+								<div class="title">[뛰기는 싫고, 그냥 좀 걸을까?] 남산둘레길 함께 걷기 +
+									자세교정까지❤️ #자세교정 #바른자세 #걸음걸이 #스트레칭 #자기계발</div>
+								<div class="price">
+									<div class="price2">
 										<span>￦<span><span>15,000<span>
 									</div>
-									<div class="price2">
-										<span>￦<span><span>10,500<span>
-									</div>
 								</div>
 								<div class="info">
 									<div class="info2">
 										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(2)</div>
+										<div class="review" style="margin-right: 15px;">(156)</div>
 
-										<div class="location">온라인 Live</div>
+										<div class="location">동대입구</div>
 									</div>
 								</div>
 							</a>
 						</div>
 						<div class="cont2_class">
-							<a href="/Talent/Detail/30781" target="_blank">
+							<a href="/Talent/Detail/10576" target="_blank">
 								<div class="img"
-									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_f19ee86283ce5f5a1bfb2ab2b2ac7e90a61cc7ac.jpg);">
+									style="background-image: url(//img.taling.me/Content/Uploads/Cover/s_046cc079593eefeef14e601cfc97a8a618fbb9a2.jpeg);">
 									<div class="day">1DAY수업</div>
-									<div class="d_day">2명 찜</div>
+									<div class="d_day">2224명 찜</div>
 									<!--a class="heart2"></a-->
 								</div>
 								<div class="profile_box">
 									<div class="profile"
-										style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_8853cf46fbd972e3bde68f671d1dc79f78ef0ef6.jpg);">
+										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_65a0272836c5e8426af3502923e7128ef965054f.png);">
 									</div>
-									<div class="name">위니</div>
-									<div class="nick">위니</div>
+									<div class="name">라니</div>
+									<div class="nick">rany</div>
 								</div>
-								<div class="title">직장내괴롭힘, 인권침해 상담해드립니다</div>
+								<div class="title">[방송댄스] 아이돌처럼 예쁜 춤선? 나도 할수있다!
+									(라타타!1:1,1:2,1:3 할인중!</div>
 								<div class="price">
 									<div class="price2">
-										<span>￦<span><span>15,000<span>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info2">
-										<div class="star" style="margin-right: 15px; margin-top: 2px;">
-											<img src="https://front-img.taling.me/Content/Images/new.png"
-												style="width: 35px;">
-										</div>
-
-										<div class="location">온라인 Live</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="cont2_class">
-							<a href="/Talent/Detail/8044" target="_blank">
-								<div class="img"
-									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_d1af0633827885f86bd543dee59907512b987c5e.jpeg);">
-									<div class="day">1DAY수업</div>
-									<div class="d_day">3437명 찜</div>
-									<!--a class="heart2"></a-->
-								</div>
-								<div class="profile_box">
-									<div class="profile"
-										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_b7f513976140c4b3064bdb0d159d6fae527a6114.png);">
-									</div>
-									<div class="name">전가인</div>
-									<div class="nick">전복</div>
-								</div>
-								<div class="title">생각이 많을땐, 딱 1시간 그림으로 내 심리를 알아봐요❤️</div>
-								<div class="price">
-									<div class="price2">
-										<span>￦<span><span>38,000<span>
+										<span>￦<span><span>12,500<span>
 									</div>
 								</div>
 								<div class="info">
 									<div class="info2">
 										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(190)</div>
+										<div class="review" style="margin-right: 15px;">(143)</div>
 
-										<div class="location">강서</div>
+										<div class="location">사당</div>
 									</div>
 								</div>
 							</a>
 						</div>
 						<div class="cont2_class">
-							<a href="/Talent/Detail/10352" target="_blank">
+							<a href="/Talent/Detail/7468" target="_blank">
 								<div class="img"
-									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_c358ec779c2e3413875edcb8082d2d273aa407cd.jpg);">
+									style="background-image: url(//img.taling.me/Content/Uploads/Cover/s_49fd09886d036c9425f8f040df543fdc6a8763df.jpg);">
 									<div class="day">1DAY수업</div>
-									<div class="d_day">1740명 찜</div>
+									<div class="d_day">2160명 찜</div>
 									<!--a class="heart2"></a-->
 								</div>
 								<div class="profile_box">
 									<div class="profile"
-										style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_605ba7ae647c611c6fbacfdd39de54f107a2c795.png);">
+										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_dfc2bb53afe14965aebfc132fd920e8044996074.jpg);">
 									</div>
-									<div class="name">.Una</div>
-									<div class="nick">Una</div>
+									<div class="name">김세림</div>
+									<div class="nick">세림강사</div>
 								</div>
-								<div class="title">고달픈 내 인생! 사주팔자로 알아보자 [1시간 역학 심리상담]</div>
+								<div class="title">[원데이] 서울에서 "바닷 속 신세계" 체험하기! (feat.
+									스쿠버다이빙 체험)</div>
 								<div class="price">
 									<div class="price2">
-										<span>￦<span><span>47,000<span>
+										<span>￦<span><span>10,000<span>
 									</div>
 								</div>
 								<div class="info">
 									<div class="info2">
 										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(127)</div>
+										<div class="review" style="margin-right: 15px;">(39)</div>
 
-										<div class="location">강남</div>
+										<div class="location">잠실,송도,수원</div>
 									</div>
 								</div>
 							</a>
 						</div>
 						<div class="cont2_class">
-							<a href="/Talent/Detail/10985" target="_blank">
+							<a href="/Talent/Detail/11276" target="_blank">
 								<div class="img"
-									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_1ac560b7e380a4143d0cba86ed85c3b352106256.jpg);">
+									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_e9bfb0abf339e32df012f70e1fc288d48cf0e447.jpg);">
 									<div class="day">1DAY수업</div>
-									<div class="sale">20%할인</div>
-									<div class="d_day">D-5</div>
+									<div class="d_day">1688명 찜</div>
 									<!--a class="heart2"></a-->
 								</div>
 								<div class="profile_box">
 									<div class="profile"
-										style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_6ea00b97836506330a6652760e084d3afe871f4d.jpg);">
+										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_f9209bc11f39c0e8c608fd21093a0490a914e491.jpg);">
 									</div>
-									<div class="name">한은자</div>
-									<div class="nick">빅피</div>
+									<div class="name">노영수</div>
+									<div class="nick">영수</div>
 								</div>
-								<div class="title">[온,오프라인 가능] 찐~짜 내 마음 그려보기
-									#그림심리#심리상담#미술코칭</div>
+								<div class="title">[사당,홍대,건대,강남] 하루만에 쉽고 재밌게 배우는 댄스!!
+									BTS,트와이스,NCT</div>
 								<div class="price">
-									<div class="sale"
-										style="background-image: url(//front-img.taling.me/Content/Images/50per-02.png); color: white; padding-left: 5px; font-size: 13px;">
-										20%</div>
-									<div class="price1">
-										<span>￦<span><span>24,875<span>
-									</div>
 									<div class="price2">
-										<span>￦<span><span>19,900<span>
+										<span>￦<span><span>10,000<span>
 									</div>
 								</div>
 								<div class="info">
 									<div class="info2">
 										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(82)</div>
+										<div class="review" style="margin-right: 15px;">(201)</div>
 
-										<div class="location">마포,마포,서현</div>
+										<div class="location">사당</div>
 									</div>
 								</div>
 							</a>
 						</div>
-						<div class="cont2_class">
-							<a href="/Talent/Detail/5171" target="_blank">
-								<div class="img"
-									style="background-image: url(//img.taling.me/Content/Uploads/Cover/s_65906ea43466141da2f94bd513c4fa6947c60f3c.png);">
-									<div class="day">1DAY수업</div>
-									<div class="d_day">1501명 찜</div>
-									<!--a class="heart2"></a-->
-								</div>
-								<div class="profile_box">
-									<div class="profile"
-										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_5ef953eec3e177999015f096dbfd05d841e71937.jpg);">
-									</div>
-									<div class="name">김용환</div>
-									<div class="nick">습관디자이너</div>
-								</div>
-								<div class="title">[온/오프] 평생 실패하던 습관 만들기, 이 수업 이후 3개월 안에
-									성공합니다</div>
-								<div class="price">
-									<div class="price2">
-										<span>￦<span><span>5,000<span>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info2">
-										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(94)</div>
-
-										<div class="location">온라인 Live</div>
-									</div>
-								</div>
-							</a>
-						</div>
-
-						<div class="cont2_class">
-							<a href="/Talent/Detail/13717" target="_blank">
-								<div class="img"
-									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_9e01a16e74a660dd1780e88486de4b07b09c28c7.jpg);">
-									<div class="day">1DAY수업</div>
-									<div class="d_day">291명 찜</div>
-									<!--a class="heart2"></a-->
-								</div>
-								<div class="profile_box">
-									<div class="profile"
-										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_93b9862febe4dc1cf6e6b6738041be2f653f3b8c.jpg);">
-									</div>
-									<div class="name">이혜진</div>
-									<div class="nick">Jinny</div>
-								</div>
-								<div class="title">컬러로 알아보는 마음의 안녕은? 색채심리, 컬러테라피(온라인 가능)</div>
-								<div class="price">
-									<div class="price2">
-										<span>￦<span><span>20,000<span>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info2">
-										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(16)</div>
-
-										<div class="location">마포</div>
-									</div>
-								</div>
-							</a>
-						</div>
-
 
 					</div>
 				</div>
@@ -757,25 +721,25 @@
 
 				<div class="page">
 					<a href='#' class='list border'><b>1</b></a><a
-						href='/Home/Search/?page=2&cateMain=7&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
+						href='/Home/Search/?page=2&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
 						class='list'>2</a><a
-						href='/Home/Search/?page=3&cateMain=7&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
+						href='/Home/Search/?page=3&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
 						class='list'>3</a><a
-						href='/Home/Search/?page=4&cateMain=7&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
+						href='/Home/Search/?page=4&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
 						class='list'>4</a><a
-						href='/Home/Search/?page=5&cateMain=7&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
+						href='/Home/Search/?page=5&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
 						class='list'>5</a><a
-						href='/Home/Search/?page=6&cateMain=7&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
+						href='/Home/Search/?page=6&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
 						class='list'>6</a><a
-						href='/Home/Search/?page=7&cateMain=7&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
+						href='/Home/Search/?page=7&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
 						class='list'>7</a><a
-						href='/Home/Search/?page=8&cateMain=7&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
+						href='/Home/Search/?page=8&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
 						class='list'>8</a><a
-						href='/Home/Search/?page=9&cateMain=7&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
+						href='/Home/Search/?page=9&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
 						class='list'>9</a><a
-						href='/Home/Search/?page=10&cateMain=7&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
+						href='/Home/Search/?page=10&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
 						class='list'>10</a>&nbsp;&nbsp;<a
-						href='/Home/Search/?page=11&cateMain=7&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='>|
+						href='/Home/Search/?page=11&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='>|
 						&nbsp;다음&nbsp;&nbsp;<img src='../images/paging_pop_last.gif'
 						border='0'>
 					</a>
