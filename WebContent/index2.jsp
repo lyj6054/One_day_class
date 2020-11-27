@@ -27,7 +27,14 @@
 	    font-weight: inherit;
 	    font-size: inherit;
 	    color: inherit;
+	    letter-spacing: -0.25px;
 	    text-decoration: none;
+	}
+	a:-webkit-any-link {
+	    cursor: pointer;
+	}
+	b {
+		font-weight:bold;
 	}
 	img, fieldset, iframe {
 	    border: 0 none;
@@ -55,6 +62,20 @@
 	    border-collapse: collapse;
 	    border-spacing: 0;
 	    table-layout: fixed;
+	}
+	ul {
+	    display: block;
+	    list-style-type: disc;
+	    margin-block-start: 1em;
+	    margin-block-end: 1em;
+	    margin-inline-start: 0px;
+	    margin-inline-end: 0px;
+	    padding-inline-start: 40px;
+	}
+	li {
+		list-style: none;
+		display: list-item;
+    	text-align: -webkit-match-parent;
 	}
 	.i_content {
 	    width: 1040px;
@@ -316,6 +337,16 @@
 	.all_category.on {
 	    display: block;
 	}
+	.login_box {
+	    overflow: hidden;
+	    width: 30%;
+	    height: 180px;
+	    padding: 20px 20px 15px;
+	    border: 1px solid #eee;
+	    border-radius: 10px;
+	    background-color: #fff;
+	    float: right;
+	}
 	.status_logon {
 		padding:0;
 		background-color:#fafafa;
@@ -323,20 +354,115 @@
 	.status_logon .area_info_top {
 		display:flex;
 		align-items: center;
-		padding: 20px 20px 16px;
+		padding: 0 15px 0;
 	}
-	.status_logon 
-	.login_box {
-	    overflow: hidden;
-	    width: 30%;
-	    height: 190px;
-	    margin-bottom: 10px;
-	    padding: 17px 20px 16px;
-	    border: 1px solid #eee;
-	    border-radius: 10px;
-	    background-color: #fff;
-	    float: right;
+	.status_logon .my_profile {
+		margin-top:12px;
+		position: relative;
 	}
+	.status_logon .img_profile {
+		border:1px solid #ccc;
+		width:70px;
+		height:72px;
+		border-radius: 50%;
+		object-position: center;
+		object-fit: cover;
+	}
+	.status_logon .my_profile::after {
+		content:'';
+		position: absolute;
+		right:-3px;
+		bottom:0;
+		width:19px;
+		height:19px;
+		border-radius:50%;
+		background: url(http://localhost:9000/One_day_class/images/icon-setting@2x.png) 
+		no-repeat center/19px;
+	}
+	.status_logon .logon_msg {
+		padding-left:15px;
+		margin-top:15px;
+		font-size:0;
+	}
+	.status_logon .logon_msg b {
+		display: block;
+		margin-top:5px;
+		margin-bottom:5px;
+	}
+	.status_logon .level {
+		font-size:14px;
+		margin-right:3px;
+	}
+	em {
+		font-style: normal;
+	}
+	.status_logon .logon_msg b {
+		font-size:15px;
+		line-height:22px;
+		margin-bottom:3px;
+	}
+	.status_logon .logon_msg span {
+		font-size:14px;
+		line-height:22px;
+		margin-bottom:3px;
+	}
+	.status_logon .area_info_bottom {
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    padding: 2px 20px 0;
+	}
+	
+	.status_logon .btn_logout {
+		margin:0 0 10px 130px;
+		font-weight: bold;
+		font-size: 12px;
+		color:#999;
+		text-decoration:underline;
+	}
+	.status_logon .tutor_mode {
+		/* margin-left:160px; */
+		margin-top:-10px;
+		padding-right:42px;
+		font-weight:bold;
+		font-size:12px;
+		background:url(http://localhost:9000/One_day_class/images/btn-switch-off@2x.png)
+		no-repeat right center/37px 20px;
+	}
+	btton {
+		border:none;
+		vertical-align: top;
+		cursor: pointer;
+	}
+	.status_logon .lnb {
+		display: flex;
+		align-item: center;
+		text-align: center;
+		border-top: 1px solid #eee;
+		margin-bottom:5px;
+	}
+	.status_logon .lnb li {
+		width: 33.333%;
+	    padding: 18px 0 16px;
+	    border-left: 1px solid #eee;
+		}
+	.status_logon .lnb li:first-child {
+		border-left:none;
+	}
+	.status_logon .lnb a {
+		margin-bottom:25px;
+		position: relative;
+   		font-weight: 500;
+	}
+	.status_logon .lnb a:first-child {
+		border-left:0;
+	}
+	.status_logon .lnb .link_wish {
+		padding-left: 18px;
+		background: url(http://localhost:9000/One_day_class/images/icon-wish-clicked@2x.png)
+		no-repeat 5px center/22px;
+	}
+	
 	.login_box .login_msg {
 	    margin-bottom: 22px;
 	    font-weight: bold;
@@ -611,11 +737,13 @@
 				        		<em class="level">탈잉이잉</em>
 				        		님
 				        	</b>
-				        	<span>반가워요</span>
-				        	<button class="btn_logout" type="button" id="btn-menu-logout">로그아웃</button>
-				        	<button class="tutor_mode" type="button" data-tutormode>튜터모드</button>
+				        	<span>반가워요!<br>오늘도 색다른 탈잉을 즐겨봐요:)</span>
 				     	</div> <!-- class="logon_msg" -->
-				     </div> <!-- class="area_info_top" -->
+				      </div> <!-- class="area_info_top" -->
+				     <div class="area_info_bottom">
+				        <button class="btn_logout" type="button" id="btn-menu-logout">로그아웃</button>
+				        <button class="tutor_mode" type="button" data-tutormode>튜터모드</button>
+				     </div>
 				        <ul class="lnb">
 				        	<li><a href="#">수업신청서</a></li>
 				        	<li><a href="#">수강목록</a></li>
