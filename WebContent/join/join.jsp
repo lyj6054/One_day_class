@@ -405,6 +405,7 @@
 								        return false;
 									} else { 
 										joinForm.submit();
+										
 										return true;
 									}
 								}
