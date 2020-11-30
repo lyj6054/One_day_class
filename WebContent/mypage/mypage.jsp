@@ -6,6 +6,19 @@
 <meta charset="UTF-8">
 <title>mypage</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
+<script>
+	function setImage(event) { 
+		var reader = new FileReader();
+		var profile = document.getElementById("profile_image");
+		
+		reader.onload = function(event) { 
+			var img = document.createElement("img");
+			profile.style.backgroundImage = 'url("' + event.target.result + '")'; 
+		};
+		
+		reader.readAsDataURL(event.target.files[0]); 
+	}
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -23,12 +36,19 @@
 				<div class="p_info" style="padding-top: 0;">
 					<div class="p_image" style="background-image: url('http://localhost:9000/One_day_class/images/profile.png')" id="profile_image">
 						<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
-						<input type="file" id="p_picture" name="p_picture">
+						<input type="file" id="p_picture" name="p_picture" onchange="setImage(event)">
 					</div>
 				</div>
 				<div class="p_info">
 					<div class="p_label">ID</div>
 					<div class="p_contents">wkdtmd1202@naver.com</div>
+				</div>
+				<div class="p_info">
+					<div class="p_label">비밀번호</div>
+					<div class="p_passedit">
+						<a href="http://localhost:9000/One_day_class/mypassedit/mypassedit.jsp" class="pass_edit" style="padding: 11px 18px;">비밀번호 변경하기
+						</a>
+                </div>
 				</div>
 				<div class="p_info">
 					<div class="p_label">전화번호</div>
@@ -56,6 +76,7 @@
 							<font id="introduction_count">0</font>/300
 						</div>
 					</div>
+					<a href="http://localhost:9000/One_day_class/myleave/myleave.jsp" class="member_leave">회원 탈퇴하기</a>
 				</div>
 				<div class="pink_submit" id="regInfo">저장하기</div>
 				<div style="padding-top:200px"></div>

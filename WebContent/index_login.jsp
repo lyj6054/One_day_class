@@ -753,7 +753,7 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="header_login.jsp"></jsp:include>
+	<jsp:include page="index_header.jsp"></jsp:include>
 
 	<!-- content -->
 	<main class="i_content">
