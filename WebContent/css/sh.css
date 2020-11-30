@@ -15,6 +15,13 @@
 	    font-family: 'Noto Sans KR';
 	    font-weight: 400;
 	}
+	a, span {
+	    color: inherit;
+	    font-size: inherit;
+	    font-weight: inherit;
+	    line-height: inherit;
+	    text-decoration: none;
+	}
 	input, select, button, textarea {
 	    padding: 0;
 	    border: 1px solid #ddd;
@@ -93,6 +100,26 @@
 	    font-weight: 500;
 	    color: #333;
 	}
+	.c_container .profile .p_info .p_passedit {
+	    float: left;
+	    width: 80%;
+	    font-size: 14px;
+	    letter-spacing: -0.35px;
+	    color: #888;
+	}
+	.c_container .profile .p_info .pass_edit {
+		background: #ff005a;
+	    color: #fff;
+	    border-radius: 6px;
+	    padding: 17px;
+	    width: 71px;
+	    color: #fff;
+	    font-size: 16px;
+	    width: 200px;
+	    height: 60px;
+	    margin: 30px auto;
+	    text-align: center;
+	}
 	.c_container .profile .p_info .p_contents {
 	    float: left;
 	    width: 80%;
@@ -138,6 +165,13 @@
 	    box-sizing: border-box;
 	    margin: 30px auto;
 	    text-align: center;
+	}
+	.member_leave{
+	    position: absolute;
+	    right: 160px;
+	    bottom: -250px;
+	    color: #333;
+	    text-decoration: underline;
 	}
 
 /*
