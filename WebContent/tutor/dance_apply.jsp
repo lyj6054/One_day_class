@@ -76,13 +76,6 @@
 		border-radius:6px;
 		color:white;
 	}
-	div.right>span {
-		display:inline-block;
-		color:rgb(102,102,102);
-		font-size:13px; font-weight:bold;
-		margin-top:10px;
-		margin-bottom:5px;
-	}
 	div.right>h3 {
 		display:inline-block;
 		margin-bottom:50px;
@@ -95,17 +88,16 @@
 		float:right;
 		margin-top:15px;
 	}
-	div.right>div.r-box1>h3 {
-		margin:0 0 0 0px;
+	div.right>div.r-box1-1>h3 {
+		display:inline-block;
+		clear:left;
 	}
-	div.right>div.r-box1>p {
-		margin:0 0 20px 0px;
-		color:gray;
-	}
-	div.right>div.r-box2>p {
-		margin:0 0 20px 0;
-		font-size:13px;
-		color:#ff005a;
+	div.right>div.r-box1-1>input {
+		width:160px; height:30px;
+		margin-left:60px;
+		border:1px solid lightgray;
+		border-radius:5px;
+		text-indent:15px;
 	}
 	div.right>div.r-box3 {
 		margin-bottom:30px;
@@ -118,7 +110,6 @@
 		padding:13px 0 0 15px;
 		border:1px solid lightgray;
 		border-radius:6px;
-		
 	}
 	div.right>div.r-box3>div.r-box3-1,
 	div.right>div.r-box3>div.r-box3-2,
@@ -130,20 +121,7 @@
 		margin-left:100px;
 		margin-right:100px;
 	}
-	div.right>div.r-box2>input {
-		width:280px; height:46px;
-		margin-right:10px;
-		text-indent:10px;
-		border:1px solid lightgray;
-		border-radius:6px;
-	}
-	div.right>div.r-box2>button {
-		width:103px; height:46px;
-		border:1px solid lightgray;
-		border-radius:6px;
-		background-color:white;
-		vertical-align:bottom;
-	}
+
 	div.right>div.r-box>button.r-btn,
 	div.right>div.r-box>button.r-btn1 {
 		width:25px; height:25px;
@@ -166,10 +144,10 @@
 		border:1px solid white;
 	}
 	div.left {
-	 display:inline-block;
-	 width:400px;
-	 clear:left;
-	 margin-bottom:450px;
+		 display:inline-block;
+		 width:400px;
+		 clear:left;
+		 margin-bottom:450px;
 	}
 	div.left-box {
 		border:1px solid lightgray;
@@ -293,20 +271,9 @@
 			<input type="text" value="1" id="rtext">
 			<button type="button" class="r-btn1" onclick="addbtn()"><img src="http://localhost:9000/One_day_class/images/apply-btn.png" alt="" ></button>
 		</div>
-		<div class="r-box1">
+		<div class="r-box1-1">
 			<h3>연락 받으실 전화번호</h3>
-			<p>번호 인증은 최초 결제 시에만 해당됩니다.</p>
-		</div>
-		<span>휴대폰 번호</span>
-		<div class="r-box2">
-			<input type="text" placeholder="휴대폰 번호를-없이 입력해주세요">
-			<button type="button" onclick="phonebtn()">SMS 전송</button>
-		</div>
-		<span>인증번호</span>
-		<div class="r-box2">
-			<input type="text" placeholder="SMS로 수신된 인증번호 5자리를 입력해주세요">
-			<button type="button" onclick="phonebtn1()">SMS 전송</button>
-			<p>2분0초</p>
+			<input type="text" placeholder="번호를 입력해 주세요">
 		</div>
 		<div class="margin"></div>
 		<div class="r-box1">
@@ -330,7 +297,7 @@
 			<div class="r-box4">
 				<textarea placeholder="예)처음이라 서투르지만 열심히 따라갈게요!"></textarea>
 			</div>
-		<button type="button" class="r-btn3" onclick="alppyCheck()">다음</button>
+		<button type="button" class="r-btn3" onclick="alppyCheck()">신청하기</button>
 	</div>
 	
 	</div>

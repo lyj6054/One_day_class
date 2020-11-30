@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-	function wish(){
+	/* function wish(){
 		alert("위시리스트에 추가되었습니다");
 		 document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1-1.png";
-	}
+	} */
 	function review(){
 		alert("로그인 후 이용가능합니다.");
 		 document.getElementById("d-img");
@@ -17,9 +17,19 @@
 	function new_window(){
 		alert("휴대전화 인증이 필요합니다");
 		window.open("http://localhost:9000/One_day_class/tutor/talk-btn.jsp","전화번호 등록","width=500,height=340");
-
 	}
-	
+	function wish_toggle(){
+		var status = document.getElementById("d-img").getAttribute("name");//또는 getAttribute("src")
+		if(status == "wish"){
+			document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1-1.png";
+			document.getElementById("d-img").setAttribute("name","wish1");
+			alert("위시리스트에 추가되었습니다");
+		}else{
+			document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1.png";
+			document.getElementById("d-img").setAttribute("name","wish");
+			alert("위시리스트에 삭제되었습니다");
+		}
+	}
 </script>
 <style>
 	 *:focus { outline:none; }
@@ -305,7 +315,7 @@
 				<span class="d-span1">13,500원 / 총 1회 1시간</span>
 			</div>
 			<div class="d-side-box5">
-				<img src="http://localhost:9000/One_day_class/images/dance-btn1.png" id="d-img" onclick="wish()">
+				<img src="http://localhost:9000/One_day_class/images/dance-btn1.png" name="wish" id="d-img" onclick="wish_toggle()">
 				<a href="http://localhost:9000/One_day_class/tutor/dance_apply.jsp">
 				<img src="http://localhost:9000/One_day_class/images/dance-btn.png"></a>
 				
