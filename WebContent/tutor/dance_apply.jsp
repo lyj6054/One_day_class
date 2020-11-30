@@ -121,7 +121,6 @@
 		margin-left:100px;
 		margin-right:100px;
 	}
-
 	div.right>div.r-box>button.r-btn,
 	div.right>div.r-box>button.r-btn1 {
 		width:25px; height:25px;
