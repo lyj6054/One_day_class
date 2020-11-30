@@ -27,6 +27,7 @@
 	    font-weight: inherit;
 	    font-size: inherit;
 	    color: inherit;
+	    letter-spacing: -0.25px;
 	    text-decoration: none;
 	}
 	img, fieldset, iframe {
@@ -51,6 +52,12 @@
 	    vertical-align: top;
 	}
 	button:focus {
+	    outline: none;
+	}
+	block:focus {
+	    outline: none;
+	}
+	span:focus {
 	    outline: none;
 	}
 	table {
@@ -322,7 +329,7 @@
 	.login_box {
 	    overflow: hidden;
 	    width: 30%;
-	    height: 190px;
+	    height: 180px;
 	    margin-bottom: 10px;
 	    padding: 0 10px;
 	    border: 1px solid #eee;
@@ -620,7 +627,7 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="index_header.jsp"></jsp:include>
 
 	<!-- content -->
 	<main class="i_content">
@@ -705,22 +712,22 @@
 				<div class="category">
 	                <ul class="cate_list">
 	                    <li class="beauty">
-	                    	<a href="/Home/Search/?cateMain=3">뷰티 · 헬스</a>
+	                    	<a href="">뷰티 · 헬스</a>
 	                    </li>
 	                    <li class="activity">
-	                    	<a href="/Home/Search/?cateMain=10">액티비티</a>
+	                    	<a href="">액티비티</a>
 	                    </li>
 	                    <li class="life">
-	                    	<a href="/Home/Search/?cateMain=7">라이프</a>
+	                    	<a href="">라이프</a>
 	                    </li>
 	                    <li class="hobby">
-	                    	<a href="/Home/Search/?cateMain=22">취미 · 공예</a>
+	                    	<a href="">취미 · 공예</a>
 	                    </li>
 	                    <li class="work">
-	                    	<a href="/Home/Search/?cateMain=2">커리어</a>
+	                    	<a href="">커리어</a>
 	                    </li>
 	                    <li class="language">
-	                    	<a href="/Home/Search/?cateMain=5">외국어</a>
+	                    	<a href="">외국어</a>
 	                    </li>
 	                </ul>
 	                <button type="button" class="btn_category" onclick="category_on()">전체 카테고리</button>
