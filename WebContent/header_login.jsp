@@ -42,10 +42,11 @@
 		padding:0px;
 	}
 	.hd_bar {
-		/*  border:1px solid blue; */
    	 	float: left; 
-    	margin-left: 160px;
-    	border:1px solid lightgray; 
+    	margin-left: 120px;
+    	/* border:1px solid #ff005a;  */
+    	padding-top : 5px;
+    	margin-top:-15px;
 	}
 	fieldset {
 	    margin-inline-start: 2px;
@@ -60,9 +61,9 @@
 	
 	.hd_search_box {	
 		/* border:1px solid red; */
-	    width: 370px;
-	    height: 26px;
-	    margin-left: 7px;
+	    width: 350px;
+	    height: 30px;
+	    /* margin-left: 5px; */
 	    content: '';
 	    display: block;
 	    clear: both;
@@ -71,23 +72,23 @@
 	    content: '';
 	    display: block;
 	    position: relative;
-	    width: 95%;
-	    height: 2px;
-	    background: #111;
-	    margin-top: -7px;
+	    width: 98%;
+	    height: 3px;
+	    background: gray;
+	    margin-top: -5px;
 	}
 	.hd_search_box .inp {
 	    float: left;
 	    display: block;
 	    width: calc(100% - 30px);
-	    height: 26px;
+	    height: 25px;
 	    border: none;
 	    background-color: transparent;
 	}
 	.hd_search_box .search_btn {
 	    float: right;
 	    width: 30px;
-	    height: 26px;
+	    height: 20px;
 	    background: url(http://localhost:9000/One_day_class/images/search.png) no-repeat center/15px;
 	   	border: none;
 	    cursor: pointer;
@@ -125,6 +126,7 @@
 		display:flex;
 		-webkit-boc-align:center;
 		align-items:center;
+		
 	}
 	.Search_Container_Header > h3 {
 		font-size:16px;
@@ -138,7 +140,7 @@
 	.Item_Container {
 		font-size:14px;
 		color:rgb(27,28,29);
-		padding:0 0 10px 38px;
+		padding:0 0 15px 38px;
 		border-radius:0px 0px 3px 3px;
 		font-weight:bold;
 		text-decoration:none;
@@ -231,7 +233,7 @@
 	}
 	.Search_Container.on {
 		z-index: 2;
-		width: 380px;
+		width: 345px;
 		display: block;
 		position: absolute;
 	}
@@ -239,7 +241,7 @@
 </head>
 <body>
 	<header>
-		<div class="container" >
+		<div class="container"  >
 		 <div class="container hd_wrap">
 			<h1 class="logo">
 				<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
@@ -251,7 +253,7 @@
 						<form name="search" action="#" method="get">
 							<fieldset>
 								<input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
-										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox" onclick="search_list()">
+										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox" onclick="search_list()" onblur="search_end()">
 								<button class=search_btn type="submit"></button>
 							</fieldset>
 						</form>			
@@ -296,8 +298,8 @@
 					<li>
 						<a href="#">위시리스트</a>
 					</li>
-					<li class="depth_my_page" id="depth_my_page" >
-						<p role="button" onclick="depth()" >
+					<li class="depth_my_page" id="depth_my_page" onclick="depth()" >
+						<p role="button" >
 							<span class="profile_img" style="background-image:url('http://localhost:9000/One_day_class/images/profile.png');">
 							</span>
 						</p>
@@ -323,15 +325,21 @@
 				
 			} 
 		function search_end() {
-				
 				document.getElementById("bar_true_list").classList.remove('on');
-				document.getElementById("depth_my_page").classList.remove('act');
-				document.getElementById("profile_list_container").classList.remove('act');
-			} 
+			}  
 		function depth() {
 			document.getElementById("depth_my_page").classList.add('act');
 			document.getElementById("profile_list_container").classList.add('act');
+			document.getElementById("depth_my_page").setAttribute("onclick","depth_off()");
 		}
+		function depth_off() {
+			document.getElementById("depth_my_page").classList.remove('act');
+			document.getElementById("profile_list_container").classList.remove('act');
+			document.getElementById("depth_my_page").setAttribute("onclick","depth()");
+			
+		} 
+		
+		
 		
 		
 		
