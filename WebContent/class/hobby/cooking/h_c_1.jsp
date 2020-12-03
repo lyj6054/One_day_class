@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../../../js_yj/swiper-bundle.min.css">
 <script>
 	/* function wish(){
 		alert("위시리스트에 추가되었습니다");
@@ -220,6 +221,8 @@
 		float:right;
 		width:380px;
 		height:540px;
+		position: sticky;
+		top: 120px;
 	}
 	div.dance>aside.d-side>aside>div.d-side-box6 {
 		border:1px solid lightgray;
@@ -292,6 +295,58 @@
 		padding-left:20px;
 		color:rgb(215,215,215);
 	}
+	 /*swiper 구간  */
+    .div.swiper-container gallery-top,
+    .div.swiper-container gallery-thumbs {
+      position: relative;
+      height: 100%;
+    }
+
+     .div.swiper-container gallery-top,
+    .div.swiper-container gallery-thumbs {
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+   .swiper-container {
+      width: 100%;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+    }
+
+    .gallery-top {
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery-thumbs {
+      height: 20%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+
+    .gallery-thumbs .swiper-slide {
+      width: 20%;
+      height: 100%;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    .gallery-thumbs .swiper-slide-thumb-active {
+      opacity: 1;
+      border: 1px solid #ff0045;
+    }
+	
 </style>
 </head>
 <body>
@@ -347,22 +402,28 @@
 			<span> 5.0(1)</span>
 		</div>
 		<div class="dance-box2">
-			<img src="http://localhost:9000/One_day_class/images/cooking/h_c_1_1.png">
-			<img src="http://localhost:9000/One_day_class/images/cooking/h_c_1_1.png" class="dance1-1">
-			<img src="http://localhost:9000/One_day_class/images/cooking/h_c_1_2.png" class="dance1-2">
-			<img src="http://localhost:9000/One_day_class/images/cooking/h_c_1_3.png" class="dance1-3">
-			<img src="http://localhost:9000/One_day_class/images/cooking/h_c_1_4.png" class="dance1-4">
-			
-		</div>
-		<div class="dance-box3">
-			<span class="dance-b4">수업 전<br> 숙지해주세요!</span>
-			<div class="dance-b5">
-				<img src="http://localhost:9000/One_day_class/images/dance3.png">
-				<span>등촌역 1번 출구에서 다함께 모여 같이 이동합니다! ( 일반 열차 역이므로 급</span><br>
-				<span>행을 타시게 되면 꼭꼭 전역에서 환승해주세요, 아님 가양까지 논스탑으로 가</span><br>
-				<span>시게 될거에요 ㅠ)</span>
-			</div>
-		</div>
+         <!--메인 이미지  -->   
+         <div class="swiper-container gallery-top">
+         <div class="swiper-wrapper">
+               <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/cooking/h_c_1_1.png)"></div>
+               <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/cooking/h_c_1_2.png)"></div>
+               <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/cooking/h_c_1_3.png)"></div>
+               <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/cooking/h_c_1_4.png)"></div>
+            </div>
+          <!-- Add Arrows -->
+          <div class="swiper-button-next swiper-button-white"></div>
+          <div class="swiper-button-prev swiper-button-white"></div>
+          </div>
+          <!--밑 이미지  -->
+         <div class="swiper-container gallery-thumbs">
+             <div class="swiper-wrapper">
+               <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/cooking/h_c_1_1.png)"></div>
+               <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/cooking/h_c_1_2.png)"></div>
+               <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/cooking/h_c_1_3.png)"></div>
+               <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/cooking/h_c_1_4.png)"></div>
+             </div>
+           </div>   
+      </div>
 		<div class="dance-box3-1">
 			<span class="dance-b4">튜터님을<br> 소개합니다.</span>
 			<div class="dance-b6">
@@ -492,5 +553,28 @@
 	</div>
 	<!--header -->
 	<jsp:include page="../../../footer.jsp" />
+	  <!-- Swiper JS -->
+  <script src="../../../js_yj/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs
+      }
+    });
+  </script>
 </body>
 </html>
