@@ -59,7 +59,7 @@
 			</div>
 			<div class="d-side-box5">
 				<img src="http://localhost:9000/One_day_class/images/dance-btn1.png" name="wish" id="d-img" onclick="wish_toggle()">
-				<a href="http://localhost:9000/One_day_class/class/hobby/music/h_m_1a.jsp">
+				<a href="http://localhost:9000/One_day_class/tutor/dance_apply.jsp">
 				<img src="http://localhost:9000/One_day_class/images/dance-btn.png"></a>
 				
 			</div>

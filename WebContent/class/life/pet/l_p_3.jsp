@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../../../js_yj/swiper-bundle.min.css">
+<link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj_1.css">
 <script>
 	/* function wish(){
 		alert("위시리스트에 추가되었습니다");
@@ -32,323 +33,6 @@
 		}
 	}
 </script>
-<style>
-	 *:focus { outline:none; }
-	hr.top-bar {
-		width:100%;
-		opacity:0.3;
-		margin-top:40px;
-	}
-	div.dance {
-		width:1400px;
-		margin:auto;
-	}
-	div.dance>div.dance-box {
-		margin-top:40px;
-	}
-	div.dance>div.dance-box1 {
-		margin-top:20px;
-	}
-	div.dance>div.dance-box2 {
-		width:900px; height:500px;
-		margin-top:35px;
-	}
-	div.dance-box2>img {
-		float:left;
-	}
-	div.dance-box2>img.dance1-1,
-	div.dance-box2>img.dance1-2,
-	div.dance-box2>img.dance1-3,
-	div.dance-box2>img.dance1-4 {
-		width:154px;
-		height:103px;
-		border-radius:10px;
-		float:left;
-		vertical-align:top;
-		margin:0 0 10px 10px;
-	}
-	div.dance>div.dance-box3 {
-		margin-top:100px;
-		height:150px;
-		width:945px;
-	}
-	div.dance>div.dance-box3-1{
-		width:945px;
-		margin-top:120px;
-		margin-bottom:30px;
-	}
-	div.dance-box4 {
-		width:800px;
-		margin-left:253px;
-	}
-	div.dance-box4>div.dance-box4-1 {
-		text-align:center;
-		font-size:13px;
-		margin-top:40px;
-		margin-bottom:100px;
-	}
-	div.dance-box4>div.dance-box4-1>a {
-		display:inline-block;
-		margin:0 5px 0 5px;
-		border-radius:50%;
-		width:25px; height:25px;
-		text-decoration:none;
-	}
-	div.dance-box4>div.dance-box4-1>a.bottom {
-		border:2px solid lightgray;
-	}
-	div.dance-box4>div.dance-box4-1>a.bottom1 {
-		background-color:rgb(255,0,69);
-		color:white;
-	}
-	div.dance-box4>div.dance-box4-1>a.bottom2:active {
-		background-color:rgb(255,0,69);
-		color:white;
-	}
-	div.dance-box4>ul>li>div {
-		margin-top:35px;
-	}
-	div.dance-box4>ul>li>div>div>p {
-		clear:left;
-		width :75%;
-		margin-left:77px;
-	}
-	div.dance-box4>ul>li>div>div>img {
-		margin-left:77px;
-	}
-	div.dance-box4>ul>li>div>span.dance-b7>img {
-		float:left;
-		margin-right:20px;
-		
-	    border-radius: 50%;
-	    width: 6%;
-	    height: 6%;
-	    -o-object-fit: cover;
-	    object-fit: cover;
-	    -o-object-position: center;
-	    object-position: center;
-	}
-	div.dance-box4>ul>li>div>span.dance-b8 {
-		margin-top:10px;
-		display:inline-block;
-		font-weight:bold;
-		
-	}
-	div.dance-box4>ul>li>div>span.dance-b9 {
-		color:gray;
-	}
-	div.dance>div.dance-box3-1>div.dance-btn-box {
-		text-align:center;
-		margin-bottom:10px;
-	}
-	div.dance>div.dance-box3-1>div.dance-btn-box>button.dance-btn {
-		margin-top:20px;
-		margin-left:70px;
-		margin-bottom:50px;
-		font-size:15px;
-		background-color:white;
-		border:1px solid white;
-		color:rgb(255,0,69);
-		text-decoration:underline;
-	}
-	div.dance>div.dance-box3>span.dance-b4,
-	div.dance>div.dance-box3-1>span.dance-b4 {
-		display:inline-block;
-		float:left;
-		font-size:28px;
-		font-weight:bold;
-		margin-right:60px;
-	}
-	div.dance>div.dance-box3>div.dance-b5 {
-		border:1px solid rgb(250,250,250);
-		border-radius:3px;
-		float:left;
-		width:700px;  height:120px;
-		padding:25px 0 25px 25px;
-		background-color:rgb(250,250,250);
-		font-size:14px;
-	}
-	div.dance>div.dance-box3-1>div.dance-b6>iframe {
-		margin-left:50px;
-	}
-	div.dance>div.dance-box3-1>div.dance-b6>p {
-		margin-left:224px;
-		font-size:16px;
-	}
-	div.dance>div.dance-box3-1>div.dance-b6>img {
-		margin-left:50px;
-	}
-	div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1 {
-		margin-bottom:80px;
-	}
-	div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1>button.dance-btn1 {
-		border:1px solid white;
-		float:right;
-		margin-top:10px;
-		margin-right:78px;
-		font-size:15px;
-		background-color:white;
-		text-decoration:underline;
-		padding-bottom:5px;
-		
-	}
-	div.dance>div.dance-box3>div.dance-b6>span {
-		vertical-align:top;
-	}
-	div.dance>div.dance-box3>div.dance-b5>img {
-		float:right;
-		margin-right:20px;
-	}
-	div.dance>div.dance-box1>span.dance-b3 {
-		color:rgb(255,0,69);
-	}
-	div.dance>div.dance-box1>img {
-	 	float:left;
-	 	margin-right:5px;
-	 	width:50px;
-	 	height:50px;
-	}
-	div.dance>div.dance-box>span.dance-b1 {
-		font-size:17px;
-		font-weight:bold;
-		color:rgb(255,0,69);
-	}
-	div.dance>div.dance-box>span.dance-b2 {
-		font-size:30px;
-		font-weight:bold;
-	}
-	div.dance>aside.d-side {
-		border:1px solid lightgray;
-		border-radius:8px;
-		float:right;
-		width:380px;
-		height:540px;
-		position: sticky;
-		top: 120px;
-	}
-	div.dance>aside.d-side>aside>div.d-side-box6 {
-		border:1px solid lightgray;
-		border-radius:8px;
-		margin-top:35px;
-		padding:10px 5px 10px 5px;
-		text-align:center;
-	}
-	div.dance>aside.d-side>aside>div.d-side-box7 {
-		border:1px solid lightgray;
-		border-radius:30px;
-		margin-top:180px;
-		float:right;
-		width:130px; height:50px;
-		text-align:center;
-		padding-top:7px;
-	}
-	div.dance>aside.d-side>aside>div.d-side-box6>img.dance-img {
-		margin-right:25px;
-	}
-	div.dance>aside.d-side>div.d-side-box4 {
-		text-align:right;
-		padding-right:20px;
-		margin-top:90px;
-	}
-	div.dance>aside.d-side>div.d-side-box5 {
-		text-align:center;
-		margin-top:10px;
-	}
-	div.dance>aside.d-side>div.d-side-box5>img,
-	div.dance>aside.d-side>div.d-side-box5>a>img {
-		 padding:0 14px 0 14px;
-	}
-	div.dance>aside.d-side>div.d-side-box4>span.d-span {
-		font-size:17px;
-		font-weight:bold;
-	}
-	div.dance>aside.d-side>div.d-side-box4>span.d-span1 {
-		font-size:15px;
-	}
-	div.dance>aside.d-side>hr.d-line {
-		width:330px;
-		opacity:0.3;
-		margin-top:8px;
-	}
-	div.dance>aside.d-side>h1 {
-		font-size:30px;
-		font-weight:bold;
-		padding:24px 0 20px 18px;
-	}
-	div.dance>aside.d-side>div.d-side-box {
-		margin-top:10px;
-		height:60px;
-		
-	}
-	div.dance>aside.d-side>div.d-side-box>span.d-side-box1 {
-		font-size:16px;
-		font-weight:bold;
-		padding-left:20px;
-		padding-bottom:10px;
-		display:inline-block;
-	}
-	div.dance>aside.d-side>div.d-side-box>span.d-side-box2 {
-		font-size:16px;
-		font-weight:bold;
-		float:right;
-		padding-right:20px;
-	}
-	div.dance>aside.d-side>div.d-side-box>span.d-side-box3 {
-		padding-left:20px;
-		color:rgb(215,215,215);
-	}
-	/*swiper 구간  */
-    .div.swiper-container gallery-top,
-    .div.swiper-container gallery-thumbs {
-      position: relative;
-      height: 100%;
-    }
-
-     .div.swiper-container gallery-top,
-    .div.swiper-container gallery-thumbs {
-      background: #000;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
-   .swiper-container {
-      width: 100%;
-      height: 300px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .swiper-slide {
-      background-size: cover;
-      background-position: center;
-      border-radius: 10px;
-    }
-
-    .gallery-top {
-      height: 100%;
-      width: 100%;
-    }
-
-    .gallery-thumbs {
-      height: 20%;
-      box-sizing: border-box;
-      padding: 10px 0;
-    }
-
-    .gallery-thumbs .swiper-slide {
-      width: 20%;
-      height: 100%;
-      opacity: 0.4;
-      cursor: pointer;
-    }
-
-    .gallery-thumbs .swiper-slide-thumb-active {
-      opacity: 1;
-      border: 1px solid #ff0045;
-    }
-</style>
 </head>
 <body>
 	<!--header -->
@@ -369,7 +53,7 @@
 			</div>
 			<div class="d-side-box5">
 				<img src="http://localhost:9000/One_day_class/images/dance-btn1.png" name="wish" id="d-img" onclick="wish_toggle()">
-				<a href="http://localhost:9000/One_day_class/tutor/dance_apply.jsp">
+				<a href="http://localhost:9000/One_day_class/class/life/pet/l_p_3a.jsp">
 				<img src="http://localhost:9000/One_day_class/images/dance-btn.png"></a>
 				
 			</div>
@@ -457,11 +141,6 @@
 			
 			
 			
-			<div class="dance-btn-box">
-				<button class="dance-btn">
-				<span class="jub">ㅡ접기</span>
-				</button>
-			</div>
 		</div>
 			
 		<div class="dance-box3-1">
@@ -530,11 +209,6 @@
 ③ 우리집 고양이의 행복지수 수직 상승↑<br />
 우리집 고양이, 어딘가 무기력해보이고 지루해 보이진 않나요? 혹시 문제 행동으로 트러블을 겪고 있진 않나요?<br />
 이 강의를 통해 고양이를 위한 환경을 점검하고 개선해서 고양이와 보다 행복한 삶을 살아가실 수 있게 도와드릴게요!</p>
-			</div>
-			<div class="dance-btn-box">
-				<button class="dance-btn">
-				<span class="jub">ㅡ접기</span>
-				</button>
 			</div>
 		</div>
 			
