@@ -4,412 +4,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>makeUp_1</title>
- <!-- Link Swiper's CSS -->
+<title>career_certificate3</title>
   <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.css">
-<script>
-   function wish(){
-      alert("위시리스트에 추가되었습니다");
-       document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1-1.png";
-   }
-   function review(){
-      alert("로그인 후 이용가능합니다.");
-       document.getElementById("d-img");
-   }
-   function new_window(){
-      alert("휴대전화 인증이 필요합니다");
-      window.open("http://localhost:9000/One_day_class/tutor/talk-btn.jsp","전화번호 등록","width=500,height=340");
-
-   }
-   
-</script>
-<style>
-    *:focus { outline:none; }
-    .text_area {
-       font-size:16px;
-       width: 650px;
-    }
-     
-   div.dance {
-      width:1400px;
-      margin:auto;
-   }
-   div.dance>div.dance-box {
-      margin-top:40px;
-      width: 950px;
-   }
-   div.dance>div.dance-box1 {
-      margin-top:20px;
-   }
-   div.dance>div.dance-box2 {
-      width:1000px; 
-      height:500px;
-      margin-top:35px;
-   }
-   div.dance-box2>img {
-      float:left;
-   }
-   div.dance-box2>img:first-child{
-      width:750px;
-      height:490px;
-      border-radius: 10px;
-   }
-   div.dance-box2>img.dance1-1,
-   div.dance-box2>img.dance1-2,
-   div.dance-box2>img.dance1-3,
-   div.dance-box2>img.dance1-4 {
-      width:180px;
-      height:115px;
-      border-radius:10px;
-      float:left;
-      vertical-align:top;
-      margin:0 0 10px 10px;
-   }
-   div.dance>div.dance-box3 {
-      margin-top:100px;
-      height:150px;
-      width:945px;
-   }
-   div.dance>div.dance-box3-1{
-      width:945px;
-      margin-top:120px;
-      margin-bottom:30px;
-   }
-    .dance-box3-1  .curri_img {
-    		width:80px;
-		    vertical-align: top;
-    		margin-bottom: 20px;
-    		
-    }
-    
-   div.dance-box4 {
-      width:715px;
-      margin-left:230px;
-   }
-   div.dance-box4>div.dance-box4-1 {
-      text-align:center;
-      font-size:13px;
-      margin-top:40px;
-      margin-bottom:100px;
-   }
-   div.dance-box4>div.dance-box4-1>a {
-      display:inline-block;
-      margin:0 5px 0 5px;
-      border-radius:50%;
-      width:25px; height:25px;
-      text-decoration:none;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom {
-      border:2px solid lightgray;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom1 {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom2:active {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>ul>li>div {
-      margin-top:35px;
-   }
-   div.dance-box4>ul>li>div>div>p {
-      clear:left;
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>div>img {
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>span.dance-b7>img {
-      float:left;
-      margin-right:20px;
-      width: 50px;
-       height: 50px;
-       border-radius: 50%;
-       object-fit: cover;
-       object-position: center;
-   }
-   div.dance-box4>ul>li>div>span.dance-b8 {
-      margin-top:10px;
-      display:inline-block;
-      font-weight:bold;
-   }
-   div.dance-box4>ul>li>div>span.dance-b9 {
-      color:gray;
-   }
-   div.dance>div.dance-box3>span.dance-b4,
-   div.dance>div.dance-box3-1>span.dance-b4 {
-      display:inline-block;
-      float:left;
-      font-size:28px;
-      font-weight:bold;
-      margin-right:60px;
-   }
-   div.dance>div.dance-box3>div.dance-b5 {
-      border:1px solid rgb(250,250,250);
-      border-radius:3px;
-      float:left;
-      width:720px;  
-      height:50px;
-      background-color:rgb(250,250,250);
-      font-size:14px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>iframe {
-      margin-left:50px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>p {
-      margin-left:224px;
-      font-size:16px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>img {
-      margin-left:30px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1 {
-      margin-bottom:80px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1>button.dance-btn1 {
-      border:1px solid white;
-      float:right;
-      margin-top:10px;
-      font-size:15px;
-      background-color:white;
-      text-decoration:underline;
-      padding-bottom:5px;
-      
-   }
-   div.dance>div.dance-box3>div.dance-b6>span {
-      vertical-align:top;
-   }
-   div.dance>div.dance-box3>div.dance-b5>img {
-      float:right;
-   }
-   div.dance>div.dance-box1>span.dance-b3 {
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box1>img {
-       float:left;
-       margin-right:5px;
-       width: 42px;
-       height: 42px;
-       border-radius: 50%;
-       object-fit: cover;
-         object-position: center;
-   }
-   div.dance>div.dance-box>span.dance-b1 {
-      font-size:17px;
-      font-weight:bold;
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box>span.dance-b2 {
-      font-size:30px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side {
-      border:1px solid lightgray;
-      border-radius:8px;
-      float:right;
-      width:380px;
-      height:540px;
-   }
-   div.dance>aside.d-side>div.d-side-box4 {
-      text-align:right;
-      padding-right:20px;
-      margin-top:90px;
-   }
-   div.dance>aside.d-side>div.d-side-box5 {
-      text-align:center;
-      margin-top:10px;
-   }
-   div.dance>aside.d-side>div.d-side-box5>img,
-   div.dance>aside.d-side>div.d-side-box5>a>img {
-       padding:0 14px 0 14px;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span {
-      font-size:17px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span1 {
-      font-size:15px;
-   }
-   div.dance>aside.d-side>hr.d-line {
-      width:330px;
-      opacity:0.3;
-      margin-top:8px;
-   }
-   div.dance>aside.d-side>h1 {
-      font-size:30px;
-      font-weight:bold;
-      padding:24px 0 20px 18px;
-   }
-   div.dance>aside.d-side>div.scroll-box {
-      overflow: auto; 
-      height: 220px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box {
-      margin-top:25px;
-      height:60px;
-      margin-bottom:25px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box .d-side-box1 {
-      font-size:16px;
-      font-weight:bold;
-      padding-left:20px;
-      padding-bottom:10px;
-      display:inline-block;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>span.d-side-box2 {
-      font-size:16px;
-      font-weight:bold;
-      float:right;
-      padding-right:20px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>.d-side-box3 {
-      padding-left:20px;
-      display: block;
-      color: #999;
-      font-size: 13px;
-      font-weight: normal;
-   }
-   .review_sum {
-      display: inline-block;
-      width: 720px;
-       padding: 26px 40px 22px;
-       border: 1px solid #ddd;
-       border-radius: 6px;
-   }
-   .review_sum .review_list {
-       display: flex;
-       flex-wrap: wrap;
-       align-items: center;
-       flex-direction: row;
-       flex-wrap: wrap;
-   }
-   .review_sum .review_list li {
-       width: 22%;
-       margin-right: 17%;
-       font-size: 15px;
-       line-height: 19px;
-       letter-spacing: -0.22px;
-       text-align: left;
-       font-weight: 500;
-   }
-   .review_sum .review_list li:nth-child(3) {
-       margin-right: 0;
-   }
-   .review_sum .review_list li .avg {
-       float: right;
-       margin-left: 15px;
-       font-size: 13px;
-       font-weight: 500;
-       letter-spacing: -0.2px;
-   }
-   .review_sum .review_list li .avg::before {
-       content: '';
-       display: inline-block;
-       width: 14px;
-       height: 14px;
-       margin-right: 3px;
-       vertical-align: -1px;
-       background: url('http://localhost:9000/One_day_class/images/star_act.png') no-repeat center/100%;
-   }
-   .dance-b6 .cert_list {
-       margin-bottom: 19px;
-   }
-   .dance-b6 .cert_list li {
-       position: relative;
-       display: block;
-       padding-left: 17.4px;
-       margin-bottom: 5px;
-       font-size: 15px;
-       letter-spacing: -0.22px;
-       line-height: 21px;
-       font-weight: normal;
-       margin-left: 224px;
-   }
-   .dance-b6 .cert_list li::after {
-       content: '';
-       position: absolute;
-       top: 2px;
-       left: 0;
-       width: 14px;
-       height: 14px;
-       background: url(http://localhost:9000/One_day_class/images/class_badge.png) no-repeat center/100%;
-   }
-       
-   hr {
-		width:1045px;
-		opacity:0.3;
-		width:330px;
-		}
-		 .curri_heading {
-		    display: block;
-		    margin-bottom: 15px;
-		    font-size: 18px;
-		    color: #ff0045;
-		    font-weight: bold;
-		}
-		.photo_list {
-		    margin: 10px 0 0 70px;
-		    font-size: 0;
-		}
-		.photo_list li {
-		    display: inline-block !important;
-		    overflow: hidden;
-		    width: calc(20% - 7px);
-		    height: 68px;
-		    margin-left: 7px;
-		    padding: 0 !important;
-		    border-radius: 6px;
-		    cursor: pointer;
-		}
-		li {
-		    list-style: none;
-		}
-		.photo_list li img {
-		    width: 100%;
-		    height: 100%;
-		    object-fit: cover;
-		}
-		
-		.swiper-container {
-      width: 100%;
-      height: 300px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .swiper-slide {
-      background-size: cover;
-      background-position: center;
-    }
-
-    .gallery-top {
-      height: 100%;
-      width: 100%;
-    }
-
-    .gallery-thumbs {
-      height: 20%;
-      box-sizing: border-box;
-      padding: 10px 0;
-    }
-
-    .gallery-thumbs .swiper-slide {
-      width: 25%;
-      height: 100%;
-      opacity: 0.4;
-      cursor: pointer;
-    }
-
-    .gallery-thumbs .swiper-slide-thumb-active {
-      opacity: 1;
-      border: 1px solid #ff0045;
-    }
-</style>
+  <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yh_detail.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/yh_js.js"></script>
 </head>
 <body>
    <!--header -->
    <jsp:include page="../../../header.jsp" />
+   <div class="nav">
+		<ul>
+			<li class="active" onclick="moveContent('1')" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
+			<li onclick="moveContent('2')" id="nav_li2"><a href="javascript:">수업소개</a></li>
+			<li onclick="moveContent('3')" id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
+			<li onclick="moveContent('4')" id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
+		</ul>
+	</div>
    <div class="dance">
       
       <aside class="d-side">
@@ -443,20 +55,35 @@
          <span> 5.0(48)</span>
       </div>
       <div class="dance-box2">
-         <img src="http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (1).png">
-         <img src="http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (1).png" class="dance1-1">
-         <img src="http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (2).png" class="dance1-2">
-         <img src="http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (3).png" class="dance1-3">
-         <img src="http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (1).png" class="dance1-3">
+       <div class="swiper-container gallery-top">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (2).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (3).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (1).png')"></div>
+		    </div>
+		    <!-- Add Arrows -->
+		    <div class="swiper-button-next swiper-button-white"></div>
+		    <div class="swiper-button-prev swiper-button-white"></div>
+		  </div>
+		  <div class="swiper-container gallery-thumbs">
+		     <div class="swiper-wrapper">
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (2).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (3).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate3_ (1).png')"></div>
+		    </div>
+		  </div>
       </div>
       <div class="dance-box3">
          <span class="dance-b4">수업 전<br> 숙지해주세요!</span>
-         <div class="dance-b5">
+         <div class="dance-b5" style="height:100px;">
+           <img src="http://localhost:9000/One_day_class/images/dance3.png">
            <p class="text_area">평일 저녁 18시~22시 수업 가능하며, 일정 조율 가능<br>
 			강남역 회의실 또는 카페에서 수업 진행됩니다.</p>
          </div>
       </div>
-      <div class="dance-box3-1">
+      <div class="dance-box3-1" id="nav1">
          <span class="dance-b4">튜터님을<br> 소개합니다.</span>
          <div class="dance-b6">
            <p class="text_area">현직 실무 운영팀 근무중이고, 10년의 IT노하우를 바탕으로 리눅스 기초부터 고급까지와 AWS 구축 실습으로 바로 취업에 도움되는 스킬을 안내해드립니다.<br>
@@ -474,7 +101,7 @@
          </div>
       </div>
       <div class="dance-box3-1">
-         <span class="dance-b4">어떤<br> 수업인가요?</span>
+         <span class="dance-b4" id="nav2">어떤<br> 수업인가요?</span>
          <div class="dance-b6">
           <p class="text_area">◆ 아마존 웹서비스(AWS) 클라우드 시장으로 모든것이 변화하는 2020년 !!<br>
 				<br>
@@ -510,7 +137,7 @@
          </div>
       </div>
       <div class="dance-box3-1">
-         <span class="dance-b4">수업은 이렇게<br>진행됩니다.</span>
+         <span class="dance-b4" id="nav3">수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
          	<strong class="curri_heading">1회차 커리큘럼</strong>
            <p class="curri_details">▦ 클래스 수업내용 - 첫째날<br>
@@ -519,13 +146,13 @@
 				- 리눅스 OS 초중급 과정<br>
 				- 데브옵스 (devops) 엔지니어의 업무 자동화 (CI CD)</p>
 			<div class="curri_img" style="margin-left:220px;">
-                <img src="http://localhost:9000/One_day_class/images/career/certificate/certificate1_review(2).jpeg" style="width:614px; height=417;">
+                <img src="http://localhost:9000/One_day_class/images/career/certificate/certificate1_review(2).jpeg" style="width:614px; height:417px;">
             </div>
          </div>
       </div>
     
-      <div class="dance-box3-1">
-         <span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
+      <div class="dance-box3-1 reivew_box">
+         <span class="dance-b4" id="nav4">실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">
                     <ul class="review_list">
@@ -545,37 +172,37 @@
       <div class="dance-box4">
          <ul>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
                   <span class="dance-b8">Lee</span><br>
                   <span class="dance-b9">2020-11-24 21:39:37</span>
-                  <div>
+                  <div class="review_content">
                      <p >열정적이시고 친절하게 잘 가르켜 주셔서 감사드렸읍니다. 그리고 스터디 공간이 깔끔하고 넓어서 좋았읍니다.</p>
                   </div>
                </div>
             </li>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
                   <span class="dance-b8">이지혜</span><br>
                   <span class="dance-b9">2020-09-11 18:18:33</span>
-                  <div>
+                  <div class="review_content">
                      <p>수강생이 원하는 방향으로 수업이 진행되기 때문에 맞춤형 수업을 듣기가 좋습니다. AWS 구조와 기능을 상세하게 알려주시고 어려운 개념을 알아듣기 쉽게 잘 알려주시기 때문에 재미도있어요. </p>
                   </div>
                </div>
             </li>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
                   <span class="dance-b8">조서현</span><br>
                   <span class="dance-b9">2020-09-08 21:58:56</span>
-                  <div>
+                  <div class="review_content">
                      <p> 저는 AWS cloud practitioner 따려고 AWS 101 수업 받았습니다. AWS Overview 자세하고 친절히 수업 해주셨습니다. IT 에 대한 전반적인 수업도 들어고요. 
                      IT 백그라운드가 없으신 분들/ 물어보고 싶은게 많은 저 같은 분들은 온라인 강의와 같이 들으면 좋습니다. 강사님 정말 친절하시고 설명 잘 해주세요. 감사합니다!!
                      </p>
@@ -594,6 +221,27 @@
          </div>
       </div>
    </div>
+   
+    <!-- Initialize Swiper -->
+  <script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs
+      }
+    });
+  </script>
    <!--header -->
    <jsp:include page="../../../footer.jsp" />
 </body>

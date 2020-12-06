@@ -4,375 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>makeUp_1</title>
-<script>
-   function wish(){
-      alert("위시리스트에 추가되었습니다");
-       document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1-1.png";
-   }
-   function review(){
-      alert("로그인 후 이용가능합니다.");
-       document.getElementById("d-img");
-   }
-   function new_window(){
-      alert("휴대전화 인증이 필요합니다");
-      window.open("http://localhost:9000/One_day_class/tutor/talk-btn.jsp","전화번호 등록","width=500,height=340");
+<title>career_ability1</title>
+  <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.css">
+  <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yh_detail.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/yh_js.js"></script>
 
-   }
-   
-</script>
-<style>
-    *:focus { outline:none; }
-    .text_area {
-       font-size:16px;
-       width: 650px;
-    }
-     
-   div.dance {
-      width:1400px;
-      margin:auto;
-   }
-   div.dance>div.dance-box {
-      margin-top:40px;
-      width: 950px;
-   }
-   div.dance>div.dance-box1 {
-      margin-top:20px;
-   }
-   div.dance>div.dance-box2 {
-      width:1000px; 
-      height:500px;
-      margin-top:35px;
-   }
-   div.dance-box2>img {
-      float:left;
-   }
-   div.dance-box2>img:first-child{
-      width:750px;
-      height:490px;
-      border-radius: 10px;
-   }
-   div.dance-box2>img.dance1-1,
-   div.dance-box2>img.dance1-2,
-   div.dance-box2>img.dance1-3,
-   div.dance-box2>img.dance1-4 {
-      width:180px;
-      height:115px;
-      border-radius:10px;
-      float:left;
-      vertical-align:top;
-      margin:0 0 10px 10px;
-   }
-   div.dance>div.dance-box3 {
-      margin-top:100px;
-      height:150px;
-      width:945px;
-   }
-   div.dance>div.dance-box3-1{
-      width:945px;
-      margin-top:120px;
-      margin-bottom:30px;
-   }
-    .dance-box3-1  .curri_img {
-    		width:80px;
-		    vertical-align: top;
-    		margin-bottom: 20px;
-    		
-    }
-    
-   div.dance-box4 {
-      width:715px;
-      margin-left:230px;
-   }
-   div.dance-box4>div.dance-box4-1 {
-      text-align:center;
-      font-size:13px;
-      margin-top:40px;
-      margin-bottom:100px;
-   }
-   div.dance-box4>div.dance-box4-1>a {
-      display:inline-block;
-      margin:0 5px 0 5px;
-      border-radius:50%;
-      width:25px; height:25px;
-      text-decoration:none;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom {
-      border:2px solid lightgray;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom1 {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom2:active {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>ul>li>div {
-      margin-top:35px;
-   }
-   div.dance-box4>ul>li>div>div>p {
-      clear:left;
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>div>img {
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>span.dance-b7>img {
-      float:left;
-      margin-right:20px;
-      width: 50px;
-       height: 50px;
-       border-radius: 50%;
-       object-fit: cover;
-       object-position: center;
-   }
-   div.dance-box4>ul>li>div>span.dance-b8 {
-      margin-top:10px;
-      display:inline-block;
-      font-weight:bold;
-   }
-   div.dance-box4>ul>li>div>span.dance-b9 {
-      color:gray;
-   }
-   div.dance>div.dance-box3>span.dance-b4,
-   div.dance>div.dance-box3-1>span.dance-b4 {
-      display:inline-block;
-      float:left;
-      font-size:28px;
-      font-weight:bold;
-      margin-right:60px;
-   }
-   div.dance>div.dance-box3>div.dance-b5 {
-      border:1px solid rgb(250,250,250);
-      border-radius:3px;
-      float:left;
-      width:720px;  
-      height:50px;
-      background-color:rgb(250,250,250);
-      font-size:14px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>iframe {
-      margin-left:50px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>p {
-      margin-left:224px;
-      font-size:16px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>img {
-      margin-left:30px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1 {
-      margin-bottom:80px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1>button.dance-btn1 {
-      border:1px solid white;
-      float:right;
-      margin-top:10px;
-      font-size:15px;
-      background-color:white;
-      text-decoration:underline;
-      padding-bottom:5px;
-      
-   }
-   div.dance>div.dance-box3>div.dance-b6>span {
-      vertical-align:top;
-   }
-   div.dance>div.dance-box3>div.dance-b5>img {
-      float:right;
-   }
-   div.dance>div.dance-box1>span.dance-b3 {
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box1>img {
-       float:left;
-       margin-right:5px;
-       width: 42px;
-       height: 42px;
-       border-radius: 50%;
-       object-fit: cover;
-         object-position: center;
-   }
-   div.dance>div.dance-box>span.dance-b1 {
-      font-size:17px;
-      font-weight:bold;
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box>span.dance-b2 {
-      font-size:30px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side {
-      border:1px solid lightgray;
-      border-radius:8px;
-      float:right;
-      width:380px;
-      height:540px;
-   }
-   div.dance>aside.d-side>div.d-side-box4 {
-      text-align:right;
-      padding-right:20px;
-      margin-top:90px;
-   }
-   div.dance>aside.d-side>div.d-side-box5 {
-      text-align:center;
-      margin-top:10px;
-   }
-   div.dance>aside.d-side>div.d-side-box5>img,
-   div.dance>aside.d-side>div.d-side-box5>a>img {
-       padding:0 14px 0 14px;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span {
-      font-size:17px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span1 {
-      font-size:15px;
-   }
-   div.dance>aside.d-side>hr.d-line {
-      width:330px;
-      opacity:0.3;
-      margin-top:8px;
-   }
-   div.dance>aside.d-side>h1 {
-      font-size:30px;
-      font-weight:bold;
-      padding:24px 0 20px 18px;
-   }
-   div.dance>aside.d-side>div.scroll-box {
-      overflow: auto; 
-      height: 220px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box {
-      margin-top:25px;
-      height:60px;
-      margin-bottom:25px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box .d-side-box1 {
-      font-size:16px;
-      font-weight:bold;
-      padding-left:20px;
-      padding-bottom:10px;
-      display:inline-block;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>span.d-side-box2 {
-      font-size:16px;
-      font-weight:bold;
-      float:right;
-      padding-right:20px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>.d-side-box3 {
-      padding-left:20px;
-      display: block;
-      color: #999;
-      font-size: 13px;
-      font-weight: normal;
-   }
-   .review_sum {
-      display: inline-block;
-      width: 720px;
-       padding: 26px 40px 22px;
-       border: 1px solid #ddd;
-       border-radius: 6px;
-   }
-   .review_sum .review_list {
-       display: flex;
-       flex-wrap: wrap;
-       align-items: center;
-       flex-direction: row;
-       flex-wrap: wrap;
-   }
-   .review_sum .review_list li {
-       width: 22%;
-       margin-right: 17%;
-       font-size: 15px;
-       line-height: 19px;
-       letter-spacing: -0.22px;
-       text-align: left;
-       font-weight: 500;
-   }
-   .review_sum .review_list li:nth-child(3) {
-       margin-right: 0;
-   }
-   .review_sum .review_list li .avg {
-       float: right;
-       margin-left: 15px;
-       font-size: 13px;
-       font-weight: 500;
-       letter-spacing: -0.2px;
-   }
-   .review_sum .review_list li .avg::before {
-       content: '';
-       display: inline-block;
-       width: 14px;
-       height: 14px;
-       margin-right: 3px;
-       vertical-align: -1px;
-       background: url('http://localhost:9000/One_day_class/images/star_act.png') no-repeat center/100%;
-   }
-   .dance-b6 .cert_list {
-       margin-bottom: 19px;
-   }
-   .dance-b6 .cert_list li {
-       position: relative;
-       display: block;
-       padding-left: 17.4px;
-       margin-bottom: 5px;
-       font-size: 15px;
-       letter-spacing: -0.22px;
-       line-height: 21px;
-       font-weight: normal;
-       margin-left: 224px;
-   }
-   .dance-b6 .cert_list li::after {
-       content: '';
-       position: absolute;
-       top: 2px;
-       left: 0;
-       width: 14px;
-       height: 14px;
-       background: url(http://localhost:9000/One_day_class/images/class_badge.png) no-repeat center/100%;
-   }
-       
-   hr {
-		width:1045px;
-		opacity:0.3;
-		width:330px;
-		}
-		 .curri_heading {
-		    display: block;
-		    margin-bottom: 15px;
-		    font-size: 18px;
-		    color: #ff0045;
-		    font-weight: bold;
-		}
-		.photo_list {
-		    margin: 10px 0 0 70px;
-		    font-size: 0;
-		}
-		.photo_list li {
-		    display: inline-block !important;
-		    overflow: hidden;
-		    width: calc(20% - 7px);
-		    height: 68px;
-		    margin-left: 7px;
-		    padding: 0 !important;
-		    border-radius: 6px;
-		    cursor: pointer;
-		}
-		li {
-		    list-style: none;
-		}
-		.photo_list li img {
-		    width: 100%;
-		    height: 100%;
-		    object-fit: cover;
-		}
-</style>
 </head>
 <body>
    <!--header -->
    <jsp:include page="../../../header.jsp" />
+   <div class="nav">
+		<ul>
+			<li class="active" onclick="moveContent('1')" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
+			<li onclick="moveContent('2')" id="nav_li2"><a href="javascript:">수업소개</a></li>
+			<li onclick="moveContent('3')" id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
+			<li onclick="moveContent('4')" id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
+		</ul>
+	</div>
    <div class="dance">
       
       <aside class="d-side">
@@ -411,20 +61,35 @@
          <span> 4.9(1267)</span>
       </div>
       <div class="dance-box2">
-         <img src="http://localhost:9000/One_day_class/images/foreign/english/english1_ (1).png">
-         <img src="http://localhost:9000/One_day_class/images/foreign/english/english1_ (1).png" class="dance1-1">
-         <img src="http://localhost:9000/One_day_class/images/foreign/english/english1_ (2).png" class="dance1-2">
-         <img src="http://localhost:9000/One_day_class/images/foreign/english/english1_ (3).png" class="dance1-3">
-         <img src="http://localhost:9000/One_day_class/images/foreign/english/english1_ (1).png" class="dance1-3">
+      <!-- Swiper -->
+		  <div class="swiper-container gallery-top">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english1_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english1_ (2).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english1_ (3).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english1_ (1).png')"></div>
+		    </div>
+		    <!-- Add Arrows -->
+		    <div class="swiper-button-next swiper-button-white"></div>
+		    <div class="swiper-button-prev swiper-button-white"></div>
+		  </div>
+		  <div class="swiper-container gallery-thumbs">
+		   <div class="swiper-wrapper">
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english1_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english1_ (2).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english1_ (3).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english1_ (1).png')"></div>
+		    </div>
+		   </div>
       </div>
       <div class="dance-box3">
          <span class="dance-b4">수업 전<br> 숙지해주세요!</span>
-         <div class="dance-b5">
+         <div class="dance-b5" style="height:100px;">
             <img src="http://localhost:9000/One_day_class/images/dance3.png">
             <p class="text_area">수업은 온라인으로 진행되며, 추가 비용은 없습니다.</p>
          </div>
       </div>
-      <div class="dance-box3-1">
+      <div class="dance-box3-1" id="nav1">
          <span class="dance-b4">튜터님을<br> 소개합니다.</span>
          <div class="dance-b6">
           <p class="text_area">✔ 튜터 이력<br>
@@ -477,7 +142,7 @@
          </div>
       </div>
       <div class="dance-box3-1">
-         <span class="dance-b4">어떤<br> 수업인가요?</span>
+         <span class="dance-b4" id="nav2">어떤<br> 수업인가요?</span>
          <div class="dance-b6">
          <p class="text_area">++ 이 방법대로 공부한다면 영어Speaking 끝장낼 수 있습니다!<br>
 				++ 수업이 끝난 뒤 수업자료 드립니다<br>
@@ -542,26 +207,8 @@
 				ⓐ 제대로 된 영어회화/영어스피킹 공부법을 알게 됩니다.<br>
 				ⓑ 귀찮게 이것저것 하지 않아도 됩니다. 이것만 하세요.<br>
 				ⓒ 이 방법으로 꾸준히 공부한다면 한국어보다 영어가 더 자연스럽게 튀어나오게 될거에요.<br>
-				<br>
-				<br>
-				✔ 수업진행방식<br>
-				<br>
-				수업은 크게 3개 파트로 나눠집니다.<br>
-				ⓐ 12년+@를 공부했는데 우리가 말을 못하는 이유? 원인파악 (30분)<br>
-				ⓑ 그럼 뭘 어떻게 해야돼?! 해결책 제시 (30분)<br>
-				ⓒ 직접 실습 (1시간 20분)<br>
-				<br>
-				마지막 실습하는 시간이 정말정말 중요한데요.<br>
-				혼자 부끄럽게 막 시키지 않고 다같이 할거니까 쑥쓰러워말고 오세요!<br>
-				기억하세요. 우리는 Speaking 공부를 하는 거니까, 직접 말을 해봐야 합니다.<br>
-				<br>
-				<br>
-				✔ 제 수업만의 강점은요<br>
-				<br>
-				ⓐ 원데이클래스로 단 ★3시간★ 만에 끝내드립니다.<br>
-				ⓑ 이것저것 하기 귀찮은 분들, 이거 하나만 하면 됩니다.<br>
-				ⓒ 수업이 끝난 뒤에도 향후 100년간 A/S 해드립니다.</p>
-         </div>
+				</p>
+		 </div>
       </div>
       <div class="dance-box3-1">
          <span class="dance-b4">이런 분들이<br>들으면<br>좋아요.</span>
@@ -580,7 +227,7 @@
          </div>
       </div>
       <div class="dance-box3-1">
-         <span class="dance-b4">수업은 이렇게<br>진행됩니다.</span>
+         <span class="dance-b4" id="nav3">수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
          	<p class="curri_details">✔ Part 1.<br>
 				12년을 배워도 우리가 영어로 말을 못하는 이유 (30분)<br>
@@ -607,11 +254,12 @@
 				✔ Q&amp;A (+@)</p>
          </div>
       </div>
+      
        <div class="dance-box3-1">
          <span class="dance-b4">관련 영상<br>보고가세요.</span>
          <div class="dance-b6" style="width: 615px; margin-left: 170px;">
          	<iframe width="560" height="315" src="https://www.youtube.com/embed/sPqwPInaRQU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-         	allowfullscreen style="margin-top:-70px;"></iframe>
+         	allowfullscreen style="margin-top:-80px;"></iframe>
          	<iframe width="560" height="315" src="https://www.youtube.com/embed/o83ZJ8FnV98" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
          	allowfullscreen></iframe>
          	<iframe width="560" height="315" src="https://www.youtube.com/embed/eHcR7rznpAA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -619,8 +267,8 @@
          </div>
        </div> 
          
-      <div class="dance-box3-1">
-         <span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
+      <div class="dance-box3-1 reivew_box">
+         <span class="dance-b4" id="nav4">실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">
                     <ul class="review_list">
@@ -640,38 +288,38 @@
       <div class="dance-box4">
          <ul>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
                   <span class="dance-b8">현서</span><br>
                   <span class="dance-b9">2020-12-02 17:52:05</span>
-                  <div>
+                  <div class="review_content">
                      <p >너무너무너무 완벽한 강의였어요 정말 너무 유익한 3시간이였습니다 ㅎㅎ</p>
                   </div>
                </div>
             </li>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
                   <span class="dance-b8">김민지</span><br>
                   <span class="dance-b9">2020-11-22 23:02:22</span>
-                  <div>
+                  <div class="review_content">
                      <p>학생들이 모두 영어가 잘되길 바라시는 마음이 많이 전달되었어요!!
 						선생님의 경험담과 노하우가 담긴 수업으로 영어공부 동기가 생겼을 뿐만아니라 긍정적인 마인드도 생겼습니다 정말감사해요</p>
                   </div>
                </div>
             </li>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
                   <span class="dance-b8">자몽주스</span><br>
                   <span class="dance-b9">2020-11-22 21:52:50</span>
-                  <div>
+                  <div class="review_content">
                      <p> 영어 회화 어떻게 할지 고민만 가득했던 제게,
 						가이드를 A부터 Z까지 차근차근 잘 설명해주셨어요.
 						튜터님이 실제로 독학으로 공부하신 걸 바탕으로 전해주신 내용들이라, 혼자서 꾸준히만 하면 나도 해볼 수 있겠구나! 하는 마음이 드네요.
@@ -691,6 +339,28 @@
          </div>
       </div>
    </div>
+   
+   
+   <!-- Initialize Swiper -->
+  <script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs
+      }
+    });
+  </script>
    <!--header -->
    <jsp:include page="../../../footer.jsp" />
 </body>

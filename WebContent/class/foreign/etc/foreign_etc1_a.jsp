@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>career_design1_a</title>
+<title>foreign_etc1_a</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yh_detail.css">
 <script src="http://localhost:9000/MyWeb_/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/One_day_class/js_yh/yh_js.js"></script>
@@ -20,35 +20,21 @@
 		<hr class="a-bar">
 		<div class="a-left">
 			<div class="a-left-1">
-				<img src="http://localhost:9000/One_day_class/images/career/design/design1_ (1).png">
+				<img src="http://localhost:9000/One_day_class/images/foreign/etc/etc_ (1).png">
 			</div>
 			<div class="a-left-2" style="width:281px;">
-				<p class="a-title-1">한달 완성 UXUI 취업 이직 스터디!! UX 프로토 타이핑 툴 실무 역량 키우기!!</p><br>
-				<img src="http://localhost:9000/One_day_class/images/dance9.png">
+				<p class="a-title-1">[승무원 중국어 면접] 9년차 전직 중국항공사 승무원과 "중국어 면접" 준비</p><br>
 				<span class="a-title-2">5.0</span>
 			</div>
 		</div>
 		<h3>수업 일정을 먼저 선택해주세요.</h3>
 		<div class="left-box scroll-box">
 				<ul>
-					<li class="list">
+					<li class="list" style="border-bottom:none;">
 								<input type="radio" name="lradio" id="leftradio1" class="inp_label blind">
 								<label for="leftradio1" class="inp_radio">
-									<span class="left-box-span">01월 05일 화요일 (강남) 19:30 - 21:30</span>
-									<p class="left-box-p">2회01월 12일(화) 19:30 - 21:30</p>
-									<p class="left-box-p">3회01월 19일(화) 19:30 - 21:30</p>
-									<p class="left-box-p">4회01월 26일(화) 19:30 - 21:30</p>
-									<p class="left-box-p">5회02월 02일(화) 19:30 - 21:30</p>
-								</label>
-						</li>
-						<li class="list">
-								<input type="radio" name="lradio" id="leftradio2" class="inp_label blind">
-								<label for="leftradio2" class="inp_radio">
-									<span class="left-box-span">01월 10일 일요일 (잠실) 11:00 - 13:00</span>
-									<p class="left-box-p">2회01월 17일(일) 11:00 - 13:00</p>
-									<p class="left-box-p">3회01월 24일(일) 11:00 - 13:00</p>
-									<p class="left-box-p">4회01월 31일(일) 11:00 - 13:00</p>
-									<p class="left-box-p">5회02월 07일(일) 11:00 - 13:00</p>
+									<span class="left-box-span">12월 05일 토요일 (강남) 18:00 - 20:00</span>
+									<p class="left-box-p">협의 후 상세 장소 결정</p>
 								</label>
 						</li>
 				</ul>
@@ -62,7 +48,6 @@
 			<input type="text" value="1" id="rtext">
 			<button type="button" class="r-btn1" id="btn-plus" name="btn_plus" ></button>
 		</div>
-		<div class="margin"></div>
 		<div class="r-box1-1">
 			<h3>연락 받으실 전화번호</h3>
 			<input type="text" placeholder="번호를 입력해 주세요">

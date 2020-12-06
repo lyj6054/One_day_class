@@ -4,445 +4,58 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>makeUp_1</title>
+<title>career_ability2</title>
  <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.css">
-<script>
-   function wish(){
-      alert("위시리스트에 추가되었습니다");
-       document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1-1.png";
-   }
-   function review(){
-      alert("로그인 후 이용가능합니다.");
-       document.getElementById("d-img");
-   }
-   function new_window(){
-      alert("휴대전화 인증이 필요합니다");
-      window.open("http://localhost:9000/One_day_class/tutor/talk-btn.jsp","전화번호 등록","width=500,height=340");
+  <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yh_detail.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/yh_js.js"></script>
 
-   }
-   
-</script>
-<style>
-    *:focus { outline:none; }
-    .text_area {
-       font-size:16px;
-       width: 650px;
-    }
-     
-   div.dance {
-      width:1400px;
-      margin:auto;
-   }
-   div.dance>div.dance-box {
-      margin-top:40px;
-      width: 950px;
-   }
-   div.dance>div.dance-box1 {
-      margin-top:20px;
-   }
-   div.dance>div.dance-box2 {
-      width:1000px; 
-      height:500px;
-      margin-top:35px;
-   }
-   div.dance-box2>img {
-      float:left;
-   }
-   div.dance-box2>img:first-child{
-      width:750px;
-      height:490px;
-      border-radius: 10px;
-   }
-   div.dance-box2>img.dance1-1,
-   div.dance-box2>img.dance1-2,
-   div.dance-box2>img.dance1-3,
-   div.dance-box2>img.dance1-4 {
-      width:180px;
-      height:115px;
-      border-radius:10px;
-      float:left;
-      vertical-align:top;
-      margin:0 0 10px 10px;
-   }
-   div.dance>div.dance-box3 {
-      margin-top:100px;
-      height:150px;
-      width:945px;
-   }
-   div.dance>div.dance-box3-1{
-      width:945px;
-      margin-top:120px;
-      margin-bottom:30px;
-   }
-    .dance-box3-1  .curri_img {
-    		width:80px;
-		    vertical-align: top;
-    		margin-bottom: 20px;
-    		
-    }
-    
-   div.dance-box4 {
-      width:715px;
-      margin-left:230px;
-   }
-   div.dance-box4>div.dance-box4-1 {
-      text-align:center;
-      font-size:13px;
-      margin-top:40px;
-      margin-bottom:100px;
-   }
-   div.dance-box4>div.dance-box4-1>a {
-      display:inline-block;
-      margin:0 5px 0 5px;
-      border-radius:50%;
-      width:25px; height:25px;
-      text-decoration:none;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom {
-      border:2px solid lightgray;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom1 {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom2:active {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>ul>li>div {
-      margin-top:35px;
-   }
-   div.dance-box4>ul>li>div>div>p {
-      clear:left;
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>div>img {
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>span.dance-b7>img {
-      float:left;
-      margin-right:20px;
-      width: 50px;
-       height: 50px;
-       border-radius: 50%;
-       object-fit: cover;
-       object-position: center;
-   }
-   div.dance-box4>ul>li>div>span.dance-b8 {
-      margin-top:10px;
-      display:inline-block;
-      font-weight:bold;
-   }
-   div.dance-box4>ul>li>div>span.dance-b9 {
-      color:gray;
-   }
-   div.dance>div.dance-box3>span.dance-b4,
-   div.dance>div.dance-box3-1>span.dance-b4 {
-      display:inline-block;
-      float:left;
-      font-size:28px;
-      font-weight:bold;
-      margin-right:60px;
-   }
-   div.dance>div.dance-box3>div.dance-b5 {
-      border:1px solid rgb(250,250,250);
-      border-radius:3px;
-      float:left;
-      width:720px;  
-      height:50px;
-      background-color:rgb(250,250,250);
-      font-size:14px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>iframe {
-      margin-left:50px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>p {
-      margin-left:224px;
-      font-size:16px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>img {
-      margin-left:30px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1 {
-      margin-bottom:80px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1>button.dance-btn1 {
-      border:1px solid white;
-      float:right;
-      margin-top:10px;
-      font-size:15px;
-      background-color:white;
-      text-decoration:underline;
-      padding-bottom:5px;
-      
-   }
-   div.dance>div.dance-box3>div.dance-b6>span {
-      vertical-align:top;
-   }
-   div.dance>div.dance-box3>div.dance-b5>img {
-      float:right;
-   }
-   div.dance>div.dance-box1>span.dance-b3 {
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box1>img {
-       float:left;
-       margin-right:5px;
-       width: 42px;
-       height: 42px;
-       border-radius: 50%;
-       object-fit: cover;
-         object-position: center;
-   }
-   div.dance>div.dance-box>span.dance-b1 {
-      font-size:17px;
-      font-weight:bold;
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box>span.dance-b2 {
-      font-size:30px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side {
-      border:1px solid lightgray;
-      border-radius:8px;
-      float:right;
-      width:380px;
-      height:540px;
-   }
-   div.dance>aside.d-side>div.d-side-box4 {
-      text-align:right;
-      padding-right:20px;
-      margin-top:90px;
-   }
-   div.dance>aside.d-side>div.d-side-box5 {
-      text-align:center;
-      margin-top:10px;
-   }
-   div.dance>aside.d-side>div.d-side-box5>img,
-   div.dance>aside.d-side>div.d-side-box5>a>img {
-       padding:0 14px 0 14px;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span {
-      font-size:17px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span1 {
-      font-size:15px;
-   }
-   div.dance>aside.d-side>hr.d-line {
-      width:330px;
-      opacity:0.3;
-      margin-top:8px;
-   }
-   div.dance>aside.d-side>h1 {
-      font-size:30px;
-      font-weight:bold;
-      padding:24px 0 20px 18px;
-   }
-   div.dance>aside.d-side>div.scroll-box {
-      overflow: auto; 
-      height: 220px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box {
-      margin-top:25px;
-      height:60px;
-      margin-bottom:25px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box .d-side-box1 {
-      font-size:16px;
-      font-weight:bold;
-      padding-left:20px;
-      padding-bottom:10px;
-      display:inline-block;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>span.d-side-box2 {
-      font-size:16px;
-      font-weight:bold;
-      float:right;
-      padding-right:20px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>.d-side-box3 {
-      padding-left:20px;
-      display: block;
-      color: #999;
-      font-size: 13px;
-      font-weight: normal;
-   }
-   .review_sum {
-      display: inline-block;
-      width: 720px;
-       padding: 26px 40px 22px;
-       border: 1px solid #ddd;
-       border-radius: 6px;
-   }
-   .review_sum .review_list {
-       display: flex;
-       flex-wrap: wrap;
-       align-items: center;
-       flex-direction: row;
-       flex-wrap: wrap;
-   }
-   .review_sum .review_list li {
-       width: 22%;
-       margin-right: 17%;
-       font-size: 15px;
-       line-height: 19px;
-       letter-spacing: -0.22px;
-       text-align: left;
-       font-weight: 500;
-   }
-   .review_sum .review_list li:nth-child(3) {
-       margin-right: 0;
-   }
-   .review_sum .review_list li .avg {
-       float: right;
-       margin-left: 15px;
-       font-size: 13px;
-       font-weight: 500;
-       letter-spacing: -0.2px;
-   }
-   .review_sum .review_list li .avg::before {
-       content: '';
-       display: inline-block;
-       width: 14px;
-       height: 14px;
-       margin-right: 3px;
-       vertical-align: -1px;
-       background: url('http://localhost:9000/One_day_class/images/star_act.png') no-repeat center/100%;
-   }
-   .dance-b6 .cert_list {
-       margin-bottom: 19px;
-   }
-   .dance-b6 .cert_list li {
-       position: relative;
-       display: block;
-       padding-left: 17.4px;
-       margin-bottom: 5px;
-       font-size: 15px;
-       letter-spacing: -0.22px;
-       line-height: 21px;
-       font-weight: normal;
-       margin-left: 224px;
-   }
-   .dance-b6 .cert_list li::after {
-       content: '';
-       position: absolute;
-       top: 2px;
-       left: 0;
-       width: 14px;
-       height: 14px;
-       background: url(http://localhost:9000/One_day_class/images/class_badge.png) no-repeat center/100%;
-   }
-       
-   hr {
-		width:1045px;
-		opacity:0.3;
-		width:330px;
-		}
-		 .curri_heading {
-		    display: block;
-		    margin-bottom: 15px;
-		    font-size: 18px;
-		    color: #ff0045;
-		    font-weight: bold;
-		}
-		.photo_list {
-		    margin: 10px 0 0 70px;
-		    font-size: 0;
-		}
-		.photo_list li {
-		    display: inline-block !important;
-		    overflow: hidden;
-		    width: calc(20% - 7px);
-		    height: 68px;
-		    margin-left: 7px;
-		    padding: 0 !important;
-		    border-radius: 6px;
-		    cursor: pointer;
-		}
-		li {
-		    list-style: none;
-		}
-		.photo_list li img {
-		    width: 100%;
-		    height: 100%;
-		    object-fit: cover;
-		}
-		
-		.swiper-container {
-      width: 100%;
-      height: 300px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .swiper-slide {
-      background-size: cover;
-      background-position: center;
-    }
-
-    .gallery-top {
-      height: 100%;
-      width: 100%;
-    }
-
-    .gallery-thumbs {
-      height: 20%;
-      box-sizing: border-box;
-      padding: 10px 0;
-    }
-
-    .gallery-thumbs .swiper-slide {
-      width: 25%;
-      height: 100%;
-      opacity: 0.4;
-      cursor: pointer;
-    }
-
-    .gallery-thumbs .swiper-slide-thumb-active {
-      opacity: 1;
-      border: 1px solid #ff0045;
-    }
-</style>
 </head>
 <body>
    <!--header -->
    <jsp:include page="../../../header.jsp" />
+   <div class="nav">
+		<ul>
+			<li class="active" onclick="moveContent('1')" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
+			<li onclick="moveContent('2')" id="nav_li2"><a href="javascript:">수업소개</a></li>
+			<li onclick="moveContent('3')" id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
+			<li onclick="moveContent('4')" id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
+		</ul>
+	</div>
    <div class="dance">
       
       <aside class="d-side">
          <h1>수업일정</h1>
          <div class="scroll-box">
             <div class="d-side-box">
-               <span class="d-side-box1">협의 후 날짜, 시간 결정</span>
+               <span class="d-side-box1">12월 13일 (일) 10:00-16:00</span>
                <span class="d-side-box2">강남</span><br>
-               <span class="d-side-box3">상세장소: 협의 후 결정</span>
+               <span class="d-side-box3">상세장소: 강남구청역</span>
                <hr>
             </div>
             <div class="d-side-box">
-               <span class="d-side-box1">협의 후 날짜, 시간 결정</span>
-               <span class="d-side-box2">잠실새내</span><br>
-               <span class="d-side-box3">상세장소: 협의 후 결정</span>
+               <span class="d-side-box1">12월 20일 (일) 12:00-15:00</span>
+               <span class="d-side-box2">강남</span><br>
+               <span class="d-side-box3">상세장소: 강남구청역</span>
+            	<hr>
+            </div>
+            <div class="d-side-box">
+               <span class="d-side-box1">01월 03일 (일) 12:00-15:00</span>
+               <span class="d-side-box2">강남</span><br>
+               <span class="d-side-box3">상세장소: 강남구청역</span>
             	<hr>
             </div>
             <div class="d-side-box">
                <span class="d-side-box1">협의 후 날짜, 시간 결정</span>
-               <span class="d-side-box2">시흥</span><br>
-               <span class="d-side-box3">상세장소: 협의 후 결정</span>
-            	<hr>
-            </div>
-            <div class="d-side-box">
-               <span class="d-side-box1">협의 후 날짜, 시간 결정</span>
-               <span class="d-side-box2">사당</span><br>
-               <span class="d-side-box3">상세장소: 협의 후 결정</span>
-            	<hr>
+               <span class="d-side-box2">강남</span><br>
+               <span class="d-side-box3">상세장소: 강남구청역</span>
             </div>
          </div>
          <div class="d-side-box4">
-            <span class="d-span">8,000원 / 시간</span><br>
-            <span class="d-span1">96,000원 / 총 4회 12시간</span>
+            <span class="d-span">25,000원 / 시간</span><br>
+            <span class="d-span1">150,000원 / 총 1회 6시간</span>
          </div>
          <div class="d-side-box5">
             <img src="http://localhost:9000/One_day_class/images/dance-btn1.png" id="d-img" onclick="wish()">
@@ -451,23 +64,23 @@
          </div>
       </aside>
       <div class="dance-box">
-         <span class="dance-b1">다회차 · 강남 잠실새내  시흥 사당 · 최대 5명</span><br>
-         <span class="dance-b2">[ 한국사 능력 시험 ] 핵심만 뽑아서 한큐에 합격하기! ( 온라인 강의 포함 )</span>
+         <span class="dance-b1">다회차 · 강남 · 최대 20명</span><br>
+         <span class="dance-b2">[직장인들의 인생강의] 실전, 비즈니스 환경에 최적화된 보고서/기획서 작성과 보고 기법 (국내 대기업 & 외국계기업): 기본과정</span>
       </div>
       <div class="dance-box1">
-         <img src="http://localhost:9000/One_day_class/images/career/certificate/certificate1_tutor(1).jpg">
-         <span> 이현호 튜터</span><br>
+         <img src="http://localhost:9000/One_day_class/images/career/ability/ability1_tutor(2).png">
+         <span> Marcus J Jeong 튜터</span><br>
          <span class="dance-b3">★</span>
-         <span> 5.0(126)</span>
+         <span> 4.9(188)</span>
       </div>
       <div class="dance-box2">
       		<!-- Swiper -->
 		  <div class="swiper-container gallery-top">
 		    <div class="swiper-wrapper">
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate2_ (1).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate2_ (2).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate2_ (3).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate2_ (4).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (2).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (3).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (1).png')"></div>
 		    </div>
 		    <!-- Add Arrows -->
 		    <div class="swiper-button-next swiper-button-white"></div>
@@ -475,223 +88,246 @@
 		  </div>
 		  <div class="swiper-container gallery-thumbs">
 		    <div class="swiper-wrapper">
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate2_ (1).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate2_ (2).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate2_ (3).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/certificate/certificate2_ (4).png')"></div>
+		    	<div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (2).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (3).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (1).png')"></div>
 		    </div>
 		  </div>
       </div>
       <div class="dance-box3">
          <span class="dance-b4">수업 전<br> 숙지해주세요!</span>
-         <div class="dance-b5">
+         <div class="dance-b5"  style="height:230px;">
             <img src="http://localhost:9000/One_day_class/images/dance3.png">
-            <p class="text_area">
-            	✔️ 온라인 Live 수업 : 협의를 통해 결정된 시간(다만 매주 월요일에만 가능. 시간대는 자유롭게)에 진행되는 온라인 수업입니다.<br>
-				Zoom이라는 프로그램을 통해 진행될 예정이며 수업 전에 비공개 링크를 보내드릴 예정입니다.<br>
-				<br>
-				준비물 : 연결에 장애가 거의 없는 원활한 와이파이 밑 랜선 연결할 수 있는 환경. 노트북/탭북 등 Zoom 수업 수강에 가능한 기기<br>
-				               이어폰(음질 상승)<br>
-				<br>
-				✔️ 오프라인을 원하실 경우에는 오프라인으로도 아래의 장소에서 진행 가능합니다.<br>
-				</p>
+            <p class="text_area">12월 13일 (강남구청역 토즈) <br>
+			수업시간은 10:00~17:30(총 7시간 30분+)입니다. 탈잉시스템이 6시간까지만 입력되네요. 가능하면 수업 전날 충분한 휴식을 취해주세요. 
+			중간에 간식(햄버거나 샌드위치, 음료, 과자 등)드립니다. 추가 비용은  없습니다. <br>
+			※ 참고로 수업신청 인원이 5명 이하인 경우와 코로나 등 사회적 리스크가 크게 증가될 경우 부득이 수업일자가 변경될 수도 있습니다. 
+			이런 상황이 발생할 경우 너그럽게 양해해주시면 감사하겠습니다. 감사합니다. </p>
          </div>
       </div>
-      <div class="dance-box3-1">
+      <div class="dance-box3-1" id="nav1">
          <span class="dance-b4">튜터님을<br> 소개합니다.</span>
          <div class="dance-b6">
-          <ul class="cert_list">
-               <li class="com">한국사능력검정시험 1급</li>
-               <li class="com">세계사능력검정시험 1급</li>
-               <li class="com">인문학시험 특급(인문학지도사)</li>
-           </ul>
-           <p class="text_area">
-           		✔️ 튜터 이력<br>
+          <p class="text_area">☆☆ 이 수업으로 여러분의 인생이 바뀔 수도 있습니다. ☆☆<br>
 				<br>
-				- 한신대학교 국사학과 전공<br>
-				- 수도권 및 대치동 사탐, 역사 강사 경력 7년<br>
-				- 전공 관련 자격증 보유 (한국사 1급, 세계사 1급 등)<br>
-				- 대치동 독서논술학원 강사<br>
+				왜냐하면, 제 수업에는,<br>
+				지난 20년간 여러 회사에서 수 많은 분들과 치열하게 근무해 본,<br>
+				'REAL' 실무형 기획 및 전략 전문가의<br>
+				깨달음과 실전 노하우들을 들어있기 때문입니다. <br>
 				<br>
+				부디 20년 뒤에 깨닫지 마시고,<br>
+				☆☆ 꼭, 후기를 읽어보세요. ☆☆<br>
 				<br>
-				안녕하세요~이현호 튜터입니다!<br>
-				어릴 때부터 역사를 너무나 좋아했어서<br>
-				국사를 전공하고 수년간 역사 선생님을 했습니다.<br>
+				수업은 10:00부터 17:30분(총 7시간 30분)까지 진행됩니다.<br>
+				(탈잉 시스템이 6시간까지만 입력돼서 어쩔 수 없이....)<br>
+				ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ<br>
 				<br>
-				많은 학생들을 만나며 재밌게 역사를 전달했고<br>
-				자격증이라는 눈에 보이는 성과도 많이 남겼습니다.<br>
+				다른 회사에 잘 다니고 있던 후배가 <br>
+				다른 팀에서 잘 근무하고 있던 후배가<br>
+				저에게 업무를 배워보고 싶다고 갑자기 우리팀에 지원했습니다.<br>
+				그분들이 왜 그랬을까 저는 궁금했습니다.<br>
 				<br>
-				막상 공부하려니 막막하게 느껴지는 한국사 공부,<br>
-				어떻게 포인트를 잡고 시작해야하는지<br>
-				어떻게 단기간에 흐름을 잡을 수 있는지 알려드립니다.<br>
+				사실, 저는 운이 좋게도 여러 회사에서 근무했습니다. <br>
+				국내 대기업에서부터 외국계 금융회사까지,<br>
 				<br>
-				저만 믿고 따라오세요!<br>
+				제가 이렇게 여러 회사에서 비교적 다양한 경험을 할 수 있었던 것은 <br>
+				국내 대기업에서 업무를 배운<br>
+				‘기획이나 전략 전문가’를 간절히 원하셨던 <br>
+				경쟁사 '고위'임원님들 덕분이었습니다.<br>
 				<br>
-				그럼 수업 때 만나요 :)<br>
+				물론, 저도 여러 회사들의 고수들을 만나고 싶기도 했습니다. <br>
+				그들의 문화도 궁금했습니다. <br>
+				그리고 제 실력도 테스트해보고 싶었습니다.<br>
 				<br>
-			</p>
+				그런데 이직해보니, 와~~ 힘들었습니다. <br>
+				‘기획이나 전략’업무는 <br>
+				주로 ‘보고서나 기획서’로<br>
+				여러 이해관계자분들을 설득하고 <br>
+				그들에게 새로운 일(업무나 역할)을 쥐어주는 것입니다.<br>
+				<br>
+				그런데, 처음에는<br>
+				서로의 의견을 나누는 회의 자체도 너무 힘들었습니다.<br>
+				굴러온 돌이 박힌 돌을 설득한다는 것이<br>
+				생각만큼 쉽지 않았습니다.<br>
+				정말 너무 힘들었습니다.<br>
+				<br>
+				아무튼, 남들 보다 더 많은 회사에서 <br>
+				그렇게 치열하게 생활하다 보니<br>
+				제게 뭔가 다른 게 생겼나 봅니다.<br>
+				<br>
+				그래서 후배님들이 저를 그렇게 찾아오셨나 봅니다.<br>
+				------------------------<br>
+				<br>
+				# 수업을 하게 된 이유<br>
+				<br>
+				회사에서 일을 잘한다는 것은<br>
+				보고업무를 잘한다는 의미입니다.<br>
+				<br>
+				그럼에도 불구하고, 학교나 회사 밖에서는<br>
+				이런 교육 콘텐츠가 매우 부족합니다.<br>
+				있어도 너무 이론적이라 실무에 적용하기 어렵고, <br>
+				또 너무 비쌉니다. <br>
+				<br>
+				물론, 회사에서도 이를 가르쳐 주지 않습니다.<br>
+				과거에는 도제(사수-부사수제)로 배울 수 있었습니다. <br>
+				그러나, 요새는 그런 기회도 거의 없습니다.<br>
+				왜냐하면, 후배나 동료가 나보다 일을 잘하면, <br>
+				내가 밀려나기 때문입니다. <br>
+				<br>
+				저는 이런 상황을 조금 개선해보고 싶었습니다.<br>
+				저는 제가 오랫동안 어렵게 습득해온 노하우들이<br>
+				후배분들에게 도움이 된다는 것을 분명히 알고 있습니다.<br>
+				<br>
+				그래서 이 수업을 개설한 것입니다. <br>
+				<br>
+				이 수업을 통해 여러분의 보고업무 실력은<br>
+				분명히 향상될 것입니다.<br>
+				<br>
+				왜냐하면, 저와 같이 근무하셨던 <br>
+				많은 팀원분들께서도<br>
+				이미 그렇게 되셨기 때문입니다. <br>
+				<br>
+				REAL 기획/전략 전문가에게<br>
+				보고업무의 실전 팁을 배워보세요.<br>
+				어설픈 수업은 아닐 것입니다.<br>
+				------------------------<br> </p>
          </div>
       </div>
       <div class="dance-box3-1">
-         <span class="dance-b4">어떤<br> 수업인가요?</span>
+         <span class="dance-b4" id="nav2">어떤<br> 수업인가요?</span>
          <div class="dance-b6">
-         <p class="text_area">
-         		한국사는 암기 과목이라는 인식이 강한데요,<br>
-				아시다시피 흐름을 파악한 후에 암기를 하면<br>
-				훨씬 더 짧은 시간으로 세세한것까지 암기가 가능합니다.<br>
+         <p class="text_area">학교에서는 배울 수 없고, <br>
+				회사에서는 가르쳐 주지 않는 실전 지식!!<br>
 				<br>
-				다가가기 어려웠던 한국사 시험, 한번만에 깔끔하게<br>
-				합격하게 해드리겠습니다.<br>
+				이 수업으로 여러분의 인생이 바뀔 수도 있습니다.<br>
 				<br>
-				※ 자격증과 상관없이 역사의 전체적 흐름을<br>
-				파악하고 싶으신 분도 환영합니다 !<br>
-				(한국사 / 세계사 등등)<br>
+				왜냐하면, 제 수업에는,<br>
+				지난 20년간 여러 회사에서 수 많은 분들과 치열하게 근무해 본,<br>
+				'REAL' 실무형 기획 및 전략 전문가의<br>
+				깨달음과 실전 노하우들을 들어있기 때문입니다. <br>
 				<br>
+				부디 20년 뒤에 깨닫지 마세요.<br>
+				ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ<br>
+				실무에서는(팀·회사·업종별로) 셀 수 없을 만큼 많은 보고서와 기획서들이 존재합니다.<br>
+				그리고 이런 업무를 할 때마다 말로 표현하기 어려운 스트레스를 받습니다.  <br>
+				그래서 많은 분들이 보고업무를 어렵다고 생각합니다.<br>
 				<br>
+				그런데, 사실...<br>
+				이 보고업무라는 것을 잘 해낼 수 있는 팁이 없는 것이 아닙니다.<br>
+				만약, 누군가가 여러분에게 이 팁을 알려주신다면 <br>
+				여러분은 지금까지와는 달리 보고업무를 좀 더 쉽게 하실 수 있을 것입니다. <br>
 				<br>
-				✔️ 무엇을 하는 수업인가요?<br>
+				그러나, 안타깝게도 <br>
+				회사의 선배님들은 이를 알려주지 않습니다.<br>
+				왜냐하면, 그분들이 아셔도 굳이 여러분에게.....<br>
+				아니면 그분들도 잘 모르실 수도....<br>
 				<br>
-				한국사 능력 검정 시험을 대비하여<br>
-				한번만에 합격하게 만들어드립니다 !<br>
+				아무튼, 그래서 많은 분들이 늘 보고업무를 두려워하는 것입니다.<br>
+				-------------------------<br>
 				<br>
+				직장인들의 몸 값은 사실, 보고(업무) 능력에 의해 결정됩니다. <br>
+				왜냐하면, 회사는 보고(업무)를 잘하는 사람이 일을 잘 한다고 생각하기 때문입니다.<br>
 				<br>
+				많은 분들이 보고(업무)를 잘하고 싶어합니다. 그리고 이를 위해 ‘문서 작성’과 ‘말하기’ 스킬만 배우면 된다고 생각하십니다. <br>
 				<br>
-				✔️ 어떻게 가능한가요?<br>
+				그러나, 실무에서는 '문서를 깔끔하고 예쁘게 만드는 것'이나, ‘말을 현란하게 잘하는 것’만으로는 보고(업무)를 잘한다는 말을 듣기가 어렵답니다.<br>
 				<br>
-				1. 인과관계로 암기 내용을 넣어드립니다.<br>
-				무작정 외우는 것이 아닌 이 상황과 사건에서는<br>
-				어떤 일이 펼쳐질지 당연하게 연상해보는 수업입니다.<br>
-				외울 필요가 없이 연상으로 이해시켜드립니다.<br>
-				<br>
-				2. 키워드를 통해 알아가는 한국사<br>
-				그렇다고 모든 것을 연상으로 할순 없겠죠?<br>
-				암기를 해야 되는 부분에서는 키워드를 통해<br>
-				하나를 외우면 열이 외워지도록 해드립니다.<br>
-				키워드만 떠올려도 그 시대가 연상된다면<br>
-				훨씬 더 효율적으로 공부할 수 있겠죠?<br>
-				<br>
-				3. 눈으로 보고 귀로 듣는 역사 <br>
-				다년간의 경험으로 수집한 다양한 자료들로<br>
-				함께 보고 듣는 역사체험!<br>
-				그래서 좀 더 실감나게 다가갈 수 있게 해드립니다.<br>
-				<br>
+				그럼 도대체 보고(업무)를 잘 한다는 것은 무슨 의미일까요?<br>
+				그에 대한 답은 수업시간에 알려 드리겠습니다. <br>
 				<br>
 				<br>
-				✔️ 그래서 자격증은 딸 수 있나요?<br>
-				당연하게 시험이란게 개인 역량에 달려있지만<br>
-				본인이 갈 수 있는 가장 빠른 길로 알려드립니다.<br>
-				대치동에서 7년간 살아남으면서 어떻게 하면<br>
-				가장 단기간에 성적을 올릴 수 있는지 연구했습니다.<br>
+				이 수업은 보고 업무(보고서 작성과 보고)를 잘 모르시거나 어려워하시는 분들에게 도움을 드리고자 기획된 것입니다.<br>
 				<br>
-				쉽지 않았던 한국사, 한방에 격파해드리겠습니다.<br>
+				그래서, 강의의 내용은 매우 실무적이고 현실적입니다. <br>
+				조금 더 구체적으로 말씀 드리자면, <br>
+				수업의 내용은 전부<br>
+				제가 제 팀원 or 부서원분들께 전해드렸던 실전에서 바로 사용할 수 있는 보고업무의 '비기'들입니다.<br>
 				<br>
-				<br>
-				<br>
-				✔️수업 일정<br>
-				- 매주 월요일에 진행 (총 4주)<br>
+				그러나, 그 내용은 전혀 어렵지 않습니다. <br>
+				왜냐하면, 이 수업은 이미 많은 분들의 피드백을 받아 ‘업그레이드’됐기 때문입니다. 그리고 기획/전략 전문가인 제가 상대방을 설득하는 것처럼 아주 쉽게 설명을 해드릴 것이기 때문입니다. <br>
 				<br>
 				<br>
-				✔️ 온라인 Live 수업 : 협의를 통해 결정된 시간(다만 매주 월요일에만 가능. 시간대는 자유롭게)에 진행되는 온라인 수업입니다.<br>
+				경험만큼 값진 자산은 없습니다.<br>
+				분명 제 수업도 그런 경험 중에 하나가 될 것입니다. <br>
 				<br>
-				<br>
-				✔️수업 장소(오프라인을 원하실 시)<br>
-				<br>
-				- 강남 / 잠실새내 / 사당 / 시흥<br>
-				   인근 스터디룸 <br>
-				<br>
-				* 장소 조율 가능하니<br>
-				'실시간 톡'을 통해 문의주세요!<br>
-				<br>
-				* 스터디룸 대여비는 별도입니다.<br>
-				* 교재는 튜터가 만든 자체교재를 활용합니다.<br>
-				<br>
-				<br>
-				<br>
-				✔️수업 형태<br>
-				<br>
-				- 그룹 (2~5명)<br>
-			</p>
+				제 수업을 들어보세요. <br>
+				10개가 넘는 회사의 고위임원님들이 인정해주셨던<br>
+				저만의 노하우를 아낌없이 공유해드리겠습니다.<br>
          </div>
       </div>
       <div class="dance-box3-1">
          <span class="dance-b4">이런 분들이<br>들으면<br>좋아요.</span>
          <div class="dance-b6">
-          <p class="text_area">
-          		- 한국사를 재미있게 배우고 싶은 분<br>
+          <p class="text_area">이 수업은 아래와 같은 분들을 위해 기획됐습니다. <br>
 				<br>
-				- 한국사 암기가 너무 힘드신 분<br>
-				<br>
-				- 이과라서 한국사를 어떻게 접근해야 할지 모르는 분<br>
-				<br>
-				- 한국사능력검정시험의 자격증 취득을 원하시는 분<br>
-				<br>
-				- 한국사의 핵심만 파악해보고 싶은 분<br>
-				<br>
-				- 한국사의 흐름을 머릿속에 넣길 원하시는분<br>
-				<br>
-				- 한국사 컨텐츠를 통한 계획이 있으신 분
-			</p>
+				O 아직 회사 문화가 어색한 신입(Entry Level), 주니어 직장인분<br>
+				O 보고업무에 익숙하지 않은 분(직위 불문)<br>
+				O 보고 때마다 윗분들과 갈등이 발생하는 분(직위 불문)<br>
+				O 향후 보고를 자주해야 하는 회사나 팀으로 이동해야 하시는 분(직위 불문)<br>
+				O 자신의 보고업무에 업그레이드가 필요하신 분<br>
+				O 위의 분들에게 적합한 교육프로그램을 찾고 계신 HR 담당자분<br>
+				O 취업을 준비 중이신 예비 직장인분<br>
+				O 외국학교를 졸업하시고 대한민국에서 근무하실 분</p>
          </div>
       </div>
       <div class="dance-box3-1">
-         <span class="dance-b4">수업은 이렇게<br>진행됩니다.</span>
+         <span class="dance-b4" id="nav3">수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
-         	<strong class="curri_heading">1회차 커리큘럼</strong>
-          <p class="curri_details">
-          		★ 4회차 수업 오리엔테이션<br>
+         	<p class="curri_details">수업의 개괄적인 목차는 아래와 같습니다.  <br>
+				(제가 집필한 책의 내용을 기초로 구성했습니다.)<br>
 				<br>
-				✔️ 고대사의 핵심!<br>
-				- 스토리텔링으로 역사를 시작해보자! <br>
-				  삼국시대 이전의 고대사<br>
-				- 고대사를 이끈 삼국의 왕들, 그것이 알고 싶니?<br>
-				- 최초의 통일 국가, 신라! It’s 신라 스타일이란?<br>
+				감사합니다.<br>
 				<br>
-				✔️ 수업 이후 배운 시대에 대한 질의응답
-			</p>
-         	<strong class="curri_heading" style="margin-left:225px">2회차 커리큘럼</strong>
-          <p class="curri_details">
-          		✔️ 중세사의 핵심!<br>
-				- 먹고 먹히는 주도 세력의 변천사! 고려 지배계층<br>
-				- 자고 일어나면 전쟁! 고려와 <br>
-				  이민족과의 끊임없는 전쟁사<br>
-				- ‘육룡이 나르샤’의 비하인드 스토리! <br>
-				  이성계, 정도전, 이방원의 스토리<br>
+				ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ<br>
 				<br>
-				✔️ 수업 이후 배운 시대에 대한 질의응답
-		  </p>
-         	<strong class="curri_heading" style="margin-left:225px">3회차 커리큘럼</strong>
-          <p class="curri_details">
-          		✔️ 근세사의 핵심!<br>
-				- 한국판 르네상스, 세종대왕. 성장의 시대, <br>
-				  세조와 성종, 연산군<br>
-				- 공자 왈 맹자 왈, 사림과 붕당의 시대를 통해 본 <br>
-				  조선사(선조~정조)<br>
-				- 전쟁과 혼란의 시대, 임진왜란과 병자호란<br>
+				1. Opening<br>
+				   ㅇ강사소개<br>
+				   ㅇDisclaimer<br>
 				<br>
-				✔️ 수업 이후 배운 시대에 대한 질의응답
-			</p>
-         	<strong class="curri_heading" style="margin-left:225px">4회차 커리큘럼</strong>
-          <p class="curri_details">
-          		✔️ 근현대사의 핵심!<br>
-				- 판을 갈아엎자! 세도정치, 흥선대원군, <br>
-				  개화로 이어지는 변천사 <br>
-				- 피와 눈물의 역사, 시기별로 본 일제강점기<br>
-				- 해방 이후 혼란의 시기, 자유와 민주주의를 부르짖다! <br>
-				  민주화 운동과 오늘날의 모습<br>
+				2. 보고(업무)란 무엇인가?<br>
+				   ㅇ 왜 보고업무가 중요한가?<br>
 				<br>
-				✔️ 수업 이후 배운 시대에 대한 질의응답</p>
-         </div>
+				3. 보고서 작성하기<br>
+				   ㅇ 윗분들의 지시를 접수하는 법<br>
+				   ㅇ 보고서 양식 및 보고의 방식 결정<br>
+				   ㅇ 기획서와 보고서의 차이<br>
+				   ㅇ 보고서의 틀을 잡는 법<br>
+				   ㅇ 보고서의 살을 붙이는 법<br>
+				   ㅇ 문서작성: 상세한 Tips<br>
+				   ㅇ 좀 더 프로답게 보이는 Tips<br>
+				<br>
+				4. 상사에게 보고/발표하기<br>
+				   ㅇ 보고 전에 준비할 것들<br>
+				   ㅇ 보고에 도움이 되는 실전 기법들<br>
+				   ㅇ 좀 더 프로처럼 보고하는 팁<br>
+				   ㅇ Feedback follow up<br>
+				<br>
+				5. Closing</p>
+      	</div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
+      
+       <div class="dance-box3-1">
+         <span class="dance-b4">관련 영상<br>보고가세요.</span>
+         <div class="dance-b6" style="width: 615px; margin-left: 170px;" >
+         	<iframe width="560" height="315" src="https://www.youtube.com/embed/EVqndDqFfAk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+         	allowfullscreen style="margin-top:-90px;"></iframe>
+         	<iframe width="560" height="315" src="https://www.youtube.com/embed/ogDIbdJqUh0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+         	allowfullscreen></iframe>
+         </div>
+         
+      </div> 
+      
+      <div class="dance-box3-1 reivew_box">
+         <span class="dance-b4" id="nav4">실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">
                     <ul class="review_list">
                         <li>커리큘럼<span class="avg">5.0</span></li>
-                        <li>전달력<span class="avg">5.0</span></li>
+                        <li>전달력<span class="avg">4.9</span></li>
                         <li>시간준수<span class="avg">5.0</span></li>
-                        <li>준비성<span class="avg">5.0</span></li>
-                        <li>친절도<span class="avg">5.0</span></li>
+                        <li>준비성<span class="avg">4.9</span></li>
+                        <li>친절도<span class="avg">4.9</span></li>
                     </ul>
                 </div>
             <div class="dance-b6-1">
@@ -703,40 +339,43 @@
       <div class="dance-box4">
          <ul>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
-                  <span class="dance-b8">조에스더</span><br>
-                  <span class="dance-b9">2020-10-19 19:02:27</span>
-                  <div>
-                     <p >한국사 수업 튜터님 통해서 들을 수 있어 감사했습니다:) 내용을 풍부하게 설명해주셔서 흡입력있게 수업 들을 수 있었습니다. 4회에 걸쳐 수업 수강했는데, 급하게 진도 나가야할 때 도움이 되는 수업이라 생각하고 추천하는 바입니다~!!</p>
+                  <span class="dance-b8">최윤미</span><br>
+                  <span class="dance-b9">2020-11-20 17:57:09</span>
+                  <div class="review_content">
+                     <p >지금 또 강의 들은 지 오래돼서 가물가물 하지만 그래도 회사생활 팁은 바로바로 적용하다보니 회사생활이 좀 더 편해진 걸 느꼈습니다ㅎㅎ
+						복습 열심히 해서 강의 내용 100% 소화해야겠습니다.<br>
+						감사합니다!!</p>
                   </div>
                </div>
             </li>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
-                  <span class="dance-b8">전혜영</span><br>
-                  <span class="dance-b9">2020-05-07 17:32:36</span>
-                  <div>
-                     <p>수업을 통해서 재미없고 지루하던 한국사의 흥미가 생겼어요. 매주 월요일 3시간이 전혀 길게 느껴지지 않을 정도로 재밌게 잘 들었어요.</p>
+                  <span class="dance-b8">양서은</span><br>
+                  <span class="dance-b9">2020-10-21 07:13:20</span>
+                  <div class="review_content">
+                     <p>뭐 하나 부족한게없는 수업이었어요.
+						부족하다면 시간이 부족하달까~?!^^<br>
+						오전 10시부터 오후 6시 좀 넘어서까지 딱 2번 휴식시간을 갖고 쉼없이 진행되었네요.<br>
+						우리야 앉아서 계속 듣기만하면 되지만, 강사님은 그렇지 않으니 체력적으로도 엄지척~!</p>
                   </div>
                </div>
             </li>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
-                  <span class="dance-b8">star_st</span><br>
-                  <span class="dance-b9">2020-05-06 00:25:24</span>
-                  <div>
-                     <p> 너무 잘가르쳐주셔서 컴맹인 저도 너무 잘 배웠습니다. 쉬는시간 없이 열과 성의 다해 너무 이해쉽게 가르쳐주셔서 너무 감사했습니다. 
-                     	다음에도 또 부탁드려요 ^^
-                     </p>
+                  <span class="dance-b8">st</span><br>
+                  <span class="dance-b9">2020-10-11 22:46:32</span>
+                  <div class="review_content">
+                     <p>  배운자료로 적용, 응용하며 조금 더 성장한 모습으로 좋은 날 다시 뵙기를 바랍니다. 감사합니다.^○^</p>
                   </div>
                </div>
             </li>
@@ -752,6 +391,26 @@
          </div>
       </div>
    </div>
+    <!-- Initialize Swiper -->
+  <script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs
+      }
+    });
+  </script>
    <!--header -->
    <jsp:include page="../../../footer.jsp" />
 </body>

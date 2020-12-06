@@ -4,346 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>makeUp_1</title>
-<script>
-   function wish(){
-      alert("위시리스트에 추가되었습니다");
-       document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1-1.png";
-   }
-   function review(){
-      alert("로그인 후 이용가능합니다.");
-       document.getElementById("d-img");
-   }
-   function new_window(){
-      alert("휴대전화 인증이 필요합니다");
-      window.open("http://localhost:9000/One_day_class/tutor/talk-btn.jsp","전화번호 등록","width=500,height=340");
-
-   }
-   
-</script>
-<style>
-    *:focus { outline:none; }
-    .text_area {
-       font-size:16px;
-       width: 650px;
-    }
-     
-   div.dance {
-      width:1400px;
-      margin:auto;
-   }
-   div.dance>div.dance-box {
-      margin-top:40px;
-      width: 950px;
-   }
-   div.dance>div.dance-box1 {
-      margin-top:20px;
-   }
-   div.dance>div.dance-box2 {
-      width:1000px; 
-      height:500px;
-      margin-top:35px;
-   }
-   div.dance-box2>img {
-      float:left;
-   }
-   div.dance-box2>img:first-child{
-      width:750px;
-      height:490px;
-      border-radius: 10px;
-   }
-   div.dance-box2>img.dance1-1,
-   div.dance-box2>img.dance1-2,
-   div.dance-box2>img.dance1-3,
-   div.dance-box2>img.dance1-4 {
-      width:180px;
-      height:115px;
-      border-radius:10px;
-      float:left;
-      vertical-align:top;
-      margin:0 0 10px 10px;
-   }
-   div.dance>div.dance-box3 {
-      margin-top:100px;
-      height:150px;
-      width:945px;
-   }
-   div.dance>div.dance-box3-1{
-      width:945px;
-      margin-top:120px;
-      margin-bottom:30px;
-   }
-    .dance-box3-1  .curri_img {
-    		width:80px;
-		    vertical-align: top;
-    		margin-bottom: 20px;
-    		
-    }
-    
-   div.dance-box4 {
-      width:715px;
-      margin-left:230px;
-   }
-   div.dance-box4>div.dance-box4-1 {
-      text-align:center;
-      font-size:13px;
-      margin-top:40px;
-      margin-bottom:100px;
-   }
-   div.dance-box4>div.dance-box4-1>a {
-      display:inline-block;
-      margin:0 5px 0 5px;
-      border-radius:50%;
-      width:25px; height:25px;
-      text-decoration:none;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom {
-      border:2px solid lightgray;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom1 {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom2:active {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>ul>li>div {
-      margin-top:35px;
-   }
-   div.dance-box4>ul>li>div>div>p {
-      clear:left;
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>div>img {
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>span.dance-b7>img {
-      float:left;
-      margin-right:20px;
-      width: 50px;
-       height: 50px;
-       border-radius: 50%;
-       object-fit: cover;
-       object-position: center;
-   }
-   div.dance-box4>ul>li>div>span.dance-b8 {
-      margin-top:10px;
-      display:inline-block;
-      font-weight:bold;
-   }
-   div.dance-box4>ul>li>div>span.dance-b9 {
-      color:gray;
-   }
-   div.dance>div.dance-box3>span.dance-b4,
-   div.dance>div.dance-box3-1>span.dance-b4 {
-      display:inline-block;
-      float:left;
-      font-size:28px;
-      font-weight:bold;
-      margin-right:60px;
-   }
-   div.dance>div.dance-box3>div.dance-b5 {
-      border:1px solid rgb(250,250,250);
-      border-radius:3px;
-      float:left;
-      width:720px;  
-      height:200px;
-      background-color:rgb(250,250,250);
-      font-size:14px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>iframe {
-      margin-left:50px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>p {
-      margin-left:224px;
-      font-size:16px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>img {
-      margin-left:30px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1 {
-      margin-bottom:80px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1>button.dance-btn1 {
-      border:1px solid white;
-      float:right;
-      margin-top:10px;
-      font-size:15px;
-      background-color:white;
-      text-decoration:underline;
-      padding-bottom:5px;
-      
-   }
-   div.dance>div.dance-box3>div.dance-b6>span {
-      vertical-align:top;
-   }
-   div.dance>div.dance-box3>div.dance-b5>img {
-      float:right;
-   }
-   div.dance>div.dance-box1>span.dance-b3 {
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box1>img {
-       float:left;
-       margin-right:5px;
-       width: 42px;
-       height: 42px;
-       border-radius: 50%;
-       object-fit: cover;
-         object-position: center;
-   }
-   div.dance>div.dance-box>span.dance-b1 {
-      font-size:17px;
-      font-weight:bold;
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box>span.dance-b2 {
-      font-size:30px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side {
-      border:1px solid lightgray;
-      border-radius:8px;
-      float:right;
-      width:380px;
-      height:540px;
-   }
-   div.dance>aside.d-side>div.d-side-box4 {
-      text-align:right;
-      padding-right:20px;
-      margin-top:90px;
-   }
-   div.dance>aside.d-side>div.d-side-box5 {
-      text-align:center;
-      margin-top:10px;
-   }
-   div.dance>aside.d-side>div.d-side-box5>img,
-   div.dance>aside.d-side>div.d-side-box5>a>img {
-       padding:0 14px 0 14px;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span {
-      font-size:17px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span1 {
-      font-size:15px;
-   }
-   div.dance>aside.d-side>hr.d-line {
-      width:330px;
-      opacity:0.3;
-      margin-top:8px;
-   }
-   div.dance>aside.d-side>h1 {
-      font-size:30px;
-      font-weight:bold;
-      padding:24px 0 20px 18px;
-   }
-   div.dance>aside.d-side>div.scroll-box {
-      overflow: auto; 
-      height: 220px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box {
-      margin-top:25px;
-      height:60px;
-      margin-bottom:25px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box .d-side-box1 {
-      font-size:16px;
-      font-weight:bold;
-      padding-left:20px;
-      padding-bottom:10px;
-      display:inline-block;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>span.d-side-box2 {
-      font-size:16px;
-      font-weight:bold;
-      float:right;
-      padding-right:20px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>.d-side-box3 {
-      padding-left:20px;
-      display: block;
-      color: #999;
-      font-size: 13px;
-      font-weight: normal;
-   }
-   .review_sum {
-      display: inline-block;
-      width: 720px;
-       padding: 26px 40px 22px;
-       border: 1px solid #ddd;
-       border-radius: 6px;
-   }
-   .review_sum .review_list {
-       display: flex;
-       flex-wrap: wrap;
-       align-items: center;
-       flex-direction: row;
-       flex-wrap: wrap;
-   }
-   .review_sum .review_list li {
-       width: 22%;
-       margin-right: 17%;
-       font-size: 15px;
-       line-height: 19px;
-       letter-spacing: -0.22px;
-       text-align: left;
-       font-weight: 500;
-   }
-   .review_sum .review_list li:nth-child(3) {
-       margin-right: 0;
-   }
-   .review_sum .review_list li .avg {
-       float: right;
-       margin-left: 15px;
-       font-size: 13px;
-       font-weight: 500;
-       letter-spacing: -0.2px;
-   }
-   .review_sum .review_list li .avg::before {
-       content: '';
-       display: inline-block;
-       width: 14px;
-       height: 14px;
-       margin-right: 3px;
-       vertical-align: -1px;
-       background: url('http://localhost:9000/One_day_class/images/star_act.png') no-repeat center/100%;
-   }
-   .dance-b6 .cert_list {
-       margin-bottom: 19px;
-   }
-   .dance-b6 .cert_list li {
-       position: relative;
-       display: block;
-       padding-left: 17.4px;
-       margin-bottom: 5px;
-       font-size: 15px;
-       letter-spacing: -0.22px;
-       line-height: 21px;
-       font-weight: normal;
-       margin-left: 224px;
-   }
-   .dance-b6 .cert_list li::after {
-       content: '';
-       position: absolute;
-       top: 2px;
-       left: 0;
-       width: 14px;
-       height: 14px;
-       background: url(http://localhost:9000/One_day_class/images/class_badge.png) no-repeat center/100%;
-   }
-       
-   hr {
-		width:1045px;
-		opacity:0.3;
-		width:330px;
-		}
-</style>
+<title>career_stock</title>
+  <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.css">
+  <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yh_detail.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/yh_js.js"></script>
+ 
 </head>
 <body>
    <!--header -->
    <jsp:include page="../../../header.jsp" />
+   <div class="nav">
+		<ul>
+			<li class="active" onclick="moveContent('1')" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
+			<li onclick="moveContent('2')" id="nav_li2"><a href="javascript:">수업소개</a></li>
+			<li onclick="moveContent('3')" id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
+			<li onclick="moveContent('4')" id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
+		</ul>
+	</div>
    <div class="dance">
       
       <aside class="d-side">
@@ -406,15 +85,30 @@
          <span> 4.9(32)</span>
       </div>
       <div class="dance-box2">
-         <img src="http://localhost:9000/One_day_class/images/career/stock/stock_1.png">
-         <img src="http://localhost:9000/One_day_class/images/career/stock/stock_2.png" class="dance1-1">
-         <img src="http://localhost:9000/One_day_class/images/career/stock/stock_3.png" class="dance1-2">
-         <img src="http://localhost:9000/One_day_class/images/career/stock/stock_4.png" class="dance1-3">
-         <img src="http://localhost:9000/One_day_class/images/career/stock/stock_1.png" class="dance1-3">
+      	<!-- Swiper -->
+		  <div class="swiper-container gallery-top">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/stock/stock_1.png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/stock/stock_2.png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/stock/stock_3.png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/stock/stock_4.png')"></div>
+		    </div>
+		    <!-- Add Arrows -->
+		    <div class="swiper-button-next swiper-button-white"></div>
+		    <div class="swiper-button-prev swiper-button-white"></div>
+		  </div>
+		  <div class="swiper-container gallery-thumbs">
+		     <div class="swiper-wrapper">
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/stock/stock_1.png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/stock/stock_2.png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/stock/stock_3.png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/stock/stock_4.png')"></div>
+		    </div>
+		  </div>
       </div>
       <div class="dance-box3">
          <span class="dance-b4">수업 전<br> 숙지해주세요!</span>
-         <div class="dance-b5">
+         <div class="dance-b5" style="height:300px;">
             <img src="http://localhost:9000/One_day_class/images/dance3.png">
             <p class="text_area">
             	① 온라인 강의는 PC/스마트폰으로 수강하시며, 링크를 전달 드립니다 (Zoom)<br>
@@ -426,7 +120,7 @@
 			</p>
          </div>
       </div>
-      <div class="dance-box3-1">
+      <div class="dance-box3-1" id="nav1">
          <span class="dance-b4">튜터님을<br> 소개합니다.</span>
          <div class="dance-b6">
            
@@ -464,7 +158,7 @@
          </div>
       </div>
       <div class="dance-box3-1">
-         <span class="dance-b4">어떤<br> 수업인가요?</span>
+         <span class="dance-b4" id="nav2">어떤<br> 수업인가요?</span>
          <div class="dance-b6">
            <p class="text_area">
            		✔ 혹시 아직 주식을 하지 않고 계신가요?<br>
@@ -542,33 +236,6 @@
 				이 기업은 얼마나 돈을 벌고 있는지<br>
 				또 어느정도 성장할 수 있는지 등<br>
 				모든 내용이 작성되어 있습니다.<br>
-				<br>
-				그 내용을 토대로 <br>
-				기업에 투자하게 된다면<br>
-				도박이 아닌 제대로 된 재테크가 되고<br>
-				그 내용을 토대로 투자를 한다면<br>
-				예, 적금에 비해 압도적으로 높은 수익률을 얻을 수 있습니다. <br>
-				<br>
-				<br>
-				✔ 수업을 수강한 후 수강생분들의 변화<br>
-				<br>
-				하루의 수업을 통해<br>
-				재무제표에 나와 있는 각 수치에 대한 용어설명<br>
-				그 속에 숨겨져있는 의미를 파악하실 수 있습니다.<br>
-				<br>
-				PER, PBR 등<br>
-				단순한 용어의 정의 뿐만 아니라<br>
-				각각의 수치가 어떤 내용을 의미하고<br>
-				합리적인 투자를 위해서는 정확하게<br>
-				어떤 수치의 변화를 눈여겨 봐야 하는지<br>
-				<br>
-				더 나아가 <br>
-				각각의 회사에 대한<br>
-				적정 주가를 계산하는 방법까지<br>
-				알게 되실거에요!<br>
-				<br>
-				주식의 기본이 되는 <br>
-				재무제표, 저와 함께 하루만에 배워봐요!
 			</p>
          </div>
       </div>
@@ -593,7 +260,7 @@
          </div>
       </div>
       <div class="dance-box3-1">
-         <span class="dance-b4">수업은 이렇게<br>진행됩니다.</span>
+         <span class="dance-b4" id="nav3">수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
             <p class="curri_details">
             	* 재무제표의 기본 흐름(1h)<br>
@@ -619,8 +286,8 @@
          </div>
       </div>
     
-      <div class="dance-box3-1">
-         <span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
+      <div class="dance-box3-1 reivew_box">
+         <span class="dance-b4" id="nav4">실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">
                     <ul class="review_list">
@@ -640,39 +307,39 @@
       <div class="dance-box4">
          <ul>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review1.png">
                   </span>
                   <span class="dance-b8">장아름</span><br>
                   <span class="dance-b9">2020-11-30 18:24:15</span>
-                  <div>
+                  <div class="review_content">
                      <p> 용어가 어려워서 아무리 봐도 잘 모르겠는 지표들이 있었는데 강의를 듣고 확실하게 알게 되었습니다. 그리고 재무제표도 어떻게 봐야할 지 감이 왔습니다. 정말 감사합니다. 잘 활용해서 성투! 하겠습니다. ㅎㅎ 
                      </p>
                   </div>
                </div>
             </li>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
                   <span class="dance-b8">이제희</span><br>
                   <span class="dance-b9">2020-10-18 14:34:39</span>
-                  <div>
+                  <div class="review_content">
                      <p> 지금까지는 추천받은 종목 위주로 운에맡긴 투자를 했다면, 앞으로는 기업의 가치를 파악하고 투자할 수 있을 것 같습니다.
                      </p>
                   </div>
                </div>
             </li>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review2.jpg">
                   </span>
                   <span class="dance-b8">성동기</span><br>
                   <span class="dance-b9">2020-10-18 13:11:01</span>
-                  <div>
+                  <div class="review_content">
                      <p> 주식투자를 위한 기본적인 재무제표 보는법으로 시작해 가치투자를 하는 법까지 배울 수 있었습니다. 감사합니다:)
                      </p>
                   </div>
@@ -690,6 +357,26 @@
          </div>
       </div>
    </div>
+    <!-- Initialize Swiper -->
+  <script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs
+      }
+    });
+  </script>
    <!--header -->
    <jsp:include page="../../../footer.jsp" />
 </body>

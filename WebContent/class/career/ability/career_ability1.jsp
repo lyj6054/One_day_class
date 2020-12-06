@@ -4,454 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>makeUp_1</title>
-	<!-- Link Swiper's CSS -->
+<title>career_ability1</title>
   <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.css">
-<script>
-   function wish(){
-      alert("위시리스트에 추가되었습니다");
-       document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1-1.png";
-   }
-   function review(){
-      alert("로그인 후 이용가능합니다.");
-       document.getElementById("d-img");
-   }
-   function new_window(){
-      alert("휴대전화 인증이 필요합니다");
-      window.open("http://localhost:9000/One_day_class/tutor/talk-btn.jsp","전화번호 등록","width=500,height=340");
+  <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yh_detail.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/yh_js.js"></script>
 
-   }
-   
-</script>
-<style>
-    *:focus { outline:none; }
-    .dance-b5 .text_area {
-       font-size:16px;
-       width: 670px;
-    }
-    .dance-b6 .text_area {
-       font-size:16px;
-       width: 720px;
-       margin-top:-1px;
-    }
-     
-   div.dance {
-      width:1400px;
-      margin:auto;
-   }
-   
-   div.dance>div.dance-box {
-      margin-top:40px;
-      width: 950px;
-   }
-   div.dance>div.dance-box1 {
-      margin-top:20px;
-   }
-   div.dance>div.dance-box2 {
-      width:940px; 
-      height:500px;
-      margin-top:35px;
-      padding-bottom:30px;
-      border-radius:10px;
-   }
-   div.dance-box2>img {
-      float:left;
-   }
-   div.dance-box2>img:first-child{
-      width:750px;
-      height:490px;
-      border-radius: 10px;
-   }
-   div.dance-box2>img.dance1-1,
-   div.dance-box2>img.dance1-2,
-   div.dance-box2>img.dance1-3,
-   div.dance-box2>img.dance1-4 {
-      width:180px;
-      height:115px;
-      border-radius:10px;
-      float:left;
-      vertical-align:top;
-      margin:0 0 10px 10px;
-   }
-   div.dance>div.dance-box3 {
-      margin-top:130px;
-      height:250px;
-      width:945px;
-   }
-   div.dance>div.dance-box3-1{
-      width:945px;
-      margin-top:120px;
-      margin-bottom:30px;
-   }
-   div.dance>div.dance-box3-1.reivew_box{
-       width:945px;
-       height:150px;
-      margin-top:120px;
-      margin-bottom:30px;
-   }
-    .dance-box3-1  .curri_img {
-    		width:80px;
-		    vertical-align: top;
-    		margin-bottom: 20px;
-    		
-    }
-    
-   div.dance-box4 {
-      width:715px;
-      margin-left:230px;
-   }
-   div.dance-box4>div.dance-box4-1 {
-      text-align:center;
-      font-size:13px;
-      margin-top:40px;
-      margin-bottom:100px;
-   }
-   div.dance-box4>div.dance-box4-1>a {
-      display:inline-block;
-      margin:0 5px 0 5px;
-      border-radius:50%;
-      width:25px; height:25px;
-      text-decoration:none;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom {
-      border:2px solid lightgray;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom1 {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom2:active {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>ul>li>div {
-      margin-top:35px;
-   }
-   div.dance-box4>ul>li>div>div>p {
-      clear:left;
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>div>img {
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>span.dance-b7>img {
-      float:left;
-      margin-right:20px;
-      width: 50px;
-       height: 50px;
-       border-radius: 50%;
-       object-fit: cover;
-       object-position: center;
-   }
-   div.dance-box4>ul>li>div>span.dance-b8 {
-      margin-top:10px;
-      display:inline-block;
-      font-weight:bold;
-   }
-   div.dance-box4>ul>li>div>span.dance-b9 {
-      color:gray;
-   }
-   div.dance>div.dance-box3>span.dance-b4,
-   div.dance>div.dance-box3-1>span.dance-b4 {
-      display:inline-block;
-      float:left;
-      font-size:28px;
-      font-weight:bold;
-      margin-right:60px;
-      border-bottom:3px solid gray;
-      padding-bottom:13px;
-       /* rgb(250,250,250) */
-      width:168px;
-   }
-   div.dance>div.dance-box3>div.dance-b5 {
-      border:1px solid rgb(250,250,250);
-      border-radius:3px;
-      float:right;
-      padding:15px 30px;
-      width:720px;  
-      height:50px;
-      background-color:rgb(250,250,250);
-      font-size:14px;
-      margin-top:-95px;
-      
-   }
-   .dance-b5 img {
-   	  margin-top:10px;
-   }
-    
-   div.dance>div.dance-box3-1>div.dance-b6>iframe {
-      margin-left:50px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>p {
-      margin-left:224px;
-      font-size:16px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>img {
-      margin-left:30px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1 {
-      margin-bottom:80px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1>button.dance-btn1 {
-      border:1px solid white;
-      float:right;
-      margin-top:10px;
-      font-size:15px;
-      background-color:white;
-      text-decoration:underline;
-      padding-bottom:5px;
-      
-   }
-   div.dance>div.dance-box3>div.dance-b6>span {
-      vertical-align:top;
-   }
-   div.dance>div.dance-box3>div.dance-b5>img {
-      float:right;
-   }
-   div.dance>div.dance-box1>span.dance-b3 {
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box1>img {
-       float:left;
-       margin-right:5px;
-       width: 42px;
-       height: 42px;
-       border-radius: 50%;
-       object-fit: cover;
-         object-position: center;
-   }
-   div.dance>div.dance-box>span.dance-b1 {
-      font-size:17px;
-      font-weight:bold;
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box>span.dance-b2 {
-      font-size:30px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side {
-      border:1px solid #eee;
-      border-radius:8px;
-      float:right;
-      width:380px;
-      height:540px;
-      position: sticky;
-	  top : 120px;
-	 box-shadow: 0 1px 4px 0 rgba(17, 17, 17, 0.1);
-   }
-   div.dance>aside.d-side>div.d-side-box4 {
-      text-align:right;
-      padding-right:20px;
-      margin-top:90px;
-   }
-   div.dance>aside.d-side>div.d-side-box5 {
-      text-align:center;
-      margin-top:10px;
-   }
-   div.dance>aside.d-side>div.d-side-box5>img,
-   div.dance>aside.d-side>div.d-side-box5>a>img {
-       padding:0 14px 0 14px;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span {
-      font-size:17px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span1 {
-      font-size:15px;
-   }
-   div.dance>aside.d-side>hr.d-line {
-      width:330px;
-      opacity:0.3;
-      margin-top:8px;
-   }
-   div.dance>aside.d-side>h1 {
-      font-size:30px;
-      font-weight:bold;
-      padding:24px 0 20px 18px;
-   }
-   div.dance>aside.d-side>div.scroll-box {
-      overflow: auto; 
-      height: 220px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box {
-      margin-top:25px;
-      height:60px;
-      margin-bottom:25px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box .d-side-box1 {
-      font-size:16px;
-      font-weight:bold;
-      padding-left:20px;
-      padding-bottom:10px;
-      display:inline-block;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>span.d-side-box2 {
-      font-size:16px;
-      font-weight:bold;
-      float:right;
-      padding-right:20px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>.d-side-box3 {
-      padding-left:20px;
-      display: block;
-      color: #999;
-      font-size: 13px;
-      font-weight: normal;
-   }
-   .review_sum {
-       display: inline-block;
-       width: 720px;
-       float:right;
-       padding: 26px 40px 22px;
-       border: 1px solid #ddd;
-       border-radius: 6px;
-       margin-top:-95px;
-       
-   }
-   .review_sum .review_list {
-       display: flex;
-       flex-wrap: wrap;
-       align-items: center;
-       flex-direction: row;
-       flex-wrap: wrap;
-   }
-   .review_sum .review_list li {
-       width: 22%;
-       margin-right: 17%;
-       font-size: 15px;
-       line-height: 19px;
-       letter-spacing: -0.22px;
-       text-align: left;
-       font-weight: 500;
-   }
-   .review_sum .review_list li:nth-child(3) {
-       margin-right: 0;
-   }
-   .review_sum .review_list li .avg {
-       float: right;
-       margin-left: 15px;
-       font-size: 13px;
-       font-weight: 500;
-       letter-spacing: -0.2px;
-   }
-   .review_sum .review_list li .avg::before {
-       content: '';
-       display: inline-block;
-       width: 14px;
-       height: 14px;
-       margin-right: 3px;
-       vertical-align: -1px;
-       background: url('http://localhost:9000/One_day_class/images/star_act.png') no-repeat center/100%;
-   }
-   .review_box_all {
-   		border-bottom:2px solid #ccc;
-   
-   }
-  
-   .dance-b6 .cert_list {
-       margin-bottom: 19px;
-   }
-   .dance-b6 .cert_list li {
-       position: relative;
-       display: block;
-       padding-left: 17.4px;
-       margin-bottom: 5px;
-       font-size: 15px;
-       letter-spacing: -0.22px;
-       line-height: 21px;
-       font-weight: normal;
-       margin-left: 224px;
-   }
-   .dance-b6 .cert_list li::after {
-       content: '';
-       position: absolute;
-       top: 2px;
-       left: 0;
-       width: 14px;
-       height: 14px;
-       background: url(http://localhost:9000/One_day_class/images/class_badge.png) no-repeat center/100%;
-   }
-       
-   hr {
-		width:1045px;
-		opacity:0.3;
-		width:330px;
-		}
-		 .curri_heading {
-		    display: block;
-		    margin-bottom: 15px;
-		    font-size: 18px;
-		    color: #ff0045;
-		    font-weight: bold;
-		}
-		.photo_list {
-		    margin: 10px 0 0 70px;
-		    font-size: 0;
-		}
-		.photo_list li {
-		    display: inline-block !important;
-		    overflow: hidden;
-		    width: calc(20% - 7px);
-		    height: 68px;
-		    margin-left: 7px;
-		    padding: 0 !important;
-		    border-radius: 6px;
-		    cursor: pointer;
-		}
-		li {
-		    list-style: none;
-		}
-		.photo_list li img {
-		    width: 100%;
-		    height: 100%;
-		    object-fit: cover;
-		}
-		
-		.curri_details {
-		 margin-top:-1px;
-		}
-		.swiper-container {
-      width: 100%;
-      height: 300px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .swiper-slide {
-      background-size: cover;
-      background-position: center;
-      border-radius:10px;
-    }
-
-    .gallery-top {
-      height: 100%;
-      width: 100%;
-      
-    }
-
-    .gallery-thumbs {
-      height: 20%;
-      box-sizing: border-box;
-      padding: 10px 0;
-    }
-
-    .gallery-thumbs .swiper-slide {
-      width: 25%;
-      height: 100%;
-      opacity: 0.4;
-      cursor: pointer;
-    }
-
-    .gallery-thumbs .swiper-slide-thumb-active {
-      opacity: 1;
-      border: 1px solid #ff0045;
-    }
-   
-</style>
 </head>
 <body>
    <!--header -->
    <jsp:include page="../../../header.jsp" />
+   <div class="nav">
+		<ul>
+			<li class="active" onclick="moveContent('1')" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
+			<li onclick="moveContent('2')" id="nav_li2"><a href="javascript:">수업소개</a></li>
+			<li onclick="moveContent('3')" id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
+			<li onclick="moveContent('4')" id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
+		</ul>
+	</div>
    <div class="dance">
       
       <aside class="d-side">
@@ -499,10 +70,10 @@
       		<!-- Swiper -->
 		  <div class="swiper-container gallery-top">
 		    <div class="swiper-wrapper">
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (1).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (2).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (3).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability2_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability2_ (2).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability2_ (3).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability2_ (4).png')"></div>
 		    </div>
 		    <!-- Add Arrows -->
 		    <div class="swiper-button-next swiper-button-white"></div>
@@ -510,10 +81,10 @@
 		  </div>
 		  <div class="swiper-container gallery-thumbs">
 		    <div class="swiper-wrapper">
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (1).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (2).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (3).png')"></div>
-		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability1_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability2_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability2_ (2).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability2_ (3).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/career/ability/ability2_ (4).png')"></div>
 		    </div>
 		  </div>
       </div>
@@ -528,8 +99,8 @@
 				- 강의 최소 인원이 충족되지 않는 경우 강의 일정이 변경될 수 있으며, 변경되는 경우 사전 안내 드리겠습니다 : ) </p>
          </div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4">튜터님을<br> 소개합니다.</span>
+      <div class="dance-box3-1" id="nav1">
+         <span class="dance-b4" >튜터님을<br> 소개합니다.</span>
          <div class="dance-b6">
           <p class="text_area">다양한 기획 분야에서 10년차 멘토가 보고-보고서에서  어려움을 극복하기 위해 노력했던 노하우를 &lt;탈탈&gt; 털어 드립니다. <br>
 			<br>
@@ -545,7 +116,7 @@
 			- 현재, 온-오프라인 외부강의 출강 中  (초록우산 어린이재단, 한국장애인총연맹, 경남대학교 등) </p>
          </div>
       </div>
-      <div class="dance-box3-1">
+      <div class="dance-box3-1"  id="nav2">
          <span class="dance-b4">어떤<br> 수업인가요?</span>
          <div class="dance-b6">
          <p class="text_area">[수업소개] <br>
@@ -599,8 +170,8 @@
 			※ 단, 문서 작성이 10년차 이상 되시는 분들에게는 적합하지 않을 수 있으니, 참고 부탁드립니다. </p>
          </div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4">수업은 이렇게<br>진행됩니다.</span>
+      <div class="dance-box3-1" id="nav3">
+         <span class="dance-b4" >수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
          	<p class="curri_details">★Part 1. 보고의 기본원리<br>
 				 - 비즈니스 커뮤니케이션의 5대 구성요소 <br>
@@ -632,8 +203,8 @@
 				</p>
          </div>
       </div>
-      <div class="dance-box3-1 reivew_box">
-         <span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
+      <div class="dance-box3-1 reivew_box" id="nav4">
+         <span class="dance-b4" >실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">
                     <ul class="review_list">
@@ -704,8 +275,7 @@
          </div>
       </div>
    </div>
-   <!-- Swiper JS -->
-  <script src="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.js"></script>
+  
   
    <!-- Initialize Swiper -->
   <script>

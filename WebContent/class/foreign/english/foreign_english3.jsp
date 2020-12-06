@@ -4,375 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>makeUp_1</title>
-<script>
-   function wish(){
-      alert("위시리스트에 추가되었습니다");
-       document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1-1.png";
-   }
-   function review(){
-      alert("로그인 후 이용가능합니다.");
-       document.getElementById("d-img");
-   }
-   function new_window(){
-      alert("휴대전화 인증이 필요합니다");
-      window.open("http://localhost:9000/One_day_class/tutor/talk-btn.jsp","전화번호 등록","width=500,height=340");
+<title>foreign_english3</title>
+  <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.css">
+  <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yh_detail.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/swiper-bundle.min.js"></script>
+  <script src="http://localhost:9000/One_day_class/js_yh/yh_js.js"></script>
 
-   }
-   
-</script>
-<style>
-    *:focus { outline:none; }
-    .text_area {
-       font-size:16px;
-       width: 650px;
-    }
-     
-   div.dance {
-      width:1400px;
-      margin:auto;
-   }
-   div.dance>div.dance-box {
-      margin-top:40px;
-      width: 950px;
-   }
-   div.dance>div.dance-box1 {
-      margin-top:20px;
-   }
-   div.dance>div.dance-box2 {
-      width:1000px; 
-      height:500px;
-      margin-top:35px;
-   }
-   div.dance-box2>img {
-      float:left;
-   }
-   div.dance-box2>img:first-child{
-      width:750px;
-      height:490px;
-      border-radius: 10px;
-   }
-   div.dance-box2>img.dance1-1,
-   div.dance-box2>img.dance1-2,
-   div.dance-box2>img.dance1-3,
-   div.dance-box2>img.dance1-4 {
-      width:180px;
-      height:115px;
-      border-radius:10px;
-      float:left;
-      vertical-align:top;
-      margin:0 0 10px 10px;
-   }
-   div.dance>div.dance-box3 {
-      margin-top:100px;
-      height:150px;
-      width:945px;
-   }
-   div.dance>div.dance-box3-1{
-      width:945px;
-      margin-top:120px;
-      margin-bottom:30px;
-   }
-    .dance-box3-1  .curri_img {
-    		width:80px;
-		    vertical-align: top;
-    		margin-bottom: 20px;
-    		
-    }
-    
-   div.dance-box4 {
-      width:715px;
-      margin-left:230px;
-   }
-   div.dance-box4>div.dance-box4-1 {
-      text-align:center;
-      font-size:13px;
-      margin-top:40px;
-      margin-bottom:100px;
-   }
-   div.dance-box4>div.dance-box4-1>a {
-      display:inline-block;
-      margin:0 5px 0 5px;
-      border-radius:50%;
-      width:25px; height:25px;
-      text-decoration:none;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom {
-      border:2px solid lightgray;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom1 {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>div.dance-box4-1>a.bottom2:active {
-      background-color:rgb(255,0,69);
-      color:white;
-   }
-   div.dance-box4>ul>li>div {
-      margin-top:35px;
-   }
-   div.dance-box4>ul>li>div>div>p {
-      clear:left;
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>div>img {
-      margin-left:77px;
-   }
-   div.dance-box4>ul>li>div>span.dance-b7>img {
-      float:left;
-      margin-right:20px;
-      width: 50px;
-       height: 50px;
-       border-radius: 50%;
-       object-fit: cover;
-       object-position: center;
-   }
-   div.dance-box4>ul>li>div>span.dance-b8 {
-      margin-top:10px;
-      display:inline-block;
-      font-weight:bold;
-   }
-   div.dance-box4>ul>li>div>span.dance-b9 {
-      color:gray;
-   }
-   div.dance>div.dance-box3>span.dance-b4,
-   div.dance>div.dance-box3-1>span.dance-b4 {
-      display:inline-block;
-      float:left;
-      font-size:28px;
-      font-weight:bold;
-      margin-right:60px;
-   }
-   div.dance>div.dance-box3>div.dance-b5 {
-      border:1px solid rgb(250,250,250);
-      border-radius:3px;
-      float:left;
-      width:720px;  
-      height:50px;
-      background-color:rgb(250,250,250);
-      font-size:14px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>iframe {
-      margin-left:50px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>p {
-      margin-left:224px;
-      font-size:16px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>img {
-      margin-left:30px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1 {
-      margin-bottom:80px;
-   }
-   div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1>button.dance-btn1 {
-      border:1px solid white;
-      float:right;
-      margin-top:10px;
-      font-size:15px;
-      background-color:white;
-      text-decoration:underline;
-      padding-bottom:5px;
-      
-   }
-   div.dance>div.dance-box3>div.dance-b6>span {
-      vertical-align:top;
-   }
-   div.dance>div.dance-box3>div.dance-b5>img {
-      float:right;
-   }
-   div.dance>div.dance-box1>span.dance-b3 {
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box1>img {
-       float:left;
-       margin-right:5px;
-       width: 42px;
-       height: 42px;
-       border-radius: 50%;
-       object-fit: cover;
-         object-position: center;
-   }
-   div.dance>div.dance-box>span.dance-b1 {
-      font-size:17px;
-      font-weight:bold;
-      color:rgb(255,0,69);
-   }
-   div.dance>div.dance-box>span.dance-b2 {
-      font-size:30px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side {
-      border:1px solid lightgray;
-      border-radius:8px;
-      float:right;
-      width:380px;
-      height:540px;
-   }
-   div.dance>aside.d-side>div.d-side-box4 {
-      text-align:right;
-      padding-right:20px;
-      margin-top:90px;
-   }
-   div.dance>aside.d-side>div.d-side-box5 {
-      text-align:center;
-      margin-top:10px;
-   }
-   div.dance>aside.d-side>div.d-side-box5>img,
-   div.dance>aside.d-side>div.d-side-box5>a>img {
-       padding:0 14px 0 14px;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span {
-      font-size:17px;
-      font-weight:bold;
-   }
-   div.dance>aside.d-side>div.d-side-box4>span.d-span1 {
-      font-size:15px;
-   }
-   div.dance>aside.d-side>hr.d-line {
-      width:330px;
-      opacity:0.3;
-      margin-top:8px;
-   }
-   div.dance>aside.d-side>h1 {
-      font-size:30px;
-      font-weight:bold;
-      padding:24px 0 20px 18px;
-   }
-   div.dance>aside.d-side>div.scroll-box {
-      overflow: auto; 
-      height: 220px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box {
-      margin-top:25px;
-      height:60px;
-      margin-bottom:25px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box .d-side-box1 {
-      font-size:16px;
-      font-weight:bold;
-      padding-left:20px;
-      padding-bottom:10px;
-      display:inline-block;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>span.d-side-box2 {
-      font-size:16px;
-      font-weight:bold;
-      float:right;
-      padding-right:20px;
-   }
-   div.dance>aside.d-side>div>div.d-side-box>.d-side-box3 {
-      padding-left:20px;
-      display: block;
-      color: #999;
-      font-size: 13px;
-      font-weight: normal;
-   }
-   .review_sum {
-      display: inline-block;
-      width: 720px;
-       padding: 26px 40px 22px;
-       border: 1px solid #ddd;
-       border-radius: 6px;
-   }
-   .review_sum .review_list {
-       display: flex;
-       flex-wrap: wrap;
-       align-items: center;
-       flex-direction: row;
-       flex-wrap: wrap;
-   }
-   .review_sum .review_list li {
-       width: 22%;
-       margin-right: 17%;
-       font-size: 15px;
-       line-height: 19px;
-       letter-spacing: -0.22px;
-       text-align: left;
-       font-weight: 500;
-   }
-   .review_sum .review_list li:nth-child(3) {
-       margin-right: 0;
-   }
-   .review_sum .review_list li .avg {
-       float: right;
-       margin-left: 15px;
-       font-size: 13px;
-       font-weight: 500;
-       letter-spacing: -0.2px;
-   }
-   .review_sum .review_list li .avg::before {
-       content: '';
-       display: inline-block;
-       width: 14px;
-       height: 14px;
-       margin-right: 3px;
-       vertical-align: -1px;
-       background: url('http://localhost:9000/One_day_class/images/star_act.png') no-repeat center/100%;
-   }
-   .dance-b6 .cert_list {
-       margin-bottom: 19px;
-   }
-   .dance-b6 .cert_list li {
-       position: relative;
-       display: block;
-       padding-left: 17.4px;
-       margin-bottom: 5px;
-       font-size: 15px;
-       letter-spacing: -0.22px;
-       line-height: 21px;
-       font-weight: normal;
-       margin-left: 224px;
-   }
-   .dance-b6 .cert_list li::after {
-       content: '';
-       position: absolute;
-       top: 2px;
-       left: 0;
-       width: 14px;
-       height: 14px;
-       background: url(http://localhost:9000/One_day_class/images/class_badge.png) no-repeat center/100%;
-   }
-       
-   hr {
-		width:1045px;
-		opacity:0.3;
-		width:330px;
-		}
-		 .curri_heading {
-		    display: block;
-		    margin-bottom: 15px;
-		    font-size: 18px;
-		    color: #ff0045;
-		    font-weight: bold;
-		}
-		.photo_list {
-		    margin: 10px 0 0 70px;
-		    font-size: 0;
-		}
-		.photo_list li {
-		    display: inline-block !important;
-		    overflow: hidden;
-		    width: calc(20% - 7px);
-		    height: 68px;
-		    margin-left: 7px;
-		    padding: 0 !important;
-		    border-radius: 6px;
-		    cursor: pointer;
-		}
-		li {
-		    list-style: none;
-		}
-		.photo_list li img {
-		    width: 100%;
-		    height: 100%;
-		    object-fit: cover;
-		}
-</style>
 </head>
 <body>
    <!--header -->
    <jsp:include page="../../../header.jsp" />
+   <div class="nav">
+		<ul>
+			<li class="active" onclick="moveContent('1')" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
+			<li onclick="moveContent('2')" id="nav_li2"><a href="javascript:">수업소개</a></li>
+			<li onclick="moveContent('3')" id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
+			<li onclick="moveContent('4')" id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
+		</ul>
+	</div>
    <div class="dance">
       
       <aside class="d-side">
@@ -417,11 +67,26 @@
          <span> 5.0(126)</span>
       </div>
       <div class="dance-box2">
-          <img src="http://localhost:9000/One_day_class/images/foreign/english/english3_ (1).png">
-         <img src="http://localhost:9000/One_day_class/images/foreign/english/english3_ (1).png" class="dance1-1">
-         <img src="http://localhost:9000/One_day_class/images/foreign/english/english3_ (2).png" class="dance1-2">
-         <img src="http://localhost:9000/One_day_class/images/foreign/english/english3_ (3).png" class="dance1-3">
-         <img src="http://localhost:9000/One_day_class/images/foreign/english/english3_ (1).png" class="dance1-3">
+      <!-- Swiper -->
+		  <div class="swiper-container gallery-top">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english3_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english3_ (2).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english3_ (3).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english3_ (1).png')"></div>
+		    </div>
+		    <!-- Add Arrows -->
+		    <div class="swiper-button-next swiper-button-white"></div>
+		    <div class="swiper-button-prev swiper-button-white"></div>
+		  </div>
+		  <div class="swiper-container gallery-thumbs">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english3_ (1).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english3_ (2).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english3_ (3).png')"></div>
+		      <div class="swiper-slide" style="background-image:url('http://localhost:9000/One_day_class/images/foreign/english/english3_ (1).png')"></div>
+		    </div>
+		  </div>
       </div>
       <div class="dance-box3">
          <span class="dance-b4">수업 전<br> 숙지해주세요!</span>
@@ -433,7 +98,7 @@
 				* 온라인클래스는 오프라인과 동일하게 PPT와 제 얼굴을 보시면서 서로 소통가능 한 플랫폼(ZOOM)으로 진행됩니다. 오프라인클래스 못지않게 음질이 깔끔합니다.  </p>
          </div>
       </div>
-      <div class="dance-box3-1">
+      <div class="dance-box3-1" id="nav1">
          <span class="dance-b4">튜터님을<br> 소개합니다.</span>
          <div class="dance-b6">
           <ul class="cert_list">
@@ -444,31 +109,7 @@
            <p class="text_area">※ 공지사항 ※   <br>
 				∙ 12월 클래스가 오픈 되었습니다! 온라인과 오프라인 클래스 둘다 있으니 날짜 확인 후 신청해주세요 ^^  <br>
 				∙ 오프라인 클래스는 코로나로 확산 방지를 위해 클래스당 4명 한정으로 진행하겠습니다! <br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				▷1대1 영어발음클래스 신청가능 타임<br>
-				∙ 일요일 16:00 ~ 18:00 (모집중)<br>
-				∙ 일요일 18:00 ~ 20:00 (12월 모집중)<br>
-				∙ 일요일 20:00 ~ 22:00 (모집중 )        <br>
-				<br>
-				자세한 수업 설명은 아래 링크로 와주세요! (혹은 탈잉 검색창에 "영어발음" 검색 후 수업 찾기)<br>
-				<a href="https://taling.me/Talent/Detail/10969" target="_blank">https://taling.me/Talent/Detail/10969</a><br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				✔ 새로운 클래스가 개설되었습니다! (짝짝짝) <br>
-				<br>
-				✔️[카톡영어발음]✔️ 영화 "Intern"으로 영어발음 정복하기! <br>
-				<a href="https://taling.me/Talent/Detail/10408" target="_blank">https://taling.me/Talent/Detail/10408</a><br>
-				<br>
-				<br>
-				<br>
-				<br>
+				
 				✔튜터 이력 <br>
 				▶ 現 북미영어(North American English) 발음교정 전문강사<br>
 				▶ 現 초.중.고. 성인 영어회화 과외<br>
@@ -514,18 +155,9 @@
 				어떻게 하면 한국식발음을 떨쳐버릴 수 있는지! <br>
 				정확한 혀의 위치와 발음, 영어발성법! 저의 경험과 노력을 바탕으로 <br>
 				여러분들에게 가장 쉽고 빠르게 발음교정하는 법을 가르쳐드리겠습니다. <br>
-				<br>
-				<br>
-				<br>
-				[온라인] ✔️[온라인 영어발음]✔️ 네이티브 영어발음을 원하신다면 필수!<br>
-				<a href="https://taling.me/Talent/Detail/10408" target="_blank">https://taling.me/Talent/Detail/10408</a><br>
-				<br>
-				<br>
-				[정규반] 1:1 미국식 영어발음 교정 한달 완성 클래스!<br>
-				<a href="https://taling.me/Talent/Detail/10969" target="_blank">https://taling.me/Talent/Detail/10969</a></p>
          </div>
       </div>
-      <div class="dance-box3-1">
+      <div class="dance-box3-1"  id="nav2">
          <span class="dance-b4">어떤<br> 수업인가요?</span>
          <div class="dance-b6">
          <p class="text_area">
@@ -637,7 +269,7 @@
 				∙ 누가 들어도 유창한 미국발음으로 영어를 구사하시는 분들</p>
          </div>
       </div>
-      <div class="dance-box3-1">
+      <div class="dance-box3-1" id="nav3">
          <span class="dance-b4">수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
          	<p class="curri_details">※※※ 원어민처럼 발음하고 말하기 위해선 강세나 발음, <br>
@@ -697,10 +329,6 @@
 				∙ Linking and Reduction  <br>
 				<br>
 				④ 실전 연습<br>
-				<br>
-				<br>
-				<br>
-				*수업자료 제공되며 PPT로 수업 진행합니다. </p>
          </div>
       </div>
       
@@ -708,10 +336,10 @@
          <span class="dance-b4">관련 영상<br>보고가세요.</span>
          <div class="dance-b6" style="width: 615px; margin-left: 170px;">
 		      <iframe width="560" height="315" src="https://www.youtube.com/embed/r-Y_d9IJo8w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-		      allowfullscreen style="margin-top:-70px;"></iframe>
+		      allowfullscreen style="margin-top:-80px;"></iframe>
          </div>
       </div>
-      <div class="dance-box3-1">
+      <div class="dance-box3-1 reivew_box">
          <span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">
@@ -732,13 +360,13 @@
       <div class="dance-box4">
          <ul>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
                   <span class="dance-b8">이상철</span><br>
                   <span class="dance-b9">2020-10-11 23:10:48</span>
-                  <div>
+                  <div class="review_content">
                      <p >4 시간 동안 많은 가르침 감사합니다. 많은 도움이 되었습니다.
 						1. 발성의 중요성이 인상 깊었습니다. 발음만으로는 한계가 있다는 사실에 놀랐고 연습방법이 단순히고 효율적이었습니다.
 						2. 모음 발음 설명이 자세했습니다. 특히 어려웠던 i, 후설비음 발음의 감을 잡을 수 있어 유익했습니다.
@@ -747,25 +375,25 @@
                </div>
             </li>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
                   <span class="dance-b8">상희얌</span><br>
                   <span class="dance-b9">2020-09-20 19:02:31</span>
-                  <div>
+                  <div class="review_content">
                      <p>어찌나 친절하고 쉽게 설명해주시는지 막귀인 제 귀에도 에 쏙쏙 들어와요~~ 선생님 열정과 진정성에 덩달아 의욕이 마구 마구 샘솟았어요 </p>
                   </div>
                </div>
             </li>
             <li>
-               <div>
+               <div class="review_box_all">
                   <span class="dance-b7">
                      <img src="http://localhost:9000/One_day_class/images/career/stock/stock_review3.jpg">
                   </span>
                   <span class="dance-b8">이하나</span><br>
                   <span class="dance-b9">2020-09-15 20:22:28</span>
-                  <div>
+                  <div class="review_content">
                      <p> 와 진짜 꼭 들을세요 step2까지 같이 들으세요
 						발음이 50% 발성이 50% 완전 이해시켜주시는 강사님 ! 친절하신데 진정성까지 최고!!
 						학교에서 배웠던 영어발음은 정말 싹 다 쓰레기였네요 ㅎㅎㅎ
@@ -786,6 +414,27 @@
       </div>
    </div>
    <!--header -->
+   
+      <!-- Initialize Swiper -->
+  <script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs
+      }
+    });
+  </script>
    <jsp:include page="../../../footer.jsp" />
 </body>
 </html>
