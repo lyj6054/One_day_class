@@ -24,12 +24,12 @@
 		<div class="myclass">
 			<div class="class">
 				<div class="profile">
-					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png')">
+					<div onclick="location.href ='../class/beauty/makeUp/b_m_2.jsp'" class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png'); cursor: pointer;">
 					</div>
 				</div>
 				<div class="info">
 					<div class="people">참여인원 : <font class="pink">1457명</font></div>
-					<h3 style="height: 40px; cursor: pointer;">[셀프 속눈썹펌 배우기] ♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥ 쌩얼에도 당당하게! </h3>
+					<h3 onclick="location.href ='../class/beauty/makeUp/b_m_2.jsp'" style="height: 40px; cursor: pointer;">[셀프 속눈썹펌 배우기] ♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥ 쌩얼에도 당당하게! </h3>
 					<div class="stars-box">
 						<font class="class-type">원데이 수업</font>&nbsp;|&nbsp; &nbsp;
 						<font class="class-stars">
@@ -51,12 +51,12 @@
 			</div>
 			<div class="class">
 				<div class="profile">
-					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png')">
+					<div onclick="location.href ='../class/beauty/makeUp/b_m_1.jsp'" class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png'); cursor: pointer;">
 					</div>
 				</div>
 				<div class="info">
 					<div class="people">참여인원 : <font class="pink">6752명</font></div>
-					<h3 style="height: 40px; cursor: pointer;">[1:1_청담샵 경력] ❤ 강남역오픈❤ 자존감이 두배 올라가는 메이크업!</h3>
+					<h3 onclick="location.href ='../class/beauty/makeUp/b_m_1.jsp'" style="height: 40px; cursor: pointer;">[1:1_청담샵 경력] ❤ 강남역오픈❤ 자존감이 두배 올라가는 메이크업!</h3>
 					<div class="stars-box">
 						<font class="class-type">그룹 수업</font>&nbsp;|&nbsp; &nbsp;
 						<font class="class-stars">
