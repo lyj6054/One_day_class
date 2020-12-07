@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="http://localhost:9000/One_day_class/css/yj.css">
+<script
+	src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 	<!-- header -->
@@ -32,6 +34,7 @@
 				    $('.filter_head').css('margin-top','216px');
 				}
 				$(str).show();  */
+				$('#show_detail').show();
 				var va = val;
 				str = 'sub' + val;
 
@@ -117,7 +120,7 @@
 					</ul>
 				</div>
 				<div style="padding-top: 60px; border-bottom: 1px solid #c9c9c9;"></div>
-				<div class="catesub_list cates" id="show_detail"></div>
+				<div class="catesub_list cates" id="show_detail" style="display: none;"></div>
 				<!--   <div class="catesub_list cates" id="sub1"  style="display:none">
                         <div class="main">
                             <li><a href="?cateSub=28">메이크업</a></li><li><a href="?cateSub=32">퍼스널컬러</a></li><li><a href="?cateSub=31">패션</a></li><li><a href="?cateSub=33">셀프케어</a></li><li><a href="?cateSub=27">PT/GX</a></li>                        </div>
@@ -144,7 +147,7 @@
                     </div> -->
                      <div class="catesub_list filter" id="sub9" style="">
                     <div class="main">
-                        <div class="inbox">
+                        <div class="inbox" id="index_1">
                             <div class="left">지역</div>
                             <div class="right" id="regionSub">
                                 <input type="hidden" id="region" value="">
@@ -161,117 +164,6 @@
                                                                                 <option value="7" >온라인</option>
                                                                         </select>
 
-                                                                    <select id="regionSubLayer0" style="margin-left:10px;" class="off" onchange="regionSubSelect(this.value)">
-                                                                                    <option value="1,4,5,2,14,9,8,7,15,10,24,6,11,12,13,19,3,22,17,108,77,21,102,23,98,112,25,125,109,107,100,128,116,97,123,101,20,129,119,124,131,99,18,122" >서울 ALL(652)</option>
-                                                                                        <option value="1" >강남(200)</option>
-                                                                                        <option value="4" >신촌홍대(114)</option>
-                                                                                        <option value="5" >종로(52)</option>
-                                                                                        <option value="2" >사당(32)</option>
-                                                                                        <option value="14" >건대(29)</option>
-                                                                                        <option value="9" >잠실(23)</option>
-                                                                                        <option value="8" >혜화(18)</option>
-                                                                                        <option value="7" >성북(16)</option>
-                                                                                        <option value="15" >용산(16)</option>
-                                                                                        <option value="10" >왕십리(12)</option>
-                                                                                        <option value="24" >은평(11)</option>
-                                                                                        <option value="6" >영등포(11)</option>
-                                                                                        <option value="11" >신림(11)</option>
-                                                                                        <option value="12" >동작(9)</option>
-                                                                                        <option value="13" >회기(9)</option>
-                                                                                        <option value="19" >마포(9)</option>
-                                                                                        <option value="3" >신사(7)</option>
-                                                                                        <option value="22" >구로(7)</option>
-                                                                                        <option value="17" >노원(6)</option>
-                                                                                        <option value="108" >이태원(6)</option>
-                                                                                        <option value="77" >강서(5)</option>
-                                                                                        <option value="21" >목동(5)</option>
-                                                                                        <option value="102" >한양대(4)</option>
-                                                                                        <option value="23" >청량리(4)</option>
-                                                                                        <option value="98" >가산(3)</option>
-                                                                                        <option value="112" >성수(3)</option>
-                                                                                        <option value="25" >미아(3)</option>
-                                                                                        <option value="125" >동대입구(3)</option>
-                                                                                        <option value="109" >논현(3)</option>
-                                                                                        <option value="107" >서대문(2)</option>
-                                                                                        <option value="100" >올림픽공원(2)</option>
-                                                                                        <option value="128" >신당(2)</option>
-                                                                                        <option value="116" >약수역(2)</option>
-                                                                                        <option value="97" >천호동(2)</option>
-                                                                                        <option value="123" >문정(2)</option>
-                                                                                        <option value="101" >잠실새내(1)</option>
-                                                                                        <option value="20" >정릉(1)</option>
-                                                                                        <option value="129" >중구(1)</option>
-                                                                                        <option value="119" >교대(1)</option>
-                                                                                        <option value="124" >옥수(1)</option>
-                                                                                        <option value="131" >월곡(1)</option>
-                                                                                        <option value="99" >명일동(1)</option>
-                                                                                        <option value="18" >수유(1)</option>
-                                                                                        <option value="122" >대치(1)</option>
-                                                                                </select>
-                                                                        <select id="regionSubLayer1" style="margin-left:10px;" class="off" onchange="regionSubSelect(this.value)">
-                                                                                    <option value="26,30,28,92,80,27,82,29,83,81,85,121,113,106,84,111" >경기 ALL(83)</option>
-                                                                                        <option value="26" >분당(22)</option>
-                                                                                        <option value="30" >수원(18)</option>
-                                                                                        <option value="28" >일산(16)</option>
-                                                                                        <option value="92" >부천(5)</option>
-                                                                                        <option value="80" >안양(4)</option>
-                                                                                        <option value="27" >서현(3)</option>
-                                                                                        <option value="82" >광명(3)</option>
-                                                                                        <option value="29" >의정부(3)</option>
-                                                                                        <option value="83" >안산(2)</option>
-                                                                                        <option value="81" >남양주(1)</option>
-                                                                                        <option value="85" >파주(1)</option>
-                                                                                        <option value="121" >화성(1)</option>
-                                                                                        <option value="113" >모란(1)</option>
-                                                                                        <option value="106" >김포(1)</option>
-                                                                                        <option value="84" >용인(1)</option>
-                                                                                        <option value="111" >시흥(1)</option>
-                                                                                </select>
-                                                                        <select id="regionSubLayer2" style="margin-left:10px;" class="off" onchange="regionSubSelect(this.value)">
-                                                                                    <option value="33,31,32,34,104,93" >인천 ALL(23)</option>
-                                                                                        <option value="33" >부평(9)</option>
-                                                                                        <option value="31" >송도(4)</option>
-                                                                                        <option value="32" >구월동(4)</option>
-                                                                                        <option value="34" >계양(3)</option>
-                                                                                        <option value="104" >주안(2)</option>
-                                                                                        <option value="93" >간석동(1)</option>
-                                                                                </select>
-                                                                        <select id="regionSubLayer3" style="margin-left:10px;" class="off" onchange="regionSubSelect(this.value)">
-                                                                                    <option value="36,37,38,39,35,69,88,78,89" >부산 ALL(36)</option>
-                                                                                        <option value="36" >부산서면(13)</option>
-                                                                                        <option value="37" >부산부경대(8)</option>
-                                                                                        <option value="38" >부산남포(4)</option>
-                                                                                        <option value="39" >부산해운대(3)</option>
-                                                                                        <option value="35" >부산대(2)</option>
-                                                                                        <option value="69" >부산동래(2)</option>
-                                                                                        <option value="88" >부산시청(2)</option>
-                                                                                        <option value="78" >광안리(1)</option>
-                                                                                        <option value="89" >수영구(1)</option>
-                                                                                </select>
-                                                                        <select id="regionSubLayer4" style="margin-left:10px;" class="off" onchange="regionSubSelect(this.value)">
-                                                                                    <option value="48,90,71,47,50,133,42" >경상,대구,울산 ALL(13)</option>
-                                                                                        <option value="48" >대구중앙(4)</option>
-                                                                                        <option value="90" >대구경북대(2)</option>
-                                                                                        <option value="71" >대구수성구(2)</option>
-                                                                                        <option value="47" >대구동성로(2)</option>
-                                                                                        <option value="50" >경산영남대(1)</option>
-                                                                                        <option value="133" >동구(1)</option>
-                                                                                        <option value="42" >울산대(1)</option>
-                                                                                </select>
-                                                                        <select id="regionSubLayer5" style="margin-left:10px;" class="off" onchange="regionSubSelect(this.value)">
-                                                                                    <option value="74" >대전,충청 ALL(1)</option>
-                                                                                        <option value="74" >천안(1)</option>
-                                                                                </select>
-                                                                        <select id="regionSubLayer6" style="margin-left:10px;" class="off" onchange="regionSubSelect(this.value)">
-                                                                                    <option value="60" >광주,전라,제주 ALL(3)</option>
-                                                                                        <option value="60" >전남대(3)</option>
-                                                                                </select>
-                                                                        <select id="regionSubLayer7" style="margin-left:10px;" class="off" onchange="regionSubSelect(this.value)">
-                                                                                    <option value="64,140,139" >온라인 ALL(141)</option>
-                                                                                        <option value="64" >온라인 Live(125)</option>
-                                                                                        <option value="140" >튜터전자책(10)</option>
-                                                                                        <option value="139" >녹화영상(6)</option>
-                                                                                </select>
                                     
 
                                 <script>
@@ -292,7 +184,7 @@
                                 </script>
                             </div>
                         </div>
-                        <div class="inbox">
+                        <div class="inbox" id="index_1">
                             <div class="left">요일/시간</div>
                             <div class="right">
                                 <div class="days">
@@ -313,7 +205,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="inbox">
+                        <div class="inbox" id="index_1">
                             <div class="left">수업형태</div>
                             <div class="right">
                                 <div class="days">

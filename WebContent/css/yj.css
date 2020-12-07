@@ -11,7 +11,7 @@ button {
 }
 div.content {
 	margin: 0px;
-	padding: 0px;
+	padding: 0px;d
 }
 .head_cont {
 	/* 헤더 여백 30 넣음*/
@@ -1531,6 +1531,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button
     right: 0;
     height: 61px;
     z-index: 50;
+     list-style:none;
 }
 .main3_cont .cate_list ul li { 
     background: #fff;
@@ -1593,6 +1594,9 @@ a:link {
     width: 1180px;
     margin: 0 auto;
     padding: 10px 0;
+}
+.main {
+	height:195px;
 }
 .main3_cont .catesub_list .main li {
     color: #555;
@@ -1851,6 +1855,30 @@ a:link {
 .main3_cont .page b {
     color: #ff005a;
 }
-.show_detail{
+/* .show_detail{
 	display:block;
+} */
+#index_1{
+	padding-top:0px;
+}
+.main3_cont .catesub_list.filter .inbox .right .filter_button {
+    background: #888;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #fff;
+    float: right;
+    margin-right: -115px;
+}
+.tutor_cont .box .rds .rd label.on {
+    background-image: url(https://front-img.taling.me/Content/Images/Tutor/Images/radio_selected.png);
+}
+.tutor_cont .plus img {
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+.tutor_cont .verify img {
+    vertical-align: middle;
+    margin-bottom: 3px;
 }
