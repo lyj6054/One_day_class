@@ -686,3 +686,6 @@
    .r-box .r-btn1 {
        background-image: url(http://localhost:9000/One_day_class/images/apply-btn.png);
    }
+   div.nav.fixed {
+      display:block;
+   }

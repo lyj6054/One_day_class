@@ -7,9 +7,37 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../../../js_yj/swiper-bundle.min.css">
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj_1.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 <script>
-$(document).on('scroll',function(){
+$(document).ready(function(){
+    var p2pGnb = $('.nav ul li')
+    var p2pCont = $('.dance > .idx')
+    p2pGnb.on('click',function(e){
+        e.preventDefault();
+        var target = $(this);
+        var index = target.index();
+        var section = p2pCont.eq(index);
+        var offset = section.offset().top-100;
+        $('html, body').animate({ scrollTop:offset },1000);
+    });
+    
+    $(window).scroll(function(){
+        wScroll = $(this).scrollTop();
+        secNotiOffsetTop = $('.dance-box3').offset().top-200;
+        for(var i=0; i<p2pCont.length; i++){
+            if(wScroll >= p2pCont.eq(i).offset().top-130){
+                p2pGnb.removeClass('active');
+                p2pGnb.eq(i).addClass('active');
+            }
+        }
+        if(wScroll >= secNotiOffsetTop){
+            $('.nav').addClass('fixed');
+        }else {
+            $('.nav').removeClass('fixed');
+        }
+    });
+ });
+/* $(document).on('scroll',function(){
     var divTag = $('div.dance');
     var divTop = divTag.offset().top;
     var scrollTop = $(document).scrollTop();
@@ -38,7 +66,7 @@ $(document).on('scroll',function(){
             });
         }
     }
-});
+}); 
 
 function active_chk() {
     $("#nav_li1").removeClass('active');
@@ -68,7 +96,7 @@ function moveContent(seq){
        $("#nav_li4").addClass('active');
     });
     
-}
+} */
 </script>
 <script>
 	/* function wish(){
@@ -102,10 +130,10 @@ function moveContent(seq){
 	<jsp:include page="../../../header.jsp" />
 	<div class="nav">
       <ul>
-         <li class="active" onclick="moveContent('1')" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
-         <li onclick="moveContent('2')" id="nav_li2"><a href="javascript:">수업소개</a></li>
-         <li onclick="moveContent('3')" id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
-         <li onclick="moveContent('4')" id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
+         <li class="active"  id="nav_li1"><a href="javascript:;">튜터소개</a></li>
+         <li id="nav_li2"><a href="javascript:">수업소개</a></li>
+         <li  id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
+         <li  id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
       </ul>
    </div>
 	<hr class="top-bar">
@@ -174,7 +202,7 @@ function moveContent(seq){
              </div>
            </div>   
       </div>
-		<div class="dance-box3-1" id="nav1">
+		<div class="idx dance-box3-1" id="nav1">
 			<span class="dance-b4">튜터님을<br> 소개합니다.</span>
 			<div class="dance-b6">
 				<p>안녕하세요 기브 (GEEBE) 샹들리에 케이크 호스트 키코입니다! <br />
@@ -194,7 +222,7 @@ function moveContent(seq){
 			</div>
 		</div>
 		
-		<div class="dance-box3-1" id="nav2">
+		<div class="idx dance-box3-1" id="nav2">
 			<span class="dance-b4">어떤<br> 수업인가요?</span>
 			<div class="dance-b6">
 				<p>-내 안의 로맨틱한 감성 끌어 모아 우아하게 표현합니다. <br>
@@ -242,7 +270,7 @@ function moveContent(seq){
 				</p>
 			</div>
 		</div>
-		<div class="dance-box3-1" id="nav3">
+		<div class="idx dance-box3-1" id="nav3">
 			<span class="dance-b4">수업은 이렇게<br>진행됩니다.</span>
 			<div class="dance-b6">
 				<p>- 집합 및 이동 <br />
@@ -254,7 +282,7 @@ function moveContent(seq){
 			</div>
 			
 		</div>
-		<div class="dance-box3-1" id="nav4">
+		<div class="idx dance-box3-1" id="nav4">
 			<span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
 			<div class="dance-b6">
 				<img src="http://localhost:9000/One_day_class/images/dance5.png">
