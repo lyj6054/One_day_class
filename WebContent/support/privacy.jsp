@@ -4,116 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>privacy</title>
-<style>
-* {
-	box-sizing: border-box;
-}
-
-div {
-	display: block;
-}
-
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p,
-	button, pre {
-	margin: 0;
-	padding: 0;
-	font-size: 14px;
-	color: #111;
-	font-family: 'Noto Sans KR';
-	font-weight: 400;
-}
-
-.s_container {
-	overflow: hidden;
-	width: 100%;
-	margin-top: 40px;
-}
-
-.support_menu {
-	border-bottom: 1px solid #e4e4e4;
-	overflow: hidden;
-	height: auto;
-	width: 100%;
-	z-index: 2;
-}
-
-.support_menu ul {
-	padding-top: 22.5px;
-	padding-bottom: 22.5px;
-	width: 1040px;
-	margin: 0 auto;
-}
-
-.support_menu ul li {
-	padding-right: 51px;
-	float: left;
-	list-style: none;
-}
-
-.support_menu ul li a {
-	color: #7d7d7d;
-	font-size: 18px;
-	display: block;
-	text-decoration: none;
-}
-
-.support_menu ul li a.on {
-	color: #f82462;
-	border-bottom: none;
-	height: 35px;
-	text-decoration: none;
-}
-
-.rule_contents {
-	width: 1040px;
-	margin: 0 auto;
-	padding: 50px 0 100px 0;
-	color: #2e2e2e;
-}
-
-.rule_contents .title {
-	border-bottom: solid 2px #2e2e2e;
-	padding-bottom: 24px;
-	margin-bottom: 40px;
-}
-
-.rule_contents .title .main {
-	color: #2e2e2e;
-	font-size: 20px;
-	font-weight: bold;
-}
-.rule_bold_text2 {
-    font-size: 20px;
-    font-weight: 600;
-}
-.rule_bold_text3 {
-    font-size: 16px;
-    font-weight: 600;
-    padding-left: 10px;
-}
-.rule_bold_text4 {
-    padding-left: 20px;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-td, th {
-    padding: 0;
-    font-family: 'Noto Sans KR';
-    font-weight: 400;
-    font-size: 14px;
-    color: #111;
-}
-a, span {
-    color: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    text-decoration: none;
-}
-</style>
+<link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
 </head>
 <body>
 	<!-- header -->
@@ -122,7 +13,7 @@ a, span {
 	<div class="s_container">
 		<div class="support_menu">
 			<ul>
-				<li><a href="rule.jsp">탈잉 서비스 이용약관</a></li>
+				<li><a href="rule.jsp">탈멍 서비스 이용약관</a></li>
 				<li><a href="privacy.jsp" class="on">
 						<b style="text-decoration: underline; letter-spacing: 0.7px; font-size: 17px;">개인정보처리방침</b>
 					</a></li>
@@ -137,7 +28,7 @@ a, span {
 			<br> <br>
 			<div class="rule_bold_text3">제1조 (목적)</div>
 			<br>
-			<div class="rule_bold_text4">(주)탈잉 (이하 “회사”라 함)은 이용자의 개인정보를 소중하게 생각하고, 보호하기 위하여 항상 최선을 다해
+			<div class="rule_bold_text4">(주)탈멍 (이하 “회사”라 함)은 이용자의 개인정보를 소중하게 생각하고, 보호하기 위하여 항상 최선을 다해
 				노력하고 있습니다. 회사는 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」을 비롯한 모든 개인정보보호 관련 법률규정을 준수하고 있으며, 관련 법령에 의거한
 				개인정보처리방침을 정하여 이용자 권익 보호에 최선을 다하고 있습니다. 또한 「개인정보처리방침」을 제정하여 이를 준수하고 있으며, 이를 인터넷사이트 및 모바일 어플리케이션에
 				공개하여 이용자가 언제나 용이하게 열람할 수 있도록 하고 있습니다.</div>
@@ -147,24 +38,24 @@ a, span {
 			<div class="rule_bold_text4">
 				이 방침에서 사용하는 용어의 정의는 다음과 같습니다. <br> <br>
 				<div class="rule_bold_text6">
-					1. 이용자 : 탈잉에 접속하여
+					1. 이용자 : 탈멍에 접속하여
 					<a href="https://taling.me/Support/Rule">
-						<u>탈잉 서비스 이용약관</u>
+						<u>탈멍 서비스 이용약관</u>
 					</a>
 					에 따라 회사가 제공하는 서비스를 이용하는 자를 말하며 회원도 포함합니다. <br> <br> 2. 서비스 : 구현되는 단말기(PC, 모바일, 태블릿 PC
-					등의 각종 유무선 장치를 포함)와 상관없이 이용자가 이용할 수 있는 탈잉 서비스를 의미합니다. <br> <br> 3. 회원 : 회사에 개인정보를 제공하여
+					등의 각종 유무선 장치를 포함)와 상관없이 이용자가 이용할 수 있는 탈멍 서비스를 의미합니다. <br> <br> 3. 회원 : 회사에 개인정보를 제공하여
 					회원등록을 한 자로서, 회사의 정보를 지속적으로 제공받으며, 회사가 제공하는 서비스를 계속적으로 이용할 수 있는 자를 말합니다. <br> <br> 4.
-					콘텐츠공급자 : 다양한 콘텐츠, 광고 등 서비스에 게재될 수 있도록 탈잉에 정보를 제공하는 주체로써 사람이나 기관을 의미합니다. <br> <br> 5.
+					콘텐츠공급자 : 다양한 콘텐츠, 광고 등 서비스에 게재될 수 있도록 탈멍에 정보를 제공하는 주체로써 사람이나 기관을 의미합니다. <br> <br> 5.
 					자료 : 콘텐츠공급자가 제공한 각종 정보, 콘텐츠로써 서비스 상에 게시된 부호, 문자, 음성, 음향, 화상, 동영상 등의 정보 형태의 글, 사진, 동영상 및 각종 파일,
 					링크, 다운로드, 광고 등을 포함하여 본 서비스에 게시물 형태로 포함되어 있거나, 본 서비스를 통해 배포, 전송되거나, 본 서비스로부터 접근되는 정보를 의미합니다. <br>
 					<br> 6. 아이디(ID) : 회원의 식별과 서비스 이용을 위하여 회원이 설정하고 회사가 승인한 회원 본인의 문자와 숫자의 조합을 의미하며 회원이 설정한 이메일
 					주소 등이 포함됩니다. <br> <br> 7. 비밀번호 : 회원의 동일성 확인과 회원정보의 보호를 위하여 회원이 설정하고 회사가 승인한 문자나 숫자의
-					조합을 말합니다. <br> <br> 8. 유료서비스 : 탈잉 서비스를 통해 유료로 이용 가능한 회사가 제공하는 각종 온라인 디지털 콘텐츠 및 제반
+					조합을 말합니다. <br> <br> 8. 유료서비스 : 탈멍 서비스를 통해 유료로 이용 가능한 회사가 제공하는 각종 온라인 디지털 콘텐츠 및 제반
 					서비스를 말합니다. 정보 및 광고 게시 서비스 등이 포함됩니다. <br> <br> 9. IMEI (Intel Management Engine
 					Interface) : 휴대용 모바일 단말기에 내장되어 있는 15자리 숫자로 된 번호이며 단말기 고유의 일련번호를 말 합니다. (암호화하여 안전하게 보호하고 있습니다.)
 					<br> <br> 10. 부정이용 : 회원탈퇴 후 재가입, 유료서비스 이용을 위한 구매 후 구매취소 등을 반복적으로 행하는 등 회사가 제공하는
 					<a href="https://taling.me/Support/Rule">
-						<u>탈잉 서비스 이용약관</u>
+						<u>탈멍 서비스 이용약관</u>
 					</a>
 					등에서 금지하고 있는 행위, 명의도용 등의 불·편법행위 등을 말합니다. <br> <br>
 				</div>
@@ -253,10 +144,10 @@ a, span {
 			<br>
 			<div class="rule_bold_text4">
 				① 인터넷 서비스 이용 과정에서 IP 주소, 쿠키, 서비스 이용 기록이 생성되어 수집될 수 있습니다. 서비스 이용 과정에서 이용자에 관한 정보를 회사가 자동화된 방법으로
-				생성하여 이를 저장(수집)할 수 있습니다. <br> <br> ② 회사는 쿠키 정보를 수집하여 이용자들의 방문한 탈잉 각 서비스 접속여부, 이용자 문의에
+				생성하여 이를 저장(수집)할 수 있습니다. <br> <br> ② 회사는 쿠키 정보를 수집하여 이용자들의 방문한 탈멍 각 서비스 접속여부, 이용자 문의에
 				대한 확인 및 안내 등에 사용됩니다 <br> <br> ③ 이용자는 쿠키 설치에 대한 선택권을 가지고 있습니다. 따라서 이용자는 웹브라우저에서 옵션을
 				설정함으로써 모든 쿠키를 허용하거나, 쿠키가 저장될 때마다 확인을 거치거나, 아니면 모든 쿠키의 저장을 거부할 수도 있습니다. 다만, 쿠키의 저장을 거부할 경우에는 로그인이
-				필요한 탈잉 일부 서비스는 이용에 어려움이 있을 수 있습니다. <br> <br> * 쿠키 설정방법 예 ① Internet Explorer : 웹 브라우저
+				필요한 탈멍 일부 서비스는 이용에 어려움이 있을 수 있습니다. <br> <br> * 쿠키 설정방법 예 ① Internet Explorer : 웹 브라우저
 				상단의 도구 → 인터넷 옵션 → 개인정보 → 고급 ② Chrome : 웹 브라우저 우측의 설정 메뉴 → 화면 하단의 고급 설정 표시 → 개인정보의 콘텐츠 설정 버튼 → 쿠키
 				<br> <br>
 			</div>
@@ -442,7 +333,7 @@ a, span {
 					백업하고 있고, 최신 보안 업데이트 설치 및 기술적 조치를 하여 이용자의 개인정보나 자료가 유출되거나 손상되지 않도록 방지하고 있으며, 암호화 통신 등을 통하여
 					네트워크상에서 개인정보를 안전하게 전송할 수 있도록 하고 있습니다. 그리고 침입차단시스템을 이용하여 외부로부터의 무단 접근을 통제하고 있으며, 기타 시스템적으로 보안성을
 					확보하기 위한 가능한 모든 기술적 장치를 갖추려 노력하고 있습니다. <br> <br> 3. 회사는 개인정보처리 관련 담당자를 한정시키고 있고 이를 위한
-					별도의 비밀번호를 부여하여 정기적으로 갱신하고 있으며, 담당자에 대한 정기적 교육을 통하여 탈잉 개인정보처리방침의 준수를 항상 강조하고 있습니다. <br> <br>
+					별도의 비밀번호를 부여하여 정기적으로 갱신하고 있으며, 담당자에 대한 정기적 교육을 통하여 탈멍 개인정보처리방침의 준수를 항상 강조하고 있습니다. <br> <br>
 				</div>
 			</div>
 			<br> <br>
