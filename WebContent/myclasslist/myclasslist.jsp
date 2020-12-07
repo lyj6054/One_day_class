@@ -11,26 +11,17 @@
 		margin-left: 0px;
 	}
 </style>
+<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script>
-	function review_on(){
-		document.getElementById("review_btn1").classList.add('on');
-		document.getElementById("m_r_1").classList.add('on');
-		document.getElementById("review_btn1").setAttribute("onclick", "review_off()");			
+	function review_on(num){
+		document.getElementById("review_btn" + num).classList.add('on');
+		document.getElementById("m_r_" + num).classList.add('on');
+		document.getElementById("review_btn" + num).setAttribute("onclick", "review_off(" + num + ")");			
 	}
-	function review_off(){
-		document.getElementById("review_btn1").classList.remove('on');
-		document.getElementById("m_r_1").classList.remove('on');
-		document.getElementById("review_btn1").setAttribute("onclick", "review_on()");
-	}
-	function review_on2(){
-		document.getElementById("review_btn2").classList.add('on');
-		document.getElementById("m_r_2").classList.add('on');
-		document.getElementById("review_btn2").setAttribute("onclick", "review_off2()");			
-	}
-	function review_off2(){
-		document.getElementById("review_btn2").classList.remove('on');
-		document.getElementById("m_r_2").classList.remove('on');
-		document.getElementById("review_btn2").setAttribute("onclick", "review_on2()");
+	function review_off(num){
+		document.getElementById("review_btn" + num).classList.remove('on');
+		document.getElementById("m_r_" + num).classList.remove('on');
+		document.getElementById("review_btn" + num).setAttribute("onclick", "review_on(" + num + ")");		
 	}
 </script>
 </head>
@@ -67,7 +58,7 @@
 						결제일: 2020-11-18 14:50:19 | 수업 시작일: 2020-11-28 16:00 | 강남                                                            
                     </div>
                     <div class="myreview">
-                    	<p role="button" class="review_btn" id="review_btn1" onclick="review_on()">내가 작성한 리뷰</p>
+                    	<p role="button" class="review_btn" id="review_btn1" onclick="review_on(1)">내가 작성한 리뷰</p>
                     </div>
                     <div class="price">
                     	55,000원
@@ -127,7 +118,7 @@
 						결제일: 2020-11-18 14:30:19 | 수업 시작일: 2020-11-26 17:00 | 강남                                                            
                     </div>
                     <div class="myreview">
-                    	<p role="button" class="review_btn" id="review_btn2" onclick="review_on2()">내가 작성한 리뷰</p>
+                    	<p role="button" class="review_btn" id="review_btn2" onclick="review_on(2)">내가 작성한 리뷰</p>
                     </div>
                     <div class="price">
                     	85,800원

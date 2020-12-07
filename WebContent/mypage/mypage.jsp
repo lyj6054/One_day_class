@@ -6,18 +6,61 @@
 <meta charset="UTF-8">
 <title>mypage</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
+<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script>
-	function setImage(event) { 
-		var reader = new FileReader();
-		var profile = document.getElementById("profile_image");
+	$(document).ready(function(){
+		$('#p_picture').change(function (e) {
+			var file = (e.target || window.event.srcElement).files[0];
+	
+			var reader = new FileReader();
+			reader.onload = function() {
+				$('#profile_image').css("background-image", "url('"+reader.result+"')");			
+			}
+			reader.readAsDataURL(file);
+		});
 		
-		reader.onload = function(event) { 
-			var img = document.createElement("img");
-			profile.style.backgroundImage = 'url("' + event.target.result + '")'; 
-		};
+		var oldValNick;
+		$(function(){
+			$('#nickname_count').text($('#nickname').val().length);
+			$('#introduction_count').text($('#introduction').val().length);
+			oldValNick = $('#nickname').val();
+		});
 		
-		reader.readAsDataURL(event.target.files[0]); 
-	}
+		$("#nickname").on("propertychange change keyup paste input", function() {
+			var currentVal = $(this).val();
+			if(currentVal == oldValNick) {
+				return;
+			}
+			
+			if($(this).val().length>8){
+				alert('별명은 8자 이하로 써주세요');
+				$('#nickname').val(oldValNick).focus();
+				return;
+			}
+			$('#nickname_count').text($(this).val().length);
+			oldValNick = currentVal;
+		});
+		
+		var oldValIntro;
+		$("#introduction").on("propertychange change keyup paste input", function() {
+			var currentVal = $(this).val();
+			if(currentVal == oldValIntro) {
+				return;
+			}
+			
+			if($(this).val().length>300){
+				alert('내소개는 300자 이하로 써주세요');
+				$('#introduction').val(oldValIntro).focus();
+				return;
+			}
+			$('#introduction_count').text($(this).val().length);
+			oldValIntro = currentVal;
+		});
+		
+		$('#regInfo').click(function(){
+			$('#pf_edit').submit();
+		});
+	});
 </script>
 </head>
 <body>
@@ -36,7 +79,7 @@
 				<div class="p_info" style="padding-top: 0;">
 					<div class="p_image" style="background-image: url('http://localhost:9000/One_day_class/images/profile.png')" id="profile_image">
 						<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
-						<input type="file" id="p_picture" name="p_picture" onchange="setImage(event)">
+						<input type="file" id="p_picture" name="p_picture">
 					</div>
 				</div>
 				<div class="p_info">
@@ -76,8 +119,8 @@
 							<font id="introduction_count">0</font>/300
 						</div>
 					</div>
-					<a href="http://localhost:9000/One_day_class/myleave/myleave.jsp" class="member_leave">회원 탈퇴하기</a>
 				</div>
+				<a href="http://localhost:9000/One_day_class/myleave/myleave.jsp" class="member_leave">회원 탈퇴하기</a>
 				<div class="pink_submit" id="regInfo">저장하기</div>
 				<div style="padding-top:200px"></div>
 			</div>

@@ -5,6 +5,40 @@
 <meta charset="UTF-8">
 <title>mypassedit</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
+<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#edit_password').submit(function() {
+			
+			var password =$('#input_password').val();
+			var passNum = /[0-9]/; // 숫자 
+			var passStr = /[a-zA-Z]/; // 문자 
+		
+			if(password.length < 8) { 
+				alert('비밀번호는 8자리 이상 입력하세요.');
+				$('#input_password').focus();
+				return false; 
+			} 
+		
+			if(!passNum.test(password) || !passStr.test(password)) { 
+				alert('영문 숫자 조합으로 사용하세요.');
+				$('#input_password').focus();
+				return false; 
+			} 
+		
+			if ($('#input_password').val() !== $('#input_confirm').val()) {
+				alert('비밀번호 확인을 올바르게 입력하세요');
+				$('#input_confirm').focus();
+				return false;
+			}
+			if ($('#input_password').val() == '' || $('#input_confirm').val() =='') {
+				alert('비밀번호를 올바르게 입력하세요');
+				return false;
+			}
+		});
+	});
+
+</script>
 </head>
 <body>
 	<!-- header -->

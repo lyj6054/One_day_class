@@ -74,9 +74,6 @@
 	    visibility: visible;
 	    background-color: white;
 	    overflow: hidden;
-	    display: none;
-	}
-	.Search_Container.on {
 	    z-index: 2;
 	    width: 590px;
 	    display: block;
@@ -109,14 +106,18 @@
 		font-weight: 600;
 	}
 </style>
+<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script>
-		function search_list() {
-			document.getElementById("bar_true_list").classList.add('on');
-		} 
-		function search_end() {
-			document.getElementById("bar_true_list").classList.remove('on');
-		}
-   </script>
+	$(document).ready(function(){
+		$('#inp_sch').focusin(function() {
+			$("#bar_true_list").css("display","block");
+		});
+		
+		$('#inp_sch').focusout(function() {
+			$("#bar_true_list").css("display","none");
+		});
+	});
+</script>
 </head>
 <body>
 	<header>
@@ -125,10 +126,10 @@
 				<h1 class="logo">
 					<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
 				</h1>
-				<div class="box_sch">
-                    <input type="text" class="inp_sch" name="inp_sch" id="inp_sch" placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." onclick="search_list()" onblur="search_end()">
+				<div class="box_sch" id="box_sch">
+                    <input type="text" class="inp_sch" name="inp_sch" id="inp_sch" placeholder="배우고 싶은 재능이나 튜터를 검색해보세요.">
                     <button class="btn_sch"></button>
-	                <div class="Search_Container" id="bar_true_list">
+	                <div class="Search_Container" id="bar_true_list" style="display: none;">
 						<div class="Search_Container_Header" id="bar_true_text">
 							<h3 class="Search_Container_HeaderText">인기 검색어</h3>
 						</div>	

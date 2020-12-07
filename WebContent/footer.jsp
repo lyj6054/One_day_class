@@ -136,14 +136,14 @@
 								<a href="http://localhost:9000/One_day_class/support/faq.jsp">FAQ</a>
 							</li>
 							<li>
-								<a href="http://localhost:9000/One_day_class/support/center.jsp">탈잉센터</a>
+								<a href="http://localhost:9000/One_day_class/support/center.jsp">탈멍센터</a>
 							</li>
 						</ul>
 					</li>
 					<li class="depth1 tc">
 						<p class="title">TALING CENTER</p>
 						<ul class="depth2">
-							<li><a href="http://localhost:9000/One_day_class/support/question.jsp" style="color:#ff005a">1:1 문의</a></li>
+							<li><a href="http://localhost:9000/One_day_class/support/notice.jsp" style="color:#ff005a">공지사항</a></li>
 							<li>
 								<p>운영시간</p>
 								<p>평일 오전 10시 ~ 오후 5시  점심 오후 1시 ~ 2시</p>
@@ -154,7 +154,7 @@
 			</div>
 			<div class="f_bottom">
 				<div class="f_info">
-					<p>상호 : (주)탈잉 | 주소 : 서울특별시 강남구 역삼동 621 -19 | 사업자등록번호 : 767-88-00630 | 대표자명 : 김윤환</p>
+					<p>상호 : (주)탈멍 | 주소 : 서울특별시 강남구 역삼동 621 -19 | 사업자등록번호 : 767-88-00630 | 대표자명 : 김윤환</p>
 					<p>통신판매업 신고번호 : 제 2017-서울강남-02964</p>
 					<p>Copyright ⓒ2020 taling inc, ltd. All rights reserved</p>
 				</div>
