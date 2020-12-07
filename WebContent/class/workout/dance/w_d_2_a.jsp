@@ -5,26 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <script>
-	function addbtn(){
-		var num = document.getElementById("rtext"); //id가 righttext 곳에 출력
-		var num1 = Number(num.value);
-		
-		if(Number(num.value) == 20){
-			alert("최대인원은 20명입니다.");
-		}else{
-		num.value = num1 + 1;	//누를시 1씩증가 */
-		}
-	}
-	function minusbtn(){
-		var num = document.getElementById("rtext"); //id가 righttext 곳에 출력
-		var num1 = Number(num.value);
-		if(Number(num.value) == 1){
-			alert("최소인원은 1명입니다.");
-		}else{
-		num.value = num1 - 1;	//누를시 1씩감소 */
-		}
-	}
+	
 	function phonebtn(){
 		alert("휴대폰 번호를 입력해주세요");
 	}
@@ -53,6 +36,35 @@
 		}
 		alert("신청 인원을 체크해주세요");
 	}
+	
+	$(document).ready(function() {
+	      
+	      $("#btn-plus").click(function(){
+	         $("#btn-minus").removeAttr("disabled");
+
+	            var num = $("#rtext"); //id가 righttext 곳에 출력
+	            var num1 = Number(num.val());
+	            
+	            if(num1 == 3) {
+	               alert("최대 신청인원은 3명까지만 가능합니다")
+	            } else {
+	               num.val(num1+1);   //누를시 1씩증가 */
+	            }
+	      });
+	      
+	      $("#btn-minus").click(function() {
+	         
+	         var num = $("#rtext"); //id가 righttext 곳에 출력
+	         var num1 = Number(num.val());
+	         
+	         if(num1 == 1) {
+	            $("#btn-minus").attr("disabled", true);
+	         } else {
+	            num.val(num1-1);   //누를시 1씩증가 */
+	         }
+	      });
+	   });
+	   
 </script>
 <style>
  *:focus { outline:none; }
@@ -157,29 +169,28 @@
 		 clear:left;
 		 margin-bottom:450px;
 	}
-	div.left-box {
+	div.left-box_w_d_2_a {
 		border:1px solid lightgray;
 		border-radius:8px;
 		clear:left;
 		width:400px;
-		height:310px;
+		height:340px;
 		padding:30px 0 10px 20px;
 	}
-	div.left-box>ul>div>li>label>span.left-box-span {
+	div.left-box_w_d_2_a>ul>li>label>span.left-box-span {
 		font-size:15px;
 		font-weight:bold;
 		margin-left:10px;
 	}
-	div.left-box>ul>div>li>label>p.left-box-p {
+	div.left-box_w_d_2_a>ul>li>label>p.left-box-p {
 		color:gray;
 		margin-left:35px;
 		font-size:15px;
 	}
-	div.left-box>ul>div>li>hr {
-		width:360px;
+	div.left-box_w_d_2_a>ul>hr {
+		width:350px;
 		opacity:0.2;
-		margin-right:20px;
-		margin-top:20px;
+		margin-top:30px;
 		margin-bottom:20px;
 	}
 	span.a-title {
@@ -216,11 +227,95 @@
 		float:left;
 		border-radius:8px;
 	}
+	.left-box_w_d_2_a ul {
+      padding: 0 15px;
+   }
+   ul {
+       display: block;
+       list-style-type: disc;
+       margin-block-start: 1em;
+       margin-block-end: 1em;
+       margin-inline-start: 0px;
+       margin-inline-end: 0px;
+       padding-inline-start: 40px;
+   }
+   .left-box_w_d_2_a .list {
+       margin-left:30px;
+   }
+   li {
+      list-style: none;
+      display: list-item;
+       text-align: -webkit-match-parent;
+   }
+      .blind {
+       position: absolute !important;
+       clip: rect(0,0,0,0);
+       clip-path: polygon(0 0,0 0,0 0);
+       width: 1px;
+       height: 1px;
+       margin: -1px;
+       overflow: hidden;
+       white-space: nowrap;
+       cursor:pointer;
+   }    
+   input[type="radio" i] {
+       background-color: initial;
+       cursor: default;
+       appearance: radio;
+    }
+    
+    .left-box_w_d_2_a .inp_radio {
+       position:relative;
+    }
+    label {
+       cursor:pointer;
+    }
+   .left-box_w_d_2_a .inp_radio::before {
+       content: '';
+       display: block;
+       position: absolute;
+       left: -36px;
+       top: 2px;
+       width: 18px;
+       height: 18px;
+       border-radius: 50%;
+       background: url(http://localhost:9000/One_day_class/images/workout/apply-btn2.png) no-repeat center/18px;
+   }
+   .left-box_w_d_2_a .list .inp_label:checked + .inp_radio::before {
+       background-image: url(http://localhost:9000/One_day_class/images/workout/apply-btn3.png);
+   }
+     .blind {
+       position: absolute !important;
+       clip: rect(0,0,0,0);
+       clip-path: polygon(0 0,0 0,0 0);
+       width: 1px;
+       height: 1px;
+       margin: -1px;
+       overflow: hidden;
+       white-space: nowrap;
+       cursor:pointer;
+   } 
+    .r-box3 .inp_radio::before {
+       content: '';
+       display: inline-block;
+       width: 18px;
+       height: 18px;
+       margin: 0 10px 2px;
+       vertical-align: middle;
+       background: url(http://localhost:9000/One_day_class/images/workout/apply-btn2.png) no-repeat center/18px;
+   }
+   .r-box3 .inp_label:checked + .inp_radio::before {
+       background-image: url(http://localhost:9000/One_day_class/images/workout/apply-btn3.png);
+   }
+   div.right>div.r-box3>div.r-box3-2 {
+      margin-left:82px;
+      margin-right:82px;
+   }
 </style>
 </head>
 <body>
 	<!--header -->
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../../../header.jsp" />
 	<hr class="top-bar">
 	<div class="apply">
 	<div class="left">
@@ -237,37 +332,31 @@
 			</div>
 		</div>
 		<h3>수업 일정을 먼저 선택해주세요.</h3>
-		<div class="left-box">
+		<div class="left-box_w_d_2_a"> 
 			<ul>
-				<div>
-					<li>
-						<label>
-							<input type="radio" name="lradio" id="leftradio">
+					<li class="list">
+						<input type="radio" name="lradio" id="leftradio1" class="inp_label blind">
+						<label for="leftradio1" class="inp_radio">
 							<span class="left-box-span">12월 01일 화요일 (건대) 18:00 - 19:00</span>
 							<p class="left-box-p">역에서 도보 7분 내외 연습실</p>
 						</label>
-						<hr>
 					</li>
-				</div>
-				<div>
-					<li>
-						<label>
-							<input type="radio" name="lradio">
+						<hr>
+					<li class="list">
+						<input type="radio" name="lradio" id="leftradio2" class="inp_label blind">
+						<label for="leftradio2" class="inp_radio">
 							<span class="left-box-span">12월 02일 수요일 (건대) 19:00 - 20:00</span>
 							<p class="left-box-p">역에서 도보 7분 내외 연습실</p>
 						</label>
-						<hr>
 					</li>
-				</div>
-				<div>
-					<li>
-						<label>
-							<input type="radio" name="lradio">
+						<hr>
+					<li class="list">
+						<input type="radio" name="lradio" id="leftradio3" class="inp_label blind">
+						<label for="leftradio3" class="inp_radio">
 							<span class="left-box-span">12월 03일 목요일 (건대) 18:00 - 19:00</span>
 							<p class="left-box-p">협의 후 결정</p>
 						</label>
 					</li>
-				</div>
 			</ul>
 		</div>
 	<div id="checked"></div>
@@ -275,9 +364,9 @@
 	<div class="right">
 		<h3>신청 인원</h3>
 		<div class="r-box">
-			<button type="button" class="r-btn" onclick="minusbtn()"><img src="http://localhost:9000/One_day_class/images/apply-btn1-1.png" alt=""></button>
-			<input type="text" value="1" id="rtext">
-			<button type="button" class="r-btn1" onclick="addbtn()"><img src="http://localhost:9000/One_day_class/images/apply-btn.png" alt="" ></button>
+			<button type="button" class="r-btn" id="btn-minus"><img src="http://localhost:9000/One_day_class/images/apply-btn1-1.png" alt=""></button>
+			<input type="text" value="1" id="rtext" readonly>
+			<button type="button" class="r-btn1" id="btn-plus"><img src="http://localhost:9000/One_day_class/images/apply-btn.png" alt="" ></button>
 		</div>
 		<div class="r-box1-1">
 			<h3>연락 받으실 전화번호</h3>
@@ -289,19 +378,19 @@
 			<p>튜터에게 간단히 자신을 소개하고, 신청 목적에 대해 알려주세요.</p>
 		</div>
 		<div class="r-box3">
-			<div class="r-box3-1">
-				<input type="radio" name="r-box-radio">
-				<span>입문</span>
-			</div>
-			<div class="r-box3-2">
-				<input type="radio" name="r-box-radio">
-				<span>초/중급</span>
-			</div>
-			<div class="r-box3-3">
-				<input type="radio" name="r-box-radio">
-				<span>상급</span>
-			</div>
-		</div>
+         <div class="r-box3-1" >
+            <input type="radio" name="r-box-radio" id="radiobtn1" class="inp_label blind">
+            <label for="radiobtn1" class="inp_radio">입문</label>
+         </div>
+         <div class="r-box3-2">
+            <input type="radio" name="r-box-radio" id="radiobtn2" class="inp_label blind">
+            <label for="radiobtn2" class="inp_radio">초/중급</label>
+         </div>
+         <div class="r-box3-3">
+            <input type="radio" name="r-box-radio" id="radiobtn3" class="inp_label blind">
+            <label for="radiobtn3" class="inp_radio">상급</label>
+         </div>
+      </div>
 			<div class="r-box4">
 				<textarea placeholder="예)처음이라 서투르지만 열심히 따라갈게요!"></textarea>
 			</div>
@@ -312,6 +401,6 @@
 	
 	
 	<!--header -->
-	<jsp:include page="../footer.jsp" />
+	<jsp:include page="../../../footer.jsp" />
 </body>
 </html>

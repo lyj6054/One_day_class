@@ -5,6 +5,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    var p2pGnb = $('.nav ul li')
+    var p2pCont = $('.dance > .idx')
+    p2pGnb.on('click',function(e){
+        e.preventDefault();
+        var target = $(this);
+        var index = target.index();
+        var section = p2pCont.eq(index);
+        var offset = section.offset().top-100;
+        $('html, body').animate({ scrollTop:offset },1000);
+    });
+    
+    $(window).scroll(function(){
+        wScroll = $(this).scrollTop();
+        secNotiOffsetTop = $('.dance-box3').offset().top-200;
+        for(var i=0; i<p2pCont.length; i++){
+            if(wScroll >= p2pCont.eq(i).offset().top-130){
+                p2pGnb.removeClass('active');
+                p2pGnb.eq(i).addClass('active');
+            }
+        }
+        if(wScroll >= secNotiOffsetTop){
+            $('.nav').addClass('fixed');
+        }else {
+            $('.nav').removeClass('fixed');
+        }
+    });
+ });
+</script>
 <script>
 	
 	function review(){
@@ -27,13 +58,24 @@
 			alert("위시리스트에 삭제되었습니다");
 		}
 	}
+	
 </script>
+
+
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="../../../js_minsu/swiper-bundle.min.css">
 <style>
+	
+	
 	 *:focus { outline:none; }
 	hr.top-bar {
 		width:100%;
 		opacity:0.3;
 		margin-top:40px;
+	}
+	.review_box_all {
+		border-bottom:2px solid #ccc;
+		width:617px;
 	}
 	div.dance {
 		width:1400px;
@@ -48,6 +90,8 @@
 	div.dance>div.dance-box2 {
 		width:900px; height:500px;
 		margin-top:35px;
+		padding-bottom:30px;
+		border-radius:10px;
 	}
 	div.dance-box2>img {
 		float:left;
@@ -128,16 +172,6 @@
 		text-align:center;
 		margin-bottom:10px;
 	}
-	div.dance>div.dance-box3-1>div.dance-btn-box>button.dance-btn {
-		margin-top:20px;
-		margin-left:70px;
-		margin-bottom:50px;
-		font-size:15px;
-		background-color:white;
-		border:1px solid white;
-		color:rgb(255,0,69);
-		text-decoration:underline;
-	}
 	div.dance>div.dance-box3>span.dance-b4,
 	div.dance>div.dance-box3-1>span.dance-b4 {
 		display:inline-block;
@@ -145,6 +179,9 @@
 		font-size:28px;
 		font-weight:bold;
 		margin-right:60px;
+		border-bottom:3px solid gray;
+		padding-bottom:13px;
+		width:168px;
 	}
 	div.dance>div.dance-box3>div.dance-b5 {
 		border:1px solid rgb(250,250,250);
@@ -163,7 +200,7 @@
 		font-size:16px;
 	}
 	div.dance>div.dance-box3-1>div.dance-b6>img {
-		margin-left:30px;
+		margin-left:23px;
 	}
 	div.dance>div.dance-box3-1>div.dance-b6>div.dance-b6-1 {
 		margin-bottom:80px;
@@ -208,22 +245,8 @@
 		float:right;
 		width:380px;
 		height:540px;
-	}
-	div.dance>aside.d-side>aside>div.d-side-box6 {
-		border:1px solid lightgray;
-		border-radius:8px;
-		margin-top:35px;
-		padding:10px 5px 10px 5px;
-		text-align:center;
-	}
-	div.dance>aside.d-side>aside>div.d-side-box7 {
-		border:1px solid lightgray;
-		border-radius:30px;
-		margin-top:180px;
-		float:right;
-		width:130px; height:50px;
-		text-align:center;
-		padding-top:7px;
+		position: sticky;
+		top:180px;
 	}
 	div.dance>aside.d-side>aside>div.d-side-box6>img.dance-img {
 		margin-right:25px;
@@ -280,11 +303,129 @@
 		padding-left:20px;
 		color:rgb(215,215,215);
 	}
+	
+	/*swiper 구간  */
+	 .div.swiper-container gallery-top,
+	 .div.swiper-container gallery-thumbs {
+      position: relative;
+      height: 100%;
+    }
+
+     .div.swiper-container gallery-top,
+	 .div.swiper-container gallery-thumbs {
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+	.swiper-container {
+      width: 100%;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+    }
+
+    .gallery-top {
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery-thumbs {
+      height: 20%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+
+    .gallery-thumbs .swiper-slide {
+      width: 20%;
+      height: 100%;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    .gallery-thumbs .swiper-slide-thumb-active {
+      opacity: 1;
+      border: 1px solid #ff0045;
+    }
+     div.nav {
+      display:none;
+      z-index:6;
+      width:100%;
+      height:80px;
+      text-align:center;
+      position:fixed;
+      top:0px;
+      opacity:0.9;
+      border-bottom: 1px solid #eee;
+      transition: all 0.5s ease-in;
+       background-color: #fff;
+      
+   }
+   .nav ul {
+      width: 100%;
+       padding: 0 20px;
+       display: flex;
+       height: 100%;
+       margin: 0 auto;
+       -webkit-box-pack: start;
+       justify-content: flex-start;
+   }
+   .nav ul li.active {
+       border-bottom: 2px solid #ff0045;
+   }
+   .nav ul li {
+       height: 100%;
+       margin-right: 39px;
+       text-align: center;
+   }
+   li {
+      display: list-item;
+       list-style: none;
+   }
+   .nav ul li a {
+       display: block;
+       height: 100%;
+       padding: 44px 0 17px;
+       font-size: 15px;
+       letter-spacing: -0.23px;
+   }
+   a {
+       color: inherit;
+       font-size: inherit;
+       font-weight: inherit;
+       line-height: inherit;
+       text-decoration: none;
+   }
+   a:-webkit-any-link {
+       cursor: pointer;
+   }
+    div.nav.fixed {
+      display:block;
+      
+   }
+    
 </style>
 </head>
 <body>
 	<!--header -->
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../../../header.jsp" />
+	<div class="nav">
+      <ul>
+         <li class="active"  id="nav_li1"><a href="javascript:;">튜터소개</a></li>
+         <li  id="nav_li2"><a href="javascript:">수업소개</a></li>
+         <li  id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
+         <li  id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
+      </ul>
+   </div>
+	
 	<hr class="top-bar">
 	<div class="dance">
 		
@@ -313,25 +454,10 @@
 			</div>
 			<div class="d-side-box5">
 				<img src="http://localhost:9000/One_day_class/images/dance-btn1.png" name="wish" id="d-img" onclick="wish_toggle()">
-				<a href="http://localhost:9000/One_day_class/tutor/dance_apply.jsp">
+				<a href="http://localhost:9000/One_day_class/class/workout/dance/w_d_2_a.jsp">
 				<img src="http://localhost:9000/One_day_class/images/dance-btn.png"></a>
 				
 			</div>
-			<aside>
-				<div class="d-side-box6">
-					<img src="http://localhost:9000/One_day_class/images/dance-btn2.png" class="dance-img">
-					<a href="https://play.google.com/store/apps/details?id=com.taling" target="_blank">
-					<img src="http://localhost:9000/One_day_class/images/dance-btn3.png"></a>
-					<a href="https://apps.apple.com/kr/app/%ED%83%88%EC%9E%89-taling/id1153218962?l=en" target="_blank">
-					<img src="http://localhost:9000/One_day_class/images/dance-btn4.png"></a>
-				</div>
-			</aside>
-			<aside>
-				<div class="d-side-box7">
-					<a href="http://localhost:9000/One_day_class/tutor/talk-btn.jsp" target="_blank" >
-					<img src="http://localhost:9000/One_day_class/images/dance-btn5.png" onclick="new_window()"></a>
-				</div>
-			</aside>
 		</aside>
 		<div class="dance-box">
 			<span class="dance-b1">원데이 · 건대 · 최대 4명</span><br>
@@ -344,13 +470,52 @@
 			<span> 5.0(74)</span>
 		</div>
 		<div class="dance-box2">
-			<img src="http://localhost:9000/One_day_class/images/dance1.png">
-			<img src="http://localhost:9000/One_day_class/images/dance1-1.png" class="dance1-1">
-			<img src="http://localhost:9000/One_day_class/images/dance1-2.png" class="dance1-2">
-			<img src="http://localhost:9000/One_day_class/images/dance1-3.png" class="dance1-3">
-			<img src="http://localhost:9000/One_day_class/images/dance1.png" class="dance1-4">
-			
-		</div>
+			<!--메인 이미지  -->	
+			<div class="swiper-container gallery-top">
+			<div class="swiper-wrapper">
+			      <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/dance1.png)"></div>
+			      <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/dance1-1.png)"></div>
+			      <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/dance1-2.png)"></div>
+			      <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/dance1-3.png)"></div>
+		   	</div>
+		    <!-- Add Arrows -->
+		    <div class="swiper-button-next swiper-button-white"></div>
+		    <div class="swiper-button-prev swiper-button-white"></div>
+		    </div>
+		    <!--밑 이미지  -->
+			<div class="swiper-container gallery-thumbs">
+			    <div class="swiper-wrapper">
+			      <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/dance1.png)"></div>
+			      <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/dance1-1.png)"></div>
+			      <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/dance1-2.png)"></div>
+			      <div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/images/dance1-3.png)"></div>
+			    </div>
+		 	 </div>	
+		 </div>	
+			<!-- Swiper JS -->
+			<script src="../../../js_minsu/swiper-bundle.min.js"></script>
+
+		  <!-- Initialize Swiper -->
+		  <script>
+		    var galleryThumbs = new Swiper('.gallery-thumbs', {
+		      spaceBetween: 10,
+		      slidesPerView: 4,
+		      freeMode: true,
+		      watchSlidesVisibility: true,
+		      watchSlidesProgress: true,
+		    });
+		    var galleryTop = new Swiper('.gallery-top', {
+		      spaceBetween: 10,
+		      navigation: {
+		        nextEl: '.swiper-button-next',
+		        prevEl: '.swiper-button-prev',
+		      },
+		      thumbs: {
+		        swiper: galleryThumbs
+		      }
+		    });
+  			</script>
+		
 		<div class="dance-box3">
 			<span class="dance-b4">수업 전<br> 숙지해주세요!</span>
 			<div class="dance-b5">
@@ -359,7 +524,7 @@
 				<span>* 수업 신청 전 소개글을 잘 읽어봐주시고, 날짜와 시간대는 임의로 올려둔 것으로<br> 조정될 수 있으니 실시간 톡으로 문의주세요!</span>
 			</div>
 		</div>
-		<div class="dance-box3-1">
+		<div class="idx dance-box3-1" id="nav1">
 			<span class="dance-b4">튜터님을<br> 소개합니다.</span>
 			<div class="dance-b6">
 				<img src="http://localhost:9000/One_day_class/images/dance4.png">
@@ -377,7 +542,7 @@
 			</div>
 		</div>
 		
-		<div class="dance-box3-1">
+		<div class="idx dance-box3-1" id="nav2">
 			<span class="dance-b4">어떤<br> 수업인가요?</span>
 			<div class="dance-b6">
 				<p>- 제 수업을 찾아주셔서 감사합니다 :)제 수업은 튜티님들과 일정을 직접 조율하여 유동적으로 레슨을 진행하고 있습니다 !
@@ -456,14 +621,9 @@
 					* 이 외의 문의사항은 채팅으로 연락주세요 ! 밤에 문의 남겨주셔도 괜찮습니다 확인하는 대로 <br>답 드려요 :)<br>
 					* 영상은 인스타그램 @yoo_sins2 에 게시해 놓았습니다 :)</p>
 			</div>
-			<div class="dance-btn-box">
-				<button class="dance-btn">
-				<span class="jub">ㅡ접기</span>
-				</button>
-			</div>
 		</div>
 			
-		<div class="dance-box3-1">
+		<div class="idx dance-box3-1" id="nav3">
 			<span class="dance-b4">이런 분들이<br>들으면<br>좋아요.</span>
 			<div class="dance-b6">
 				<p>- 많은 사람들 앞에서 춤추기 망설여지시는 분<br>
@@ -520,7 +680,7 @@
 			</div>
 			
 		</div>
-		<div class="dance-box3-1">
+		<div class="idx dance-box3-1" id="nav4">
 			<span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
 			<div class="dance-b6">
 				<img src="http://localhost:9000/One_day_class/images/dance5.png">
@@ -533,7 +693,7 @@
 		<div class="dance-box4">
 			<ul>
 				<li>
-					<div>
+					<div class="review_box_all">
 						<span class="dance-b7">
 							<img src="http://localhost:9000/One_day_class/images/dance6.png">
 						</span>
@@ -545,7 +705,7 @@
 					</div>
 				</li>
 				<li>
-					<div>
+					<div class="review_box_all">
 						<span class="dance-b7">
 							<img src="http://localhost:9000/One_day_class/images/dance7.png">
 						</span>
@@ -559,7 +719,7 @@
 					</div>
 				</li>
 				<li>
-					<div>
+					<div class="review_box_all">
 						<span class="dance-b7">
 							<img src="http://localhost:9000/One_day_class/images/dance7.png">
 						</span>
@@ -573,7 +733,7 @@
 					</div>
 				</li>
 				<li>
-					<div>
+					<div class="review_box_all">
 						<span class="dance-b7">
 							<img src="http://localhost:9000/One_day_class/images/dance7.png">
 						</span>
@@ -586,7 +746,7 @@
 					</div>
 				</li>
 				<li>
-					<div>
+					<div class="review_box_all">
 						<span class="dance-b7">
 							<img src="http://localhost:9000/One_day_class/images/dance7.png">
 						</span>
@@ -610,6 +770,6 @@
 		</div>
 	</div>
 	<!--header -->
-	<jsp:include page="../footer.jsp" />
+	<jsp:include page="../../../footer.jsp" />
 </body>
 </html>

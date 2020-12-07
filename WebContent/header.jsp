@@ -4,8 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>header</title>
 <style>
+	header {
+		background-color:white;
+	}
 	* {
 		box-sizing: border-box;
 	}
