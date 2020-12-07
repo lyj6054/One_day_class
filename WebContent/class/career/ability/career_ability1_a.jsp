@@ -61,7 +61,7 @@
 		<h3>신청 인원</h3>
 		<div class="r-box">
 			<button type="button" class="r-btn" id="btn-minus" name="btn_minus disabled" disabled="disabled"></button>
-			<input type="text" value="1" id="rtext">
+			<input type="text" value="1" id="rtext" readonly>
 			<button type="button" class="r-btn1" id="btn-plus" name="btn_plus" ></button>
 		</div>
 		<div class="r-box1-1">

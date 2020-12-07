@@ -59,7 +59,7 @@
          </div>
          <div class="d-side-box5">
             <img src="http://localhost:9000/One_day_class/images/dance-btn1.png" id="d-img" onclick="wish()">
-            <a href="">
+            <a href="http://localhost:9000/One_day_class/class/career/ability/career_ability2_a.jsp">
             <img src="http://localhost:9000/One_day_class/images/dance-btn.png"></a>
          </div>
       </aside>
@@ -194,8 +194,8 @@
 				------------------------<br> </p>
          </div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4" id="nav2">어떤<br> 수업인가요?</span>
+      <div class="dance-box3-1" id="nav2">
+         <span class="dance-b4">어떤<br> 수업인가요?</span>
          <div class="dance-b6">
          <p class="text_area">학교에서는 배울 수 없고, <br>
 				회사에서는 가르쳐 주지 않는 실전 지식!!<br>
@@ -271,8 +271,8 @@
 				O 외국학교를 졸업하시고 대한민국에서 근무하실 분</p>
          </div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4" id="nav3">수업은 이렇게<br>진행됩니다.</span>
+      <div class="dance-box3-1"  id="nav3">
+         <span class="dance-b4">수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
          	<p class="curri_details">수업의 개괄적인 목차는 아래와 같습니다.  <br>
 				(제가 집필한 책의 내용을 기초로 구성했습니다.)<br>
@@ -318,8 +318,8 @@
          
       </div> 
       
-      <div class="dance-box3-1 reivew_box">
-         <span class="dance-b4" id="nav4">실제 수강생의<br>리뷰입니다.</span>
+      <div class="dance-box3-1 reivew_box" id="nav4">
+         <span class="dance-b4" >실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">
                     <ul class="review_list">

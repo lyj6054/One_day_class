@@ -46,7 +46,7 @@
          </div>
          <div class="d-side-box5">
             <img src="http://localhost:9000/One_day_class/images/dance-btn1.png" id="d-img" onclick="wish()">
-            <a href="">
+            <a href="http://localhost:9000/One_day_class/class/foreign/english/foreign_english1_a.jsp">
             <img src="http://localhost:9000/One_day_class/images/dance-btn.png"></a>
          </div>
       </aside>
@@ -141,8 +141,8 @@
 				딱 2시간만! 투자해보세요!!</p>
          </div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4" id="nav2">어떤<br> 수업인가요?</span>
+      <div class="dance-box3-1" id="nav2">
+         <span class="dance-b4" >어떤<br> 수업인가요?</span>
          <div class="dance-b6">
          <p class="text_area">++ 이 방법대로 공부한다면 영어Speaking 끝장낼 수 있습니다!<br>
 				++ 수업이 끝난 뒤 수업자료 드립니다<br>
@@ -200,13 +200,6 @@
 				<br>
 				비싼 돈 들여 해외에 가지 않아도 독학으로 영어공부하는 법을 알려드리는 수업이에요!<br>
 				단순히 방법을 알려드리는 것이 아니라, 같이 해보고 체득할 수 있도록 도와드립니다.<br>
-				<br>
-				<br>
-				✔ 그래서 수업이 끝난 뒤 여러분은<br>
-				<br>
-				ⓐ 제대로 된 영어회화/영어스피킹 공부법을 알게 됩니다.<br>
-				ⓑ 귀찮게 이것저것 하지 않아도 됩니다. 이것만 하세요.<br>
-				ⓒ 이 방법으로 꾸준히 공부한다면 한국어보다 영어가 더 자연스럽게 튀어나오게 될거에요.<br>
 				</p>
 		 </div>
       </div>
@@ -226,8 +219,8 @@
 				ⓓ 외국계 기업으로 이직 또는 해외취업을 하고 싶으신 분</p>
          </div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4" id="nav3">수업은 이렇게<br>진행됩니다.</span>
+      <div class="dance-box3-1" id="nav3">
+         <span class="dance-b4" >수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
          	<p class="curri_details">✔ Part 1.<br>
 				12년을 배워도 우리가 영어로 말을 못하는 이유 (30분)<br>
@@ -267,8 +260,8 @@
          </div>
        </div> 
          
-      <div class="dance-box3-1 reivew_box">
-         <span class="dance-b4" id="nav4">실제 수강생의<br>리뷰입니다.</span>
+      <div class="dance-box3-1 reivew_box" id="nav4">
+         <span class="dance-b4" >실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">
                     <ul class="review_list">

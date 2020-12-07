@@ -40,7 +40,7 @@
          </div>
          <div class="d-side-box5">
             <img src="http://localhost:9000/One_day_class/images/dance-btn1.png" id="d-img" onclick="wish()">
-            <a href="">
+            <a href="http://localhost:9000/One_day_class/class/foreign/english/foreign_english2_a.jsp">
             <img src="http://localhost:9000/One_day_class/images/dance-btn.png"></a>
          </div>
       </aside>

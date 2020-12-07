@@ -46,7 +46,7 @@
          </div>
          <div class="d-side-box5">
             <img src="http://localhost:9000/One_day_class/images/dance-btn1.png" id="d-img" onclick="wish()">
-            <a href="">
+            <a href="http://localhost:9000/One_day_class/class/career/design/career_design3_a.jsp">
             <img src="http://localhost:9000/One_day_class/images/dance-btn.png"></a>
          </div>
       </aside>
@@ -84,7 +84,7 @@
       </div>
       <div class="dance-box3">
          <span class="dance-b4">수업 전<br> 숙지해주세요!</span>
-         <div class="dance-b5">
+         <div class="dance-b5" style="height:170px;">
             <img src="http://localhost:9000/One_day_class/images/dance3.png">
            <p class="text_area">
            		★ 일대일 수업(비용추가됨)은 <br>
@@ -122,8 +122,8 @@
 				</p>
          </div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4" id="nav2">어떤<br> 수업인가요?</span>
+      <div class="dance-box3-1" id="nav2">
+         <span class="dance-b4" >어떤<br> 수업인가요?</span>
          <div class="dance-b6">
           <p class="text_area">
           		■ 수업소개<br>
@@ -153,8 +153,8 @@
 			</p>
          </div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4" id="nav3">수업은 이렇게<br>진행됩니다.</span>
+      <div class="dance-box3-1" id="nav3">
+         <span class="dance-b4" >수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
            <p class="curri_details">
            		----------------------------<br>
@@ -227,8 +227,8 @@
          </div>
     </div>
     
-      <div class="dance-box3-1 reivew_box">
-         <span class="dance-b4" id="nav4">실제 수강생의<br>리뷰입니다.</span>
+      <div class="dance-box3-1 reivew_box" id="nav4">
+         <span class="dance-b4" >실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">
                     <ul class="review_list">

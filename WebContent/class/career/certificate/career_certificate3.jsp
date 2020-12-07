@@ -31,7 +31,6 @@
                <span class="d-side-box1">협의 후 날짜, 시간 결정</span>
                <span class="d-side-box2">강남</span><br>
                <span class="d-side-box3">상세장소: 실제 회사내 면접실 이용 또는 스터디룸 이용</span>
-               <hr>
             </div>
          </div>
          <div class="d-side-box4">
@@ -40,7 +39,7 @@
          </div>
          <div class="d-side-box5">
             <img src="http://localhost:9000/One_day_class/images/dance-btn1.png" id="d-img" onclick="wish()">
-            <a href="">
+            <a href="http://localhost:9000/One_day_class/class/career/certificate/career_certificate3_a.jsp">
             <img src="http://localhost:9000/One_day_class/images/dance-btn.png"></a>
          </div>
       </aside>
@@ -100,8 +99,8 @@
 				- AD : Active Directory</p>
          </div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4" id="nav2">어떤<br> 수업인가요?</span>
+      <div class="dance-box3-1" id="nav2">
+         <span class="dance-b4" >어떤<br> 수업인가요?</span>
          <div class="dance-b6">
           <p class="text_area">◆ 아마존 웹서비스(AWS) 클라우드 시장으로 모든것이 변화하는 2020년 !!<br>
 				<br>
@@ -136,8 +135,8 @@
 				▦ 수강생의 레벨에 맞는 초중고급 수업으로 맞춤 진행 </p>
          </div>
       </div>
-      <div class="dance-box3-1">
-         <span class="dance-b4" id="nav3">수업은 이렇게<br>진행됩니다.</span>
+      <div class="dance-box3-1" id="nav3">
+         <span class="dance-b4" >수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
          	<strong class="curri_heading">1회차 커리큘럼</strong>
            <p class="curri_details">▦ 클래스 수업내용 - 첫째날<br>
@@ -151,8 +150,8 @@
          </div>
       </div>
     
-      <div class="dance-box3-1 reivew_box">
-         <span class="dance-b4" id="nav4">실제 수강생의<br>리뷰입니다.</span>
+      <div class="dance-box3-1 reivew_box" id="nav4">
+         <span class="dance-b4" >실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">
                     <ul class="review_list">
