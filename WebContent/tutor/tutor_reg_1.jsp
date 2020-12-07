@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="http://localhost:9000/One_day_class/css/yj.css">
+<script
+	src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 	<!--  header  -->
@@ -543,8 +545,8 @@
 				</div>
 				<div class="button_box">
 					<div class="next button prev" onclick="setMode(0);">임시저장</div>
-					<div class="next button on" onclick="setMode(1);">저장 후 다음단계
-						(1/4)</div>
+					<a href="http://localhost:9000/One_day_class/tutor/tutor_reg_2.jsp"><div class="next button on" onclick="setMode(1);">저장 후 다음단계
+						(1/4)</div></a>
 				</div>
 			</div>
 		</form>

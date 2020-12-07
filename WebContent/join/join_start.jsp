@@ -128,11 +128,8 @@
 	.terms_lst .terms_chk_all .inp_chkbox::before {
 		background-image: url(http://localhost:9000/One_day_class/images/mb_check_off_over.png);
 	}
-	.label_wrap .inp_label+ label::before {
-    	background-image: url(http://localhost:9000/One_day_class/images/mb_check_off.png);
-	}
 	
-	.label_wrap .inp_label.all + label::before {
+	.label_wrap .inp_label:checked + label::before {
     	background-image: url(http://localhost:9000/One_day_class/images/mb_check_on.png);
 	}
 	.label_wrap .inp_chkbox::before {
@@ -235,13 +232,13 @@
 				<ul class="terms_lst">
 					<li class="terms_chk_all">
 						<div class="label_wrap" id="terms_all_wrap" >
-							<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll" onclick="terms_all()" >
+							<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll" onchange="allCheck()" >
 							<label for="checkAll" class="inp_chkbox">전체동의</label>
 						</div> <!-- class="label_wrap" -->
 					</li> <!-- class="terms_chk_all" -->
 					<li>
 						<div class="label_wrap" >
-							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsService" value="termsService">
+							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsService" value="termsService" onchange="partCheck()">
 							<label for="termsService" class="inp_chkbox">서비스 이용약관 (필수)</label>
 							<a href="#" class="link_more" target="_blank">보기</a>
 						</div>
@@ -251,7 +248,7 @@
 					</li>
 					<li>
 						<div class="label_wrap" >
-							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsPrivacy" value="termsPrivacy">
+							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsPrivacy" value="termsPrivacy"  onchange="partCheck()">
 							<label for="termsPrivacy" class="inp_chkbox">개인정보처리방침 (필수)</label>
 							<a href="#" class="link_more" target="_blank">보기</a>
 						</div>
@@ -272,18 +269,46 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 	
 	<script>
-		function terms_all() { 
-	 		document.getElementById("checkAll").classList.add('all');
-	 		document.getElementById("termsService").classList.add('all');
-	 		document.getElementById("termsPrivacy").classList.add('all');
-	 		document.getElementById("checkAll").setAttribute("onclick","terms_all_off()"); 
+		function allCheck() { 
+			var all = document.getElementById("checkAll");
+			var service = document.getElementById("termsService");
+			var privacy = document.getElementById("termsPrivacy");
+			var chk_list = document.getElementsByName("checkTerms");
+			
+			if(all.checked) {
+				for(var i=0;i<chk_list.length;i++) {
+					chk_list[i].checked = true;
+				}
+				
+			}   else {
+				for(var i=0;i<chk_list.length;i++) {
+					chk_list[i].checked = false;
+				}
+			}
+			
 		}
-		function terms_all_off() { 
-	 		document.getElementById("checkAll").classList.remove('all');
-	 		document.getElementById("termsService").classList.remove('all');
-	 		document.getElementById("termsPrivacy").classList.remove('all');
-	 		document.getElementById("checkAll").setAttribute("onclick","terms_all()");
-		}  
+		
+		function partCheck() {
+
+			var cnt = 0;
+			var all = document.getElementById("checkAll");
+			var chk_list = document.getElementsByName("checkTerms");
+
+			if(chk_list.checked)
+		        {
+				all.checked = true;
+		        } else {
+		                for(var i=0; i < chk_list.length; i++)  {
+		                      if(chk_list[i].checked == true)
+		                           cnt ++;
+		                }
+		                 if(cnt == 0)  all.checked = false;
+			}
+
+		}
+
+
+
 		
 		
 	</script>

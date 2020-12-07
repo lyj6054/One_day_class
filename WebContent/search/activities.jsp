@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="http://localhost:9000/One_day_class/css/yj.css">
+<script
+	src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 	<!-- header -->
@@ -32,6 +34,7 @@
 				    $('.filter_head').css('margin-top','216px');
 				}
 				$(str).show();  */
+				 $('#show_detail').show();
 				var va = val;
 				str = 'sub' + val;
 
@@ -58,8 +61,7 @@
 				var sub6 = '<div class="catesub_list cates" id="sub6"  >';
 				sub6 += '<div class="main"><li><a href="?cateSub=41">영어회화</a></li><li><a href="?cateSub=42">기타회화</a></li>                     </div>';
 				sub6 += '</div>';
-				
-					
+
 				if (str == "sub1") {
 					document.getElementById("show_detail").innerHTML = sub1;
 				} else if (str == "sub2") {
@@ -72,7 +74,7 @@
 					document.getElementById("show_detail").innerHTML = sub5;
 				} else if (str == "sub6") {
 					document.getElementById("show_detail").innerHTML = sub6;
-				} 
+				}
 			}
 		</script>
 		<div id="container">
@@ -88,7 +90,7 @@
 							href="http://localhost:9000/One_day_class/search/activities.jsp">
 								<div id="cate2">
 									<b>액티비티</b>
-									</div>
+								</div>
 						</a></li>
 						<li class="cate" onmouseover="menuView(3)" id="menu3"><a
 							href="http://localhost:9000/One_day_class/search/life.jsp">
@@ -118,7 +120,7 @@
 					</ul>
 				</div>
 				<div style="padding-top: 60px; border-bottom: 1px solid #c9c9c9;"></div>
-				<div class="catesub_list cates" id="show_detail"></div>
+				<div class="catesub_list cates" id="show_detail" style="display: none;"></div>
 				<!--   <div class="catesub_list cates" id="sub1"  style="display:none">
                         <div class="main">
                             <li><a href="?cateSub=28">메이크업</a></li><li><a href="?cateSub=32">퍼스널컬러</a></li><li><a href="?cateSub=31">패션</a></li><li><a href="?cateSub=33">셀프케어</a></li><li><a href="?cateSub=27">PT/GX</a></li>                        </div>
@@ -143,9 +145,9 @@
                         <div class="main">
                             <li><a href="?cateSub=41">영어회화</a></li><li><a href="?cateSub=42">기타회화</a></li>                     </div>
                     </div> -->
-				<div class="catesub_list filter" id="sub9" style="">
+				<div class="catesub_list filter" id="sub9" style="display:block;">
 					<div class="main">
-						<div class="inbox">
+						<div class="inbox" id="index_1">
 							<div class="left">지역</div>
 							<div class="right" id="regionSub">
 								<input type="hidden" id="region" value=""> <input
@@ -161,120 +163,7 @@
 									<option value="6">강원</option>
 									<option value="7">광주,전라,제주</option>
 									<option value="8">온라인</option>
-								</select> <select id="regionSubLayer0" style="margin-left: 10px;"
-									class="off" onchange="regionSubSelect(this.value)">
-									<option
-										value="1,4,2,14,9,11,19,7,8,10,6,15,22,5,21,18,100,12,16,13,17,77,23,97,25,24,134,116,122,108,129,101,20,125,119,3,107">서울
-										ALL(530)</option>
-									<option value="1">강남(116)</option>
-									<option value="4">신촌홍대(78)</option>
-									<option value="2">사당(58)</option>
-									<option value="14">건대(57)</option>
-									<option value="9">잠실(45)</option>
-									<option value="11">신림(26)</option>
-									<option value="19">마포(13)</option>
-									<option value="7">성북(13)</option>
-									<option value="8">혜화(13)</option>
-									<option value="10">왕십리(10)</option>
-									<option value="6">영등포(9)</option>
-									<option value="15">용산(9)</option>
-									<option value="22">구로(8)</option>
-									<option value="5">종로(7)</option>
-									<option value="21">목동(7)</option>
-									<option value="18">수유(7)</option>
-									<option value="100">올림픽공원(6)</option>
-									<option value="12">동작(6)</option>
-									<option value="16">충무로(5)</option>
-									<option value="13">회기(5)</option>
-									<option value="17">노원(4)</option>
-									<option value="77">강서(4)</option>
-									<option value="23">청량리(3)</option>
-									<option value="97">천호동(3)</option>
-									<option value="25">미아(3)</option>
-									<option value="24">은평(2)</option>
-									<option value="134">상봉(2)</option>
-									<option value="116">약수역(2)</option>
-									<option value="122">대치(1)</option>
-									<option value="108">이태원(1)</option>
-									<option value="129">중구(1)</option>
-									<option value="101">잠실새내(1)</option>
-									<option value="20">정릉(1)</option>
-									<option value="125">동대입구(1)</option>
-									<option value="119">교대(1)</option>
-									<option value="3">신사(1)</option>
-									<option value="107">서대문(1)</option>
-								</select> <select id="regionSubLayer1" style="margin-left: 10px;"
-									class="off" onchange="regionSubSelect(this.value)">
-									<option
-										value="30,26,28,80,92,85,83,84,111,96,81,106,29,95,27,113,65,121,127">경기
-										ALL(95)</option>
-									<option value="30">수원(29)</option>
-									<option value="26">분당(20)</option>
-									<option value="28">일산(13)</option>
-									<option value="80">안양(5)</option>
-									<option value="92">부천(4)</option>
-									<option value="85">파주(3)</option>
-									<option value="83">안산(3)</option>
-									<option value="84">용인(2)</option>
-									<option value="111">시흥(2)</option>
-									<option value="96">이천(2)</option>
-									<option value="81">남양주(2)</option>
-									<option value="106">김포(2)</option>
-									<option value="29">의정부(2)</option>
-									<option value="95">하남(1)</option>
-									<option value="27">서현(1)</option>
-									<option value="113">모란(1)</option>
-									<option value="65">에버랜드(1)</option>
-									<option value="121">화성(1)</option>
-									<option value="127">평택시(1)</option>
-								</select> <select id="regionSubLayer2" style="margin-left: 10px;"
-									class="off" onchange="regionSubSelect(this.value)">
-									<option value="33,31,34,32">인천 ALL(18)</option>
-									<option value="33">부평(10)</option>
-									<option value="31">송도(6)</option>
-									<option value="34">계양(1)</option>
-									<option value="32">구월동(1)</option>
-								</select> <select id="regionSubLayer3" style="margin-left: 10px;"
-									class="off" onchange="regionSubSelect(this.value)">
-									<option value="36,39,35,69,38,78">부산 ALL(17)</option>
-									<option value="36">부산서면(5)</option>
-									<option value="39">부산해운대(4)</option>
-									<option value="35">부산대(4)</option>
-									<option value="69">부산동래(2)</option>
-									<option value="38">부산남포(1)</option>
-									<option value="78">광안리(1)</option>
-								</select> <select id="regionSubLayer4" style="margin-left: 10px;"
-									class="off" onchange="regionSubSelect(this.value)">
-									<option value="48,47,42,117,126,40">경상,대구,울산 ALL(10)</option>
-									<option value="48">대구중앙(3)</option>
-									<option value="47">대구동성로(2)</option>
-									<option value="42">울산대(2)</option>
-									<option value="117">두류동(1)</option>
-									<option value="126">양산시(1)</option>
-									<option value="40">포항(1)</option>
-								</select> <select id="regionSubLayer5" style="margin-left: 10px;"
-									class="off" onchange="regionSubSelect(this.value)">
-									<option value="55,91,74,52">대전,충청 ALL(6)</option>
-									<option value="55">대전역(2)</option>
-									<option value="91">세종시(2)</option>
-									<option value="74">천안(1)</option>
-									<option value="52">유성구(1)</option>
-								</select> <select id="regionSubLayer6" style="margin-left: 10px;"
-									class="off" onchange="regionSubSelect(this.value)">
-									<option value="57,59">강원 ALL(3)</option>
-									<option value="57">강릉(2)</option>
-									<option value="59">춘천(1)</option>
-								</select> <select id="regionSubLayer7" style="margin-left: 10px;"
-									class="off" onchange="regionSubSelect(this.value)">
-									<option value="63,62">광주,전라,제주 ALL(2)</option>
-									<option value="63">제주(1)</option>
-									<option value="62">전주(1)</option>
-								</select> <select id="regionSubLayer8" style="margin-left: 10px;"
-									class="off" onchange="regionSubSelect(this.value)">
-									<option value="64,139">온라인 ALL(10)</option>
-									<option value="64">온라인 Live(9)</option>
-									<option value="139">녹화영상(1)</option>
-								</select>
+								</select> 
 
 
 								<script>
@@ -303,7 +192,7 @@
 								</script>
 							</div>
 						</div>
-						<div class="inbox">
+						<div class="inbox" id="index_1">
 							<div class="left">요일/시간</div>
 							<div class="right">
 								<div class="days">
@@ -325,7 +214,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="inbox">
+						<div class="inbox" id="index_1">
 							<div class="left">수업형태</div>
 							<div class="right">
 								<div class="days">
@@ -340,158 +229,118 @@
 						</div>
 					</div>
 				</div>
-				<script>
-					$('#search')
-							.click(
-									function() {
-										var day = "";
-										var time = "";
-										var tType = "";
-										$("#days")
-												.children()
-												.each(
-														function() {
-															if ($(this)
-																	.hasClass(
-																			'on')) {
-																if (day == '') {
-																	day = $(
-																			this)
-																			.attr(
-																					"day");
-																} else {
-																	day = day
-																			+ ","
-																			+ $(
-																					this)
-																					.attr(
-																							"day");
-																}
-															}
-														});
+				 <script>
+                    $('#search').click(function(){
+                        var day = "";
+                        var time = "";
+                        var tType = "";
+                        $("#days").children().each(function(){
+                            if($(this).hasClass('on')){
+                                if(day=='')
+                                {
+                                    day = $(this).attr("day");
+                                }
+                                else
+                                {
+                                    day = day + "," + $(this).attr("day");
+                                }
+                            }
+                        });
 
-										$("#times")
-												.children()
-												.each(
-														function() {
-															if ($(this)
-																	.hasClass(
-																			'on')) {
-																if (time == '') {
-																	time = $(
-																			this)
-																			.attr(
-																					"time");
-																} else {
-																	time = time
-																			+ ","
-																			+ $(
-																					this)
-																					.attr(
-																							"time");
-																}
-															}
-														});
+                        $("#times").children().each(function(){
+                            if($(this).hasClass('on')){
+                                if(time=='')
+                                {
+                                    time = $(this).attr("time");
+                                }
+                                else
+                                {
+                                    time = time + "," + $(this).attr("time");
+                                }
+                            }
+                        });
 
-										$("#tTypes")
-												.children()
-												.each(
-														function() {
-															if ($(this)
-																	.hasClass(
-																			'on')) {
-																if (tType == '') {
-																	tType = $(
-																			this)
-																			.attr(
-																					"tType");
-																} else {
-																	tType = tType
-																			+ ","
-																			+ $(
-																					this)
-																					.attr(
-																							"tType");
-																}
-															}
-														});
+                        $("#tTypes").children().each(function(){
+                            if($(this).hasClass('on')){
+                                if(tType=='')
+                                {
+                                    tType = $(this).attr("tType");
+                                }
+                                else
+                                {
+                                    tType = tType + "," + $(this).attr("tType");
+                                }
+                            }
+                        });
 
-										region = $("#region").val();
-										regionMain = $("#regionMain").val();
-										cateMain = "10";
-										cateSub = "";
 
-										query = "";
-										code = "";
-										org = "";
-										url = "/Home/Search/";
+                        region = $("#region").val();
+                        regionMain = $("#regionMain").val();
+                        cateMain = "10";
+                        cateSub = "";
 
-										location.href = url + "?cateMain="
-												+ cateMain + "&cateSub="
-												+ cateSub + "&query=" + query
-												+ "&code=" + code + "&org="
-												+ org + "&day=" + day
-												+ "&time=" + time + "&tType="
-												+ tType + "&region=" + region
-												+ "&regionMain=" + regionMain;
+                        query = "";
+                        code = "";
+                        org = "";
+                        url = "/Home/Search/";
 
-									});
+                        location.href = url+"?cateMain="+cateMain+"&cateSub="+cateSub+"&query="+query+"&code="+code+"&org="+org+"&day="+day+"&time="+time+"&tType="+tType+"&region="+region+"&regionMain="+regionMain;
 
-					function filterView() {
-						if ($('#sub9').css('display') != 'block') {
-							$('.filter_head').css('margin-top', '0');
-							$('#menu9').css('background-color', '#f1f1f1').css(
-									'border-bottom', 'solid 1px #f1f1f1');
-							$('.catesub_list').hide();
-							$('#sub9').show();
-							$('#filterImage').hide();
-							$('.cate').removeClass('cate2').addClass('cate3');
-							$('#menu_back_fixed').hide();
+                    });
 
-							$('#filterCloseImage').show();
+                    function filterView(){
+                        if($('#sub9').css('display')!='block'){
+                            $('.filter_head').css('margin-top','0');
+                            $('#menu9').css('background-color','#f1f1f1').css('border-bottom','solid 1px #f1f1f1');
+                            $('.catesub_list').hide();
+                            $('#sub9').show();
+                            $('#filterImage').hide();
+                            $('.cate').removeClass('cate2').addClass('cate3');
+                            $('#menu_back_fixed').hide();
 
-						} else {
-							$('#sub9').hide();
-							$('#menu9').css('background-color', '#fff').css(
-									'border-bottom', 'solid 1px #c9c9c9');
-							$('.catesub_list.cates').hide();
-							$('#filterImage').show();
-							$('#filterCloseImage').hide();
-							$('.filter_head').css('margin-top', '0px');
-						}
-					}
+                            $('#filterCloseImage').show();
 
-					$(function() {
-						if ($('#sub9').css('display') == 'block') {
-							$('#menu9').css('background-color', '#f1f1f1').css(
-									'border-bottom', 'solid 1px #f1f1f1');
-							$('#filterImage').hide();
-							$('#filterCloseImage').show();
-						}
+                        }else{
+                            $('#sub9').hide();
+                            $('#menu9').css('background-color','#fff').css('border-bottom','solid 1px #c9c9c9');
+                            $('.catesub_list.cates').hide();
+                            $('#filterImage').show();
+                            $('#filterCloseImage').hide();
+                            $('.filter_head').css('margin-top','0px');
+                        }
+                    }
 
-						$('#menu_back_fixed').mouseenter(function() {
-							$('.filter_head').css('margin-top', '0');
-							$('.cates').hide();
-							$('.cate').removeClass('cate2').addClass('cate3');
-							$('#menu_back_fixed').hide();
-						});
+                    $(function(){
+                        if($('#sub9').css('display')=='block'){
+                            $('#menu9').css('background-color','#f1f1f1').css('border-bottom','solid 1px #f1f1f1');
+                            $('#filterImage').hide();
+                            $('#filterCloseImage').show();
+                        }
 
-						$('li', '.days').click(function() {
-							if ($(this).hasClass('on')) {
-								$(this).removeClass('on');
-							} else {
-								$(this).addClass('on');
-							}
-						});
-						$('.option', '.inbox').click(function() {
-							if ($(this).hasClass('on')) {
-								$(this).removeClass('on');
-							} else {
-								$(this).addClass('on');
-							}
-						});
-					});
-				</script>
+                        $('#menu_back_fixed').mouseenter(function(){
+                            $('.filter_head').css('margin-top','0');
+                            $('.cates').hide();
+                            $('.cate').removeClass('cate2').addClass('cate3');
+                            $('#menu_back_fixed').hide();
+                        });
+
+                        $('li','.days').click(function(){
+                            if($(this).hasClass('on')){
+                                $(this).removeClass('on');
+                            }else{
+                                $(this).addClass('on');
+                            }
+                        });
+                        $('.option','.inbox').click(function(){
+                            if($(this).hasClass('on')){
+                                $(this).removeClass('on');
+                            }else{
+                                $(this).addClass('on');
+                            }
+                        });
+                    });
+
+                </script>
 
 				<div class="filter_head">
 					<!-- VOD 검색 -->

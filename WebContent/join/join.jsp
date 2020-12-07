@@ -388,19 +388,15 @@
 									return false;
 								} else if(userPassword.value == userPassword_check.value){
 									 if(CheckCount("rdo") == 0) {
-										alert("성별을 선택해주세요");
 										document.getElementById("userSex1").focus();
 										return false;
 									}else if(CheckCount("age") == 0) {
-										alert("나이을 선택해주세요");
 										document.getElementById("userAge1").focus();
 										return false;
 									}else if(userArea.value == "거주 지역 선택") {
-										alert("거주 지역을 선택해주세요");
 										userArea.focus();
 								        return false;
 									}else if(userClass.value == "희망 수업 선택") {
-										alert("희망 수업을 선택해주세요");
 										userClass.focus();
 								        return false;
 									} else { 

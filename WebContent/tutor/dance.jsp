@@ -535,7 +535,7 @@
 				<li>
 					<div>
 						<span class="dance-b7">
-							<img src="http://localhost:9000/One_day_class/images/dance6.png">
+							<img src="http://localhost:9000/One_day_class/images/dance7.png">
 						</span>
 						<span class="dance-b8">김윤미(Zemma)</span><br>
 						<span class="dance-b9">2020-11-20 22:38:02</span>
