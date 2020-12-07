@@ -122,6 +122,7 @@
 	.gnb>li a:hover {
 		font-weight: bold;
 	}
+	
 	.Search_Container_Header {
 		display:flex;
 		-webkit-boc-align:center;
@@ -176,7 +177,7 @@
 	
 	.gnb li.depth_my_page {
 		height: 36px;
-		padding-right:4px;
+		padding-right:6px;
 	    position: relative;
 	}
 	
@@ -191,7 +192,7 @@
 		cursor:pointer;
 	}
 	
-	.gnb .depth_my_page.act p {
+	.gnb .depth_my_page.act p{
 	 	margin: 0px;
 	    padding: 0px;
 		padding-right:11px;
@@ -204,7 +205,6 @@
 	p {
 	   margin: 0px;
 	    padding: 0px;
-		font-weight: bold;
 		display:inline-block;
 		font-size:13px;
 		line-height:21px;
@@ -214,6 +214,7 @@
 		margin-inline-start : 0px;
 		margin-inline-start : 0px;
 	}
+	
 	
 	.gnb .profile_img {
 		display: block;
@@ -225,7 +226,7 @@
 		background-size:cover;
 	}
 	
-	.profile_list_container {
+	.profile_list_container{
 		overflow:hidden;
 		display:none;
 		position: absolute;
@@ -310,20 +311,29 @@
 				</div> <!-- hd_bar -->
 			<nav class="hd_right">
 				<ul class="gnb">
-					<li class="depth_my_page">
-						<a href="http://localhost:9000/One_day_class/tutor/tutor.jsp">튜터등록</a>
+					<li class="depth_my_page" id="depth_my_page2" onclick="depth2()" >
+						<p role="button" ><a href="#">튜터</a></p>
+						<div class="profile_list_container" id="profile_list_container2">
+							<ul class="profile_list">
+								<li><a href="http://localhost:9000/One_day_class/tutor/new-class.jsp">내 수업</a></li>
+								<li><a href="">수업신청서</a></li>
+								<li><a href="">튜터가이드</a></li>
+								<li><a href="">튜터등록</a></li>
+								<li><a href="">새로운 수업 추가</a></li>
+							</ul>
+						</div>
 					</li>
 					<li class="depth_my_page">
 						<a href="#">수업신청서</a>
 					</li>
-					<li class="depth_my_page"class="depth_my_page">
+					<li class="depth_my_page">
 						<a href="#">수강목록</a>
 					</li>
 					<li class="depth_my_page">
 						<a href="#">위시리스트</a>
 					</li>
 					<li class="depth_my_page" id="depth_my_page" onclick="depth()" >
-						<p role="button" >
+						<p role="button" class="p_btn">
 							<span class="profile_img" style="background-image:url('http://localhost:9000/One_day_class/images/profile.png');">
 							</span>
 						</p>
@@ -360,6 +370,17 @@
 			document.getElementById("depth_my_page").classList.remove('act');
 			document.getElementById("profile_list_container").classList.remove('act');
 			document.getElementById("depth_my_page").setAttribute("onclick","depth()");
+			
+		} 
+		function depth2() {
+			document.getElementById("depth_my_page2").classList.add('act');
+			document.getElementById("profile_list_container2").classList.add('act');
+			document.getElementById("depth_my_page2").setAttribute("onclick","depth_off2()");
+		}
+		function depth_off2() {
+			document.getElementById("depth_my_page2").classList.remove('act');
+			document.getElementById("profile_list_container2").classList.remove('act');
+			document.getElementById("depth_my_page2").setAttribute("onclick","depth2()");
 			
 		} 
 		

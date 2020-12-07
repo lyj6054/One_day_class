@@ -17,10 +17,10 @@
    <jsp:include page="../../../header.jsp" />
    <div class="nav">
 		<ul>
-			<li class="active" onclick="moveContent('1')" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
-			<li onclick="moveContent('2')" id="nav_li2"><a href="javascript:">수업소개</a></li>
-			<li onclick="moveContent('3')" id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
-			<li onclick="moveContent('4')" id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
+			<li class="active" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
+			<li  id="nav_li2"><a href="javascript:">수업소개</a></li>
+			<li  id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
+			<li  id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
 		</ul>
 	</div>
    <div class="dance">
@@ -99,7 +99,7 @@
 				- 강의 최소 인원이 충족되지 않는 경우 강의 일정이 변경될 수 있으며, 변경되는 경우 사전 안내 드리겠습니다 : ) </p>
          </div>
       </div>
-      <div class="dance-box3-1" id="nav1">
+      <div class="idx dance-box3-1" id="nav1">
          <span class="dance-b4" >튜터님을<br> 소개합니다.</span>
          <div class="dance-b6">
           <p class="text_area">다양한 기획 분야에서 10년차 멘토가 보고-보고서에서  어려움을 극복하기 위해 노력했던 노하우를 &lt;탈탈&gt; 털어 드립니다. <br>
@@ -116,7 +116,7 @@
 			- 현재, 온-오프라인 외부강의 출강 中  (초록우산 어린이재단, 한국장애인총연맹, 경남대학교 등) </p>
          </div>
       </div>
-      <div class="dance-box3-1"  id="nav2">
+      <div class="idx dance-box3-1"  id="nav2">
          <span class="dance-b4">어떤<br> 수업인가요?</span>
          <div class="dance-b6">
          <p class="text_area">[수업소개] <br>
@@ -170,7 +170,7 @@
 			※ 단, 문서 작성이 10년차 이상 되시는 분들에게는 적합하지 않을 수 있으니, 참고 부탁드립니다. </p>
          </div>
       </div>
-      <div class="dance-box3-1" id="nav3">
+      <div class="idx dance-box3-1" id="nav3">
          <span class="dance-b4" >수업은 이렇게<br>진행됩니다.</span>
          <div class="dance-b6" >
          	<p class="curri_details">★Part 1. 보고의 기본원리<br>
@@ -203,7 +203,7 @@
 				</p>
          </div>
       </div>
-      <div class="dance-box3-1 reivew_box" id="nav4">
+      <div class="idx dance-box3-1 reivew_box" id="nav4">
          <span class="dance-b4" >실제 수강생의<br>리뷰입니다.</span>
          <div class="dance-b6">
             <div class="review_sum">

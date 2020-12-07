@@ -435,6 +435,10 @@
     	background-color: #fff;
 		
 	}
+		div.nav.fixed {
+	      display:block;
+	      
+	   }
 	.nav ul {
 		width: 100%;
 	    padding: 0 20px;
