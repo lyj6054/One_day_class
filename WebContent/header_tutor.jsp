@@ -316,9 +316,9 @@
 						<div class="profile_list_container" id="profile_list_container2">
 							<ul class="profile_list">
 								<li><a href="http://localhost:9000/One_day_class/tutor/new-class.jsp">내 수업</a></li>
-								<li><a href="">수업신청서</a></li>
-								<li><a href="">튜터가이드</a></li>
-								<li><a href="">튜터등록</a></li>
+								<li><a href="http://localhost:9000/One_day_class/tutor/tutor_guide.jsp">수업신청서</a></li>
+								<li><a href="http://localhost:9000/One_day_class/tutor/tutor_reg.jsp">튜터가이드</a></li>
+								<li><a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp">튜터등록</a></li>
 								<li><a href="">새로운 수업 추가</a></li>
 							</ul>
 						</div>
