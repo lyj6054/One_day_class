@@ -10,8 +10,8 @@
 <style>
 	
 	#newsroom-main {
-		margin: 0 auto;
-		height:930px;
+		float:left;
+		height:auto;
 		width:853px;
 		padding: 10px 18px 80px 17px;
 		border:1px #e3e3e3 solid;
@@ -25,7 +25,7 @@
 	}
 	#newsroom-main .main-logo{
 		display:inline-block;
-		margin:20px 0 30px 142px;
+		margin:20px 0 30px 117px;
     	font-size:50px;
 	}
 	#newsroom-main .main-logo span {
@@ -93,7 +93,6 @@
 	    border: 0;
 	    margin: 0;
 	    padding: 0;
-	    font-family: Dotum;
 	    color: #666;
 	    text-decoration: none;
 	    cursor: pointer;
@@ -121,8 +120,12 @@
 	    color: #999;
 	    font-size: 11px;
 	}
+	.main-section2 .section2-title .title-0 {
+		width:40px;
+		padding-left:20px;
+	}
 	.main-section2 .section2-title .title-1 {
-		width: 110px;
+		width: 80px;
 		padding-left:0;
 	}
 	.main-section2 .section2-title .title-2 {
@@ -132,7 +135,7 @@
 		width: 85px;
 	}
 	.main-section2 .section2-title .title-4 {
-		width: 95px;
+		width: 90px;
 	}
 	.main-section2 .section2-title .title-5 {
 		width: 50px;
@@ -151,8 +154,12 @@
 	    color: #999;
 	    font-size: 11px;
 	}
+	.main-section2 .section2-cont li.cont-0 {
+		width: 39px;
+		padding-left:20px;
+	}
 	.main-section2 .section2-cont li.cont-1 {
-		width: 100px;
+		width: 72px;
 		padding-left:5px;
     	padding-top: 2px;
 	}
@@ -182,8 +189,8 @@
 	
 	.main-section2 .section2-cont li.cont-3 {
 		padding-top: 2px;
-		width: 45px;
-		padding-left:2px;
+		width: 44px;
+		padding-left:15px;
 	}
 	.main-section2 .section2-cont li.cont-3 .cont3-label {
 		width: 31px;
@@ -203,7 +210,7 @@
 	}
 	.main-section2 .section2-cont li.cont-4 {
 		width: 365px;
-	    padding: 2px 50px 0 7px;
+	    padding: 2px 50px 0 30px;
 	    text-align: left;
 	}
 	.main-section2 .section2-cont li.cont-5 {
@@ -223,7 +230,6 @@
 	    border: 0;
 	    margin: 0;
 	    padding: 0;
-	    font-family: Dotum, sans-serif;
 	    color: #636363;
 	    text-decoration: none;
 	    cursor: pointer;
@@ -248,12 +254,13 @@
 	    display: inline-block;
 	    float: left;
 	    width: 853px;
+	    height:10px;
+	    margin-left:-17px;
 	}
 	.main-section3 .section-paging {
 	    width: 853px;
 	    height: 39px;
-	    margin-top: 20px;
-	    padding-bottom: 2px;
+	    margin-top: 30px;
 	}
 	.section-paging {
 	    position: relative;
@@ -264,10 +271,11 @@
 	}
 	.paging-page {
 	    position: relative;
-	    width: 100%;
+	    width: 50%;
 	    height: 22px;
 	    text-align: center;
 	    z-index: 2;
+	    margin-left:210px;
 	}
 	.main-section3 .paging-page .prev-off {
 	    width: 20px;
@@ -292,13 +300,13 @@
 	}
 	.main-section3 .paging-page a {
 	    height: 16px;
-	    padding-top: 5px;
+	    padding-top: 3px;
 	    color: #ababab;
 	    font-size: 11px;
 	}
 	.main-section3 .paging-page a.selected, .main-section3 .paging-page a:hover {
 		color: #333;
-	    padding-top: 5px;
+	    padding-top: 3px;
 	    border: 0;
 	    background-color: #fff;
 	}
@@ -324,7 +332,6 @@
 	    border: 0;
 	    margin: 0;
 	    padding: 0;
-	    font-family: Dotum, sans-serif;
 	    color: #636363;
 	    text-decoration: none;
 	    cursor: pointer;
@@ -333,10 +340,120 @@
 	    border: 0;
 	    margin: 0;
 	    padding: 0;
-	    font-family: Dotum;
 	    color: #666;
 	    text-decoration: none;
 	    cursor: pointer;
+	}
+	
+	
+	/* aside */
+	.content .admin_main {
+		float:left;
+		width:220px; height:970px;
+		background-color:#eee;
+		padding:20px 0 0 15px;
+		margin-left:200px;
+	}
+	
+	.content .admin_main ul {
+		width:195px;
+		height:200px;
+		margin-top:20px;
+	}
+	.content .admin_main ul li {
+		list-style-type:none;
+		padding: 4px 0;
+		margin:25px 0 5px 15px;
+	}	
+	.content .admin_main ul li img {
+		width:15px;
+		height:15px;
+	}
+	.content .admin_main ul li a {
+		color:black;
+		font-size:17px;
+		font-weight:bold;
+		text-align:center;
+		text-decoration:none;
+		margin-left:10px;
+	}	
+	
+	.content .admin_main ul li a:hover {
+		text-decoration:underline;
+	}
+	.content .admin_main div {
+		background-color: #fff;
+		padding-top:7px;
+		width:195px;
+		height:145px;
+	}
+	.content .admin_main div img{
+		margin:10px 0 0 62px;
+		width:80px; 
+		height:80px;
+	}
+	.content .admin_main .admin_icon2 {
+		display:inline-block;
+		font-size:20px;
+		margin:7px 0 0 27px;
+		color: #333;
+		text-align:center;
+		font-weight:bold;
+	}
+	/* 버튼 */
+	.main-section3 .admin_btn {
+		float:right;
+		margin-top:-22px;
+		margin-right:17px;
+	}
+	.main-section3 .admin_btn:hover {
+		float:right;
+		margin-top:-22px;
+		margin-right:17px;
+	}
+	.main-section3 .admin_btn .btn_style {
+		margin-right:6px;
+		padding:4px 10px;
+		border-radius:5px;
+		font-weight:bold;
+		font-size:14px;
+		border:none;
+	}
+	 .blind {
+		position: absolute !important;
+	    clip: rect(0,0,0,0);
+	    clip-path: polygon(0 0,0 0,0 0);
+	    width: 1px;
+	    height: 1px;
+	    margin: -1px;
+	    overflow: hidden;
+	    white-space: nowrap;
+	} 
+	.inp_chkbox {
+		float:left;
+		line-height:20px;
+	}
+	label {
+		cursor:pointer;
+	}
+	.main-section3 .admin_btn .btn_style:hover {
+		background-color:#333;
+		color:white;
+	}
+	.inp_label:checked + label::before {
+    	background-image: url(http://localhost:9000/One_day_class/images/mb_check_on.png);
+    	background-size: 13px;
+	}
+	.inp_chkbox::before {
+	    content: '';
+	    display: inline-block;
+	    width: 18px;
+	    height: 18px;
+	    margin-right: 9px;
+	    vertical-align: middle;
+	    background-image:url(http://localhost:9000/One_day_class/images/mb_check_off.png);
+	    background-repeat: no-repeat;
+	    background-size: 13px;
 	}
 	
 	</style>
@@ -366,6 +483,43 @@
 		});
 	});
 	
+	function allCheck() { 
+		var all = document.getElementById("checkAll");
+		/* var chk = document.getElementById("check1");
+		var privacy = document.getElementById("termsPrivacy"); */
+		var chk_list = document.getElementsByName("checkTerms");
+		
+		if(all.checked) {
+			for(var i=0;i<chk_list.length;i++) {
+				chk_list[i].checked = true;
+			}
+			
+		}   else {
+			for(var i=0;i<chk_list.length;i++) {
+				chk_list[i].checked = false;
+			}
+		}
+		
+	}
+	
+	/* function partCheck() {
+
+		var cnt = 0;
+		var all = document.getElementById("checkAll");
+		var chk_list = document.getElementsByName("checkTerms");
+
+		if(chk_list.checked)
+	        {
+			all.checked = true;
+	        } else {
+	                for(var i=0; i < chk_list.length; i++)  {
+	                      if(chk_list[i].checked == true)
+	                           cnt ++;
+	                }
+	                 if(cnt == 0)  all.checked = false;
+		}
+
+	} */
 </script>
 </head>
 <body>
@@ -374,16 +528,36 @@
 
 	<!-- content -->
 	<div style="width:100%; height:50px;"></div>
+	<div class="content">
+		<aside class="admin_main">
+			<nav>
+				<div>
+					<img src="http://localhost:9000/One_day_class/images/admin_profile.png"><br>
+					<span class="admin_icon2">[ 관리자 시스템 ]</span>
+				</div>
+				<ul>
+					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="notice_list_admin.jsp">공지사항/이벤트</a></li>
+					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="#">수업관리</a></li>
+					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="#">회원관리</a></li>
+				</ul>
+			</nav>
+		</aside>
+	
+	</div>
 	<div class="board_wrap" id="newsroom-main">
-		<span class="main-logo">TALMUNG <span>NEWS</span> ROOM</span>
+		<span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
 		<div class="main-section1">
 			<ul class="section1-category">
-				<li id="first" class="first selected"><a href="notice_list.jsp">공지사항</a></li>
-				<li id="second"><a href="notice_list2.jsp">이벤트</a></li>
+				<li id="first" class="first selected"><a href="notice_list_admin.jsp">공지사항</a></li>
+				<li id="second"><a href="notice_list_admin2.jsp">이벤트</a></li>
 			</ul>
 		</div>
 		<div class="main-section2">
 			<ul class="section2-title">
+				<li class="title-0">
+					<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll" onchange="allCheck()">
+					<label for="checkAll" class="inp_chkbox"></label>
+				</li>
 				<li class="title-1">번호</li>
 				<li class="title-2">제목</li>
 				<li class="title-3">담당</li>
@@ -392,6 +566,10 @@
 			</ul>
 			<div id="nesListNew">
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check1">
+						<label for="check1" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">30</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -413,6 +591,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check2">
+						<label for="check2" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">29</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -434,6 +616,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check3">
+						<label for="check3" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">28</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -455,6 +641,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check4">
+						<label for="check4" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">27</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -476,6 +666,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check5">
+						<label for="check5" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">26</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -497,6 +691,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check6">
+						<label for="check6" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">25</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -518,6 +716,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check7">
+						<label for="check7" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">24</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -539,6 +741,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check8">
+						<label for="check8" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">23</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -560,6 +766,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check9">
+						<label for="check9" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">22</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -581,6 +791,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check10">
+						<label for="check10" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">21</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -602,6 +816,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check11">
+						<label for="check11" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">20</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -623,6 +841,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check12">
+						<label for="check12" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">19</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -644,6 +866,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check13">
+						<label for="check13" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">18</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -665,6 +891,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check14">
+						<label for="check14" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">17</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -686,6 +916,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check15">
+						<label for="check15" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">16</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -707,6 +941,10 @@
 					</li>
 				</ul>
 				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check16">
+						<label for="check16" class="inp_chkbox"></label>
+					</li>
 					<li class="cont-1">15</li>
 					<li class="cont-2">
 						<a id="test1" class="cont2-btn">
@@ -746,15 +984,14 @@
 					<a href="#">10</a>
 					<a id="next" class="next" href="#"></a>
 				</div>
+				<div class="admin_btn">
+					<a href="#"><button type="button" class="btn_style">글쓰기</button></a>
+					<a href="#"><button type="button" class="btn_style">삭제</button></a>
+				</div>
 			</div>
+			
 		</div>
 	</div>
-	<script>
-
-
-	
-
-	</script>
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>

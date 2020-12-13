@@ -189,15 +189,7 @@
 		width: 31px;
     	height: 15px;
     	display: block;
-    	background-image:url(http://localhost:9000/One_day_class/images/notice_con1.png);
-    	background-repeat:no-repeat;
-	    background-size: 28px 18px;
-	}
-	.main-section2 .section2-cont li.cont-3 .cont3-label.normal {
-		width: 31px;
-    	height: 15px;
-    	display: block;
-    	background-image:url(http://localhost:9000/One_day_class/images/notice_con3.png);
+    	background-image:url(http://localhost:9000/One_day_class/images/notice_con2.png);
     	background-repeat:no-repeat;
 	    background-size: 28px 18px;
 	}
@@ -378,8 +370,8 @@
 		<span class="main-logo">TALMUNG <span>NEWS</span> ROOM</span>
 		<div class="main-section1">
 			<ul class="section1-category">
-				<li id="first" class="first selected"><a href="notice_list.jsp">공지사항</a></li>
-				<li id="second"><a href="notice_list2.jsp">이벤트</a></li>
+				<li id="first" class="first"><a href="notice_list.jsp">공지사항</a></li>
+				<li id="second" class="selected"><a href="notice_list2.jsp">이벤트</a></li>
 			</ul>
 		</div>
 		<div class="main-section2">
@@ -421,7 +413,7 @@
 						</a>
 					</li>
 					<li class="cont-3">
-						<label class="cont3-label normal"></label>
+						<label class="cont3-label"></label>
 					</li>
 					<li class="cont-4">
 						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
@@ -463,7 +455,7 @@
 						</a>
 					</li>
 					<li class="cont-3">
-						<label class="cont3-label normal"></label>
+						<label class="cont3-label"></label>
 					</li>
 					<li class="cont-4">
 						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
@@ -547,7 +539,7 @@
 						</a>
 					</li>
 					<li class="cont-3">
-						<label class="cont3-label normal"></label>
+						<label class="cont3-label"></label>
 					</li>
 					<li class="cont-4">
 						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>

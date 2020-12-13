@@ -13,6 +13,7 @@
 		padding: 10px 0 300px;
 	    border-top: 1px solid #ccc;
 	    display: block;
+	    clear:both;
 	}
 	.f_container {
 		width: 1040px;
