@@ -43,7 +43,7 @@
 				sub1 += '</div>';
 
 				var sub2 = '<div class="catesub_list cates" id="sub2" >';
-				sub2 += '<div class="main"><li><a href="?cateSub=235">댄스</a></li><li><a href="?cateSub=123">연기/무용</a></li><li><a href="?cateSub=217">스포츠/레저</a></li>                        </div>';
+				sub2 += '<div class="main"><li><a href="http://localhost:9000/One_day_class/search/activities_dance.jsp">댄스</a></li><li><a href="http://localhost:9000/One_day_class/search/activities_act.jsp">연기/무용</a></li><li><a href="http://localhost:9000/One_day_class/search/activities_sports.jsp">스포츠/레저</a></li>                        </div>';
 				sub2 += '</div>';
 
 				var sub3 = '<div class="catesub_list cates" id="sub3" >';
@@ -372,86 +372,21 @@
 				<div class="cont2_box" id="top-space">
 					<div class="cont2">
 						<div class="cont2_class">
-							<a href="/Talent/Detail/2761" target="_blank">
+							<a href="http://localhost:9000/One_day_class/class/workout/dance/w_d_1.jsp" target="_blank">
 								<div class="img"
-									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_7def0addeeca93ec86a7c35e97991823f78c3830.jpeg);">
+									style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_d_1.png);">
 									<div class="day">1DAY수업</div>
 									<div class="d_day">3429명 찜</div>
 									<!--a class="heart2"></a-->
 								</div>
 								<div class="profile_box">
 									<div class="profile"
-										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_0a4b88d644242d2f6376a635c5d5b5447b8b516a.png);">
+										style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_d_1_icon.png);">
 									</div>
-									<div class="name">ddoEdo</div>
-									<div class="nick">또이도</div>
+									<div class="name">채효정 튜터</div>
+									<div class="nick">Cheche</div>
 								</div>
-								<div class="title">[KPOP] 블랙핑크, 마마무, 지연 세뇨리따 하루만에 마스터하고 영상
-									남기자!</div>
-								<div class="price">
-									<div class="price2">
-										<span>￦<span><span>12,500<span>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info2">
-										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(227)</div>
-
-										<div class="location">사당</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="cont2_class">
-							<a href="/Talent/Detail/1767" target="_blank">
-								<div class="img"
-									style="background-image: url(//img.taling.me/Content/Uploads/Cover/s_5ad0fde4d533bfda9f468e3992fb45d0c417f709.jpeg);">
-									<div class="day">1DAY수업</div>
-									<div class="d_day">2719명 찜</div>
-									<!--a class="heart2"></a-->
-								</div>
-								<div class="profile_box">
-									<div class="profile"
-										style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_bb7bd3d906f92c610be69d3b14bcd66530512173.png);">
-									</div>
-									<div class="name">로미</div>
-									<div class="nick">로미</div>
-								</div>
-								<div class="title">[방송댄스]압도적 재수강율!프로모션 영상맛집!체계적으로 배우는
-									춤입문/럽식걸즈,아캔스탑미</div>
-								<div class="price">
-									<div class="price2">
-										<span>￦<span><span>12,500<span>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info2">
-										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(137)</div>
-
-										<div class="location">사당</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="cont2_class">
-							<a href="/Talent/Detail/14822" target="_blank">
-								<div class="img"
-									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_46d394cb9443b5c1e116aa517f79ea13dbe81c92.jpeg);">
-									<div class="day">1DAY수업</div>
-									<div class="d_day">2580명 찜</div>
-									<!--a class="heart2"></a-->
-								</div>
-								<div class="profile_box">
-									<div class="profile"
-										style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_1a44cd22f81b254622cbd04b2519f2ba75ed65c4.png);">
-									</div>
-									<div class="name">서영쌤</div>
-									<div class="nick">걸음마티쳐</div>
-								</div>
-								<div class="title">[뛰기는 싫고, 그냥 좀 걸을까?] 남산둘레길 함께 걷기 +
-									자세교정까지❤️ #자세교정 #바른자세 #걸음걸이 #스트레칭 #자기계발</div>
+								<div class="title">도심속에서 힐링 댄스!! 몸도 마음도 아름다워지는 하와이의 전통춤 훌라 Hula 배워보기 ♥</div>
 								<div class="price">
 									<div class="price2">
 										<span>￦<span><span>15,000<span>
@@ -460,30 +395,91 @@
 								<div class="info">
 									<div class="info2">
 										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(156)</div>
+										<div class="review" style="margin-right: 15px;">(13)</div>
 
-										<div class="location">동대입구</div>
+										<div class="location">강남</div>
 									</div>
 								</div>
 							</a>
 						</div>
 						<div class="cont2_class">
-							<a href="/Talent/Detail/10576" target="_blank">
+							<a href="http://localhost:9000/One_day_class/class/workout/dance/w_d_2.jsp" target="_blank">
 								<div class="img"
-									style="background-image: url(//img.taling.me/Content/Uploads/Cover/s_046cc079593eefeef14e601cfc97a8a618fbb9a2.jpeg);">
+									style="background-image: url(http://localhost:9000/One_day_class/images/dance1.png);">
+									<div class="day">1DAY수업</div>
+									<div class="d_day">2719명 찜</div>
+									<!--a class="heart2"></a-->
+								</div>
+								<div class="profile_box">
+									<div class="profile"
+										style="background-image: url(http://localhost:9000/One_day_class/images/dance.png);">
+									</div>
+									<div class="name">김유신</div>
+									<div class="nick">튜터</div>
+								</div>
+								<div class="title">남들과는 다른, 나만의 춤을 춰보자 !</div>
+								<div class="price">
+									<div class="price2">
+										<span>￦<span><span>13,500<span>
+									</div>
+								</div>
+								<div class="info">
+									<div class="info2">
+										<div class="star">★★★★★</div>
+										<div class="review" style="margin-right: 15px;">(74)</div>
+
+										<div class="location">건대</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="cont2_class">
+							<a href="http://localhost:9000/One_day_class/class/workout/sports/w_s_1.jsp" target="_blank">
+								<div class="img"
+									style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_1_1.png);">
+									<div class="day">1DAY수업</div>
+									<div class="d_day">2580명 찜</div>
+									<!--a class="heart2"></a-->
+								</div>
+								<div class="profile_box">
+									<div class="profile"
+										style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_1_icon.png);">
+									</div>
+									<div class="name">제이진 강사</div>
+									<div class="nick">PLAY freediving</div>
+								</div>
+								<div class="title">[ 1일 체험 ] PLAY freediving 프리다이빙 # 3시간 여유롭게 차근차근 즐겨요~~</div>
+								<div class="price">
+									<div class="price2">
+										<span>￦<span><span>13,000<span>
+									</div>
+								</div>
+								<div class="info">
+									<div class="info2">
+										<div class="star">★★★★★</div>
+										<div class="review" style="margin-right: 15px;">(11)</div>
+
+										<div class="location">잠실</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="cont2_class">
+							<a href="http://localhost:9000/One_day_class/class/workout/sports/w_s_2.jsp" target="_blank">
+								<div class="img"
+									style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_2.png);">
 									<div class="day">1DAY수업</div>
 									<div class="d_day">2224명 찜</div>
 									<!--a class="heart2"></a-->
 								</div>
 								<div class="profile_box">
 									<div class="profile"
-										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_65a0272836c5e8426af3502923e7128ef965054f.png);">
+										style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_2_icon.png);">
 									</div>
-									<div class="name">라니</div>
-									<div class="nick">rany</div>
+									<div class="name">김명화</div>
+									<div class="nick">튜터</div>
 								</div>
-								<div class="title">[방송댄스] 아이돌처럼 예쁜 춤선? 나도 할수있다!
-									(라타타!1:1,1:2,1:3 할인중!</div>
+								<div class="title">[원데이] FBI가 배우는 실전 호신술 크라브마가 : #여성호신술 #영화속무술</div>
 								<div class="price">
 									<div class="price2">
 										<span>￦<span><span>12,500<span>
@@ -492,73 +488,71 @@
 								<div class="info">
 									<div class="info2">
 										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(143)</div>
+										<div class="review" style="margin-right: 15px;">(8)</div>
 
-										<div class="location">사당</div>
+										<div class="location">교대</div>
 									</div>
 								</div>
 							</a>
 						</div>
 						<div class="cont2_class">
-							<a href="/Talent/Detail/7468" target="_blank">
+							<a href="http://localhost:9000/One_day_class/class/workout/sports/w_s_3.jsp" target="_blank">
 								<div class="img"
-									style="background-image: url(//img.taling.me/Content/Uploads/Cover/s_49fd09886d036c9425f8f040df543fdc6a8763df.jpg);">
+									style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_3.png);">
 									<div class="day">1DAY수업</div>
 									<div class="d_day">2160명 찜</div>
 									<!--a class="heart2"></a-->
 								</div>
 								<div class="profile_box">
 									<div class="profile"
-										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_dfc2bb53afe14965aebfc132fd920e8044996074.jpg);">
+										style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_3_icon.png);">
 									</div>
-									<div class="name">김세림</div>
-									<div class="nick">세림강사</div>
+									<div class="name">유재혁</div>
+									<div class="nick">튜터</div>
 								</div>
-								<div class="title">[원데이] 서울에서 "바닷 속 신세계" 체험하기! (feat.
-									스쿠버다이빙 체험)</div>
+								<div class="title"> ●[볼링] 완벽초보탈출! 쉽고 부담없는 맞춤식 진행 [1:1수업,그룹수업,커플수업]●</div>
 								<div class="price">
 									<div class="price2">
-										<span>￦<span><span>10,000<span>
+										<span>￦<span><span>17,500<span>
 									</div>
 								</div>
 								<div class="info">
 									<div class="info2">
 										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(39)</div>
+										<div class="review" style="margin-right: 15px;">(81)</div>
 
-										<div class="location">잠실,송도,수원</div>
+										<div class="location">구로</div>
 									</div>
 								</div>
 							</a>
 						</div>
 						<div class="cont2_class">
-							<a href="/Talent/Detail/11276" target="_blank">
+							<a href="http://localhost:9000/One_day_class/class/workout/sports/w_s_4.jsp" target="_blank">
 								<div class="img"
-									style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_e9bfb0abf339e32df012f70e1fc288d48cf0e447.jpg);">
+									style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_4.png);">
 									<div class="day">1DAY수업</div>
 									<div class="d_day">1688명 찜</div>
 									<!--a class="heart2"></a-->
 								</div>
 								<div class="profile_box">
 									<div class="profile"
-										style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_f9209bc11f39c0e8c608fd21093a0490a914e491.jpg);">
+										style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_4_icon.png);">
 									</div>
-									<div class="name">노영수</div>
-									<div class="nick">영수</div>
+									<div class="name">제이 로</div>
+									<div class="nick">튜터</div>
 								</div>
-								<div class="title">[사당,홍대,건대,강남] 하루만에 쉽고 재밌게 배우는 댄스!!
-									BTS,트와이스,NCT</div>
+								<div class="title">화려한 조명이 감싸주는 수영장에서 선수들과 깡수영</div>
 								<div class="price">
 									<div class="price2">
-										<span>￦<span><span>10,000<span>
+										<span>￦<span><span>30,000<span>
 									</div>
 								</div>
 								<div class="info">
 									<div class="info2">
 										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(201)</div>
+										<div class="review" style="margin-right: 15px;">(1)</div>
 
-										<div class="location">사당</div>
+										<div class="location">강서</div>
 									</div>
 								</div>
 							</a>
@@ -570,7 +564,7 @@
 
 				<div class="page">
 					<a href='#' class='list border'><b>1</b></a><a
-						href='/Home/Search/?page=2&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
+						href='http://localhost:9000/One_day_class/search/activities_2page.jsp'
 						class='list'>2</a><a
 						href='/Home/Search/?page=3&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
 						class='list'>3</a><a
