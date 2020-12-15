@@ -4,10 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>header</title>
 <style>
-	header {
-		background-color:white;
-	}
 	* {
 		box-sizing: border-box;
 	}
@@ -27,15 +25,18 @@
 	.logo{
 		position: absolute;
     	top: 30px;
-    	width: 124px;
+    	width: 170px;
+    	height:80px;
 	}
 	.logo img{
 		width: 94px;
     	height: 57px;
 	}
 	.hd_bar {
-   	 	float: left;
-    	margin-left: 124px;
+   	 	float: left; 
+    	margin-left: 120px;
+    	padding-top : 5px;
+    	margin-top:-15px;
 	}
 	fieldset {
 	    margin-inline-start: 2px;
@@ -48,9 +49,8 @@
 	    border: 0 none;
 	}
 	.hd_search_box {	
-	    width: 250px;
-	    height: 26px;
-	    margin-left: 20px;
+	    width: 350px;
+	    height: 30px;
 	    content: '';
 	    display: block;
 	    clear: both;
@@ -59,23 +59,23 @@
 	    content: '';
 	    display: block;
 	    position: relative;
-	    width: 95%;
-	    height: 2px;
-	    background: #111;
-	    margin-top: -7px;
+	    width: 98%;
+	    height: 3px;
+	    background: gray;
+	    margin-top: -5px;
 	}
 	.hd_search_box .inp {
 	    float: left;
 	    display: block;
 	    width: calc(100% - 30px);
-	    height: 26px;
+	    height: 25px;
 	    border: none;
 	    background-color: transparent;
 	}
 	.hd_search_box .search_btn {
 	    float: right;
 	    width: 30px;
-	    height: 26px;
+	    height: 20px;
 	    background: url(http://localhost:9000/One_day_class/images/search.png) no-repeat center/15px;
 	   	border: none;
 	    cursor: pointer;
@@ -122,8 +122,8 @@
 					<div class="hd_search_box">
 						<form name="search" action="#" method="get">
 							<fieldset>
-								<input class="inp" type="text" name="query">
-								<button class=search_btn type="submit"></button>
+								<input class="inp" type="text" name="query" autocomplete="off" maxlength="100" placeholder="배우고 싶은 것이 있나요?" tabindex="1" onclick="search_list()" onblur="search_end()">
+								<button class="search_btn" type="submit"></button>
 							</fieldset>
 						</form>										
 					</div>
@@ -131,10 +131,10 @@
 				<nav class="hd_right">
 					<ul class="gnb">
 						<li>
-							<a href="http://localhost:9000/One_day_class/tutor/tutor.jsp">튜터등록</a>
+							<a href="http://localhost:9000/One_day_class/tutor/tutor_reg.jsp">튜터등록</a>
 						</li>
 						<li>
-							<a href="http://localhost:9000/One_day_class/login/login.jsp">로그인</a>
+							<a href="http://localhost:9000/One_day_class/login/login_how_to.jsp">로그인</a>
 						</li>
 					</ul>
 				</nav>
