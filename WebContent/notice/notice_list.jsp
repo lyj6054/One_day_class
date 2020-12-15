@@ -358,7 +358,7 @@
 			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
 				$("#cont-8").css("display","block").height("450px");
 				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-				$("#cont8-wrap").load("notice_content.jsp .section2-cont");
+				$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
 				
 			} else {
 				$("#cont-8").css("display","none").height("0px");
@@ -379,8 +379,8 @@
 		<span class="main-logo">TALMUNG <span>NEWS</span> ROOM</span>
 		<div class="main-section1">
 			<ul class="section1-category">
-				<li id="first" class="first selected"><a href="notice_list.jsp">공지사항</a></li>
-				<li id="second"><a href="notice_list2.jsp">이벤트</a></li>
+				<li id="first" class="first selected"><a href="http://localhost:9000/One_day_class/notice/notice_list.jsp">공지사항</a></li>
+				<li id="second"><a href="http://localhost:9000/One_day_class/notice/notice_list2.jsp">이벤트</a></li>
 			</ul>
 		</div>
 		<div class="main-section2">
