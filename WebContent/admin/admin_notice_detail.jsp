@@ -33,7 +33,7 @@
       padding: 10px 18px 80px 17px;
       border:1px #e3e3e3 solid;
       margin-bottom:40px;
-      
+      float:left;
    }
    div {
       border: 0;
@@ -41,20 +41,20 @@
        padding: 0;
        font-size: 11px;
    }
-   #newsroom-main .main-logo{
+   .main-logo{
       display:inline-block;
       margin:20px 0 30px 117px;
        font-size:50px;
    }
-   #newsroom-main .main-logo span {
+   .main-logo span {
       font-weight:bold;
    }
-   #newsroom-main .main-section1 {
+   .main-section1 {
        margin: 0 auto;
        width: 820px;
        height: 50px;
    }
-   #newsroom-main .main-section1 .section1-category {
+   .main-section1 .section1-category {
        height: 41px;
        border-bottom: 1px #ff0045 solid;
        padding-left:24px;
@@ -68,7 +68,7 @@
        font-size: 12px;
    }
    
-   #newsroom-main .main-section1 .section1-category li {
+   .main-section1 .section1-category li {
        position: relative;
        float: left;
        width: 385px;
@@ -79,7 +79,7 @@
        text-align: left;
        z-index: 5;
    }
-   #newsroom-main .main-section1 .section1-category .selected {
+    .main-section1 .section1-category .selected {
        margin-left: -1px;
        border-left: 1px #ff0045 solid;
        border-top: 1px #ff0045 solid;
@@ -90,7 +90,7 @@
    /* #newsroom-main .main-section1 .section1-category li.first {
        margin-left: 0 !important;
    } */
-   #newsroom-main .main-section1 .section1-category li a {
+    .main-section1 .section1-category li a {
        position: absolute;
        display: block;
        width: 383px;
@@ -102,7 +102,7 @@
        font-size:15px;
        
    }
-   #newsroom-main .main-section1 .section1-category .selected a {
+    .main-section1 .section1-category .selected a {
        height: 40px;
        color: #333;
        background-color: #fff;
@@ -115,7 +115,7 @@
        text-decoration: none;
        cursor: pointer;
    }
-   #newsroom-main .main-section2 {
+    .main-section2 {
        position: relative;
        display: inline-block;
        float: left;
