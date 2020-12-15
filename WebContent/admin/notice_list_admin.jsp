@@ -10,8 +10,10 @@
 <style>
 	
 	#newsroom-main {
-		float:left;
-		height:auto;
+		display:inline-block;
+		margin:0 atuo;
+		overflow:hidden;
+		heigth:auto;
 		width:853px;
 		padding: 10px 18px 80px 17px;
 		border:1px #e3e3e3 solid;
@@ -347,12 +349,15 @@
 	
 	
 	/* aside */
+	.content {
+		width:1040px;
+		margin: 0 auto;
+	}
 	.content .admin_main {
 		float:left;
 		width:220px; height:970px;
 		background-color:#eee;
 		padding:20px 0 0 15px;
-		margin-left:200px;
 	}
 	
 	.content .admin_main ul {
@@ -527,6 +532,7 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 
 	<!-- content -->
+	<div style="margin:0 auto;">
 	<div style="width:100%; height:50px;"></div>
 	<div class="content">
 		<aside class="admin_main">
@@ -542,6 +548,7 @@
 				</ul>
 			</nav>
 		</aside>
+
 	
 	</div>
 	<div class="board_wrap" id="newsroom-main">
@@ -992,6 +999,7 @@
 			
 		</div>
 	</div>
+</div>
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>

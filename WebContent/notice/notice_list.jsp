@@ -11,7 +11,8 @@
 	
 	#newsroom-main {
 		margin: 0 auto;
-		height:930px;
+		height:auto;
+		overflow:hidden;
 		width:853px;
 		padding: 10px 18px 80px 17px;
 		border:1px #e3e3e3 solid;
