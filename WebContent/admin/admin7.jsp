@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj_admin.css">
-<script src="http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/MyWeb_/js/jquery-3.5.1.min.js"></script>
 <script>
 	$(document).ready(function(){
 		
