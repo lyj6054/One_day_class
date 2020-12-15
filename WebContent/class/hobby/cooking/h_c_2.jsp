@@ -8,68 +8,7 @@
 <link rel="stylesheet" href="../../../js_yj/swiper-bundle.min.css">
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj_1.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-$(document).on('scroll',function(){
-    var divTag = $('div.dance');
-    var divTop = divTag.offset().top;
-    var scrollTop = $(document).scrollTop();
-    $('div.nav').hide();
-    if(scrollTop>divTop+340){
-       $('div.nav').show();
-        //만약에 header에 fixed 클래스가 없을경우 if문 실행.
-        //클래스가 있는데도 실행이 되면 계속 헤더가 사라지고 페이딩이 되어버리기 때문에 불편합니다
-        if(!$('div.nav').hasClass('fixed')){
-            $('div.nav').hide().fadeIn(200,function(){
-                $(this).addClass('fixed');
-               
-                
-            });
-        }
-    }else{
-        //반면에 이건 header가 fixed 클래스를 가지고 있을때에만 실행
-        //fixed값이 없는데도 실행이 된다면 스크롤바가 윗부분에 있을때 계속 페이드아웃이 됩니다
-        if($('div.nav').hasClass('fixed')){
-            $('div.nav').fadeOut(200,function(){
-                $('div.nav').removeClass('fixed');
-            });
-            //ES6의 promise 함수를 이용합니다.promise란 이 코드는 저 위의 코드의 실행이 끝났을때 실행이 되게 하는 것입니다. 
-            $('div.nav').promise().done(function(){
-                $(this).fadeIn();
-            });
-        }
-    }
-});
-
-function active_chk() {
-    $("#nav_li1").removeClass('active');
-    $("#nav_li2").removeClass('active');
-    $("#nav_li3").removeClass('active');
-    $("#nav_li4").removeClass('active');
- }
-
-function moveContent(seq){
-    var offset = $("#nav" + seq).offset();
-    $('html, body').animate({scrollTop : offset.top-100}, 400);
-    
-    $("#nav_li1").click(function() {
-       active_chk();
-       $("#nav_li1").addClass('active');
-    });
-    $("#nav_li2").click(function() {
-       active_chk();
-       $("#nav_li2").addClass('active');
-    });
-    $("#nav_li3").click(function() {
-       active_chk();
-       $("#nav_li3").addClass('active');
-    });
-    $("#nav_li4").click(function() {
-       active_chk();
-       $("#nav_li4").addClass('active');
-    });
-    
-}
-</script>
+<script src="http://localhost:9000/One_day_class/js_sh/js_sh.js"></script>
 <script>
 	/* function wish(){
 		alert("위시리스트에 추가되었습니다");
@@ -102,10 +41,10 @@ function moveContent(seq){
 	<jsp:include page="../../../header.jsp" />
 	<div class="nav">
       <ul>
-         <li class="active" onclick="moveContent('1')" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
-         <li onclick="moveContent('2')" id="nav_li2"><a href="javascript:">수업소개</a></li>
-         <li onclick="moveContent('3')" id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
-         <li onclick="moveContent('4')" id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
+         <li class="active"  id="nav_li1"><a href="javascript:;">튜터소개</a></li>
+         <li id="nav_li2"><a href="javascript:">수업소개</a></li>
+         <li  id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
+         <li  id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
       </ul>
    </div>
 	<hr class="top-bar">
@@ -181,7 +120,7 @@ function moveContent(seq){
 				<span>지정된 날짜 및 시간 외 협의 후 클래스 진행 가능합니다~</span>
 			</div>
 		</div>
-		<div class="dance-box3-1" id="nav1">
+		<div class="idx dance-box3-1" id="nav1">
 			<span class="dance-b4">튜터님을<br> 소개합니다.</span>
 			<div class="dance-b6">
 				<p>-청운대 호텔조리과 졸업<br />
@@ -217,7 +156,7 @@ function moveContent(seq){
 			</div>
 		</div>
 		
-		<div class="dance-box3-1" id="nav2">
+		<div class="idx dance-box3-1" id="nav2">
 			<span class="dance-b4">어떤<br> 수업인가요?</span>
 			<div class="dance-b6">
 				<p>금괴모양의 겉은 쫀득하고 촉촉함이 입을 감싸는 휘낭시에 클래스 입니다<br />
@@ -290,7 +229,7 @@ function moveContent(seq){
 				</p>
 			</div>
 		</div>
-		<div class="dance-box3-1" id="nav3">
+		<div class="idx dance-box3-1" id="nav3">
 			<span class="dance-b4">수업은 이렇게<br>진행됩니다.</span>
 			<div class="dance-b6">
 				<p>재료 소개 및 계량법<br />
@@ -317,7 +256,7 @@ Q&A
 			</div>
 			
 		</div>
-		<div class="dance-box3-1" id="nav4">
+		<div class="idx dance-box3-1" id="nav4">
 			<span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
 			<div class="dance-b6">
 				<img src="http://localhost:9000/One_day_class/images/dance5.png">
