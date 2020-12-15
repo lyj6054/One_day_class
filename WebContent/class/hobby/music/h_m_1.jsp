@@ -9,6 +9,35 @@
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj_1.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+$(document).ready(function(){
+    var p2pGnb = $('.nav ul li')
+    var p2pCont = $('.dance > .idx')
+    p2pGnb.on('click',function(e){
+        e.preventDefault();
+        var target = $(this);
+        var index = target.index();
+        var section = p2pCont.eq(index);
+        var offset = section.offset().top-100;
+        $('html, body').animate({ scrollTop:offset },1000);
+    });
+    
+    $(window).scroll(function(){
+        wScroll = $(this).scrollTop();
+        secNotiOffsetTop = $('.dance-box3').offset().top-200;
+        for(var i=0; i<p2pCont.length; i++){
+            if(wScroll >= p2pCont.eq(i).offset().top-130){
+                p2pGnb.removeClass('active');
+                p2pGnb.eq(i).addClass('active');
+            }
+        }
+        if(wScroll >= secNotiOffsetTop){
+            $('.nav').addClass('fixed');
+        }else {
+            $('.nav').removeClass('fixed');
+        }
+    });
+ });
+ /* 
 $(document).on('scroll',function(){
     var divTag = $('div.dance');
     var divTop = divTag.offset().top;
@@ -68,7 +97,7 @@ function moveContent(seq){
        $("#nav_li4").addClass('active');
     });
     
-}
+} */
 </script>
 <script>
 	/* function wish(){
@@ -179,7 +208,7 @@ function moveContent(seq){
 추가 비용 없음.
 			</div>
 		</div>
-		<div class="dance-box3-1" id="nav1">
+		<div class="idx dance-box3-1" id="nav1">
 			<span class="dance-b4">튜터님을<br> 소개합니다.</span>
 			<div class="dance-b6">
 				<img src="http://localhost:9000/One_day_class/images/dance4.png">
@@ -272,7 +301,7 @@ KBS 라디오 윤하의 볼륨을 높여요 출연 <br />
 			
 		</div>
 			
-		<div class="dance-box3-1" id="nav2">
+		<div class="idx dance-box3-1" id="nav2">
 			<span class="dance-b4">어떤<br> 수업인가요?</span>
 			<div class="dance-b6">
 				<p># &gt;.&lt; 궁금한 사항이 있으시면 언제든지 주저말고 실시간톡을 이용하여 튜터님께 직접 문의 해주시기 바랍니다 <br />
@@ -330,7 +359,7 @@ KBS 라디오 윤하의 볼륨을 높여요 출연 <br />
   - 원포인트 레슨으로 보컬레슨을 경험해 보고 싶으신분들<br /></p>
 			</div>
 		</div>
-		<div class="dance-box3-1" id="nav3">
+		<div class="idx dance-box3-1" id="nav3">
 			<span class="dance-b4">수업은 이렇게<br>진행됩니다.</span>
 			<div class="dance-b6">
 				<p>10분 간단한 소개와 수업의 방향 회의<br />
@@ -348,7 +377,7 @@ KBS 라디오 윤하의 볼륨을 높여요 출연 <br />
 			</div>
 			
 		</div>
-		<div class="dance-box3-1" id="nav4">
+		<div class="idx dance-box3-1" id="nav4">
 			<span class="dance-b4">관련 영상<br>보고가세요.</span>
 			<div class="dance-b6">
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/DtEhgcuLSNE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
