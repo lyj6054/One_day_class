@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../../../js_yj/swiper-bundle.min.css">
+<link rel="stylesheet" href="../js_yj/swiper-bundle.min.css">
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj_1.css">
 <script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 <script>
@@ -37,97 +37,30 @@ $(document).ready(function(){
         }
     });
  });
-/* $(document).on('scroll',function(){
-    var divTag = $('div.dance');
-    var divTop = divTag.offset().top;
-    var scrollTop = $(document).scrollTop();
-    $('div.nav').hide();
-    if(scrollTop>divTop+340){
-       $('div.nav').show();
-        //만약에 header에 fixed 클래스가 없을경우 if문 실행.
-        //클래스가 있는데도 실행이 되면 계속 헤더가 사라지고 페이딩이 되어버리기 때문에 불편합니다
-        if(!$('div.nav').hasClass('fixed')){
-            $('div.nav').hide().fadeIn(200,function(){
-                $(this).addClass('fixed');
-               
-                
-            });
-        }
-    }else{
-        //반면에 이건 header가 fixed 클래스를 가지고 있을때에만 실행
-        //fixed값이 없는데도 실행이 된다면 스크롤바가 윗부분에 있을때 계속 페이드아웃이 됩니다
-        if($('div.nav').hasClass('fixed')){
-            $('div.nav').fadeOut(200,function(){
-                $('div.nav').removeClass('fixed');
-            });
-            //ES6의 promise 함수를 이용합니다.promise란 이 코드는 저 위의 코드의 실행이 끝났을때 실행이 되게 하는 것입니다. 
-            $('div.nav').promise().done(function(){
-                $(this).fadeIn();
-            });
-        }
-    }
-}); 
-
-function active_chk() {
-    $("#nav_li1").removeClass('active');
-    $("#nav_li2").removeClass('active');
-    $("#nav_li3").removeClass('active');
-    $("#nav_li4").removeClass('active');
- }
-
-function moveContent(seq){
-    var offset = $("#nav" + seq).offset();
-    $('html, body').animate({scrollTop : offset.top-100}, 400);
-    
-    $("#nav_li1").click(function() {
-       active_chk();
-       $("#nav_li1").addClass('active');
-    });
-    $("#nav_li2").click(function() {
-       active_chk();
-       $("#nav_li2").addClass('active');
-    });
-    $("#nav_li3").click(function() {
-       active_chk();
-       $("#nav_li3").addClass('active');
-    });
-    $("#nav_li4").click(function() {
-       active_chk();
-       $("#nav_li4").addClass('active');
-    });
-    
-} */
-</script>
-<script>
-	/* function wish(){
-		alert("위시리스트에 추가되었습니다");
-		 document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1-1.png";
-	} */
-	function review(){
-		alert("로그인 후 이용가능합니다.");
-		 document.getElementById("d-img");
-	}
-	function new_window(){
-		alert("휴대전화 인증이 필요합니다");
-		window.open("http://localhost:9000/One_day_class/tutor/talk-btn.jsp","전화번호 등록","width=500,height=340");
-	}
-	function wish_toggle(){
-		var status = document.getElementById("d-img").getAttribute("name");//또는 getAttribute("src")
-		if(status == "wish"){
-			document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1-1.png";
-			document.getElementById("d-img").setAttribute("name","wish1");
-			alert("위시리스트에 추가되었습니다");
-		}else{
-			document.getElementById("d-img").src="http://localhost:9000/One_day_class/images/dance-btn1.png";
-			document.getElementById("d-img").setAttribute("name","wish");
-			alert("위시리스트에 삭제되었습니다");
-		}
-	}
 </script>
 </head>
 <body>
-	<!--header -->
-	<jsp:include page="../../../header.jsp" />
+	<div class="content">
+		<!-- <aside class="admin_main">
+			<nav>
+				<div>
+					<img
+						src="http://localhost:9000/One_day_class/images/admin_profile.png"><br>
+					<span class="admin_icon2">[ 관리자 시스템 ]</span>
+				</div>
+				<ul>
+					<li><img
+						src="http://localhost:9000/One_day_class/images/admin_list.png"><a
+						href="notice_list_admin.jsp">공지사항/이벤트</a></li>
+					<li><img
+						src="http://localhost:9000/One_day_class/images/admin_list.png"><a
+						href="#">수업관리</a></li>
+					<li><img
+						src="http://localhost:9000/One_day_class/images/admin_list.png"><a
+						href="#">회원관리</a></li>
+				</ul>
+			</nav>
+		</aside> -->
 	<div class="nav">
       <ul>
          <li class="active"  id="nav_li1"><a href="javascript:;">튜터소개</a></li>
@@ -138,7 +71,6 @@ function moveContent(seq){
    </div>
 	<hr class="top-bar">
 	<div class="dance">
-		
 		<aside class="d-side">
 			<h1>수업일정</h1>
 			<div class="d-side-box">
@@ -164,9 +96,7 @@ function moveContent(seq){
 			</div>
 			<div class="d-side-box5">
 				<img src="http://localhost:9000/One_day_class/images/dance-btn1.png" name="wish" id="d-img" onclick="wish_toggle()">
-				<a href="http://localhost:9000/One_day_class/class/hobby/cooking/h_c_1a.jsp">
-				<img src="http://localhost:9000/One_day_class/images/dance-btn.png"></a>
-				
+				<img src="http://localhost:9000/One_day_class/images/dance-btn.png">
 			</div>
 		</aside>
 		<div class="dance-box">
@@ -214,19 +144,19 @@ function moveContent(seq){
 		<div class="idx dance-box3-1" id="nav1">
 			<span class="dance-b4">튜터님을<br> 소개합니다.</span>
 			<div class="dance-b6">
-				<p>안녕하세요 기브 (GEEBE) 샹들리에 케이크 호스트 키코입니다! <br />
-<br />
-한국뿐만 아니라, 이제 세계적으로 알려지고 있는 한국 앙금 케이크수업 환영합니다! <br />
-<br />
-4년전 친구네 호스텔에서 놀다, 어느 중국 분이 두 손 가득 들고 오신 그 케이크에 빠져 지금 이 일을 하고 있어요 <br />
+				<p><br>안녕하세요 기브 (GEEBE) 샹들리에 케이크 호스트 키코입니다! <br >
+<br >
+한국뿐만 아니라, 이제 세계적으로 알려지고 있는 한국 앙금 케이크수업 환영합니다! <br >
+<br >
+4년전 친구네 호스텔에서 놀다, 어느 중국 분이 두 손 가득 들고 오신 그 케이크에 빠져 지금 이 일을 하고 있어요 <br >
 중국에서 TV 피디님이라 세상 소식에 빠삭하셨는지, 그 당시 한국인도 잘 몰랐던 이 기술을 배우려고 직장인의 소중한 연차 3일을 쓰고 오셨던.. 제 가장 큰 인플루언서라고 할 수 있겠죠. <br />
-덕분에 저는 지금 이 일을 하고 있고, 이 일이 너무 즐겁습니다 .<br />
-<br />
-처음 오실 땐 내가 잘 할 수 있을지 모르겠다는 학생 분들, 모두 수업 끝엔 너무 행복한 함박 미소로 돌아가세요 <br />
-이 긍정 에너지가 더 이 일을 사랑하게 만드는 것 같아요 <br />
-<br />
-2017-서울 호텔 관광학교 앙금 플라워 떡 케이크 수료 <br />
-2019- 한국 플라워 케이크 협회<br />
+덕분에 저는 지금 이 일을 하고 있고, 이 일이 너무 즐겁습니다 .<br >
+<br >
+처음 오실 땐 내가 잘 할 수 있을지 모르겠다는 학생 분들, 모두 수업 끝엔 너무 행복한 함박 미소로 돌아가세요 <br >
+이 긍정 에너지가 더 이 일을 사랑하게 만드는 것 같아요 <br >
+<br >
+2017-서울 호텔 관광학교 앙금 플라워 떡 케이크 수료 <br >
+2019- 한국 플라워 케이크 협회<br >
 2019- 라크렘 마스터 과정 수료 </p>
 			</div>
 		</div>
@@ -333,10 +263,9 @@ function moveContent(seq){
 			</div>
 		</div>
 	</div>
-	<!--header -->
-	<jsp:include page="../../../footer.jsp" />
+	</div>
 	  <!-- Swiper JS -->
-  <script src="../../../js_yj/swiper-bundle.min.js"></script>
+  <script src="../js_yj/swiper-bundle.min.js"></script>
 
   <!-- Initialize Swiper -->
   <script>
