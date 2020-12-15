@@ -154,9 +154,8 @@
 			</div>
 			<div class="f_bottom">
 				<div class="f_info">
-					<p>상호 : (주)탈멍 | 주소 : 서울특별시 강남구 역삼동 621 -19 | 사업자등록번호 : 767-88-00630 | 대표자명 : 김윤환</p>
-					<p>통신판매업 신고번호 : 제 2017-서울강남-02964</p>
-					<p>Copyright ⓒ2020 taling inc, ltd. All rights reserved</p>
+					<p>상호 : (주)탈멍 | 주소 : 서울특별시 강남구 테헤란로5길 51-18 | 사업자등록번호 : 123-34 | 대표자명 : 쌍용</p>
+					<p>Copyright ⓒ2020 talmeong inc, ltd. All rights reserved</p>
 				</div>
 				<ul class="f_sns">
 					<li><a href="https://www.facebook.com/taling.me"><img src="http://localhost:9000/One_day_class/images/sns01.png"></a></li>

@@ -599,22 +599,22 @@
 				<div class="category">
 	                <ul class="cate_list">
 	                    <li class="beauty">
-	                    	<a href="">뷰티 · 헬스</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/beauty.jsp">뷰티 · 헬스</a>
 	                    </li>
 	                    <li class="activity">
-	                    	<a href="">액티비티</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/activities.jsp">액티비티</a>
 	                    </li>
 	                    <li class="life">
-	                    	<a href="">라이프</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/life.jsp">라이프</a>
 	                    </li>
 	                    <li class="hobby">
-	                    	<a href="">취미 · 공예</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/hobby.jsp">취미 · 공예</a>
 	                    </li>
 	                    <li class="work">
-	                    	<a href="">커리어</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/career.jsp">커리어</a>
 	                    </li>
 	                    <li class="language">
-	                    	<a href="">외국어</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/language.jsp">외국어</a>
 	                    </li>
 	                </ul>
 	                <button type="button" class="btn_category">전체 카테고리</button>
@@ -630,7 +630,7 @@
 	            					<table>
 	            						<tbody>
 	            							<tr>
-	                                            <th><a href="" style="color: #ccc;">뷰티/헬스</a></th>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/beauty.jsp" style="color: #ccc;">뷰티/헬스</a></th>
 	                                            <td>
 											        <a href="">메이크업</a>
 											        <a href="">퍼스널컬러</a>
@@ -640,7 +640,7 @@
 												</td>
 	                                        </tr>
 	                                        <tr>
-	                                            <th><a href="" style="color: #ccc;">액티비티</a></th>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/activities.jsp" style="color: #ccc;">액티비티</a></th>
 	                                            <td>
 											        <a href="">댄스</a>
 											        <a href="">연기/무용</a>
@@ -648,7 +648,7 @@
 												</td>
 	                                        </tr>
 	                                        <tr>
-	                                            <th><a href="" style="color: #ccc;">라이프</a></th>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/life.jsp" style="color: #ccc;">라이프</a></th>
 	                                            <td>
 											        <a href="">인문/교양</a>
 											        <a href="">인테리어</a>
@@ -657,7 +657,7 @@
 												</td>
 	                                        </tr>
 	                                        <tr>
-	                                            <th><a href="" style="color: #ccc;">취미/공예</a></th>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/hobby.jsp" style="color: #ccc;">취미/공예</a></th>
 	                                            <td>
 											        <a href="">공예</a>
 											        <a href="">사진</a>
@@ -666,7 +666,7 @@
 												</td>
 	                                        </tr>
 	                                        <tr>
-	                                            <th><a href="" style="color: #ccc;">커리어</a></th>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/career.jsp" style="color: #ccc;">커리어</a></th>
 	                                            <td>
 											        <a href="">실무역량</a>
 											        <a href="">주식투자</a>
@@ -675,7 +675,7 @@
 												</td>
 	                                        </tr>
 	                                        <tr>
-	                                            <th><a href="" style="color: #ccc;">외국어</a></th>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/language.jsp" style="color: #ccc;">외국어</a></th>
 	                                            <td>
 											        <a href="">영어회화</a>
 											        <a href="">기타회화</a>
@@ -690,11 +690,11 @@
 	            </div>
 	            <div class="login_box">
 				    <p class="login_msg">로그인 하시고 탈잉의<br>다양한 튜터를 만나보세요.</p>
-				    <a class="link_login" href="">탈잉 로그인</a>
+				    <a class="link_login" href="http://localhost:9000/One_day_class/login/login_how_to.jsp">탈잉 로그인</a>
 				    <div class="box_btns">
-				        <a class="find_id" href="">아이디 찾기</a>
-				        <a class="find_pw" href="">비밀번호 찾기</a>
-				        <a class="link_join" href="">회원가입</a>
+				        <a class="find_id" href="http://localhost:9000/One_day_class/login/find_id.jsp">아이디 찾기</a>
+				        <a class="find_pw" href="http://localhost:9000/One_day_class/login/find_pw.jsp">비밀번호 찾기</a>
+				        <a class="link_join" href="http://localhost:9000/One_day_class/join/join_start.jsp">회원가입</a>
 				    </div>
 				</div>
 			</section>

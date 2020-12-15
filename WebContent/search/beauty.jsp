@@ -365,14 +365,14 @@
                 <div class="cont2_box" id="top-space">
                     <div class="cont2" >
                                                         <div class="cont2_class">
-                                    <a href="/Talent/Detail/4516" target="_blank">
-                                        <div class="img" style="background-image: url(//img.taling.me/Content/Uploads/Cover/s_55fa208a18b09b2e3c02772346f439b0d4df8409.jpeg);">
+                                    <a href="http://localhost:9000/One_day_class/class/beauty/makeUp/b_m_3.jsp" target="_blank">
+                                        <div class="img" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/makeUp/b_m_3_1.png);">
                                                                                                                                         <div class="day">1DAY수업</div>
                                                                                             <div class="d_day">8436명 찜</div>
                                                                                         <!--a class="heart2"></a-->
                                         </div>
                                         <div class="profile_box">
-                                            <div class="profile" style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_a6b6fd5efe60b50a2f5442a1933ccc9caff24d6f.png);">
+                                            <div class="profile" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/makeUp/b_m_3_pf.png);">
                                             </div>
                                             <div class="name">문예람</div>
                                             <div class="nick">마젠타</div>
@@ -390,7 +390,7 @@
                                                         ★★★★★
                                                     </div>
                                                     <div class="review" style="margin-right:15px;">
-                                                        (1007)
+                                                        (1009)
                                                     </div>
                                                 
                                                 <div class="location">
@@ -400,23 +400,23 @@
                                     </a>
                                 </div>
                                                             <div class="cont2_class">
-                                    <a href="/Talent/Detail/2753" target="_blank">
-                                        <div class="img" style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_b885d4299788b707bf8871619c18cd99e3729e2e.jpeg);">
+                                    <a href="http://localhost:9000/One_day_class/class/beauty/fashion/b_f_1.jsp" target="_blank">
+                                        <div class="img" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/fashion/b_f_1_1.png);">
                                                                                                                                         <div class="day">1DAY수업</div>
                                                                                             <div class="d_day">6713명 찜</div>
                                                                                         <!--a class="heart2"></a-->
                                         </div>
                                         <div class="profile_box">
-                                            <div class="profile" style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_cc14e131ae8e19399a2cc9e662e127fe5ad17509.png);">
+                                            <div class="profile" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/fashion/b_f_1_pf.png);">
                                             </div>
-                                            <div class="name">오로지별</div>
-                                            <div class="nick">퍼스널스페셜리스트</div>
+                                            <div class="name">오지은</div>
+                                            <div class="nick">Eunice</div>
                                         </div>
                                         <div class="title">
-                                            ★후기1위/할인이벤트★ [퍼스널컬러X메이크업 All in One] 나만의 '매력' 찾기 (강남/분당/출장)                                        </div>
+                                            [가성비갑 쇼핑메이트][1:1 원데이] 현직 패션 소재 디자이너와 함께하는 가격대비 좋은 옷 고르기!                                        </div>
                                         <div class="price">
                                                                                             <div class="price2">
-							<span>￦<span><span>24,500<span>
+							<span>￦<span><span>35,000<span>
                                                 </div>
                                                                                     </div>
                                         <div class="info">
@@ -425,24 +425,24 @@
                                                         ★★★★★
                                                     </div>
                                                     <div class="review" style="margin-right:15px;">
-                                                        (475)
+                                                        (8)
                                                     </div>
                                                 
                                                 <div class="location">
-                                                    강남                                                </div>
+                                                    강남                                               </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                                                             <div class="cont2_class">
-                                    <a href="/Talent/Detail/874" target="_blank">
-                                        <div class="img" style="background-image: url(//img.taling.me/Content/Uploads/Cover/s_13e456c4653b75fe3f066dd803a4e12f189b2462.jpeg);">
+                                    <a href="http://localhost:9000/One_day_class/class/beauty/makeUp/b_m_1.jsp" target="_blank">
+                                        <div class="img" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/makeUp/b_m_1_1.png);">
                                                                                                                                         <div class="day">1DAY수업</div>
                                                                                             <div class="d_day">5844명 찜</div>
                                                                                         <!--a class="heart2"></a-->
                                         </div>
                                         <div class="profile_box">
-                                            <div class="profile" style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_31378ee01b74a67451ec882e3d6ffecbff197e28.png);">
+                                            <div class="profile" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/makeUp/b_m_1_pf.png);">
                                             </div>
                                             <div class="name">홍아율</div>
                                             <div class="nick">조아율</div>
@@ -460,7 +460,7 @@
                                                         ★★★★★
                                                     </div>
                                                     <div class="review" style="margin-right:15px;">
-                                                        (734)
+                                                        (735)
                                                     </div>
                                                 
                                                 <div class="location">
@@ -470,23 +470,23 @@
                                     </a>
                                 </div>
                                                             <div class="cont2_class">
-                                    <a href="/Talent/Detail/15760" target="_blank">
-                                        <div class="img" style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_2fe17373a917595c7d7d84886a941ae26705fecb.jpg);">
+                                    <a href="http://localhost:9000/One_day_class/class/beauty/PT_GX/b_p_1.jsp" target="_blank">
+                                        <div class="img" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/PT_GX/b_p_1_1.png);">
                                                                                                                                         <div class="day">1DAY수업</div>
                                                                                             <div class="d_day">3280명 찜</div>
                                                                                         <!--a class="heart2"></a-->
                                         </div>
                                         <div class="profile_box">
-                                            <div class="profile" style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Profile/s_eb1cffac647f52a71a655c9ac722dbe341f9193d.jpg);">
+                                            <div class="profile" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/PT_GX/b_p_1_pf.png);">
                                             </div>
-                                            <div class="name">장혜리</div>
-                                            <div class="nick">혜리쌤</div>
+                                            <div class="name">금선정</div>
+                                            <div class="nick">snpe_goldbody</div>
                                         </div>
                                         <div class="title">
-                                            [1:1/2:1] 성형 왜 해요? 눈,코,입 메이크업으로 성형효과내기                                        </div>
+                                            [남양주/구리SNPE] 거북목, 일자허리, 사무직 필수코스! #통증완화 #체형교정 #SNPE #바른자세척추운동                                        </div>
                                         <div class="price">
                                                                                             <div class="price2">
-							<span>￦<span><span>42,500<span>
+							<span>￦<span><span>35,000<span>
                                                 </div>
                                                                                     </div>
                                         <div class="info">
@@ -495,30 +495,30 @@
                                                         ★★★★★
                                                     </div>
                                                     <div class="review" style="margin-right:15px;">
-                                                        (194)
+                                                        (6)
                                                     </div>
                                                 
                                                 <div class="location">
-                                                    마포                                                </div>
+                                                    남양주                                                </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                                                             <div class="cont2_class">
-                                    <a href="/Talent/Detail/8264" target="_blank">
-                                        <div class="img" style="background-image: url(//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_8ada29a65bd561a5aea1133370bc01f64a2151dd.jpeg);">
+                                    <a href="http://localhost:9000/One_day_class/class/beauty/psColor/b_c_1.jsp" target="_blank">
+                                        <div class="img" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/psColor/b_c_1_1.png);">
                                                                                                                                         <div class="day">1DAY수업</div>
-                                                                                            <div class="d_day">2339명 찜</div>
+                                                                                            <div class="d_day">6713명 찜</div>
                                                                                         <!--a class="heart2"></a-->
                                         </div>
                                         <div class="profile_box">
-                                            <div class="profile" style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_51ad61b9305259ed1ac890140a7a883cd64dc79b.png);">
+                                            <div class="profile" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/psColor/b_c_1_pf.png);">
                                             </div>
-                                            <div class="name">이미지 케렌시아</div>
+                                            <div class="name">케렌시아</div>
                                             <div class="nick">이미지 케렌시아</div>
                                         </div>
                                         <div class="title">
-                                            ⭐️ 11월 할인 이벤트!  나만의 매력에 가치를 더 하는 퍼스널컬러 컨설팅⭐️                                        </div>
+                                            ⭐️ 12월 할인 이벤트! 나만의 매력에 가치를 더 하는 퍼스널컬러 컨설팅⭐️                                        </div>
                                         <div class="price">
                                                                                             <div class="price2">
 							<span>￦<span><span>27,000<span>
@@ -530,33 +530,33 @@
                                                         ★★★★★
                                                     </div>
                                                     <div class="review" style="margin-right:15px;">
-                                                        (125)
+                                                        (126)
                                                     </div>
                                                 
                                                 <div class="location">
-                                                    용산,용산                                                </div>
+                                                    용산                                               </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                                                             <div class="cont2_class">
-                                    <a href="/Talent/Detail/8204" target="_blank">
-                                        <div class="img" style="background-image: url(//img.taling.me/Content/Uploads/Cover/s_732617b719e4a9f7207fdc055df40c2378e9b82c.jpg);">
+                                    <a href="http://localhost:9000/One_day_class/class/beauty/selfCare/b_s_1.jsp" target="_blank">
+                                        <div class="img" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/selfCare/b_s_1_1.png);">
                                                                                                                                         <div class="day">1DAY수업</div>
                                                                                             <div class="d_day">2331명 찜</div>
                                                                                         <!--a class="heart2"></a-->
                                         </div>
                                         <div class="profile_box">
-                                            <div class="profile" style="background-image: url(//img.taling.me/Content/Uploads/Profile/s_90285c292f07a0e0376ace313f86ac23103822d0.jpg);">
+                                            <div class="profile" style="background-image: url(http://localhost:9000/One_day_class/images/beauty/selfCare/b_s_1_pf.png);">
                                             </div>
-                                            <div class="name">정지민</div>
-                                            <div class="nick">MINARI</div>
+                                            <div class="name">스윗비</div>
+                                            <div class="nick">스윗비</div>
                                         </div>
                                         <div class="title">
-                                            [찰떡템+조색, 화장품 쇼핑까지!] 12가지 타입의 퍼스널컬러! 나만의 컬러 찾기로 이미지메이킹 하세요~♪                                        </div>
+                                            [1:1봉고데기/여신웨이브] 샵 한번 갈 돈으로 평생 써먹자!!                                        </div>
                                         <div class="price">
                                                                                             <div class="price2">
-							<span>￦<span><span>22,500<span>
+							<span>￦<span><span>35,000<span>
                                                 </div>
                                                                                     </div>
                                         <div class="info">
@@ -565,11 +565,11 @@
                                                         ★★★★★
                                                     </div>
                                                     <div class="review" style="margin-right:15px;">
-                                                        (138)
+                                                        (51)
                                                     </div>
                                                 
                                                 <div class="location">
-                                                    신촌홍대,신촌홍대                                                </div>
+                                                    사당, 강남                                                </div>
                                             </div>
                                         </div>
                                     </a>
