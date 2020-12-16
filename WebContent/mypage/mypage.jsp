@@ -102,19 +102,9 @@
 					<div class="p_contents">장승혁</div>
 				</div>
 				<div class="p_info">
-					<div class="p_label">별명</div>
-					<div class="p_contents">
-						<input type="text" placeholder="" id="nickname" class="nickname" name="nickname" value="">
-						<p class="example">ex) 열정만수르, 요조숙녀, 열혈남 (8자 이내)</p>
-					</div>
-					<div class="count_char">
-						<font id="nickname_count">0</font>/8
-					</div>
-				</div>
-				<div class="p_info">
 					<div class="p_label">내소개</div>
 					<div class="p_contents">
-						<textarea class="introduction" id="introduction" placeholder="" name="introduction" value=""></textarea>
+						<textarea class="introduction" id="introduction" placeholder="" name="introduction"></textarea>
 						<div class="count_char">
 							<font id="introduction_count">0</font>/300
 						</div>
