@@ -350,11 +350,14 @@
 	
 	/* aside */
 	.content {
-		width:1040px;
-		margin: 0 auto;
+		width: 1100px;
+	    margin: 0 auto;
+	    padding: 50px 0 110px 20px;
+	    
 	}
-	.content .admin_main {
+	.admin_main {
 		float:left;
+		margin: 0 auto;
 		width:220px; height:970px;
 		background-color:#eee;
 		padding:20px 0 0 15px;
@@ -479,7 +482,7 @@
 			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
 				$("#cont-8").css("display","block").height("450px");
 				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-				$("#cont8-wrap").load("notice_content.jsp .section2-cont");
+				$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
 				
 			} else {
 				$("#cont-8").css("display","none").height("0px");
@@ -531,10 +534,8 @@
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
 
-	<!-- content -->
-	<div style="margin:0 auto;">
-	<div style="width:100%; height:50px;"></div>
-	<div class="content">
+<!-- content -->
+<div class="content">
 		<aside class="admin_main">
 			<nav>
 				<div>
@@ -548,9 +549,6 @@
 				</ul>
 			</nav>
 		</aside>
-
-	
-	</div>
 	<div class="board_wrap" id="newsroom-main">
 		<span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
 		<div class="main-section1">
@@ -637,6 +635,7 @@
 					<li class="cont-3">
 						<label class="cont3-label"></label>
 					</li>
+
 					<li class="cont-4">
 						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
 					</li>
@@ -996,7 +995,6 @@
 					<a href="#"><button type="button" class="btn_style">삭제</button></a>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 </div>
