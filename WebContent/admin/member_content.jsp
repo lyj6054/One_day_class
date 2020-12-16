@@ -82,7 +82,7 @@
 	.ad_title{
 		width: 1040px;
 		height: 35px;
-		font-size: 20px;
+		font-size: 16px;
 		font-weight: bold; 
 		text-align: center;
 		color: #333;
@@ -123,7 +123,6 @@
 		margin-right: 5px;
 		cursor: pointer;
 		font-weight:bold;
-		border:none;
 	}
 	table.admin_member_content tr:last-child td {
 		text-align: right;
