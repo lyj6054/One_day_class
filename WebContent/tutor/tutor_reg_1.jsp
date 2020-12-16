@@ -36,7 +36,7 @@
 					</div>
 				</div>
 				<div class="title_box">
-					<h3>튜터등록</h3>
+					<h3>수업등록</h3>
 					<div class="steps">
 						<li class="on"><b>01</b>기본정보</li> <img
 							src="https://front-img.taling.me/Content/Images/tutor/Images/icon_next.png">
@@ -49,18 +49,6 @@
 				</div>
 				<div class="info1">
 					<span class="pink">*</span>필수
-				</div>
-				<div class="box">
-					<div class="title">
-						튜터번호인증<b class="pink">*</b>
-					</div>
-					<div class="cont">
-						<input type="text" id="phone" name="phone" class="basic phone"
-							placeholder="개인연락처를 - 없이 입력해주세요." value=""> <span
-							class="verifys" id="veriPhone">인증하기</span> <span
-							class="verified left10" id="verifiedPhone">인증완료</span> <input
-							type="hidden" name="isAuth" id="isAuth" value="0">
-					</div>
 				</div>
 				<script>
 					$('#phoneCls').click(function() {
@@ -194,16 +182,6 @@
 									src="https://front-img.taling.me/Content/Images/tutor/Images/img_example_01.png">
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="box">
-					<div class="title">
-						별명<b class="pink">*</b>
-					</div>
-					<div class="cont">
-						<input type="text" class="basic nick" id="Description"
-							name="Description"
-							placeholder="튜터님의 정체성을 가장 잘 드러낼 수 있는 별명을 입력해주세요." value="">
 					</div>
 				</div>
 				<div class="box">

@@ -40,6 +40,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+	<div class="section2-cont">
 	<div class="content">
 		<!-- <aside class="admin_main">
 			<nav>
@@ -287,5 +288,6 @@ $(document).ready(function(){
       }
     });
   </script>
+  </div>
 </body>
 </html>
