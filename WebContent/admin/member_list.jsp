@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
+    
+<%
+	ClassDAO dao = new ClassDAO();
+	//ArrayList<ClassVO> list = dao.getMemberList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +34,8 @@
 	/* aside */
    .admin_main {
       float:left;
-      width:220px; height:460px;
+      width:220px; 
+      height:762px;
       background-color:#eee;
       padding:20px 0 0 15px;
    }
@@ -79,14 +85,68 @@
       text-align:center;
       font-weight:bold;
    }
-	.ad_title{
-		width: 1040px;
-		height: 35px;
-		font-size: 20px;
-		font-weight: bold; 
-		text-align: center;
-		color: #333;
-		border: 1px solid lightgray;
+   .admin_section1{
+		display: inline-block;
+		overflow: hidden;
+		width: 820px;
+		padding: 10px 18px 80px 17px;
+		border: 1px #e3e3e3 solid;
+		margin-bottom: 40px;
+   }
+   .main-logo {
+	    display: inline-block;
+	    margin: 20px 0 30px 117px;
+	    font-size: 50px;
+	}
+	.main-logo span {
+	    font-weight: bold;
+	}
+	.main-section1 {
+	    margin: 0 auto;
+	    width: 780px;
+	    height: 50px;
+	}
+	.main-section1 .section1-category {
+	    height: 41px;
+	    border-bottom: 1px #ff0045 solid;
+	    padding-left:24px;
+	    margin-left:0;
+	}
+	.main-section1 .section1-category li {
+	    position: relative;
+	    float: left;
+	    width: 720px;
+	    height: 40px;
+	    border-top: 1px #dadada solid;
+	    border-left: 1px #dadada solid;
+	    border-right: 1px #dadada solid;
+	    text-align: left;
+	    z-index: 5;
+	}
+	.main-section1 .section1-category .selected {
+	    margin-left: -1px;
+	    border-left: 1px #ff0045 solid;
+	    border-top: 1px #ff0045 solid;
+	    border-right: 1px #ff0045 solid;
+	    border-bottom:none;
+	    z-index: 10;
+	}
+	.main-section1 .section1-category li {
+	    position: absolute;
+	    display: block;
+	    width: 720px;
+	    height: 30px;
+	    padding-top:12px;
+	    letter-spacing: -1px;
+	    font-weight: bold;
+	    text-align: center;
+	    font-size:15px;
+	    
+	}
+	.main-section1 .section1-category .first {
+	    height: 40px;
+	    color: #333;
+	    background-color: #fff;
 	}
 	.admin_content .ad_member_list {
 	    display: inline-block;
@@ -95,8 +155,8 @@
 	}
 	.ad_member_list .member_list_title {
 	    display: inline-block;
-	    width: 820px;
-	    height: 28px;
+	    width: 800px;
+	    height: 35px;
 	    border-top: 1px #cbcbcb solid;
 	    border-bottom: 1px #ebebeb solid;
 	}
@@ -106,8 +166,7 @@
 	    padding-top: 5px;
 	    text-align: center;
 	    color: #999;
-	    font-size: 14px;
-	    font-weight: bold;
+	    font-size: 11px;
 	}
 	.ad_member_list .member_list_title li.title-1 {
 	    width: 50px;
@@ -149,7 +208,7 @@
 	    float: left;
 	    text-align: center;
 	    color: #999;
-	    font-size: 13px;
+	    font-size: 11px;
 	}
 	.ad_member_list a {
 		display: block;
@@ -183,79 +242,78 @@
 	.ad_member_list .member_list_cont li.cont-9 {
 	    width: 90px;
 	}
-	.ad_paging {
-	    position: relative;
-	    display: inline-block;
-	    width: 1040px;
-	}
-	.ad_paging .section-paging {
-	    width: 1040px;
+	
+	.section-paging {
+	    width: 800px;
 	    height: 39px;
-	    margin-top: 14px;
-	    padding-bottom: 2px;
+	    margin-top: 30px;
 	}
 	.paging-page {
 	    position: relative;
-	    width: 100%;
+	    width: 50%;
 	    height: 22px;
-	    margin-left: 500px;
+	    text-align: center;
 	    z-index: 2;
+	    margin-left: 210px;
 	}
 	.paging-page a {
 	    display: inline-block;
 	    height: 17px;
-	    color: #ababab;
-	    padding: 0px 7px;
+	    color: #666;
+	    padding: 5px 7px 0 7px;
 	    margin-left: 1px;
-	    font-size: 13px;
+	    font-size: 12px;
 	    font-weight: bold;
 	    text-align: center;
 	    overflow: hidden;
+	}
+	.paging-page a {
+	    height: 16px;
+	    padding-top: 3px;
+	    color: #ababab;
+	    font-size: 11px;
 	    text-decoration: none;
 	}
-	.paging-page #arrow {
+	.paging-page .prev-off {
 	    width: 20px;
 	    height: 20px !important;
-	    margin-top: 1px;
+	    margin-top: 4px;
 	    padding: 0 !important;
 	    vertical-align: top;
-	    background-image: url(http://localhost:9000/One_day_class/images/ad_paging.gif);
+	    background-image: url(http://localhost:9000/One_day_class/images/arrow_left.png);
 	    background-repeat: no-repeat;
+	    background-size: 15px 15px;
 	}
-	.paging-page #arrow.pprev.off, .paging-page #arrow.pprev-off {
-	    background-position: 0 0;
-	    cursor: default;
+	.paging-page a.selected {
+	    height: 16px;
+	    padding: 4px 7px 0 7px;
+	    margin-left: 1px;
+	    color: #fff;
+	    background-color: #767676;
 	}
-	.paging-page #arrow.pprev-off {
-	    cursor: default;
-	}
-	.paging-page #arrow.prev.off, .paging-page #arrow.prev-off {
-	    background-position: 0 -20px;
-	    cursor: default;
-	}
-	.paging-page #arrow.prev-off {
-	    cursor: default;
-	}
-	.paging-page a.selected, .paging-page a.selected:hover {
+	.paging-page a.selected, .paging-page a:hover {
 	    color: #333;
+	    padding-top: 3px;
 	    border: 0;
 	    background-color: #fff;
 	}
-	.paging-page #arrow.next, .paging-page #arrow.next:hover {
+	.paging-page .next {
+	    background-image: url(http://localhost:9000/One_day_class/images/arrow_right.png);
+	    width: 20px;
+	    height: 20px !important;
+	    margin-top: 4px;
 	    margin-left: 4px;
-	    background-position: -20px -60px;
-	}
-	.paging-page #arrow.nnext, .paging-page #arrow.nnext:hover {
-	    margin-left: 1px;
-	    background-position: -20px -40px;
+	    padding: 0 !important;
+	    vertical-align: top;
+	    background-repeat: no-repeat;
+	    background-size: 15px 15px;
 	}
 	
 	.ad_search {
 	    position: relative;
 	    display: inline-block;
 	    float: left;
-	    width: 1040px;
-	    margin-left: 480px;
+	    margin-left: 270px;
 	}
 	.ad_search .ad_search_left {
 	   	display: inline-block;
@@ -348,7 +406,6 @@
 	    margin-left: 4px;
 	    cursor: pointer;
 		font-weight:bold;
-		border:none;
 	}
 </style>
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
@@ -398,7 +455,12 @@
 		   </nav>
 		</aside>
 		<section class="admin_section1">
-			<div class="ad_title">회원관리</div>
+			<span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
+			<div class="main-section1">
+				<ul class="section1-category">
+					<li class="first selected">회원관리</li>
+				</ul>
+			</div>
 			<div class="ad_member_list">
 				<ul class="member_list_title">
 					<li class="title-1">번호</li>
@@ -544,17 +606,20 @@
 					</a>
 				</div>
 			</div>
-			<div class="ad_paging">
-				<div class="section-paging">
-					<div class="paging-page">
-						<a id="arrow" class="prev-off"></a>	
-						<a class="selected" href="">1</a>
-						<a href="">2</a>
-						<a href="">3</a>
-						<a href="">4</a>
-						<a href="">5</a>
-						<a id="arrow" class="next" href=""></a>
-					</div>
+			<div class="section-paging">
+				<div class="paging-page">
+					<a id="prev-off" class="prev-off" href="#"></a>
+					<a class="selected" href="#">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">5</a>
+					<a href="#">6</a>
+					<a href="#">7</a>
+					<a href="#">8</a>
+					<a href="#">9</a>
+					<a href="#">10</a>
+					<a id="next" class="next" href="#"></a>
 				</div>
 			</div>
 			<div class="ad_search">
