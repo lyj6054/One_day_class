@@ -4,6 +4,8 @@
 <%
 	 ClassDAO dao = new ClassDAO();
 	ArrayList<ClassVO> list = dao.getCList();
+	System.out.println(list.size());
+	int i=0;
 	//조회수
 	//dao.getUpdateHits(cno);
 %>
@@ -25,7 +27,7 @@
 		padding: 10px 18px 80px 17px;
 		border:1px #e3e3e3 solid;
 		margin-bottom:40px;
-		position:absolute;
+		/* position:absolute; */
 	}
 	div {
 		border: 0;
@@ -138,6 +140,7 @@
 		padding-left:0;
 	}
 	.main-section2 .section2-title .title-2 {
+		margin-left:50px;
 		width: 440px;
 	}
 	.main-section2 .section2-title .title-3 {
@@ -145,9 +148,6 @@
 	}
 	.main-section2 .section2-title .title-4 {
 		width: 90px;
-	}
-	.main-section2 .section2-title .title-5 {
-		width: 50px;
 	}
 	.main-section2 .section2-cont {
 		display: inline-block;
@@ -219,7 +219,7 @@
 	    background-size: 28px 18px;
 	}
 	.main-section2 .section2-cont li.cont-4 {
-		width: 365px;
+		width: 413px;
 	    padding: 2px 50px 0 30px;
 	    text-align: left;
 	}
@@ -229,10 +229,6 @@
 	}
 	.main-section2 .section2-cont li.cont-6 {
 		width: 99px;
-    	padding-top: 2px;
-	}
-	.main-section2 .section2-cont li.cont-7 {
-		width: 48px;
     	padding-top: 2px;
 	}
 	
@@ -251,7 +247,7 @@
 		display:none;
 	    width: 831px;
 	    height: 430px;
-	    overflow-y: auto !important;
+	    overflow-y: hidden !important;
 	}
 	.main-section2 .section2-cont li.cont-8 .cont8-wrap {
 	    margin: 20px 0;
@@ -484,30 +480,18 @@
 	</style>
 <script>
 	$(document).ready(function(){
-		/* //open/close 변경
-		$("#open").click(function(){
-			var status = $(this).attr("src");
-			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
-				$("#cont-8").css("display","block").height("450px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-				$("#cont8-wrap").load("admin8_1.jsp .section2-cont");
-				
-			} else {
-				$("#cont-8").css("display","none").height("0px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
-			}
-		}); */
 		//open/close 변경
 		$("img[name=open]").click(function(){
+			var i=$(this).attr("id");
 			var status = $(this).attr("src");
 			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
-				$("#cont-8").css("display","block").height("450px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-				$("#cont8-wrap").load("admin8_1.jsp .section2-cont");
-				
+				var url="http://localhost:9000/One_day_class/admin/admin8_1.jsp?cno="+$(this).attr("alt");
+				$("#cont-8-"+i).css("display","block").height("450px");
+				$("#"+i).attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
+				$("#cont8-wrap-"+i).load(url+" .section2-cont");
 			} else {
-				$("#cont-8").css("display","none").height("0px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
+				$("#cont-8-"+i).css("display","none").height("0px");
+				$("#"+i).attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
 			}
 		});
 	});
@@ -592,36 +576,39 @@
 				<li class="title-2">제목</li>
 				<li class="title-3">담당</li>
 				<li class="title-4">작성일</li>
-				<li class="title-5">조회수</li>
 			</ul>
 			<div id="nesListNew">
-				<% for(ClassVO vo:list){ %>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check1">
-						<label for="check1" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1"><%=vo.getCno() %></li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open" name="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="http://localhost:9000/One_day_class/admin/admin8.jsp?cno=<%=vo.getCno() %>"><%=vo.getCtitle() %></a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6"><%=vo.getCdate() %></li>
-					<li class="cont-7">100</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<%} %>
+			<form name="ClassMForm" action="admin7Proc.jsp" method="get" class="join">
+				<% for(ClassVO vo:list){ i++;%>
+					<ul class="section2-cont">
+						<li class="cont-0">
+							<input class="blind inp_label" type="checkbox" name="checkTerms"
+							 id="check<%=i%>"value="<%=vo.getCno()%>">
+							<label for="check<%=i%>" class="inp_chkbox"></label>
+						</li>
+						<li class="cont-1"><%=vo.getCno() %></li>
+						<li class="cont-2">
+							<a id="test1" class="cont2-btn">
+								<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="<%=i%>" name="open" >
+								<label></label>
+							</a>
+						</li>
+						<li class="cont-3">
+							<label class="cont3-label"></label>
+						</li>
+						<li class="cont-4">
+							<a href="http://localhost:9000/One_day_class/admin/admin8.jsp?cid=<%=vo.getCid()%>"><%=vo.getTitle()%></a>
+						</li>
+						<li class="cont-5">탈멍</li>
+						<li class="cont-6"><%=vo.getCdate()%></li>
+						<li class="cont-8" id="cont-8-<%=i%>" >
+							<%-- <div class="cont8-wrap" id="cont8-wrap-<%=i%>" ></div> --%>
+							<iframe width="800px"  height="800px"  src="admin8_1.jsp?cid=<%=vo.getCid()%>">
+							</iframe>
+						</li>
+					</ul>
+					<%} %>
+				</form>
 	
 				
 			</div>

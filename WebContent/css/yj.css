@@ -1556,11 +1556,10 @@ a:visited {
 a:link {
     color: #000;
     text-decoration: none;
+    z-index:200;
 }
 .main3_cont .cate_list ul li:last-child {
     width: 4%;
-    border-left: 1px solid #c9c9c9;
-    border-right: 1px solid #c9c9c9;
 }
 .main3_cont .cate_list ul li:last-child img:first-child {
     display: block;
@@ -1579,17 +1578,14 @@ a:link {
     box-sizing: border-box;
     overflow: hidden;
     /* border-top: none; */
-    z-index: 1000;
     margin-top: -1px;
+    margin-bottom: 20px;
 }
 .main3_cont .catesub_list {
     position: static;
     height: 217px;
     z-index: 10;
 }
- .main3_cont .catesub_list.cates {
-    position: absolute;
-} 
 .main3_cont .catesub_list .main {
     width: 1180px;
     margin: 0 auto;
@@ -1881,4 +1877,25 @@ a:link {
 .tutor_cont .verify img {
     vertical-align: middle;
     margin-bottom: 3px;
+}
+.regionSub{
+	padding: 12px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* 12-16 */
+.cover_img {
+    width: 120px;
+    margin-right: 23.5px;
+    float: left;
+    height: 79.7px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
 }
