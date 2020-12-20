@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>join</title>
+<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <style>
 * {
 	box-sizing : border-box;
@@ -341,7 +342,7 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 	<!-- content -->
 	<section class="login_how_to container" id="accountJoin">
-		<form name="joinForm" action="#" method="post" id="frm-join">
+		<form name="joinForm" action="joinProc.jsp" method="post" id="frm-join">
 			<div class="box_login box_join">
 				<h2 class="tit">
 					간편하게 가입하고 탈잉의<br> 다양한 튜터를 만나보세요
@@ -367,7 +368,7 @@
 					</div> <!-- class="line_inp line_pw" -->
 					<div class="line_inp line_pw">
 						<img src="http://localhost:9000/One_day_class/images/password.png" style="width:22px; height:22px;">
-						<input type="password" name="password" id="userPassword_check" placeholder="비밀번호를 재입력해주세요" onblur="passCheck()">
+						<input type="password" name="password2" id="userPassword_check" placeholder="비밀번호를 재입력해주세요" >
 						<button type="button" class="type_pwd hide"></button>
 						<p class="info_error" id="confirmError1">입력하신 비밀번호가 서로 다릅니다</p>
 						<p class="info_error" id="confirmError2">비밀번호가 일치합니다.</p>
@@ -375,9 +376,9 @@
 					<div class="select">
 						<label class="label_list">선 &nbsp;&nbsp;&nbsp;택</label>
 						<div>
-							<input type="radio" name="rdo_select" id="userSelect" class="inp_label blind">
+							<input type="radio" name="identity" id="userSelect" class="inp_label blind" value="튜터">
 							<label class="rchk inp_radio" for="userSelect">튜&nbsp;&nbsp;터</label>
-							<input type="radio" name="rdo_select" id="userSelect2" class="inp_label blind">
+							<input type="radio" name="identity" id="userSelect2" class="inp_label blind" value="튜티">
 							<label class="rchk inp_radio" for="userSelect2">튜&nbsp;&nbsp;티</label>
 						</div>
 						<p class="info_error" id="selectError1">튜터/튜티를 선택해주세요</p>
@@ -385,9 +386,9 @@
 					<div class="sex">
 						<label class="label_list">성 &nbsp;&nbsp;&nbsp;별</label>
 						<div>
-							<input type="radio" name="rdo_gender" id="userSex1" class="inp_label blind">
+							<input type="radio" name="gender" id="userSex1" class="inp_label blind" value="남자">
 							<label class="rchk inp_radio" for="userSex1">남&nbsp;&nbsp;자</label>
-							<input type="radio" name="rdo_gender" id="userSex2" class="inp_label blind">
+							<input type="radio" name="gender" id="userSex2" class="inp_label blind" value="여자">
 							<label class="rchk inp_radio" for="userSex2">여&nbsp;&nbsp;자</label>
 						</div>
 						<p class="info_error" id="sexError1">성별을 선택해주세요</p>
@@ -395,17 +396,17 @@
 					<div class="age">
 						<label class="label_list">나 &nbsp;&nbsp;&nbsp;이</label>
 						<div>
-							<input type="radio" name="age" id="userAge1" class="inp_label blind">
+							<input type="radio" name="age" id="userAge1" class="inp_label blind" value="10대">
 							<label class="rchk inp_radio_age" for="userAge1">10대</label>
-							<input type="radio" name="age" id="userAge2" class="inp_label blind">
+							<input type="radio" name="age" id="userAge2" class="inp_label blind" value="20대">
 							<label class="rchk inp_radio_age" for="userAge2">20대</label>
-							<input type="radio" name="age" id="userAge3" class="inp_label blind">
+							<input type="radio" name="age" id="userAge3" class="inp_label blind" value="30대">
 							<label class="rchk inp_radio_age" for="userAge3">30대</label>
-							<input type="radio" name="age" id="userAge4" class="inp_label blind">
+							<input type="radio" name="age" id="userAge4" class="inp_label blind" value="40대">
 							<label class="rchk inp_radio_age" for="userAge4">40대</label>
-							<input type="radio" name="age" id="userAge5" class="inp_label blind">
+							<input type="radio" name="age" id="userAge5" class="inp_label blind" value="50대">
 							<label class="rchk inp_radio_age" for="userAge5">50대</label>
-							<input type="radio" name="age" id="userAge6" class="inp_label blind">
+							<input type="radio" name="age" id="userAge6" class="inp_label blind" value="60대이상">
 							<label class="rchk inp_radio_age" for="userAge6">60대이상</label>
 						</div>
 						<p class="info_error" id="ageError1">나이대을 선택해주세요</p>
@@ -414,7 +415,7 @@
 						<label class="label_list">전화&nbsp;번호</label>
 						<div>
 							<div class="phone_wrap">
-								<select name="ph1" class="ph1_select" id="hp1">
+								<select class="ph1_select" name="hp1" id="hp1">
 									<option value="선 택" >선 택</option>
 									<option value="010" >010</option>
 									<option value="011" >011</option>
@@ -519,14 +520,15 @@
 						 			document.getElementById("confirmError1").classList.add('error');
 						 			userPassword_check.focus();
 									return false;
-								} else if(userPassword.value == userPassword_check.value){
-									if(CheckCount("rdo_select") == 0) {
+								} 
+								//else if(userPassword.value == userPassword_check.value){
+								else if(CheckCount("identity") == 0) {
 										document.getElementById("selectError1").classList.add('error');
 										document.getElementById("userSelect").focus();
 										return false;
 									} else {
 										document.getElementById("selectError1").classList.remove('error');
-										if(CheckCount("rdo_gender") == 0) {
+										if(CheckCount("gender") == 0) {
 											document.getElementById("sexError1").classList.add('error');
 											document.getElementById("userSex1").focus();
 											return false;
@@ -561,16 +563,24 @@
 													        return false;
 														} else {
 															document.getElementById("classError1").classList.remove('error');
-															joinForm.submit();
+															//location.href="http://localhost:9000/One_day_class/join/join_start.jsp";
+															if($("[name=identity]:checked").val() == "튜터") {
+																$("#frm-join").attr("action", "joinProc.jsp");
+																joinForm.submit();
+															} else {
+																$("#frm-join").attr("action", "joinProc_tutee.jsp");
+																joinForm.submit();
+															}
 															
-															return true;
+															
+															
 														}
 													}
 												}
 											}
 										}
 									}
-								}
+							//	}
 									
 									
 								}
@@ -579,7 +589,20 @@
 			} // userName else if
 		
 		
-		
+			$("[name=identity]").click(function(){
+				alert($("[name=identity]:checked").val());
+			});
+			
+			//비밀번호 숨기기
+			$('.type_pwd').on('click',function() {
+				var $this = $(this);
+				$this.toggleClass('hide');
+				if($this.hasClass('hide')){
+					$this.prev('input').prop('type','password');
+				}else{
+					$this.prev('input').prop('type','text');
+				}
+			});
 		
 		/** 비빌번호 */
 		
@@ -597,7 +620,6 @@
 		 			document.getElementById("passError2").classList.remove('error');
 		 			document.getElementById("passError1").classList.remove('error');
 		 			document.getElementById("userPassword_check").focus();
-					return true;
 				} else {
 					document.getElementById("userPassword").classList.add('error');
 		 			document.getElementById("passError2").classList.remove('error');
@@ -608,9 +630,28 @@
 			}
 			return true;
 		}
-		
 		/** 비밀번호 체크 */
-		function passCheck() {
+		$(document).ready(function() {
+			
+			$("#userPassword_check").focusout(function(){
+				if($("#userPassword").val() != "" && $("#userPassword_check").val() != "") {
+					if($("#userPassword").val() == $("#userPassword_check").val()) {
+						$("#userPassword_check").removeClass('error');
+			 			$("#confirmError2").addClass('error_check');
+			 			$("#confirmError1").removeClass('error');
+			 			$("#userSelect").focus();
+					}
+					/* else {
+						$("userPassword_check").addClass('error');
+			 			$("#confirmError1").addClass('error');
+			 			$("#userPassword_check").focus();
+			 			return false;
+					} */
+				}
+			});
+		});
+		
+		/* function passCheck() {
 			var userPassword = document.getElementById("userPassword"); 
 			var userPassword_check = document.getElementById("userPassword_check"); 
 			
@@ -626,7 +667,7 @@
 		 			return false;
 				}
 			}
-		}
+		} */
 		
 		/** 성별 count 출력 */
 		function CheckCount(name) {

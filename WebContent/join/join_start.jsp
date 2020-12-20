@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+     import="com.one_day_class.vo.*, com.one_day_class.dao.*"
+    %>
+<%
+	TutorVO vo = (TutorVO)session.getAttribute("tvo");
+	TuteeVO vo_t = (TuteeVO)session.getAttribute("tvo_t");
+%> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>join_start</title>
+<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <style>
 	* {
 	box-sizing : border-box;
@@ -223,7 +230,7 @@
 	
 	<!-- content -->
 	<section class="login_how_to container" id="accountAgree">
-		<form action="#" method="post" id="frm-agree">
+		<form name="joinStartForm" action="joinProcResult.jsp" method="post" id="frm-agree">
 			<div class="box_login box_terms">
 				<h2 class="tit">
 					<b>환영합니다!</b>
@@ -232,13 +239,13 @@
 				<ul class="terms_lst">
 					<li class="terms_chk_all">
 						<div class="label_wrap" id="terms_all_wrap" >
-							<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll" onchange="allCheck()" >
+							<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll" > <!-- onchange="allCheck()"  -->
 							<label for="checkAll" class="inp_chkbox">전체동의</label>
 						</div> <!-- class="label_wrap" -->
 					</li> <!-- class="terms_chk_all" -->
 					<li>
 						<div class="label_wrap" >
-							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsService" value="termsService" onchange="partCheck()">
+							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsService" value="termsService" > <!-- onchange="partCheck()" -->
 							<label for="termsService" class="inp_chkbox">서비스 이용약관 (필수)</label>
 							<a href="#" class="link_more" target="_blank">보기</a>
 						</div>
@@ -248,7 +255,7 @@
 					</li>
 					<li>
 						<div class="label_wrap" >
-							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsPrivacy" value="termsPrivacy"  onchange="partCheck()">
+							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsPrivacy" value="termsPrivacy"  > <!-- onchange="partCheck()" -->
 							<label for="termsPrivacy" class="inp_chkbox">개인정보처리방침 (필수)</label>
 							<a href="#" class="link_more" target="_blank">보기</a>
 						</div>
@@ -259,7 +266,7 @@
 					</li>
 				</ul>
 				<div class="box_btn">
-					<button class="btn_submit" type="submit">시작 하기</button>
+					<button class="btn_submit" type="submit" >시작 하기</button>
 				</div>
 			</div>
 		</form>
@@ -269,7 +276,8 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 	
 	<script>
-		function allCheck() { 
+	
+/* 		function allCheck() { 
 			var all = document.getElementById("checkAll");
 			var service = document.getElementById("termsService");
 			var privacy = document.getElementById("termsPrivacy");
@@ -286,30 +294,57 @@
 				}
 			}
 			
-		}
+		} */
 		
-		function partCheck() {
 
-			var cnt = 0;
-			var all = document.getElementById("checkAll");
-			var chk_list = document.getElementsByName("checkTerms");
+		//체크박스        
+		function allCheckFunc(obj) {
+			$("[name=checkTerms]").prop("checked", $(obj).prop("checked"));
+			//alert($("[name=checkAll]:checked").val());
+			
+		}
+		/* 체크박스 체크시 전체선택 체크 여부 */
+		function oneCheckFunc(obj) {
+			var allObj = $("[name=checkAll]");
+			var objName = $(obj).attr("name");
 
-			if(chk_list.checked)
-		        {
-				all.checked = true;
-		        } else {
-		                for(var i=0; i < chk_list.length; i++)  {
-		                      if(chk_list[i].checked == true)
-		                           cnt ++;
-		                }
-		                 if(cnt == 0)  all.checked = false;
+			if($(obj).prop("checked")){
+				checkBoxLength = $("[name="+ objName +"]").length;
+				checkedLength = $("[name="+ objName +"]:checked").length;                
+
+				if(checkBoxLength == checkedLength){
+					allObj.prop("checked", true);    
+				}else{
+					allObj.prop("checked", false);
+				}
+			}else{
+				allObj.prop("checked", false); 
 			}
-
 		}
 
+		$(function(){
+			$("[name=checkAll]").click(function(){
+				allCheckFunc(this);
+					});
+			});
+			$("[name=checkTerms").each(function(){
+				$(this).click(function(){
+					oneCheckFunc($(this));
+				});                
+			});
+	
+		//모든 약관에 동의 후 submit()
+		$(".btn_submit").click(function(){
+			if($("[name=checkAll]:checked").val() == "on") {
+					joinStartForm.submit();
+				//	alert("click");
+					return true;
+			} else {
+				alert("약관에 모두 동의해주세요");
+				return false;
+			}
+		});        
 
-
-		
 		
 	</script>
 </body>

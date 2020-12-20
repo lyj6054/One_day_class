@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>eamil_login</title>
+<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <style>
 	* {
 	box-sizing : border-box;
@@ -226,7 +227,7 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 	<!-- content -->
 	<section class="login_how_to container">
-		<form name="loginForm" action="#" method="post" id="frm-login">
+		<form name="loginForm" action="loginProc.jsp" method="post" id="frm-login">
 			<div class="box_login login_email">
 				<h2 class="tit">
 				간편하게 로그인하고 탈잉의
@@ -248,7 +249,7 @@
 				</div> <!-- class="box_inp" -->
 				<div class="box_btn">
 					<button class="btn_submit" type="button" onclick="login()">로그인 하기</button>
-					<a class="btn" href="find_pw.jsp">비밀번호 찾기</a>
+					<a class="btn" href="find_pw.jsp">로그인</a>
 					<a class="btn" href="../join/join.jsp">회원가입</a>
 				</div> <!-- class="box_btn" -->
 			</div> <!-- class="box_login login_email" -->
@@ -284,7 +285,7 @@
 			 			document.getElementById("password").classList.remove('error');
 				 		document.getElementById("passError1").classList.remove('error');
 				 		password.focus(); 
-						 		 if (email.value != "test" || password.value != "123") {
+						 		 if (email.value != "" || password.value != "") {
 						 			document.getElementById("password").classList.add('error');
 							 		document.getElementById("passError2").classList.add('error');
 							 		 email.value ="";
