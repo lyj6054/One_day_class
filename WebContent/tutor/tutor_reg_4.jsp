@@ -23,26 +23,19 @@
 <input type="hidden" id="CateMain" name="CateMain" value="2">
 <div class="tutor_cont">
 	<div class="title_box">
-		<h3>튜터등록</h3>
+		<h3>수업등록</h3>
 				<div class="steps">
-			<a href="/tutor/regiInfo/31465"><li><b>01</b>기본정보</li></a>
+			<a href="/tutor/regiInfo/31465"><li><b>01</b>제목/이미지</li></a>
 			<img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_next.png">
-			<a href="/tutor/regiTitle/31465"><li><b>02</b>제목/이미지</li></a>
+			<a href="/tutor/regiTitle/31465"><li><b>02</b>가격</li></a>
 			<img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_next.png">
-			<a href="/tutor/regiPrice/31465"><li><b>03</b>가격</li></a>
+			<a href="/tutor/regiClass/31465"><li class="on"><b>03</b>수업</li></a>
 			<img src="https://front-img.taling.me/Content/Images/tutor/Images/icon_next.png">
-			<a href="/tutor/regiClass/31465"><li class="on"><b>04</b>수업</li></a>
 		</div>
 			</div>
-	<div class="info1" style="padding-top:40px;">
-		<div style="float:left;margin-top:-15px">
-			<a href="/Talent/Detail/874" target="_blank"><div class="verify">BEST 튜터 보러가기</div></a>
-			<a href="https://blog.naver.com/taling_me" target="_blank"><div class="verify" style="margin-left:10px">튜터 꿀팁 보러가기</div></a>
-		</div>
-		<span class="pink">*</span>필수
-	</div>
+	
 	<div class="box">
-		<div class="title">튜터소개<b class="pink">*</b><br><br><span class="gray8">공백포함 200자 이상 권장</span></div>
+		<div class="title">튜터소개<b class="pink">*</b><br><br><span class="gray8">공백포함 500자 이상 권장</span></div>
 		<div class="cont" style="padding-top:15px">
 			<div class="caution caution2">
 				<b class="pink">TIP</b><br>
@@ -74,7 +67,7 @@
 		</div>
 	</div>
 	<div class="box">
-		<div class="title">수업소개<b class="pink">*</b><br><br><span class="gray8">공백포함 300자 이상 권장</span></div>
+		<div class="title">수업소개<b class="pink">*</b><br><br><span class="gray8">공백포함 500자 이상 권장</span></div>
 		<div class="cont">
 			<div class="caution caution2">
 				<b class="pink">TIP</b><br>
@@ -92,61 +85,6 @@
 						<div class="inner1">
 				<textarea class="basic len980 hei190" placeholder="수업소개는 수강생이 가장 주의깊게 살펴보는 부분입니다. 수강생들이 수업에 대해 알 수 있도록 TIP의 질문을 반드시 포함하여 작성해주세요." id="Introduction" name="Introduction"></textarea>
 			</div>
-			<div class="inner1">
-				<div class="gray5 title">태그<font class="gray8">최대10개 태그 가능</font></div>
-				
-							
-				<div style="position: absolute;margin-top:11px;margin-left:15px;color: #9d9c9c;font-size: 16px;">#</div>
-				<input type="text" class="basic phone" id="tag_place" placeholder="프로그래밍"  style="padding-left:25px">				
-				<span class="img_upld verify button" onclick="add_tag()">추가</span>
-				<!--button onclick="add_tag()">추가</button-->
-				<script>
-					function add_tag(){
-						//alert($('#tag_place').val());
-						var cont = $('#tag_place').val();
-						if(check_tag(cont))
-						{
-							$('#tag_box').prepend('<div class="tags"><span>'+$('#tag_place').val()+'</span><img src="/Tutor2/Content/btn-clse-13-13.png" onclick="del_tag(this)"><input class="tag_values" type="hidden" name="tags[]" value="'+$('#tag_place').val()+'"></div>');									
-						}
-						$('#tag_place').val('');
-					}
-
-					function del_tag(e)
-					{
-						e.parentNode.parentNode.removeChild(e.parentNode);
-					}
-
-
-					function check_tag(cont){
-						//alert($('.tag_box').find('.tag_values').size());
-						var num = $('.tag_box').find('.tag_values').size();
-						if(num==10)
-						{
-							alert('태그는 10개 까지 등록 가능합니다');
-							return false;
-						}
-						else if (cont == '')
-						{
-							alert('내용을 입력해주세요');
-							return false;
-						}
-						
-						for(var i =0; i<num;i++)
-						{
-							//alert($('.tag_box').find('.tag_values').eq(i).val());
-							if(cont==$('.tag_box').find('.tag_values').eq(i).val())
-							{
-								alert('이미 존재하는 태그입니다');
-								return false;
-							}
-						}
-						return true;
-					}
-				</script>
-				
-				<div style="overflow:hidden;" id="tag_box">
-									</div>
-			</div>
 			<div class="sample1 inner1">
 				<div class="arw">
 					<img class="button" src="https://front-img.taling.me/Content/Images/tutor/Images/icon_down.png" onclick="arwpaper(this)">
@@ -158,7 +96,7 @@
 		</div>
 	</div>
 	<div class="box">
-		<div class="title">수업대상<b class="pink">*</b><br><br><span class="gray8">공백포함 200자 이상 권장</span></div>
+		<div class="title">수업대상<b class="pink">*</b><br><br><span class="gray8">공백포함 500자 이상 권장</span></div>
 		<div class="cont">
 			<div class="caution caution2">
 				<b class="pink">TIP</b><br>
@@ -186,7 +124,7 @@
 		</div>
 	</div>
 		<div class="box">
-		<div class="title">커리큘럼<b class="pink">*</b><br><br><span class="gray8">공백포함 300자 이상 권장</span></div>
+		<div class="title">커리큘럼<b class="pink">*</b><br><br><span class="gray8">공백포함 500자 이상 권장</span></div>
 		<div class="cont">
 			<div class="caution caution2">
 				<b class="pink">TIP</b><br>
@@ -210,7 +148,7 @@
 			</div>
 			
 			<!--여기서부터 커리큘럼 가져와서 붙인것 from Tutor2/default03.php-->
-					<div class="curri inner1"id="Curri1">
+					<div class="curri inner1"id="Curri1" style="margin-bottom:20px;">
 						<div class="index">
 							<b>1</b>회차
 						</div>
@@ -220,83 +158,267 @@
 					
 															<div class="photo"><img alt="" id="img-curri1"  />
 													</div>
-						<input type="file" id="input-curri-image1" name="CurriculumImg" class="imgnonefile">
-						<div class="img_upld verify button">
-						+ 이미지추가
-						</div>
+						
 					</div>
-					<div class="curri" id="Curri2">
-						<div class="index">
-							<b>2</b>회차
-						</div>
-						<div class="box">
-						<textarea class="basic len980" placeholder="커리큘럼을 입력해 주세요." id="Curriculum2" name="Curriculum2"></textarea>
-						</div>
-														<div class="photo"><img alt="" id="img-curri2"  />
-													</div>
-						<input type="file" id="input-curri-image2" name="CurriculumImg2" class="imgnonefile">
-						<div class="img_upld verify button">
-						+ 이미지추가
-						</div>
+					<!--  -->					 
+					<div class="drag_cont">
+				<div class="drag_box" id="dropZone">
+                    <img Id="ImgPreview" src="" style="height: 352px;width: 551px;opacity: 0;position: absolute;margin: -145px 0 0 -277px;">
+					<div class="imgupbt" id="dragInfo">
+						<img src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_img_area.png"><br><br>
+						이미지를 드래그 해주세요
 					</div>
-					<div class="curri" id="Curri3">
-						<div class="index">
-							<b>3</b>회차
-						</div>
-						<div class="box">
-						<textarea class="basic len980" placeholder="커리큘럼을 입력해 주세요." id="Curriculum3" name="Curriculum3"></textarea>
-						</div>
-														<div class="photo"><img alt="" id="img-curri3"/>
-													</div>
-						<input type="file" id="input-curri-image3" name="CurriculumImg3" class="imgnonefile">
-						<div class="img_upld verify button">
-						+ 이미지추가
-						</div>
+				</div>
+				<div class="right">
+					<input id="imgnonefile" name="picture" accept="image/*" style="position: absolute;opacity:0;cursor:pointer;" type="file">
+					<div class="plus button" id="imgUp" data-send="coverImage"><img src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_add_wh.png"> 이미지추가</div><br>
+					<div class="verify" style="margin:10px 0" onclick="deleteImage()"><img src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_del_bk.png"> 이미지삭제</div>
+					<div style="margin-top:40px">
+						<span class="pink">권장사항</span><br><br>
+						<span class="gray5">- <font class="pink">10MB 이하의</font> jpg,jpeg,png 파일<br>
+						- 840x540 픽셀
+						<br><br>
+						다음 사진은 <span class="pink">사용이 불가</span>합니다.<br>
+						- 프로필 사진과 동일한 커버 사진<br>
+						- 커버 사진의 경우 텍스트가 포함된 사진<br>
+						- 인위적인 홍보문구가 포함된 사진<br>
+						- 저작권에 위배되는 사진</span>
 					</div>
-					<div class="curri" id="Curri4">
-						<div class="index">
-							<b>4</b>회차
-						</div>
-						<div class="box">
-						<textarea class="basic len980" placeholder="커리큘럼을 입력해 주세요." id="Curriculum4" name="Curriculum4"></textarea>
-						</div>
-														<div class="photo"><img alt="" id="img-curri4" />
-													</div>
-						<input type="file" id="input-curri-image4" name="CurriculumImg4" class="imgnonefile">
-						<div class="img_upld verify button">
-						+ 이미지추가
-						</div>
-					</div>
-					<div class="curri" id="Curri5">
-						<div class="index">
-							<b>5</b>회차
+				</div>
+			</div>
+			
+			<script>	
+				$(function(){
+					$('[data-send]').click(function (e) {
+						$('#targetId').val($(this).attr('data-send'));
+						$('#filter').show();
+						$('#image_box').show();
+					});
+
+					$('#imgUp').click(function(e){
+						$('#imgnonefile').click();
+					});
+				});
+
+				function hd_imbox(){
+					$('#filter').hide();
+					$('#image_box').hide();
+					$('#targetId').val('');									
+				}
+
+				// 파일 리스트 번호
+				var fileIndex = 0;
+				// 등록할 전체 파일 사이즈
+				var totalFileSize = 0;
+				// 파일 리스트
+				var fileList = new Array();
+				// 파일 사이즈 리스트
+				var fileSizeList = new Array();
+				// 등록 가능한 파일 사이즈 MB
+				var uploadSize = 10;
+				// 등록 가능한 총 파일 사이즈 MB
+				var maxUploadSize = 100;
+
+				var selectIndex = 0;
+			 
+				$(function (){
+					// 파일 드롭 다운
+					fileDropDown();
+				});
+			 
+				// 파일 드롭 다운
+				function fileDropDown(){
+					var dropZone = $("#dropZone");
+					//Drag기능 
+					dropZone.on('dragenter',function(e){
+						e.stopPropagation();
+						e.preventDefault();
+						// 드롭다운 영역 css
+						//dropZone.css('background-color','#E3F2FC');
+					});
+					dropZone.on('dragleave',function(e){
+						e.stopPropagation();
+						e.preventDefault();
+						// 드롭다운 영역 css
+						//dropZone.css('background-color','#FFFFFF');
+					});
+					dropZone.on('dragover',function(e){
+						e.stopPropagation();
+						e.preventDefault();
+						// 드롭다운 영역 css
+						//dropZone.css('background-color','#E3F2FC');
+					});
+					dropZone.on('drop',function(e){								
+						e.preventDefault();
+						// 드롭다운 영역 css
+						//dropZone.css('background-color','#FFFFFF');
+						
+						var files = e.originalEvent.dataTransfer.files;
+						if(files != null){
+							if(files.length < 1){
+								alert("폴더 업로드 불가");
+								return;
+							}
+							selectFile(files);
+
+						}else{
+							alert("ERROR");
+						}
+					});								
+				}
+			 
+				// 파일 선택시
+				function selectFile(fileObject){
+					var files = null;
+			 
+					if(fileObject != null){
+						// 파일 Drag 이용하여 등록시
+						files = fileObject;
+					}else{
+						// 직접 파일 등록시
+						//files = $('#multipaartFileList_' + fileIndex)[0].files;
+					}
+					
+					// 다중파일 등록
+					if(files != null){
+						for(var i = 0; i < files.length; i++){
+							// 파일 이름
+							var fileName = files[i].name;
+							var fileNameArr = fileName.split("\.");
+							// 확장자
+							var ext = fileNameArr[fileNameArr.length - 1];
+							// 파일 사이즈(단위 :MB)
+							var fileSize = files[i].size / 1024 / 1024;
 							
-						</div>
-						<div class="box">
-						<textarea class="basic len980" placeholder="커리큘럼을 입력해 주세요." id="Curriculum5" name="Curriculum5"></textarea>
-						</div>
-														<div class="photo"><img alt="" id="img-curri5"  />
-													</div>
-						<input type="file" id="input-curri-image5" name="CurriculumImg5" class="imgnonefile">
-						<div class="img_upld verify button">
-						+ 이미지추가
-						</div>
-					</div>
-					<div class="curri" id="Curri6">
-						<div class="index">
-							<b>6</b>회차
-						</div>
-						<div class="box">
-						<textarea class="basic len980" placeholder="커리큘럼을 입력해 주세요." id="Curriculum6" name="Curriculum6"></textarea>
-						</div>
-														<div class="photo"><img alt="" id="img-curri6" />
-													</div>
-						<input type="file" id="input-curri-image6" name="CurriculumImg6" class="imgnonefile">
-						<div class="img_upld verify button">
-						+ 이미지추가
-						</div>
-					</div>
+							if($.inArray(ext, ['exe', 'bat', 'sh', 'java', 'php', 'html', 'js', 'css', 'xml']) >= 0){
+								// 확장자 체크
+								alert("등록 불가 확장자");
+								break;
+							}else if(fileSize > uploadSize){
+								// 파일 사이즈 체크
+								alert("용량 초과\n업로드 가능 용량 : " + uploadSize + " MB");
+								break;
+							}else{
+								// 전체 파일 사이즈
+								totalFileSize += fileSize;
+								
+								// 파일 배열에 넣기
+								fileList[fileIndex] = files[i];
+								
+								// 파일 사이즈 배열에 넣기
+								fileSizeList[fileIndex] = fileSize;
+			
+								// 업로드 파일 목록 생성
+								innerImg(files[i], fileIndex);
+
+								selectIndex = fileIndex;
+								
+								// 파일 번호 증가
+								fileIndex++;
+							}
+
+							// 첫번째 테두리 
+							
+							
+						}
+					}else{
+						alert("ERROR");
+					}
+				}
+
+				function onImage(val, num)
+				{
+					$('#dropZone').css({'background':'url('+val+')', 'background-repeat' : 'no-repeat', 'background-position':'center' , 'background-size':'cover' , 'box-sizing':'border-box'});
+
+					$('#dragInfo').hide();
+                    $("#ImgPreview").attr("src", val);
+
+					selectIndex = num;
+				}
+
+				function deleteImage(){
+					// 전체 파일 사이즈 수정
+					totalFileSize -= fileSizeList[selectIndex];
+					
+					// 파일 배열에서 삭제
+					delete fileList[selectIndex];
+					
+					// 파일 사이즈 배열 삭제
+					delete fileSizeList[selectIndex];
+					
+					// 업로드 파일 테이블 목록에서 삭제
+					$("#img-cover" + selectIndex).remove();
+					$('#dragInfo').show();
+
+					$('#dropZone').css({'background':'url()', 'background-color':'#edf0f4', 'background-repeat' : 'no-repeat', 'background-position':'center' , 'background-size':'cover' , 'box-sizing':'border-box'});
+				}
+
+				
+				function innerImg(files, num)
+				{
+					var reader = new FileReader();											
+					reader.readAsDataURL(files);
+					var html = "";
+					var on = "";
+					
+					reader.onload = function() {									
+												
+						var oImg = ($('<div>').attr('id', 'img-cover'+num)
+							.addClass('cover_img')
+							.css({'image':'url('+reader.result+')'})
+							.css({'display':'inline-block'})
+						).on({
+							'click': function() { onImage(reader.result, num) }
+						});
+
+						oImg.append($('<img>').attr('src', reader.result)
+							.data('fileData', files)
+							.css({'width':'300','height':'200'})										
+						);
+		
+						$('#fileList').append(oImg);										
+						
+						$('#dragInfo').hide();
+						$('#dropZone').css({'background':'url('+reader.result+')', 'background-repeat' : 'no-repeat', 'background-position':'center' , 'background-size':'cover' , 'box-sizing':'border-box'});
+					};
+					reader.onloadend = function() {						
+						$('#fileList').find('div').removeClass('on');
+						$('#fileList div:first-child').addClass('on');
+
+					};							
+				}						 
+				
+				$('#imgnonefile').change(function (e) {
+					var file = (e.target || window.event.srcElement).files[0];					
+					innerImg(file, fileIndex)
+					fileIndex++;
+				});							
+			</script>
+			<div class="inner1">
+				<input type="hidden"  value=""  name="Is_Agree" id="Is_Agree">
+				<div class="vdo certi"><label  id="Is_Agree0" onclick="agreeChk(1)" ></label><p>튜터님께서 등록한 이미지를 마케팅에 활용하는것에 동의 합니다.(선택)</p></div> 
+				<div style="margin-top:5px;"><span class="pink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;동의 시, 튜터님의 수업이 더 많이 판매될 수 있도록 카카오 1분, 네이버 포스트, 페이스북 등의 SNS 채널에 광고가 집행될 수 있습니다.</span></div>
+			</div>
+			<div style="display:inline;padding:2px 7px;border-radius:3px;position:absolute;background:#ff005a;color:#fff;font-size:12px;line-height:1;margin-top:8px;" class="">
+				첫 번째
+			</div>
+			<div style="overflow:hidden" id="fileList">
+			
+							</div>
+			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+			<script>
+				$("#fileList").sortable();
+				$("#fileList").disableSelection();
+				$("#fileList").sortable({
+				  out: function( event, ui ) {					
+					$('#fileList').find('div').removeClass('on');
+					$('#fileList div:first-child').addClass('on');
+				  }
+				});
+			</script>			
+								
 										 
+					<!--  -->				 
 					<div style="margin-bottom:20px;"></div>
 					<script>
 

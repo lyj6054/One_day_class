@@ -23,17 +23,19 @@
 
 </script>
 <style>
-   
+   * {
+     font-family: 'Noto Sans KR';
+   }
    #newsroom-main {
 		display:inline-block;
-		margin:0 atuo;
+		margin:0 auto;
 		overflow:hidden;
-		heigth:auto;
+		height:970px;
 		width:853px;
 		padding: 10px 18px 80px 17px;
 		border:1px #e3e3e3 solid;
 		margin-bottom:40px;
-		position:relative;
+		position: absolute;
 	}
 	div {
 		border: 0;
@@ -422,7 +424,11 @@
       font-weight:bold;
    }
    /** 수정본  **/
-   
+   .udp_text{
+   	height:600px;
+   	width:810px;
+   	overflow: auto;
+   }
    .udp_title1{
 		display:inline-block;
 		width:800px;
@@ -589,7 +595,7 @@
 				<li class="udp_t6">2020.12.03</li>
 			</ul>
 	  </div>
-			<div class="udp_text">
+	  <div class="udp_text">
 				<p>안녕하십니까. ㈜탈멍 입니다.<br><br>
 
 					현행 개인정보처리방침을 아래와 같이 개정하여 공지합니다.<br>
@@ -1219,7 +1225,7 @@
            <div class="udp_btnbox">
 				<a href="http://localhost:9000/One_day_class/admin/admin_notice_detail_s.jsp"><button type="button">수정</button></a>	
 				<a href="#"><button type="button" id="and_del">삭제</button></a>		
-				<a href="#"><button type="button">목록</button></a>		
+				<a href="http//:localhost:9000/One_day_class/damin/notice_list_admin.jsp"><button type="button">목록</button></a>		
 			</div>
          </div>
          
@@ -1227,7 +1233,9 @@
    </div>
 </div>
 </div>
+	<div class="footer">
 	
+	</div>
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>

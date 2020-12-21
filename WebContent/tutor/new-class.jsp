@@ -1,11 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>
+    
+<%
+    	ms_TutorclassDAO dao = new ms_TutorclassDAO();
+        	ArrayList<ms_TutorclassVO> list = dao.getSinList();
+        	ArrayList<ms_TutorclassVO> list1 = dao.getSinList();
+%>
+    
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>index</title>
+<script src="http://localhost:9000/One_day_class/js_minsu/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+			//전체체크 선택
+		$("#all").change(function(){
+			if($(this).is(":checked")){
+				$("input[name='chk']").prop("checked",true)
+			}else{
+				$("input[name='chk']").prop("checked",false)
+			}
+			
+			
+		});
+			//수락 버튼
+	$("#true").click(function(){
+		var count = 0;
+		$("input[name='chk']:checked").each(function(i){
+			count++;
+		});
+		if(count == 0){
+			alert("수락하실 튜티를 선택해주세요");
+			$("#chk1").focus();
+			return false;
+		}else{
+			//서버전송
+		}
+		
+	});
+	
+		
+		 	//거절 버튼	
+	$("#fail").click(function(){
+		var count = 0;
+		$("input[name='chk']:checked").each(function(i){
+			count++;
+		});
+		if(count == 0){
+			alert("거절하실 튜티를 선택해주세요");
+			$("#chk1").focus();
+			return false;
+		}else{
+			//서버전송
+		}		
+			
+	});		
+			
+		 	
+	$("#simsa").click(function(){
+		var choice = $(this).attr("name");
+		if(choice == "simsa"){
+			alert("심사를 취소 했습니다.");
+			$("#simsa").attr("name","simsa1");
+		}else{
+			alert("심사 신청을 했습니다.");
+			$("#simsa").attr("name","simsa");
+		}
+	});	 	
+		
+});//ready
+	
+</script>
 <style>
+ * {
+     font-family: 'Noto Sans KR';
+   }
 	div.new_class{
 		width:1200px;
 		margin:auto;
@@ -36,11 +109,6 @@
 		color:red;
 		font-size:13px;
 	}
-	div.static-box>div.box>div.box1>span.s1 {
-		opacity:0.6;
-		font-size:13px;
-		margin:0 0 20px 0;
-	}
 	div.static-box>div.box>div.box1>h3 {
 		font-weight:bold;
 		font-size:20px;
@@ -54,9 +122,11 @@
 	}
 	div.static-box>div.box>div.box2>button.btn1:hover,
 	div.static-box>div.box>div.box2>a>button.btn1:hover,
-	div.static-box>div.box>div.box2>a>button.btn3:hover {
+	div.static-box>div.box>div.box2>a>button.btn3:hover,
+	.con2_btn>button:hover {
 		background-color:lightgray;
 		border:1px solid lightgray;
+		color:black;
 	}
 	div.static-box>div.box>div.box2>button.btn1,
 	div.static-box>div.box>div.box2>a>button.btn1 {
@@ -64,22 +134,8 @@
 		width:100px; height:40px;
 		background-color:rgb(85,85,85);
 		color:white;
+		border:1px solid rgb(85,85,85);
 		border-radius:3px;
-	}
-	div.static-box>div.box>div.box2>a>button.btn3 {
-		margin:5px 8px 50px 5px;
-		width:100px; height:40px;
-		background-color:rgb(85,85,85);
-		color:white;
-		border-radius:3px;
-	}
-	div.static-box>div.box>div.box2>button.btn2 {
-		width:75px; height:40px;
-		border-radius:3px;
-		border:1px solid lightgray;
-	}
-	div.static-box>div.box>div.box2>button.btn2:hover {
-		background-color:rgb(85,85,85);
 	}
 	div.static-box>div.image {
 		display:inline-block;
@@ -93,7 +149,8 @@
 	div>h1.tt {
 		display:inline-block;
 		width:150px; height:50px;
-		font-size:25px;
+		font-size:30px;
+		font-weight:bold;
 		text-align:left;
 		float:left;
 		
@@ -124,50 +181,11 @@
 		margin-left:40px;
 	}
 	div.static-box h3.tt1 {
-		font-size:20px;
-		margin-left:30px;
+		font-size:25px;
 	}
 	div.container3>h3.tt2 {
-		font-size:20px;
+		font-size:25px;
 		margin-right:40px;
-	}
-	div.container3 div.con1 {
-		border:1px solid lightgray;
-		display:inline-block;
-		float:left;
-		width:500px;
-		height:260px;
-		padding:10px 10px 10px 10px;
-	}
-	div.container3 div.con1>ol>li{
-		opacity:0.7;
-	}
-	div.container3 div.con1>h3 {
-		font-size:20px;
-	}
-	div.container3 div.con1>h4, h3.c1 {
-		margin-left:40px;
-		color:gray;
-	}
-	div.container3 div.con2 {
-		background-color:rgb(98,111,188);
-		color:white;
-		border:1px solid lightgray;
-		display:inline-block;
-		width:500px;
-		height:260px;
-		margin-left:20px;
-		clear:left;
-		padding-top:14px;
-	}
-	div.container3 div.con2>h3.c2{
-		font-size:20px;
-		
-	}
-	div.container3 div.con2>ul>li,
-	div.container3 div.con2>h3.c2 {
-		color:white;
-		margin-left:40px;
 	}
 	div.container2 {
 		display:inline-block;
@@ -191,7 +209,114 @@
 	div.image1>a>img:hover{
 		border:1px solid black;
 	}
-
+	/** apply공간 **/
+	hr {
+		opacity:0.4;
+	}
+	.con2-1 {
+		border:1px solid lightgray;
+		border-radius:5px;
+		width:800px; height:210px;
+		margin-left:65px;
+		margin-bottom:100px;
+		padding:15px 0 10px;
+		text-align:center;
+	
+	}
+	.con2-1>ul {
+		margin-bottom:7px;
+	}
+	.con2 {
+		border:1px solid lightgray;
+		border-radius:5px;
+		display:inline-block;
+		width:790px;
+		margin-left:25px;
+		padding:10px 0 10px 5px;
+		text-align:center;
+	}
+	.con2>ul {
+		width:660px;
+		margin-left:40px;
+		margin-bottom:5px;
+	}
+	.con2-1>.ul_title1 {
+		border-bottom:1px solid lightgray;
+		padding-bottom:5px;
+	}
+	.con2>ul>li,
+	.con2-1>ul>li {
+		display:inline-block;
+		text-align:center;
+		font-size:15px;
+		color:rgb(85,85,85);
+	}
+	.con2>ul.ul_title>li,
+	.con2-1>.ul_title1>li {
+		font-size:18px;
+		font-weight:bold;
+		color:black;
+	}
+	.con2_btn>button {
+		margin-top:20px;
+		float:right;
+		margin-right:50px;
+		width:70px; height:30px;
+		display:inline-block;
+		background-color:rgb(85,85,85);
+		color:white;
+		border-radius:3px;
+		border:1px solid rgb(85,85,85);
+	}
+	.container3 {
+		width:840px;
+		height:350px;
+		margin-bottom:30px;
+	}
+	
+	.ut1,
+	.ut2,
+	.ut4{
+		width:70px;
+	}
+	.ut5 {
+		width:110px;
+	}
+	.ut3 {
+		width:300px;
+	}
+	.ut3-1{
+		width:170px;
+	}
+	.ut4-1 {
+		width:300px;
+	}
+	/** 체크분홍 **/
+	
+	.inp_label:checked + label::before {
+    	background-image: url(http://localhost:9000/One_day_class/images/mb_check_on.png);
+    	background-size: 13px;
+	}
+	.inp_chkbox::before {
+	    content: '';
+	    display: inline-block;
+	    width: 18px;
+	    height: 18px;
+	    vertical-align: middle;
+	    background-image:url(http://localhost:9000/One_day_class/images/mb_check_off.png);
+	    background-repeat: no-repeat;
+	    background-size: 13px;
+	}
+	.blind {
+		position: absolute !important;
+	    clip: rect(0,0,0,0);
+	    clip-path: polygon(0 0,0 0,0 0);
+	    width: 1px;
+	    height: 1px;
+	    margin: -1px;
+	    overflow: hidden;
+	    white-space: nowrap;
+	} 
 </style>
 </head>
 <body>
@@ -217,51 +342,71 @@
 				<div class="box1">
 					<span class="red">심사중:완료 예정일 2020.11.23</span>
 					<h3>흔들어보자</h3>
-					<span class="s1">최종업데이트:2020.11.16</span>
 				</div>
 				<div class="box2">
-					<button class="btn1"><span>심사 취소하기</span></button>
+					<button class="btn1" id="simsa" name="simsa"><span>심사 취소하기</span></button>
 					<a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp"><button class="btn1"><span>수업 수정하기</span></button></a>
-					<a href="http://localhost:9000/One_day_class/tutor/day.jsp"><button class="btn3"><span>시간/날짜 설정</span></button></a>
-					<button class="btn2"><span>미리보기</span></button>
 				</div>
 			</div>
 		</div>
 		<div class="container3">
-			<h3 class="tt2">알림판</h3>
-			<div class="con1">
-				<h3 class="c1">등록가이드</h3>
-				<h4>BEST 수업소개는 아래 내용이 명확해야 합니다.</h4>
-				<ol>
-					<li>1. 고화질의 커버 이미지</li>
-					<li>2. 튜터만의 Story</li>
-					<li>3. 수업 후, Before-After가 확실히 나타나는 소개</li>
-					<li>4. 정확한 수업 대상 (ex:"누구나x")</li>
-					<li>5. 꼼꼼하고 정확한 커리큘럼</li>
-					<li>6. 합리적인 가격과 인원</li>
-				</ol>
-			</div>
+			<h3 class="tt2">신청 현황</h3>
 			<div class="con2">
-				<h3 class="c2">수업성과</h3>
-				<ul>
-					<li>지난 30일간 조회수</li>
-					<li>지난 30일간 신청수</li>
-					<li>결제율</li>
-					<li>전체 후기 수</li>
+				<ul class="ul_title">
+					<input type="checkbox"  id="all" class="blind inp_label">
+					<label for="all" class="inp_chkbox"></label>
+					<li class="ut1">번호</li>
+					<li class="ut2">이름</li>
+					<li class="ut3">일정</li>
+					<li class="ut4">인원수</li>
+					<li class="ut5">상태</li>
 				</ul>
+				<hr>
+				<%
+					for(ms_TutorclassVO vo : list) {
+				%>
+				<ul>
+					<input type="checkbox" name="chk" class="blind inp_label" id="chk<%=vo.getRno() %>">
+					<label for="chk<%=vo.getRno() %>" class="inp_chkbox"></label>
+					<li class="ut1"><%=vo.getRno() %></li>
+					<li class="ut2"><%=vo.getName() %></li>
+					<li class="ut3"><%=vo.getAschedule() %></li>
+					<li class="ut4"><%=vo.getAperson() %></li>
+					<li class="ut5"><%=vo.getAstatus() %></li>
+				</ul>
+				<% } %>
+				
+			</div>
+			<div class="con2_btn">
+				<button type="button" id="fail">거절</button>
+				<button type="button" id="true">수락</button>
 			</div>
 		</div>
 		<div class="container2">
 			<div class="con3">
-			<h3 class="tt3">수업 준비를 완료하세요</h3>
-				<div class="con4">더 많은 수업 신청을 받기 위한 준비를 하세요! 아래 제한 사항을 모두 충족하면 최대 3배까지 조회수가 증가합니다.</div>
+			<h3 class="tt3">리뷰 현황</h3>
 			</div>
 		</div>
-		<div class="image1">
-			<a href="http://localhost:9000/One_day_class/tutor/day.jsp">
-			<img src="http://localhost:9000/One_day_class/images/new_class_bottom1.png"></a>
-			<a href="http://localhost:9000/One_day_class/tutor/review.jsp">
-			<img src="http://localhost:9000/One_day_class/images/new_class_bottom2.png"></a>
+		<div class="con2-1">
+				<ul class="ul_title1">
+					<li class="ut1">번호</li>
+					<li class="ut2">이름</li>
+					<li class="ut3-1">일정</li>
+					<li class="ut4-1">리뷰내용</li>
+					<li class="ut5">작성날짜</li>
+				</ul>
+				<% for(ms_TutorclassVO vo : list1 ) { %>
+				<ul>
+					<li class="ut1"><%=vo.getRno() %></li>
+					<li class="ut2"><%=vo.getName() %></li>
+					<li class="ut3-1"><%=vo.getAschedule() %></li>
+					<li class="ut4-1"><%=vo.getRcontent() %></li>
+					<li class="ut5"><%=vo.getRdate() %></li>
+				</ul>
+				<% } %>
+				
+				
+				
 		</div>
 	
 	<!--header -->

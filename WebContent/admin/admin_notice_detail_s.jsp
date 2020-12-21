@@ -24,7 +24,9 @@
 	});
 </script>
 <style>
-   
+   * {
+     font-family: 'Noto Sans KR';
+   }
    #newsroom-main {
       display:inline-block;
       margin:0 atuo;

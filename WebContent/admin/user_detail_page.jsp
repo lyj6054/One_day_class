@@ -26,9 +26,9 @@
    
    #newsroom-main {
 		display:inline-block;
-		margin:0 atuo;
+		margin:0 auto;
 		overflow:hidden;
-		heigth:auto;
+		height:970px;
 		width:853px;
 		padding: 10px 18px 80px 17px;
 		border:1px #e3e3e3 solid;
@@ -422,7 +422,11 @@
       font-weight:bold;
    }
    /** 수정본  **/
-   
+   .udp_text{
+   	height:600px;
+   	width:810px;
+   	overflow: auto;
+   }
    .udp_title1{
 		display:inline-block;
 		width:800px;
@@ -1207,7 +1211,7 @@
          <div class="section-paging">
            
            <div class="udp_btnbox">
-				<a href="#"><button type="button">목록</button></a>		
+				<a href="http://localhost:9000/One_day_class/notice/notice_list.jsp"><button type="button">목록</button></a>		
 			</div>
          </div>
          
