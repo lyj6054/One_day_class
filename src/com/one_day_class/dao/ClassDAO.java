@@ -11,7 +11,21 @@ public class ClassDAO extends DBConn{
 	/**
 	 * Update : 수락 시 클레스 cstatus 1로변경
 	 */
-	public void updateStatus(String cid) {
+	public void updateStatus2(String cid) {
+		try {
+			String sql="update one_class set cstatus=0 where cid=? ";
+			getPreparedStatement(sql);
+			pstmt.setString(1, cid);
+			int val=pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Update : 수락 시 클레스 cstatus 1로변경
+	 */
+	public void updateStatus1(String cid) {
 		try {
 			String sql="update one_class set cstatus=1 where cid=? ";
 			getPreparedStatement(sql);
@@ -162,7 +176,7 @@ public class ClassDAO extends DBConn{
 	public ArrayList<ClassVO> getCList(int start, int end){
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		try {
-			String sql = "select * from (select rownum cno,cid,title,to_char(cdate,'yyyy.mm.dd') cdate from (select * from one_class order by cdate desc)) where cno between ? and ?";
+			String sql = "select * from (select rownum cno,cid,title,to_char(cdate,'yyyy.mm.dd') cdate,cstatus from (select * from one_class order by cdate desc)) where cno between ? and ?";
 			getPreparedStatement(sql);
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
@@ -173,6 +187,7 @@ public class ClassDAO extends DBConn{
 				vo.setCid(rs.getString(2));
 				vo.setTitle(rs.getString(3));
 				vo.setCdate(rs.getString(4));
+				vo.setCstatus(rs.getInt(5));
 				
 				list.add(vo);
 			}

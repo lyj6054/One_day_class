@@ -37,6 +37,7 @@
 
 	ArrayList<ClassVO> list = dao.getCList(start,end);
 	int i=0;
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -237,18 +238,12 @@
 		width: 31px;
     	height: 15px;
     	display: block;
-    	background-image:url(http://localhost:9000/One_day_class/images/wait.png);
-    	
+    	background-image:url(http://localhost:9000/One_day_class/images/wait.png); 
     	background-repeat:no-repeat;
 	    background-size: 28px 18px;
 	}
-	.main-section2 .section2-cont li.cont-3 .cont3-label.normal {
-		width: 31px;
-    	height: 15px;
-    	display: block;
-    	background-image:url(http://localhost:9000/One_day_class/images/complete.png);
-    	background-repeat:no-repeat;
-	    background-size: 28px 18px;
+	#status1{
+		background-image:url(http://localhost:9000/One_day_class/images/complete.png); 
 	}
 	.main-section2 .section2-cont li.cont-4 {
 		width: 413px;
@@ -550,6 +545,12 @@
 		});
 		
 		 $("#accept").click(function(){
+			 $("#wbutton").val("accept");
+			 ClassMForm.submit(); 
+		 });
+		 
+		 $("#reject").click(function(){
+			 $("#wbutton").val("reject");
 			 ClassMForm.submit(); 
 		 });
 		
@@ -638,6 +639,7 @@
 			</ul>
 			<div id="nesListNew">
 			<form name="ClassMForm" action="admin7Proc.jsp" method="get" class="join">
+				<input type="hidden" name="wbutton" value="" id="wbutton">
 				<% for(ClassVO vo:list){ i++;%>
 					<ul class="section2-cont">
 						<li class="cont-0">
@@ -653,7 +655,7 @@
 							</a>
 						</li>
 						<li class="cont-3">
-							<label class="cont3-label"></label>
+							<label class="cont3-label" id="status<%=vo.getCstatus() %>" ></label>
 						</li>
 						<li class="cont-4">
 							<a href="http://localhost:9000/One_day_class/admin/admin8.jsp?cid=<%=vo.getCid()%>"><%=vo.getTitle()%></a>
