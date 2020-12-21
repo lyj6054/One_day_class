@@ -342,7 +342,7 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 	<!-- content -->
 	<section class="login_how_to container" id="accountJoin">
-		<form name="joinForm" action="joinProc.jsp" method="post" id="frm-join">
+		<form name="joinForm" action="#" method="post" id="frm-join">
 			<div class="box_login box_join">
 				<h2 class="tit">
 					간편하게 가입하고 탈잉의<br> 다양한 튜터를 만나보세요
@@ -460,7 +460,7 @@
 					</div>
 				</div> <!--class="box_inp" -->
 				<div class="box_btn">
-					<button class="btn_submit" type="button" onclick="joinSubmit()">다음</button>
+					<button class="btn_submit" type="button">다음</button> <!--  onclick="joinSubmit()" -->
 				</div> <!-- class="box_btn" -->
 			</div> <!-- class="box_login box_join" -->
 		</form>
@@ -470,110 +470,99 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 	
 	<script>
-	
-		function joinSubmit() {
-			
-			var userName, userEmail, userPassword, userPassword_check, userArea, userClass;
-			var emailErrCheck= /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
-			var passErrCheck = /^[a-zA-Z0-9]{8,30}$/;
-			
-			userName = document.getElementById("userName");
-			userEmail = document.getElementById("userEmail");
-			userPassword = document.getElementById("userPassword");
-			userPassword_check = document.getElementById("userPassword_check");
-			userArea = document.getElementById("userArea");
-			userClass = document.getElementById("userClass");
-			
-			if(userName.value == "") {
-				document.getElementById("userName").classList.add('error');
-		 		document.getElementById("nameError1").classList.add('error');
+	 $(".btn_submit").click(function(){
+		 var emailErrCheck= /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+		 var passErrCheck = /^[a-zA-Z0-9]{8,30}$/;
+		 
+
+			if($("#userName").val() == "") {
+				$("#userName").addClass('error');
+		 		$("#nameError1").addClass('error');
 		 		userName.focus();
-			} else if(userName.value != "") {
-				document.getElementById("userName").classList.remove('error');
-		 		document.getElementById("nameError1").classList.remove('error');
-		 		userEmail.focus();
-			 		if(userEmail.value == "") {
-			 			document.getElementById("userEmail").classList.add('error');
-				 		document.getElementById("emailError2").classList.add('error');
-				 		userEmail.focus();
-			 		}  else if (!emailErrCheck.test(userEmail.value)) {
-			        	document.getElementById("userEmail").classList.add('error');
-			 			document.getElementById("emailError2").classList.remove('error');
-				 		document.getElementById("emailError1").classList.add('error');
-				 		userEmail.focus();
+			} else if($("#userName").val() != "") {
+				$("#userName").removeClass('error');
+				$("#nameError1").removeClass('error');
+		 		$("#userEmail").focus();
+			 		if($("#userEmail").val() == "") {
+			 			$("#userEmail").addClass('error');
+				 		$("#emailError2").addClass('error');
+				 		$("#userEmail").focus();
+			 		}  else if (!emailErrCheck.test($("#userEmail").val())) {
+			 			$("#userEmail").addClass('error');
+			 			$("#emailError2").removeClass('error');
+				 		$("#emailError1").addClass('error');
+				 		$("#userEmail").focus();
 			            return false;
 			        } else  {
-			 			document.getElementById("userEmail").classList.remove('error');
-				 		document.getElementById("emailError1").classList.remove('error');
-				 		document.getElementById("emailError2").classList.remove('error');
-			 			userPassword.focus();
-				 			if(userPassword.value == "") {
-								document.getElementById("userPassword").classList.add('error');
-					 			document.getElementById("passError2").classList.add('error');
-						 		userPassword.focus();
+			 			$("#userEmail").removeClass('error');
+				 		$("#emailError1").removeClass('error');
+				 		$("#emailError2").removeClass('error');
+				 		$("#userPassword").focus();
+				 			if($("#userPassword").val() == "") {
+								$("#userPassword").addClass('error');
+					 			$("#passError2").addClass('error');
+					 			$("#userPassword").focus();
 								return false;
-							} else if (!ruleCheck(userPassword,passErrCheck)) {
+							} else if (!ruleCheck($("#userPassword"),passErrCheck)) {
 								return false;
 							} else {
-								if(userPassword_check.value == "") {
-									document.getElementById("userPassword_check").classList.add('error');
-						 			document.getElementById("confirmError1").classList.add('error');
-						 			userPassword_check.focus();
+								if($("#userPassword_check").val() == "") {
+									$("#userPassword_check").addClass('error');
+						 			$("#confirmError1").addClass('error');
+						 			$("#userPassword_check").focus();
 									return false;
 								} 
 								//else if(userPassword.value == userPassword_check.value){
 								else if(CheckCount("identity") == 0) {
-										document.getElementById("selectError1").classList.add('error');
-										document.getElementById("userSelect").focus();
+										$("#selectError1").addClass('error');
+										$("#userSelect").focus();
 										return false;
 									} else {
-										document.getElementById("selectError1").classList.remove('error');
+										$("#selectError1").removeClass('error');
 										if(CheckCount("gender") == 0) {
-											document.getElementById("sexError1").classList.add('error');
-											document.getElementById("userSex1").focus();
+											$("#sexError1").addClass('error');
+											$("#userSex1").focus();
 											return false;
 										}else  {
-											document.getElementById("sexError1").classList.remove('error');
+											$("#sexError1").removeClass('error');
 											if(CheckCount("age") == 0) {
-												document.getElementById("ageError1").classList.add('error');
-												document.getElementById("userAge1").focus();
+												$("#ageError1").addClass('error');
+												$("#userAge1").focus();
 												return false;
 											} else {
-												document.getElementById("ageError1").classList.remove('error');
-												if(document.getElementById("hp1").value == "선 택") {
-													document.getElementById("phoneError1").classList.add('error');
-													document.getElementById("hp1").focus();
-												} else if(document.getElementById("hp2").value == "") {
-													document.getElementById("phoneError1").classList.add('error');
-													document.getElementById("hp2").focus();
-												} else if(document.getElementById("hp3").value == "") {
-													document.getElementById("phoneError1").classList.add('error');
-													document.getElementById("hp3").focus();
+												$("#ageError1").removeClass('error');
+												if($("#hp1").val() == "선 택") {
+													$("#phoneError1").addClass('error');
+													$("#hp1").focus();
+												} else if($("#hp2").val() == "") {
+													$("#phoneError1").addClass('error');
+													$("#hp2").focus();
+												} else if($("#hp3").val() == "") {
+													$("#phoneError1").addClass('error');
+													$("#hp3").focus();
 												} else {
-													document.getElementById("phoneError1").classList.remove('error');
-													if(userArea.value == "거주 지역 선택") {
-														document.getElementById("areaError1").classList.add('error');
-														userArea.focus();
+													$("#phoneError1").removeClass('error');
+													if($("#userArea").val() == "거주 지역 선택") {
+														$("#areaError1").addClass('error');
+														$("#userArea").focus();
 												        return false;
 													} else {
-														document.getElementById("areaError1").classList.remove('error');
-														if(userClass.value == "희망 수업 선택") {
-															document.getElementById("classError1").classList.add('error');
-															userClass.focus();
+														$("#areaError1").removeClass('error');
+														if($("#userClass").val() == "희망 수업 선택") {
+															$("#classError1").addClass('error');
+															$("#userClass").focus();
 													        return false;
 														} else {
-															document.getElementById("classError1").classList.remove('error');
+															$("#classError1").removeClass('error');
 															//location.href="http://localhost:9000/One_day_class/join/join_start.jsp";
 															if($("[name=identity]:checked").val() == "튜터") {
+																alert("check");
 																$("#frm-join").attr("action", "joinProc.jsp");
 																joinForm.submit();
 															} else {
 																$("#frm-join").attr("action", "joinProc_tutee.jsp");
 																joinForm.submit();
 															}
-															
-															
-															
 														}
 													}
 												}
@@ -586,8 +575,25 @@
 								}
 							}
 			 		}
+	 });
+		function joinSubmit() {
+			
+			var userName, userEmail, userPassword, userPassword_check, userArea, userClass;
+			
+			
+			userName = document.getElementById("userName");
+			userEmail = document.getElementById("userEmail");
+			userPassword = document.getElementById("userPassword");
+			userPassword_check = document.getElementById("userPassword_check");
+			userArea = document.getElementById("userArea");
+			userClass = document.getElementById("userClass");
+			
 			} // userName else if
 		
+		/* 	$(document).ready(function()) {
+				$("")
+				
+			} */
 		
 			$("[name=identity]").click(function(){
 				alert($("[name=identity]:checked").val());
@@ -608,22 +614,22 @@
 		
 		function ruleCheck(obj, passErrCheck){
 
-			if(obj.value.length < 8){
-				document.getElementById("userPassword").classList.add('error');
-	 			document.getElementById("passError2").classList.remove('error');
-	 			document.getElementById("passError1").classList.add('error');
+			if(obj.val().length < 8){
+				$("#userPassword").addClass('error');
+	 			$("#passError2").removeClass('error');
+	 			$("#passError1").addClass('error');
 				return false;
 			}
 			else {
-				if(passErrCheck.test(obj.value)) {
-					document.getElementById("userPassword").classList.remove('error');
-		 			document.getElementById("passError2").classList.remove('error');
-		 			document.getElementById("passError1").classList.remove('error');
-		 			document.getElementById("userPassword_check").focus();
+				if(passErrCheck.test(obj.val())) {
+					$("#userPassword").removeClass('error');
+					$("#passError2").removeClass('error');
+					$("#passError1").removeClass('error');
+		 			$("#userPassword_check").focus();
 				} else {
-					document.getElementById("userPassword").classList.add('error');
-		 			document.getElementById("passError2").classList.remove('error');
-		 			document.getElementById("passError1").classList.add('error');
+					$("#userPassword").addClass('error');
+		 			$("#passError2").removeClass('error');
+		 			$d("#passError1").addClass('error');
 		 			obj.focus();
 					return false;
 				}

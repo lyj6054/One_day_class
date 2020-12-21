@@ -19,7 +19,6 @@
 	
 	//DB연동 후 저장
 	session.setAttribute("tvo",vo);
-	session.setAttribute("tvo_t",vo);
 	response.sendRedirect("http://localhost:9000/One_day_class/join/join_start.jsp");
 
 	/* TutorDAO dao = new TutorDAO();

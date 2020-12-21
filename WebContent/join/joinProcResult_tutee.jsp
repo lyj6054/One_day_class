@@ -3,9 +3,9 @@
     import="com.one_day_class.vo.*, com.one_day_class.dao.*"
     %>
 <%
-	TutorVO vo = (TutorVO)session.getAttribute("tvo");
+	TuteeVO vo = (TuteeVO)session.getAttribute("tvo");
 	
-	TutorDAO dao = new TutorDAO();
+	TuteeDAO dao = new TuteeDAO();
 	boolean join_result = dao.getInsert(vo); 
 	
 	if(join_result) {

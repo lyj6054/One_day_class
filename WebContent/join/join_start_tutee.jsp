@@ -3,7 +3,7 @@
      import="com.one_day_class.vo.*, com.one_day_class.dao.*"
     %>
 <%
-	TutorVO vo = (TutorVO)session.getAttribute("tvo");
+	TuteeVO vo = (TuteeVO)session.getAttribute("tvo");
 %> 
 <!DOCTYPE html>
 <html>
@@ -229,7 +229,7 @@
 	
 	<!-- content -->
 	<section class="login_how_to container" id="accountAgree">
-		<form name="joinStartForm" action="joinProcResult.jsp" method="post" id="frm-agree">
+		<form name="joinStartForm" action="joinProcResult_tutee.jsp" method="post" id="frm-agree">
 			<div class="box_login box_terms">
 				<h2 class="tit">
 					<b>환영합니다!</b>

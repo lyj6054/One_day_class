@@ -18,8 +18,8 @@
 	System.out.println(vo.getHope_class());
 	
 	//DB연동 후 저장
-	session.setAttribute("tvo",vo);
-	response.sendRedirect("http://localhost:9000/One_day_class/join/join_start.jsp");
+	session.setAttribute("tvo", vo);
+	response.sendRedirect("http://localhost:9000/One_day_class/join/join_start_tutee.jsp");
 
 	/* TutorDAO dao = new TutorDAO();
 	boolean join_result = dao.getInsert(vo); 
