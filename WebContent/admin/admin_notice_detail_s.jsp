@@ -29,11 +29,11 @@
       display:inline-block;
       margin:0 atuo;
       overflow:hidden;
-      heigth:auto;
-      width:853px;
+      width:853px; height:970px;
       padding: 10px 18px 80px 17px;
       border:1px #e3e3e3 solid;
       margin-bottom:40px;
+      position:absolute;
       
    }
    div {
@@ -467,7 +467,7 @@
 		float:left;
 		width:80px; height:30px;
 		text-align:center;
-		padding-top:10px;
+		padding-top:3px;
 	}
 	.file_chum label {
 		margin-left:50px;
@@ -493,7 +493,7 @@
 		border-radius:5px;
 		display:inline-block;
 		float:left;
-		width:80px; height:275px;
+		width:80px; height:500px;
 		padding-top:230px;
 		margin-left:50px;
 		text-align:center;
@@ -540,7 +540,8 @@
 
 </head>
 <body>
-
+	<!-- header -->
+	<jsp:include page="../header.jsp"></jsp:include>
 
    <!-- content -->
    <div style="margin:0 auto;">
@@ -605,6 +606,8 @@
       </div>
    </div>
 </div>
+	<!-- footer -->
+	<jsp:include page="../footer.jsp"></jsp:include>
 
 </body>
 </html>

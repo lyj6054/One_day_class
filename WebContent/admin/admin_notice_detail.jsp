@@ -25,103 +25,103 @@
 <style>
    
    #newsroom-main {
-      display:inline-block;
-      margin:0 atuo;
-      overflow:hidden;
-      heigth:auto;
-      width:853px;
-      padding: 10px 18px 80px 17px;
-      border:1px #e3e3e3 solid;
-      margin-bottom:40px;
-      
-   }
-   div {
-      border: 0;
-       margin: 0;
-       padding: 0;
-       font-size: 11px;
-   }
-   #newsroom-main .main-logo{
-      display:inline-block;
-      margin:20px 0 30px 117px;
-       font-size:50px;
-   }
-   #newsroom-main .main-logo span {
-      font-weight:bold;
-   }
-   #newsroom-main .main-section1 {
-       margin: 0 auto;
-       width: 820px;
-       height: 50px;
-   }
-   #newsroom-main .main-section1 .section1-category {
-       height: 41px;
-       border-bottom: 1px #ff0045 solid;
-       padding-left:24px;
-       margin-left:0;
-   }
-   ul, li {
-       list-style: none;
-       border: 0;
-       margin: 0;
-       padding: 0;
-       font-size: 12px;
-   }
-   
-   #newsroom-main .main-section1 .section1-category li {
-       position: relative;
-       float: left;
-       width: 385px;
-       height: 40px;
-       border-top: 1px #dadada solid;
-       border-left: 1px #dadada solid;
-       border-right: 1px #dadada solid;
-       text-align: left;
-       z-index: 5;
-   }
-   #newsroom-main .main-section1 .section1-category .selected {
-       margin-left: -1px;
-       border-left: 1px #ff0045 solid;
-       border-top: 1px #ff0045 solid;
-       border-right: 1px #ff0045 solid;
-       border-bottom:none;
-       z-index: 10;
-   }
-   /* #newsroom-main .main-section1 .section1-category li.first {
-       margin-left: 0 !important;
-   } */
-   #newsroom-main .main-section1 .section1-category li a {
-       position: absolute;
-       display: block;
-       width: 383px;
-       height: 30px;
-       padding-top:12px;
-       letter-spacing: -1px;
-       font-weight: bold;
-       text-align: center;
-       font-size:15px;
-       
-   }
-   #newsroom-main .main-section1 .section1-category .selected a {
-       height: 40px;
-       color: #333;
-       background-color: #fff;
-   }
-   a, a:visited {
-       border: 0;
-       margin: 0;
-       padding: 0;
-       color: #666;
-       text-decoration: none;
-       cursor: pointer;
-   }
-   #newsroom-main .main-section2 {
-       position: relative;
-       display: inline-block;
-       float: left;
-       width: 853px;
-       margin-top: 15px;
-   }
+		display:inline-block;
+		margin:0 atuo;
+		overflow:hidden;
+		heigth:auto;
+		width:853px;
+		padding: 10px 18px 80px 17px;
+		border:1px #e3e3e3 solid;
+		margin-bottom:40px;
+		position:relative;
+	}
+	div {
+		border: 0;
+	    margin: 0;
+	    padding: 0;
+	    font-size: 11px;
+	}
+	.main-logo{
+		display:inline-block;
+		margin:20px 0 30px 117px;
+    	font-size:50px;
+	}
+	.main-logo span {
+		font-weight:bold;
+	}
+	.main-section1 {
+	    margin: 0 auto;
+	    width: 820px;
+	    height: 50px;
+	}
+	 .main-section1 .section1-category {
+	    height: 41px;
+	    border-bottom: 1px #ff0045 solid;
+	    padding-left:24px;
+	    margin-left:0;
+	}
+	ul, li {
+	    list-style: none;
+	    border: 0;
+	    margin: 0;
+	    padding: 0;
+	    font-size: 12px;
+	}
+	
+	.main-section1 .section1-category li {
+	    position: relative;
+	    float: left;
+	    width: 385px;
+	    height: 40px;
+	    border-top: 1px #dadada solid;
+	    border-left: 1px #dadada solid;
+	    border-right: 1px #dadada solid;
+	    text-align: left;
+	    
+	}
+	.main-section1 .section1-category .selected {
+	    margin-left: -1px;
+	    border-left: 1px #ff0045 solid;
+	    border-top: 1px #ff0045 solid;
+	    border-right: 1px #ff0045 solid;
+	    border-bottom:none;
+	    
+	}
+	/* #newsroom-main .main-section1 .section1-category li.first {
+	    margin-left: 0 !important;
+	} */
+	.main-section1 .section1-category li a {
+	   position:relative;
+	    display: block;
+	    width: 383px;
+	    height: 30px;
+	    padding-top:12px;
+	    letter-spacing: -1px;
+	    font-weight: bold;
+	    text-align: center;
+	    font-size:15px;
+	    
+	}
+	.main-section1 .section1-category .selected a {
+	    height: 40px;
+	    color: #333;
+	    background-color: #fff;
+	}
+	a, a:visited {
+	    border: 0;
+	    margin: 0;
+	    padding: 0;
+	    color: #666;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+	.main-section2 {
+	    position: relative;
+	    display: inline-block;
+	    float: left;
+	    width: 853px;
+	    margin-top: 15px;
+	}
    .main-section2 .section2-title {
        display: inline-block;
        float: left;
@@ -196,7 +196,7 @@
    }
    .main-section2 .section2-cont li.cont-2 .cont2-btn label {
       display: none; 
-       position: absolute;
+       position:relative;
        width: 70px;
        height: 20px;
        margin: -18px 0 0 -12px;
@@ -267,7 +267,7 @@
        color: #777;
        text-align: left;
    }
-   #newsroom-main .main-section3 {
+   .main-section3 {
        position: relative;
        display: inline-block;
        float: left;
@@ -549,7 +549,8 @@
 </script>
 </head>
 <body>
-
+	<!-- header -->
+	<jsp:include page="../header.jsp"></jsp:include>
 
    <!-- content -->
    <div style="margin:0 auto;">
@@ -1225,7 +1226,10 @@
       </div>
    </div>
 </div>
-
+</div>
+	
+	<!-- footer -->
+	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
          
