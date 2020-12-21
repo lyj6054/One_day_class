@@ -55,7 +55,7 @@
 						<span> (75)</span>
 					</div>
 					<div class="startdate" style="margin-top:10px;">
-						결제일: 2020-11-18 14:50:19 | 수업 시작일: 2020-11-28 16:00 | 강남                                                            
+						수업 시작일: 2020-11-28 16:00                                                            
                     </div>
                     <div class="myreview">
                     	<p role="button" class="review_btn" id="review_btn1" onclick="review_on(1)">내가 작성한 리뷰</p>
@@ -104,7 +104,7 @@
 					<div class="date">신청일시: 2020-11-18 14:28:24</div>
 					<h3 style="height: 40px; cursor: pointer;">[1:1_청담샵 경력] ❤ 강남역오픈❤ 자존감이 두배 올라가는 메이크업!</h3>
 					<div class="stars-box">
-						<font class="class-type">그룹 수업</font>&nbsp;|&nbsp; &nbsp;
+						<font class="class-type">원데이 수업</font>&nbsp;|&nbsp; &nbsp;
 						<font class="class-stars">
 							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
 							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
@@ -115,7 +115,7 @@
 						<span> (728)</span>
 					</div>
 					<div class="startdate" style="margin-top:10px;">
-						결제일: 2020-11-18 14:30:19 | 수업 시작일: 2020-11-26 17:00 | 강남                                                            
+						수업 시작일: 2020-11-26 17:00                                                           
                     </div>
                     <div class="myreview">
                     	<p role="button" class="review_btn" id="review_btn2" onclick="review_on(2)">내가 작성한 리뷰</p>

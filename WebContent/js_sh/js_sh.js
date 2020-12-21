@@ -90,25 +90,13 @@
 	    });
 	    
 	    $(".r-btn3").click(function(){
-	    	if(radioCheckCount("lradio") == 0){
+	    	if(radioCheckCount("aschedule") == 0){
 	            alert("수업일정을 선택해주세요");
 	            $("#checked").empty();
 	            $("#checked").append("수업신청을 원하시는 일정에 선택해주세요").css("color","#ff0045");
 	            return false;
-	         } else if(phone.value==""){
-	        	  $("#checked").empty();
-		       	  alert("전화번호를 입력해주세요");
-		       	  $("#phone").focus();
-		   	      return false;
-	         } else if(radioCheckCount("r-box-radio") == 0){    	  
-		       	  alert("레벨을 선택해주세요");
-		       	  return false;
-	         } else if(send_msg.value==""){
-	        	 alert("튜터에게 전할 메시지를 입력해주세요");
-	        	 $("#checked2").empty();
-		         $("#checked2").append("튜터에게 전할 메시지를 입력해주세요").css("color","#ff0045");
-	             $("#send_msg").focus();
-	   	      	 return false;
+	         } else {
+	        	 $("#class_apply").submit();
 	         }
 	    });
 	 });

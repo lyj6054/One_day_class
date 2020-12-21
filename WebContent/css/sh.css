@@ -155,7 +155,10 @@
 	    color: #666;
 	    resize: none;
 	}
-	.c_container input.nickname, .c_container textarea.introduction {
+	.c_container input.full{
+		width: 80%;
+	}
+	.c_container textarea.introduction {
 	    width: 100%;
 	}
 	.c_container .profile .p_info .p_contents p {
@@ -411,12 +414,12 @@
 	    width: 100%;
 	    min-width: 1200px;
 	    background: #fff;
-	    height: 1000px;
+	    height: 500px;
 	    padding-top: 40px;
 	}
 	.m_container .box {
 	    width: 1020px;
-	    height: 620px;
+	    height: 400px;
 	    border: 1px solid #ccc;
 	    margin: 0 auto;
 	}
@@ -437,7 +440,7 @@
 	}
 	.m_container .box .top_box {
 	    width: 60%;
-	    height: 160px;
+	    height: 50px;
 	    margin: 0 auto;
 	    margin-top: 20px;
 	    padding-top: 10px;
@@ -606,7 +609,7 @@
       
    }
    .nav ul {
-      width: 100%;
+      width: 1400px;
        padding: 0 20px;
        display: flex;
        height: 100%;

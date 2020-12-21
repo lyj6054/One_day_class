@@ -1,5 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.one_day_class.dao.*, com.one_day_class.vo.*"%>
+<%
+	String email = "sk231@nate.com";
+	//String email = "zxcvd12@naver.com";
+	//String email = request.getParameter("email");
+	
+	sh_TuteeDAO dao_tutee = new sh_TuteeDAO();
+	sh_TuteeVO vo_tutee = dao_tutee.getTuteeContent(email);
+	
+	sh_TutorDAO dao_tutor = new sh_TutorDAO();
+	sh_TutorVO vo_tutor = dao_tutor.getTutorContent(email);
+%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,29 +31,7 @@
 			}
 			reader.readAsDataURL(file);
 		});
-		
-		var oldValNick;
-		$(function(){
-			$('#nickname_count').text($('#nickname').val().length);
-			$('#introduction_count').text($('#introduction').val().length);
-			oldValNick = $('#nickname').val();
-		});
-		
-		$("#nickname").on("propertychange change keyup paste input", function() {
-			var currentVal = $(this).val();
-			if(currentVal == oldValNick) {
-				return;
-			}
-			
-			if($(this).val().length>8){
-				alert('별명은 8자 이하로 써주세요');
-				$('#nickname').val(oldValNick).focus();
-				return;
-			}
-			$('#nickname_count').text($(this).val().length);
-			oldValNick = currentVal;
-		});
-		
+				
 		var oldValIntro;
 		$("#introduction").on("propertychange change keyup paste input", function() {
 			var currentVal = $(this).val();
@@ -58,6 +49,7 @@
 		});
 		
 		$('#regInfo').click(function(){
+			alert("등록이 완료되었습니다.");
 			$('#pf_edit').submit();
 		});
 	});
@@ -69,51 +61,132 @@
 
 	<!-- content -->
 	<div class="c_container">
-		<!-- enctype 폼 데이터가 서버로 제출될 때 해당 데이터가 인코딩되는 방법 -->
-		<!-- multipart/form-data : 모든 문자를 인코딩하지 않음을 명시 -->
-		<form method="POST" id="pf_edit" enctype="multipart/form-data">
+		<form action="mypageProc.jsp" method="POST" id="pf_edit" enctype="multipart/form-data">
+			<% if(vo_tutor.getName() != null){ %>
+			<input type="hidden" name="email" value="<%=email%>">
+			<input type="hidden" name="type" value="1">
 			<div class="title">
 				<h1>내 프로필</h1>
 			</div>
 			<div class="profile">
 				<div class="p_info" style="padding-top: 0;">
-					<div class="p_image" style="background-image: url('http://localhost:9000/One_day_class/images/profile.png')" id="profile_image">
+					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload_sh/<%= vo_tutor.getSprofile_img()%>)" id="profile_image">
 						<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
-						<input type="file" id="p_picture" name="p_picture">
+						<input type="file" id="p_picture" name="profile_img">
 					</div>
 				</div>
 				<div class="p_info">
 					<div class="p_label">ID</div>
-					<div class="p_contents">wkdtmd1202@naver.com</div>
+					<div class="p_contents"><%= vo_tutor.getEmail()%></div>
 				</div>
 				<div class="p_info">
 					<div class="p_label">비밀번호</div>
 					<div class="p_passedit">
-						<a href="http://localhost:9000/One_day_class/mypassedit/mypassedit.jsp" class="pass_edit" style="padding: 11px 18px;">비밀번호 변경하기
+						<a href="http://localhost:9000/One_day_class/mypassedit/mypassedit.jsp?email=<%= email %>&type=1" class="pass_edit" style="padding: 11px 18px;">비밀번호 변경하기
 						</a>
                 </div>
 				</div>
 				<div class="p_info">
 					<div class="p_label">전화번호</div>
-					<div class="p_contents">01050928179</div>
+					<input type="text" id="phone" class="full" name="phone" value="<%= vo_tutor.getPhone()%>">
 				</div>
 				<div class="p_info">
 					<div class="p_label">이름</div>
-					<div class="p_contents">장승혁</div>
+					<input type="text" id="name" class="full" name="name" value="<%= vo_tutor.getName()%>">
+				</div>
+				<div class="p_info">
+					<div class="p_label">나이</div>
+					<input type="text" id="age" class="full" name="age" value="<%= vo_tutor.getAge()%>">
+				</div>
+				<div class="p_info">
+					<div class="p_label">거주지역</div>
+					<input type="text" id="area" class="full" name="area" value="<%= vo_tutor.getArea()%>">
 				</div>
 				<div class="p_info">
 					<div class="p_label">내소개</div>
 					<div class="p_contents">
-						<textarea class="introduction" id="introduction" placeholder="" name="introduction"></textarea>
+						<% if(vo_tutor.getPr() != null){ %>
+						<textarea class="introduction" id="introduction" name="pr"><%= vo_tutor.getPr()%></textarea>
+						<% } else { %>
+						<textarea class="introduction" id="introduction" name="pr"></textarea>
+						<% } %>
 						<div class="count_char">
+							<% if(vo_tutor.getPr() != null){ %>
+							<font id="introduction_count"><%= vo_tutor.getPr().length() %></font>/300
+							<% } else { %>
 							<font id="introduction_count">0</font>/300
+							<% } %>
+							
 						</div>
 					</div>
 				</div>
-				<a href="http://localhost:9000/One_day_class/myleave/myleave.jsp" class="member_leave">회원 탈퇴하기</a>
+				<a href="http://localhost:9000/One_day_class/myleave/myleave.jsp?email=<%= email %>&type=1" class="member_leave">회원 탈퇴하기</a>
 				<div class="pink_submit" id="regInfo">저장하기</div>
 				<div style="padding-top:200px"></div>
 			</div>
+			<% } else {%>
+			<input type="hidden" name="email" value="<%=email%>">
+			<input type="hidden" name="type" value="2">
+			<div class="title">
+				<h1>내 프로필</h1>
+			</div>
+			<div class="profile">
+				<div class="p_info" style="padding-top: 0;">
+					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload_sh/<%= vo_tutee.getSprofile_img()%>)" id="profile_image">
+						<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
+						<input type="file" id="p_picture" name="profile_img">
+					</div>
+				</div>
+				<div class="p_info">
+					<div class="p_label">ID</div>
+					<div class="p_contents"><%= vo_tutee.getEmail()%></div>
+				</div>
+				<div class="p_info">
+					<div class="p_label">비밀번호</div>
+					<div class="p_passedit">
+						<a href="http://localhost:9000/One_day_class/mypassedit/mypassedit.jsp?email=<%= email %>&type=2" class="pass_edit" style="padding: 11px 18px;">비밀번호 변경하기
+						</a>
+                </div>
+				</div>
+				<div class="p_info">
+					<div class="p_label">전화번호</div>
+					<input type="text" id="phone" class="full" name="phone" value="<%= vo_tutee.getPhone()%>">
+				</div>
+				<div class="p_info">
+					<div class="p_label">이름</div>
+					<input type="text" id="name" class="full" name="name" value="<%= vo_tutee.getName()%>">
+				</div>
+				<div class="p_info">
+					<div class="p_label">나이</div>
+					<input type="text" id="age" class="full" name="age" value="<%= vo_tutee.getAge()%>">
+				</div>
+				<div class="p_info">
+					<div class="p_label">거주지역</div>
+					<input type="text" id="area" class="full" name="area" value="<%= vo_tutee.getArea()%>">
+				</div>
+				<div class="p_info">
+					<div class="p_label">내소개</div>
+					<div class="p_contents">
+						<% if(vo_tutee.getPr() != null){ %>
+						<textarea class="introduction" id="introduction" name="pr"><%= vo_tutee.getPr()%></textarea>
+						<% } else { %>
+						<textarea class="introduction" id="introduction" name="pr"></textarea>
+						<% } %>
+						<div class="count_char">
+							<% if(vo_tutee.getPr() != null){ %>
+							<font id="introduction_count"><%= vo_tutee.getPr().length() %></font>/300
+							<% } else { %>
+							<font id="introduction_count">0</font>/300
+							<% } %>
+							
+						</div>
+					</div>
+				</div>
+				<a href="http://localhost:9000/One_day_class/myleave/myleave.jsp?email=<%= email %>&type=2" class="member_leave">회원 탈퇴하기</a>
+				<div class="pink_submit" id="regInfo">저장하기</div>
+				<div style="padding-top:200px"></div>
+			</div>
+			<% } %>
 		</form>
 	</div>
 

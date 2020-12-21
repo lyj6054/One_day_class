@@ -7,6 +7,8 @@
 <title>fashion_1_apply</title>
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/One_day_class/js_sh/js_sh.js"></script>
+<script src="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
 </head>
 <body>
@@ -32,7 +34,7 @@
          <div class="left-box scroll-box">
             <ul>
                   <li class="list">
-                        <input type="radio" name="lradio" id="leftradio1" class="inp_label blind">
+                        <input type="radio" name="aschedule" id="leftradio1" class="inp_label blind">
                         <label for="leftradio1" class="inp_radio">
                            <span class="left-box-span">12월 06일 일요일(강남) 11:00-13:00</span>
                            <p class="left-box-p">강남역 또는 가로수길</p>
@@ -46,7 +48,7 @@
       <h3 class="apply_title">신청 인원</h3>
       <div class="r-box">
          <button type="button" class="r-btn" id="btn-minus" name="btn_minus disabled" disabled="disabled"></button>
-         <input type="text" value="1" id="rtext" readonly>
+         <input type="text" value="1" id="rtext" name="aperson" readonly>
          <button type="button" class="r-btn1" id="btn-plus" name="btn_plus" ></button>
       </div>
       <div class="r-box1-1">
