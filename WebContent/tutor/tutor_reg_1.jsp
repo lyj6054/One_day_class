@@ -16,7 +16,7 @@
 
 	<!--  content  -->
 	<div class="content">
-		<form method="POST"  action="reg1Proc.jsp" name="tutor_reg_form1" id="frm-register-detail"
+		<form method="post"  action="reg1Proc.jsp" name="tutor_reg_form1" id="frm-register-detail"
 			enctype="multipart/form-data">
 			<input type="hidden" id="email" name="email" value="test@naver.com"> 
 			<!-- <input type="hidden" id="targetId" name="targetId" value=""> 
@@ -197,28 +197,53 @@
 								</div>
 							</div>
 							<div class="right">
-								<input id="imgnonefile" name="picture" accept="image/*"
-									style="position: absolute; opacity: 0; cursor: pointer;"
-									type="file">
+								<input  type="file" id="imgnonefile" name="picture" accept="image/*"
+									style="margin-bottom: 10px ;position: absolute; opacity: 0; cursor: pointer;"
+									>
 								<div class="plus button" id="imgUp" data-send="coverImage">
-									<img
+									<img 
 										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_add_wh.png">
-									이미지추가
+									<span  id="img_1">이미지추가1</span>
 								</div>
 								<br>
-								<div class="verify" style="margin: 10px 0"
+								<input  type="file" id="imgnonefile2" name="picture2" accept="image/*"
+									style="position: absolute; opacity: 0; cursor: pointer;"
+									>
+								<div class="plus button" id="imgUp2" data-send="coverImage">
+									<img 
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_add_wh.png">
+									<span id="img_2">이미지추가2</span>
+								</div>
+								<br>
+								<input type="file" id="imgnonefile3" name="picture3" accept="image/*"
+									style="position: absolute; opacity: 0; cursor: pointer;"
+									>
+								<div class="plus button" id="imgUp3" data-send="coverImage">
+									<img 
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_add_wh.png">
+									<span id="img_3">이미지추가3</span>
+								</div>
+								<br>
+								<input  type="file"  id="imgnonefile4" name="picture4" accept="image/*"
+									style="position: absolute; opacity: 0; cursor: pointer;"
+									>
+								<div class="plus button" id="imgUp4" data-send="coverImage">
+									<img 
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_add_wh.png">
+									<span id="img_4">이미지추가4</span>
+								</div>
+								<br>
+								
+								<!-- <div class="verify" style="margin: 10px 0"
 									onclick="deleteImage()">
 									<img
 										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_del_bk.png">
 									이미지삭제
-								</div>
+								</div> -->
 								<div style="margin-top: 40px">
 									<span class="pink">권장사항</span><br> <br> <span
 										class="gray5">- <font class="pink">10MB 이하의</font>
-										jpg,jpeg,png 파일<br> - 700x490 픽셀 <br> <br> 다음
-										사진은 <span class="pink">사용이 불가</span>합니다.<br> - 프로필 사진과
-										동일한 커버 사진<br> - 커버 사진의 경우 텍스트가 포함된 사진<br> - 인위적인
-										홍보문구가 포함된 사진<br> - 저작권에 위배되는 사진
+										jpg,jpeg,png 파일<br> - 700x490 픽셀 <br> 
 									</span>
 								</div>
 							</div>
@@ -428,8 +453,31 @@
 				$('#imgnonefile').change(function (e) {
 						var file = (e.target || window.event.srcElement).files[0];					
 						innerImg(file, fileIndex)
+						$("#imgUp").css("background","rgb(151,151,151)");
+						$("#img_1").text("등록 완료!");
 						fileIndex++;
-				});							
+				});	
+				$('#imgnonefile2').change(function (e) {
+					var file = (e.target || window.event.srcElement).files[0];					
+					innerImg(file, fileIndex)
+					$("#imgUp2").css("background","rgb(151,151,151)");
+					$("#img_2").text("등록 완료!");
+					fileIndex++;
+			});		
+				$('#imgnonefile3').change(function (e) {
+					var file = (e.target || window.event.srcElement).files[0];					
+					innerImg(file, fileIndex)
+					$("#imgUp3").css("background","rgb(151,151,151)");
+					$("#img_3").text("등록 완료!");
+					fileIndex++;
+			});		
+				$('#imgnonefile4').change(function (e) {
+					var file = (e.target || window.event.srcElement).files[0];					
+					innerImg(file, fileIndex)
+					$("#imgUp4").css("background","rgb(151,151,151)");
+					$("#img_4").text("등록 완료!");
+					fileIndex++;
+			});		
 			</script>
 						<div class="inner1">
 							<div class="vdo certi">
@@ -560,7 +608,8 @@
         });
         $("#btnReg1").click(function(){
         		var images = $('#fileList img');
-        	if($('#regionMain').val() == '수업 대표 지역을 선택해 주세요' ){ alert('수업 대표 지역을 선택해 주세요');$('#regionMain').focus();return false;}
+        		
+        	 if($('#regionMain').val() == '수업 대표 지역을 선택해 주세요' ){ alert('수업 대표 지역을 선택해 주세요');$('#regionMain').focus();return false;}
         	else if($('#regionSub').val() == '' ){ alert('상세지역을 선택해 주세요');$('#regionSub').focus();return false;}
         	else if($('#CateMain').val() == '수업카테고리를 선택해 주세요' ){ alert('수업카테고리를 선택해 주세요');$('#CateMain').focus();return false;}
         	else if($('#CateSub').val() == '상세카테고리를 선택해 주세요' ){ alert('상세카테고리를 선택해 주세요');$('#CateSub').focus();return false;}
@@ -572,7 +621,7 @@
     		}
         	else{
         		tutor_reg_form1.submit();
-        	}
+        	} 
         });
     });
 
@@ -603,11 +652,11 @@
 		} */
 
 
-		var formData = new FormData(this);
+/* 		var formData = new FormData(this);
 
 		var images = $('#fileList img');
 		
-		formData.append('ImageCnt', images.length);
+		formData.append('ImageCnt', images.length); */
 		
 /* 		if(images.length < 1){
 			alert('커버 사진을 업로드 하세요');
@@ -615,7 +664,7 @@
 		} */
 		
 		//폼데이터에 이미지 추가
-		for (var i = 0; i < images.length; i++) {
+/* 		for (var i = 0; i < images.length; i++) {
 			if(typeof  $(images[i]).data('fileData') == 'undefined')
 			{										
 				formData.append('Images'+[i], $(images[i]).attr("src"));									
@@ -624,7 +673,7 @@
 			{										
 				formData.append('Images'+[i], $(images[i]).data('fileData'));
 			}
-		}
+		} */
 		//임시로 바로 넘어가게함 - 12.16영재
 		//location.href='tutor_reg_2.jsp';
 		

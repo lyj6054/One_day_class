@@ -117,7 +117,7 @@ public class ClassDAO extends DBConn{
 	public boolean classInsert1(ClassVO vo) {
 		boolean result=false;
 		try {
-			String sql="insert into one_class values('c_'||seq_one_class.nextval,?, " + 
+			String sql="insert into one_class values('C_'||seq_one_class.nextval,?, " + 
 					"  ?,?,?,?,'¿øµ¥ÀÌ',?,?,?,?,?,0,0,'','','','' " + 
 					"  ,'','',0,0,sysdate)";
 			

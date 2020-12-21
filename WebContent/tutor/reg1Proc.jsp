@@ -18,7 +18,26 @@
 	MultipartRequest multi
 		=new MultipartRequest( request, save_path, max_size,
 		 "utf-8",new DefaultFileRenamePolicy());
-	
+		String picture ="";
+		String spicture ="";
+		if(multi.getOriginalFileName("picture")!=null){
+			picture+=multi.getOriginalFileName("picture");
+			spicture+=multi.getFilesystemName("picture");
+		}
+		if(multi.getOriginalFileName("picture2")!=null){
+			picture+=","+multi.getOriginalFileName("picture2");
+			spicture+=","+multi.getFilesystemName("picture2");
+		}
+		if(multi.getOriginalFileName("picture3")!=null){
+			picture+=","+multi.getOriginalFileName("picture3");
+			spicture+=","+multi.getFilesystemName("picture3");
+		}
+		if(multi.getOriginalFileName("picture4")!=null){
+			picture+=","+multi.getOriginalFileName("picture4");
+			spicture+=","+multi.getFilesystemName("picture4");
+		}
+		System.out.println(picture);
+		System.out.println(spicture);
 
 		vo.setEmail(multi.getParameter("email"));
 		vo.setRegionmain(multi.getParameter("regionmain"));
@@ -28,8 +47,8 @@
 		vo.setCatesub(multi.getParameter("catesub"));
 		vo.setPerson(Integer.parseInt(multi.getParameter("person")));
 		vo.setTitle(multi.getParameter("title"));
-		vo.setPicture(multi.getOriginalFileName("picture"));
-		vo.setSpicture(multi.getFilesystemName("picture"));	
+		vo.setPicture(picture);
+		vo.setSpicture(spicture);	
 		vo.setVideos(multi.getParameter("videos"));
 		
 		//DB연동 --> 새로운 파일 있는 경우
@@ -41,6 +60,6 @@
 	}else{
 		response.sendRedirect("../errorPage1.jsp");
 		
-	}
+	}   
 
 %>
