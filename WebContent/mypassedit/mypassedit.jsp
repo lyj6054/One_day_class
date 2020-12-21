@@ -1,4 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+	pageEncoding="UTF-8"
+	import="com.one_day_class.dao.*, com.one_day_class.vo.*"%>
+<%
+	String email = request.getParameter("email");
+	String type = request.getParameter("type");
+%>	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +63,9 @@
 			<div class="title_box">
 				<div class="t_name">비밀번호 재설정</div>
 			</div>
-			<form class="pass_edit_form" action="" method="POST" id="edit_password">
+			<form class="pass_edit_form" action="mypasseditProc.jsp" method="POST" id="edit_password">
+				<input type="hidden" name="email" value="<%=email%>">
+				<input type="hidden" name="type" value="<%=type%>">
 				<div class="top_box">
 					<div class="input_box">
 						<div class="left_box">

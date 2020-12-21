@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.one_day_class.dao.*, com.one_day_class.vo.*,java.util.*"%>
+<%
+	String email = request.getParameter("email");
+
+	sh_TutorDAO dao_tutor = new sh_TutorDAO();
+	sh_TutorVO vo_tutor = dao_tutor.getTutorContent(email);
+
+	sh_ClassDAO dao_class = new sh_ClassDAO();
+	ArrayList<sh_ClassVO> list_class = dao_class.getMakeClass(email);
+%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -109,9 +120,6 @@
 	table.admin_member_content tr:nth-child(2) th {
 		height: 40px;
 	}
-	table.admin_member_content tr td{
-		padding: 0 45px;
-	}
 	table.admin_member_content tr:last-child td{
 		padding: 0;
 	}
@@ -159,32 +167,39 @@
 			<table class="admin_member_content">
 				<tr>
 					<th>아이디</th>
-					<td>qwe123@naver.com</td>
+					<td><%= vo_tutor.getEmail() %></td>
 					<th>성명</th>
-					<td>홍길동</td>
+					<td><%= vo_tutor.getName() %></td>
 					<th>가입일</th>
-					<td>2020.12.10</td>
+					<td><%= vo_tutor.getRdate() %></td>
 				</tr>
 				<tr>
 					<th>전화번호</th>
-					<td>010-1234-5678</td>
+					<td><%= vo_tutor.getPhone() %></td>
 					<th>나이</th>
-					<td>20대</td>
+					<td><%= vo_tutor.getAge() %></td>
 					<th>거주지역</th>
-					<td>서울</td>
+					<td><%= vo_tutor.getArea() %></td>
 				</tr>
 				<tr>
 					<th>신청한 수업</th>
-					<td colspan="5">[원데이 메이크업]뭘 바르냐가 아니라, '어떻게'바르냐의 차이.</td>
+					<td colspan="5">신청한 수업이 없습니다.</td>
 				</tr>
 				<tr>
 					<th>수강중인 수업</th>
-					<td colspan="5">[남양주/구리SNPE] 거북목, 일자허리, 사무직 필수코스! #통증완화 #체형교정 #SNPE #바른자세척추운동<br>
-									⭐️ 12월 할인 이벤트! 나만의 매력에 가치를 더 하는 퍼스널컬러 컨설팅⭐️</td>
+					<td colspan="5">수강중인 수업이 없습니다.</td>
 				</tr>
 				<tr>
 					<th>개설한 수업</th>
-					<td colspan="5">-</td>
+					<% if(list_class.size() != 0){ %>
+					<td colspan="5">
+					<% for(sh_ClassVO vo : list_class){ %>
+					- <%= vo.getTitle() %><br>
+					<%} %>
+					</td>
+					<%} else { %>
+					<td colspan="5">개설한 수업이 없습니다.</td>
+					<%} %>
 				</tr>
 				<tr>
 					<td colspan="6">

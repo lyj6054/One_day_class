@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<div class="info">
-					<div class="people">참여인원 : <font class="pink">1457명</font></div>
+					<div class="people">찜한인원 : <font class="pink">1457명</font></div>
 					<h3 onclick="location.href ='../class/beauty/makeUp/b_m_2.jsp'" style="height: 40px; cursor: pointer;">[셀프 속눈썹펌 배우기] ♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥ 쌩얼에도 당당하게! </h3>
 					<div class="stars-box">
 						<font class="class-type">원데이 수업</font>&nbsp;|&nbsp; &nbsp;
@@ -55,10 +55,10 @@
 					</div>
 				</div>
 				<div class="info">
-					<div class="people">참여인원 : <font class="pink">6752명</font></div>
+					<div class="people">찜한인원 : <font class="pink">6752명</font></div>
 					<h3 onclick="location.href ='../class/beauty/makeUp/b_m_1.jsp'" style="height: 40px; cursor: pointer;">[1:1_청담샵 경력] ❤ 강남역오픈❤ 자존감이 두배 올라가는 메이크업!</h3>
 					<div class="stars-box">
-						<font class="class-type">그룹 수업</font>&nbsp;|&nbsp; &nbsp;
+						<font class="class-type">원데이 수업</font>&nbsp;|&nbsp; &nbsp;
 						<font class="class-stars">
 							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
 							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">

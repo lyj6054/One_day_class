@@ -1,4 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+	pageEncoding="UTF-8"
+	import="com.one_day_class.dao.*, com.one_day_class.vo.*"%>
+<%
+	String email = request.getParameter("email");
+	String type = request.getParameter("type");
+%>		
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,30 +30,24 @@
 				<div class="tit_top">정말 탈퇴하시겠어요?<br>
                 	<span style="font-size: 80%;">
                 		탈퇴하시면 저장된회원님의 모든 데이터가 영구적으로 삭제됩니다.<br> 
-                		단, 탈퇴후 3일 이내 로그인하실 경우 계정은 복구되며 3일 후 자동으로 삭제됩니다.
 					</span>
 				</div>
 			</div>
-			<form class="member_delete_form" action="" method="POST" id="delete_member">
+			<form class="member_delete_form" action="myleaveProc.jsp" method="POST" id="delete_member">
+				<input type="hidden" name="email" value="<%=email%>">
+				<input type="hidden" name="type" value="<%=type%>">
 				<div class="top_box">
                 	<div class="input_box">
 						<div class="left_box">
 							<b>·</b>&nbsp;아이디
 						</div>
 						<div class="right_box">
-							wkdtmd1202@naver.com                                
-						</div>
-					</div>
-					<div class="input_box">
-						<div class="left_box2">
-						</div>
-						<div class="right_box">
-							<textarea class="cancel" name="feedback" placeholder="서비스 탈퇴 사유에 대해 알려주세요.&#13;&#10;고객님의 소중한 피드백을 담아 더 나은 서비스로 보답 드리도록 하겠습니다."></textarea>
+							<%= email %>                               
 						</div>
 					</div>
 				</div>
 				<div class="bottom_box">
-					<input type="submit" class="button" value="탈퇴신청">
+					<input type="submit" class="button" value="탈퇴하기">
 				</div>
 			</form>
 		</div>
