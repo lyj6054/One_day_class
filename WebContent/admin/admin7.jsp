@@ -3,19 +3,51 @@
     import="com.one_day_class.dao.*, com.one_day_class.vo.*,java.util.*"%>
 <%
 	 ClassDAO dao = new ClassDAO();
-	ArrayList<ClassVO> list = dao.getCList();
-	System.out.println(list.size());
+	
+	//1. 선택한 페이지값
+	String rpage= request.getParameter("rpage");
+	
+	//2-1. 페이지 값에 따라서 start, end count 구하기
+	//1페이지(1~10) , 2페이지(11~20)...
+	int start =0;
+	int end=0;
+	int pageSize=10; //한 페이지당 출력되는 row
+	int pageCount = 1;//전체 페이지수 : 전체 리스트 row / 한 페이지당 출력되는 row
+	int dbCount = dao.getListCount();// DB연동 후 전체로우수 출력
+	int reqPage = 1;//요청페이지
+	
+	//2-2. 전체페이지 수 구하기
+	if(dbCount%pageSize==0){
+		pageCount= dbCount/pageSize;
+	}else{
+		pageCount= dbCount/pageSize+1;
+	
+	}
+	
+	//2-3. start, end 값 구하기
+	if(rpage != null){
+		reqPage = Integer.parseInt(rpage);
+		start = (reqPage -1) * pageSize +1 ;
+		end = reqPage * pageSize;
+	}else{
+		start = reqPage;
+		end = pageSize;
+	}
+
+
+	ArrayList<ClassVO> list = dao.getCList(start,end);
 	int i=0;
-	//조회수
-	//dao.getUpdateHits(cno);
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://localhost:9000/One_day_class/css/am-pagination.css">
+<script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/One_day_class/js_yj/am-pagination.js"></script> <!-- 제이쿼리 라이브러리 -->
 <style>
 	
 	#newsroom-main {
@@ -24,7 +56,7 @@
 		overflow:hidden;
 		heigth:auto;
 		width:853px;
-		padding: 10px 18px 80px 17px;
+		padding: 10px 18px 120px 17px;
 		border:1px #e3e3e3 solid;
 		margin-bottom:40px;
 		/* position:absolute; */
@@ -476,7 +508,9 @@
 	    background-repeat: no-repeat;
 	    background-size: 13px;
 	}
-	
+	#ampaginationsm{
+		text-align: center;
+	}
 	</style>
 <script>
 	$(document).ready(function(){
@@ -494,6 +528,31 @@
 				$("#"+i).attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
 			}
 		});
+		
+		//페이지 번호 및 링크
+		var pager = jQuery("#ampaginationsm").pagination({
+			maxSize : 5,
+			totals: <%=dbCount%>,
+			pageSize: <%=pageSize%>,
+			page: <%=reqPage%>,
+			
+			lastText : '&raquo;&raquo;',
+			firstText : '&laquo,&laquo',
+			prevTest : '&laquo;',
+			nextTest : '&raquo;',
+			
+			btnSize : 'sm'
+		});
+		
+		jQuery("#ampaginationsm").on('am.pagination.change',function(e){
+			$(location).attr('href','http://localhost:9000/One_day_class/admin/admin7.jsp?rpage='+e.page); 
+			//location.href('이동페이지')';
+		});
+		
+		 $("#accept").click(function(){
+			 ClassMForm.submit(); 
+		 });
+		
 	});
 	
 	function allCheck() { 
@@ -583,7 +642,7 @@
 					<ul class="section2-cont">
 						<li class="cont-0">
 							<input class="blind inp_label" type="checkbox" name="checkTerms"
-							 id="check<%=i%>"value="<%=vo.getCno()%>">
+							 id="check<%=i%>" value="<%=vo.getCid()%>">
 							<label for="check<%=i%>" class="inp_chkbox"></label>
 						</li>
 						<li class="cont-1"><%=vo.getCno() %></li>
@@ -614,24 +673,10 @@
 			</div>
 		</div>
 		<div class="main-section3">
-			<div class="section-paging">
-				<div class="paging-page">
-					<a id="prev-off" class="prev-off" href="#"></a>
-					<a class="selected" href="#">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#">4</a>
-					<a href="#">5</a>
-					<a href="#">6</a>
-					<a href="#">7</a>
-					<a href="#">8</a>
-					<a href="#">9</a>
-					<a href="#">10</a>
-					<a id="next" class="next" href="#"></a>
-				</div>
-				<div class="admin_btn">
-					<button type="button" class="accept">수락</button>
-					<button type="button" class="reject">거절</button>
+			<div id="ampaginationsm"></div>
+			<div class="admin_btn">
+					<button type="button" class="accept" id="accept">수락</button>
+					<button type="button" class="reject" id="reject">거절</button>
 				</div>
 			</div>
 			

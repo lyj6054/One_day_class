@@ -9,6 +9,38 @@ import com.one_day_class.vo.ClassVO;
 public class ClassDAO extends DBConn{
 	
 	/**
+	 * Update : 수락 시 클레스 cstatus 1로변경
+	 */
+	public void updateStatus(String cid) {
+		try {
+			String sql="update one_class set cstatus=1 where cid=? ";
+			getPreparedStatement(sql);
+			pstmt.setString(1, cid);
+			int val=pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 *  전체 리스트 카운트
+	 */
+	public int getListCount() {
+		int result =0;
+		try {
+			String sql = "select count(*) from one_class";
+			getPreparedStatement(sql);
+			ResultSet rs=pstmt.executeQuery();
+			if(rs.next()) result= rs.getInt(1);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	/**
 	 * Select : spicture을 이용하여 Cid가져오기
 	 */
 	public String getCid1(String spicture) {
@@ -123,6 +155,35 @@ public class ClassDAO extends DBConn{
 //			e.printStackTrace();
 //		}
 //	}
+	
+	/**
+	 *  수업리스트 가져오기- 영재
+	 */
+	public ArrayList<ClassVO> getCList(int start, int end){
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		try {
+			String sql = "select * from (select rownum cno,cid,title,to_char(cdate,'yyyy.mm.dd') cdate from (select * from one_class order by cdate desc)) where cno between ? and ?";
+			getPreparedStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()){
+				ClassVO vo=new ClassVO();
+				vo.setCno(rs.getInt(1));
+				vo.setCid(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setCdate(rs.getString(4));
+				
+				list.add(vo);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 	
 	/**
 	 *  수업리스트 가져오기- 영재
