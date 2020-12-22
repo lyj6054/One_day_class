@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<% String cid=request.getParameter("cid"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +41,7 @@
 			</div>
 
 			<div class="main-section2" id="section2">
-				<iframe width="800px"  height="800px"  src="admin8_1.jsp">
+				<iframe width="800px"  height="800px"  src="class_iframe.jsp?cid=<%=cid%>">
 				</iframe>
 				<div class="main-section3">
 				<button type=button  class="accept">수락</button>

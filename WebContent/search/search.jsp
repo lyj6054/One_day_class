@@ -1,14 +1,75 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+	import="com.one_day_class.dao.*, com.one_day_class.vo.*,java.util.*"%>
+<%
+	 ClassDAO dao = new ClassDAO();
+	//1. 선택한 페이지값
+	String rpage= request.getParameter("rpage");
+	
+	//2-1. 페이지 값에 따라서 start, end count 구하기
+	//1페이지(1~10) , 2페이지(11~20)...
+	int start =0;
+	int end=0;
+	int pageSize=6; //한 페이지당 출력되는 row
+	int pageCount = 1;//전체 페이지수 : 전체 리스트 row / 한 페이지당 출력되는 row
+	int dbCount = dao.getListCount();// DB연동 후 전체로우수 출력
+	int reqPage = 1;//요청페이지
+	
+	//2-2. 전체페이지 수 구하기
+	if(dbCount%pageSize==0){
+		pageCount= dbCount/pageSize;
+	}else{
+		pageCount= dbCount/pageSize+1;
+	
+	}
+	
+	//2-3. start, end 값 구하기
+	if(rpage != null){
+		reqPage = Integer.parseInt(rpage);
+		start = (reqPage -1) * pageSize +1 ;
+		end = reqPage * pageSize;
+	}else{
+		start = reqPage;
+		end = pageSize;
+	}
+	
+	ArrayList<ClassVO> list = dao.getCList(start,end);
+	int i=0;
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="http://localhost:9000/One_day_class/css/yj.css">
-<script
-	src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj.css">
+<script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="http://localhost:9000/One_day_class/css/am-pagination.css">
+<script src="http://localhost:9000/One_day_class/js_yj/am-pagination.js"></script> <!-- 제이쿼리 라이브러리 -->
+<script>
+$(document).ready(function(){
+	
+	//페이지 번호 및 링크
+	var pager = jQuery("#ampaginationsm").pagination({
+		maxSize : 5,
+		totals: <%=dbCount%>,
+		pageSize: <%=pageSize%>,
+		page: <%=reqPage%>,
+		
+		lastText : '&raquo;&raquo;',
+		firstText : '&laquo,&laquo',
+		prevTest : '&laquo;',
+		nextTest : '&raquo;',
+		
+		btnSize : 'sm'
+	});
+	
+	jQuery("#ampaginationsm").on('am.pagination.change',function(e){
+		$(location).attr('href','http://localhost:9000/One_day_class/admin/class_list.jsp?rpage='+e.page); 
+		//location.href('이동페이지')';
+	});
+});	
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -202,204 +263,10 @@
 								</div>
 							</a>
 						</div>
-						<div class="cont2_class">
-							<a
-								href="http://localhost:9000/One_day_class/class/workout/dance/w_d_2.jsp"
-								target="_blank">
-								<div class="img"
-									style="background-image: url(http://localhost:9000/One_day_class/images/dance1.png);">
-									<div class="day">1DAY수업</div>
-									<div class="d_day">2719명 찜</div>
-									<!--a class="heart2"></a-->
-								</div>
-								<div class="profile_box">
-									<div class="profile"
-										style="background-image: url(http://localhost:9000/One_day_class/images/dance.png);">
-									</div>
-									<div class="name">김유신</div>
-									<div class="nick">튜터</div>
-								</div>
-								<div class="title">남들과는 다른, 나만의 춤을 춰보자 !</div>
-								<div class="price">
-									<div class="price2">
-										<span>￦<span><span>13,500<span>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info2">
-										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(74)</div>
-
-										<div class="location">건대</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="cont2_class">
-							<a
-								href="http://localhost:9000/One_day_class/class/workout/sports/w_s_1.jsp"
-								target="_blank">
-								<div class="img"
-									style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_1_1.png);">
-									<div class="day">1DAY수업</div>
-									<div class="d_day">2580명 찜</div>
-									<!--a class="heart2"></a-->
-								</div>
-								<div class="profile_box">
-									<div class="profile"
-										style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_1_icon.png);">
-									</div>
-									<div class="name">제이진 강사</div>
-									<div class="nick">PLAY freediving</div>
-								</div>
-								<div class="title">[ 1일 체험 ] PLAY freediving 프리다이빙 # 3시간
-									여유롭게 차근차근 즐겨요~~</div>
-								<div class="price">
-									<div class="price2">
-										<span>￦<span><span>13,000<span>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info2">
-										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(11)</div>
-
-										<div class="location">잠실</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="cont2_class">
-							<a
-								href="http://localhost:9000/One_day_class/class/workout/sports/w_s_2.jsp"
-								target="_blank">
-								<div class="img"
-									style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_2.png);">
-									<div class="day">1DAY수업</div>
-									<div class="d_day">2224명 찜</div>
-									<!--a class="heart2"></a-->
-								</div>
-								<div class="profile_box">
-									<div class="profile"
-										style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_2_icon.png);">
-									</div>
-									<div class="name">김명화</div>
-									<div class="nick">튜터</div>
-								</div>
-								<div class="title">[원데이] FBI가 배우는 실전 호신술 크라브마가 : #여성호신술
-									#영화속무술</div>
-								<div class="price">
-									<div class="price2">
-										<span>￦<span><span>12,500<span>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info2">
-										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(8)</div>
-
-										<div class="location">교대</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="cont2_class">
-							<a
-								href="http://localhost:9000/One_day_class/class/workout/sports/w_s_3.jsp"
-								target="_blank">
-								<div class="img"
-									style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_3.png);">
-									<div class="day">1DAY수업</div>
-									<div class="d_day">2160명 찜</div>
-									<!--a class="heart2"></a-->
-								</div>
-								<div class="profile_box">
-									<div class="profile"
-										style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_3_icon.png);">
-									</div>
-									<div class="name">유재혁</div>
-									<div class="nick">튜터</div>
-								</div>
-								<div class="title">●[볼링] 완벽초보탈출! 쉽고 부담없는 맞춤식 진행
-									[1:1수업,그룹수업,커플수업]●</div>
-								<div class="price">
-									<div class="price2">
-										<span>￦<span><span>17,500<span>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info2">
-										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(81)</div>
-
-										<div class="location">구로</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="cont2_class">
-							<a
-								href="http://localhost:9000/One_day_class/class/workout/sports/w_s_4.jsp"
-								target="_blank">
-								<div class="img"
-									style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_4.png);">
-									<div class="day">1DAY수업</div>
-									<div class="d_day">1688명 찜</div>
-									<!--a class="heart2"></a-->
-								</div>
-								<div class="profile_box">
-									<div class="profile"
-										style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_s_4_icon.png);">
-									</div>
-									<div class="name">제이 로</div>
-									<div class="nick">튜터</div>
-								</div>
-								<div class="title">화려한 조명이 감싸주는 수영장에서 선수들과 깡수영</div>
-								<div class="price">
-									<div class="price2">
-										<span>￦<span><span>30,000<span>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info2">
-										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(1)</div>
-
-										<div class="location">강서</div>
-									</div>
-								</div>
-							</a>
-						</div>
 
 					</div>
 				</div>
-
-
-				<div class="page">
-					<a href='#' class='list border'><b>1</b></a><a
-						href='http://localhost:9000/One_day_class/search/activities_2page.jsp'
-						class='list'>2</a><a
-						href='/Home/Search/?page=3&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
-						class='list'>3</a><a
-						href='/Home/Search/?page=4&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
-						class='list'>4</a><a
-						href='/Home/Search/?page=5&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
-						class='list'>5</a><a
-						href='/Home/Search/?page=6&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
-						class='list'>6</a><a
-						href='/Home/Search/?page=7&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
-						class='list'>7</a><a
-						href='/Home/Search/?page=8&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
-						class='list'>8</a><a
-						href='/Home/Search/?page=9&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
-						class='list'>9</a><a
-						href='/Home/Search/?page=10&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='
-						class='list'>10</a>&nbsp;&nbsp;<a
-						href='/Home/Search/?page=11&cateMain=10&cateSub=&region=&orderIdx=&query=&code=&org=&day=&time=&tType=&region=&regionMain='>|
-						&nbsp;다음&nbsp;&nbsp;<img src='../images/paging_pop_last.gif'
-						border='0'>
-					</a>
-				</div>
+					<div id="ampaginationsm"></div>
 				<div style="padding-top: 50px"></div>
 			</div>
 

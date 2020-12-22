@@ -11,12 +11,12 @@
 		for(String cid:cids){
 			dao.updateStatus1(cid);
 		}
-		response.sendRedirect("admin7.jsp"); 
+		response.sendRedirect("class_list.jsp"); 
 	}else if(wbutton.equals("reject")){
 		System.out.println(wbutton);
 		for(String cid:cids){
 			dao.updateStatus2(cid);
 		}
-		response.sendRedirect("admin7.jsp"); 
+		response.sendRedirect("class_list.jsp"); 
 	}
 %>
