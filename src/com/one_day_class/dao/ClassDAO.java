@@ -132,8 +132,8 @@ public class ClassDAO extends DBConn{
 		boolean result=false;
 		try {
 			String sql="insert into one_class values('C_'||seq_one_class.nextval,?, " + 
-					"  ?,?,?,?,'원데이',?,?,?,?,?,0,0,'','','','' " + 
-					"  ,'','',0,0,sysdate)";
+					"  ?,?,?,?,'원데이',?,?,?,?,?,0,0,'스케줄','튜터소개','수업숙지','수업소개' " + 
+					"  ,'수업대상','커리큘럼',0,0,sysdate)";
 			
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getEmail());

@@ -44,7 +44,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/am-pagination.css">
 <script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
@@ -514,7 +513,7 @@
 			var i=$(this).attr("id");
 			var status = $(this).attr("src");
 			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
-				var url="http://localhost:9000/One_day_class/admin/admin8_1.jsp?cno="+$(this).attr("alt");
+				var url="http://localhost:9000/One_day_class/admin/class_iframe.jsp?cno="+$(this).attr("alt");
 				$("#cont-8-"+i).css("display","block").height("450px");
 				$("#"+i).attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
 				$("#cont8-wrap-"+i).load(url+" .section2-cont");
@@ -540,7 +539,7 @@
 		});
 		
 		jQuery("#ampaginationsm").on('am.pagination.change',function(e){
-			$(location).attr('href','http://localhost:9000/One_day_class/admin/admin7.jsp?rpage='+e.page); 
+			$(location).attr('href','http://localhost:9000/One_day_class/admin/class_list.jsp?rpage='+e.page); 
 			//location.href('이동페이지')';
 		});
 		
@@ -611,8 +610,8 @@
 				</div>
 				<ul>
 					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="notice_list_admin.jsp">공지사항/이벤트</a></li>
-					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="#">수업관리</a></li>
-					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="#">회원관리</a></li>
+					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="class_list.jsp">수업관리</a></li>
+					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="member_list">회원관리</a></li>
 				</ul>
 			</nav>
 		</aside>
@@ -638,7 +637,7 @@
 				<li class="title-4">작성일</li>
 			</ul>
 			<div id="nesListNew">
-			<form name="ClassMForm" action="admin7Proc.jsp" method="get" class="join">
+			<form name="ClassMForm" action="class_listProc.jsp" method="get" class="join">
 				<input type="hidden" name="wbutton" value="" id="wbutton">
 				<% for(ClassVO vo:list){ i++;%>
 					<ul class="section2-cont">
@@ -658,13 +657,13 @@
 							<label class="cont3-label" id="status<%=vo.getCstatus() %>" ></label>
 						</li>
 						<li class="cont-4">
-							<a href="http://localhost:9000/One_day_class/admin/admin8.jsp?cid=<%=vo.getCid()%>"><%=vo.getTitle()%></a>
+							<a href="http://localhost:9000/One_day_class/admin/class_content.jsp?cid=<%=vo.getCid()%>"><%=vo.getTitle()%></a>
 						</li>
 						<li class="cont-5">탈멍</li>
 						<li class="cont-6"><%=vo.getCdate()%></li>
 						<li class="cont-8" id="cont-8-<%=i%>" >
 							<%-- <div class="cont8-wrap" id="cont8-wrap-<%=i%>" ></div> --%>
-							<iframe width="800px"  height="800px"  src="admin8_1.jsp?cid=<%=vo.getCid()%>">
+							<iframe width="800px"  height="800px"  src="class_iframe.jsp?cid=<%=vo.getCid()%>">
 							</iframe>
 						</li>
 					</ul>
