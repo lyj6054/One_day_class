@@ -3,7 +3,7 @@
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
     
 <%
-	sh_TutorDAO dao_tutor = new sh_TutorDAO();
+	sh_TuteeDAO dao_tutee = new sh_TuteeDAO();
 
 	//1. 선택한 페이지값
 	String rpage = request.getParameter("rpage"); 
@@ -14,7 +14,7 @@
 	int end = 0;
 	int pageSize = 10; // 한 페이지당 출력되는 row
 	int pageCount = 1; // 전체 페이지 수 : 전체 리스트 row / 한 페이지당 출력되는 row
-	int dbCount = dao_tutor.getListCount(); // DB연동 후 전체 row 수 출력
+	int dbCount = dao_tutee.getListCount(); // DB연동 후 전체 row 수 출력
 	int reqPage = 1; // 요청 페이지
 	
 	//2-2. 전체페이지 수 구하기
@@ -35,13 +35,13 @@
 		end = pageSize;
 	}
 
-	ArrayList<sh_TutorVO> list_tutor = dao_tutor.getTutorList(start, end);
+	ArrayList<sh_TuteeVO> list_tutee = dao_tutee.getTuteeList(start, end);
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>member_list</title>
+<title>tutee_list</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/am-pagination.css">
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
@@ -396,7 +396,7 @@
 		});
 		
 		jQuery("#ampaginationsm").on('am.pagination.change',function(e){
-			$(location).attr('href','http://localhost:9000/One_day_class/admin/member_list.jsp?rpage=' + e.page); // location.href('이동페이지');
+			$(location).attr('href','http://localhost:9000/One_day_class/admin/tutee_list.jsp?rpage=' + e.page); // location.href('이동페이지');
 		});
 	});
 </script>
@@ -415,7 +415,7 @@
 		      </div>
 		      <ul>
 		         <li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="notice_list_admin.jsp">공지사항/이벤트</a></li>
-		         <li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="admin7.jsp">수업관리</a></li>
+		         <li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="#">수업관리</a></li>
 		         <li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="member_list.jsp">회원관리</a></li>
 		      </ul>
 		   </nav>
@@ -424,8 +424,8 @@
 			<span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
 			<div class="main-section1">
 				<ul class="section1-category">
-					<li id="first" class="selected"><a href="member_list.jsp"><span>튜터</span></a></li>
-					<li id="second"><a href="tutee_list.jsp"><span>튜티</span></a></li>
+					<li id="first"><a href="member_list.jsp"><span>튜터</span></a></li>
+					<li id="second" class="selected"><a href="tutee_list.jsp"><span>튜티</span></a></li>
 				</ul>
 			</div>
 			<div class="ad_member_list">
@@ -440,10 +440,10 @@
 					<li class="title-8">희망수업</li>
 					<li class="title-9">가입일</li>
 				</ul>
-				<!-- 튜터 -->
-				<div id="member_list_tutor" style="display: block">
-					<% for(sh_TutorVO vo : list_tutor){ %>
-					<a href="tutor_content.jsp?email=<%=vo.getEmail()%>">
+				<!-- 튜티 -->
+				<div id="member_list_tutee">
+					<% for(sh_TuteeVO vo : list_tutee){ %>
+					<a href="tutee_content.jsp?email=<%=vo.getEmail()%>">
 						<ul class="member_list_cont">
 							<li class="cont-1"><%=vo.getRno() %></li>
 							<li class="cont-2"><%=vo.getName() %></li>
@@ -453,7 +453,7 @@
 							<li class="cont-6"><%=vo.getAge() %></li>
 							<li class="cont-7"><%=vo.getArea() %></li>
 							<li class="cont-8"><%=vo.getHope_class() %></li>
-							<li class="cont-9"><%=vo.getRdate() %></li>
+							<li class="cont-9"><%=vo.getEdate() %></li>
 						</ul>
 					</a>
 					<% } %>

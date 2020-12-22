@@ -2,7 +2,7 @@ package com.one_day_class.vo;
 
 public class sh_ReviewVO {
 	String rid, cid, email, rcontent, rdate;
-	double rservice;
+	int rservice;
 	
 	public String getRid() {
 		return rid;
@@ -34,10 +34,10 @@ public class sh_ReviewVO {
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}
-	public double getRservice() {
+	public int getRservice() {
 		return rservice;
 	}
-	public void setRservice(double rservice) {
+	public void setRservice(int rservice) {
 		this.rservice = rservice;
 	}
 }

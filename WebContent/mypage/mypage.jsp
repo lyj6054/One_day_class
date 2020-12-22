@@ -62,7 +62,8 @@
 	<!-- content -->
 	<div class="c_container">
 		<form action="mypageProc.jsp" method="POST" id="pf_edit" enctype="multipart/form-data">
-			<% if(vo_tutor.getName() != null){ %>
+			<!-- 튜터일때 -->
+			<% if(vo_tutor.getName() != null){ %> 
 			<input type="hidden" name="email" value="<%=email%>">
 			<input type="hidden" name="type" value="1">
 			<div class="title">
@@ -124,6 +125,7 @@
 				<div class="pink_submit" id="regInfo">저장하기</div>
 				<div style="padding-top:200px"></div>
 			</div>
+			<!-- 튜티일때 -->
 			<% } else {%>
 			<input type="hidden" name="email" value="<%=email%>">
 			<input type="hidden" name="type" value="2">

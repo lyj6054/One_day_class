@@ -7,6 +7,26 @@ import com.one_day_class.vo.sh_TutorVO;
 
 public class sh_TutorDAO extends DBConn {
 	
+	/* 전체 행 갯수 */
+	public int getListCount() {
+		int result = 0;
+		try {
+			//4. SQL 실행 - ResultSet 객체 생성
+			String sql = "select count(*) from one_tutor";
+			getPreparedStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			//5. ResultSet 객체 생성되는 경우 - 데이터 가져오기
+			while(rs.next()){
+				result = rs.getInt(1);
+			}			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	/* select : 전제 리스트  */
 	public ArrayList<sh_TutorVO> getTutorList() {
 		ArrayList<sh_TutorVO> list = new ArrayList<sh_TutorVO>();
@@ -39,7 +59,42 @@ public class sh_TutorDAO extends DBConn {
 		return list;
 	}
 	
-	/* content : 회원 상제 정보 */
+	/* select : 전제 리스트  */
+	public ArrayList<sh_TutorVO> getTutorList(int start, int end) {
+		ArrayList<sh_TutorVO> list = new ArrayList<sh_TutorVO>();
+		
+		try {
+			String sql = " select * from (select rownum rno, name, gender, email, phone, age, area, hope_class, to_char(rdate, 'yyyy.mm.dd') rdate "
+					+ " from (select * from one_tutor order by rdate) order by rno)"
+					+ " where rno between ? and ?";
+			getPreparedStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_TutorVO vo = new sh_TutorVO();
+				vo.setRno(rs.getInt(1));
+				vo.setName(rs.getString(2));
+				vo.setGender(rs.getString(3));
+				vo.setEmail(rs.getString(4));
+				vo.setPhone(rs.getString(5));
+				vo.setAge(rs.getString(6));
+				vo.setArea(rs.getString(7));
+				vo.setHope_class(rs.getString(8));
+				vo.setRdate(rs.getString(9));
+				
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	/* content : 회원 상세 정보 */
 	public sh_TutorVO getTutorContent(String email) {
 		sh_TutorVO vo = new sh_TutorVO();
 		
@@ -190,4 +245,32 @@ public class sh_TutorDAO extends DBConn {
 		
 		return result;
 	}
+	
+	/* myclassform 튜터 정보 출력 */
+	public ArrayList<sh_TutorVO> getMyclassForm(String email) {
+		ArrayList<sh_TutorVO> list = new ArrayList<sh_TutorVO>();
+		
+		try {
+			String sql = "select r.name, sprofile_img, adate, title, aschedule "
+						  + " from one_class c, one_tutor r, one_apply_class a "
+						  + " where c.cid=a.cid and r.email=c.email and a.astatus=0 and a.email=?"
+						  + " order by adate desc";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_TutorVO vo = new sh_TutorVO();
+				vo.setName(rs.getString(1));
+				vo.setSprofile_img(rs.getString(2));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 }

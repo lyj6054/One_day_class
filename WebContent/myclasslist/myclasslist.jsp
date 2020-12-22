@@ -1,16 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
+<%
+	String email = "zxcvd12@naver.com";
+	//String email = request.getParameter("email");
+	
+	sh_ClassDAO dao_class = new sh_ClassDAO();
+	ArrayList<sh_ClassVO> list_class = dao_class.getMyclassList(email);
+	
+	ArrayList<String> pic_array = new ArrayList<String>();
+	for(int i = 0; i < list_class.size(); i++){
+		String[] pic_array2 = list_class.get(i).getSpicture().split(",");	
+		pic_array.add(i, pic_array2[0]);
+	}
+
+	sh_ApplyClassDAO dao_applyClass = new sh_ApplyClassDAO();
+	ArrayList<sh_ApplyClassVO> list_applyClass = dao_applyClass.getMyclassList(email);
+	
+	sh_ReviewDAO dao_review = new sh_ReviewDAO();
+	ArrayList<sh_ReviewVO> list_review = dao_review.getMyclassList(email);
+	
+	sh_TuteeDAO dao_tutee = new sh_TuteeDAO();
+	sh_TuteeVO vo_tutee = dao_tutee.getMyclassList(email);
+	
+%>      
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>myclassList</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
-<style>
-	.c_container .myclass .class:nth-child(even) {
-		margin-left: 0px;
-	}
-</style>
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script>
 	function review_on(num){
@@ -34,15 +54,17 @@
 		<div class="title">
 			<h1>나의 수강목록</h1>
 		</div>
+		<% if(list_applyClass.size() != 0){ %>
+		<% for (int i = 0; i < list_applyClass.size(); i++){ %>
 		<div class="myclass">
 			<div class="class">
 				<div class="profile">
-					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png')">
+					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/upload_sh/<%= pic_array.get(i)%>')">
 					</div>
 				</div>
 				<div class="info">
-					<div class="date">신청일시: 2020-11-18 14:47:19</div>
-					<h3 style="height: 40px; cursor: pointer;">[셀프 속눈썹펌 배우기] ♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥ 쌩얼에도 당당하게! </h3>
+					<div class="date">신청일시: <%= list_applyClass.get(i).getAdate() %></div>
+					<h3 style="cursor: pointer;" onclick="location.href='../class/class.jsp?cid=<%=list_class.get(i).getCid()%>'"><%= list_class.get(i).getTitle() %></h3>
 					<div class="stars-box">
 						<font class="class-type">원데이 수업</font>&nbsp;|&nbsp; &nbsp;
 						<font class="class-stars">
@@ -52,107 +74,74 @@
 							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
 							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
 						</font>
-						<span> (75)</span>
+						<span> (<%= dao_review.getReviewCnt(list_class.get(i).getCid())%>)</span>
 					</div>
 					<div class="startdate" style="margin-top:10px;">
-						수업 시작일: 2020-11-28 16:00                                                            
+						수업 시작일: <%= list_applyClass.get(i).getAschedule() %>                                                            
                     </div>
                     <div class="myreview">
-                    	<p role="button" class="review_btn" id="review_btn1" onclick="review_on(1)">내가 작성한 리뷰</p>
+                    	<% int cnt = 0; %>
+                    	<% for(int j = 0; j < list_review.size(); j++){ %>
+						<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
+						<% cnt = 1; %>
+						<% } %> 
+						<% } %>
+						<% if(cnt != 0){ %>
+						<p role="button" class="review_btn" id="review_btn<%=i%>" onclick="review_on(<%=i%>)">내가 작성한 리뷰</p>
+						<% } else { %>
+                    	<p role="button" class="review_btn" id="review_btn<%=i%>" onclick="">리뷰 작성하기</p>
+						<% } %>
                     </div>
                     <div class="price">
-                    	55,000원
+                    	<%= list_class.get(i).getPrice() %>원
                     </div>
 				</div>
 			</div>
-			<div class="my_review" id="m_r_1">
+			
+			<div class="my_review" id="m_r_<%=i%>">
 				<div class="profile">
-					<div class="profile_img" style="background-image: url('http://localhost:9000/One_day_class/images/mp_pf_img.png');
+					<div class="profile_img" style="background-image: url('http://localhost:9000/One_day_class/upload_sh/<%= vo_tutee.getSprofile_img() %>');
 					width: 80px; height: 80px; border-radius: 50%; margin: 0 auto;">
 					</div>
 				</div>
 				<div class="review_content">
-					<div class="r_name">장승혁</div>
+					<div class="r_name"><%= vo_tutee.getName() %></div>
 					<div class="r_date">
 						<button type="button" class="r_update">수정</button>
 						<button type="button" class="r_delete">삭제</button>
-						2020.11.30 
+						<% for(int j = 0; j < list_review.size(); j++){ %>
+						<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
+						<%= list_review.get(j).getRdate() %>
+						<% } %> 
+						<% } %>
 					</div>
 					<div class="r_stars_box">
 						<font class="class_stars">
+							<% for(int j = 0; j < list_review.size(); j++){ %>
+							<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
+							<% for(int k=0; k < list_review.get(j).getRservice(); k++){ %>
 							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
+							<% } %>
+							<% } %> 
+							<% } %>
 						</font>
 					</div>
 					<div class="r_cont">
-						<p>	정말 재미있고 알찬 수업이었어요!! 친절히 알려주시고 대박입니다~~~~~~~~~<br>
-							다음에 또 들을게요!<br>
-							강사님 감사합니다.
+						<p>	
+						<% for(int j = 0; j < list_review.size(); j++){ %>
+						<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
+						<%= list_review.get(j).getRcontent() %>
+						<% } %> 
+						<% } %>
 						</p>
 					</div>
 				</div>
 			</div>
-			<div class="class">
-				<div class="profile">
-					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png')">
-					</div>
-				</div>
-				<div class="info">
-					<div class="date">신청일시: 2020-11-18 14:28:24</div>
-					<h3 style="height: 40px; cursor: pointer;">[1:1_청담샵 경력] ❤ 강남역오픈❤ 자존감이 두배 올라가는 메이크업!</h3>
-					<div class="stars-box">
-						<font class="class-type">원데이 수업</font>&nbsp;|&nbsp; &nbsp;
-						<font class="class-stars">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-						</font>
-						<span> (728)</span>
-					</div>
-					<div class="startdate" style="margin-top:10px;">
-						수업 시작일: 2020-11-26 17:00                                                           
-                    </div>
-                    <div class="myreview">
-                    	<p role="button" class="review_btn" id="review_btn2" onclick="review_on(2)">내가 작성한 리뷰</p>
-                    </div>
-                    <div class="price">
-                    	85,800원
-                    </div>
-				</div>
-			</div>
-			<div class="my_review" id="m_r_2">
-				<div class="profile">
-					<div class="profile_img" style="background-image: url('http://localhost:9000/One_day_class/images/mp_pf_img.png');
-					width: 80px; height: 80px; border-radius: 50%; margin: 0 auto;">
-					</div>
-				</div>
-				<div class="review_content">
-					<div class="r_name">홍길동</div>
-					<div class="r_date">
-						<button type="button" class="r_update">수정</button>
-						<button type="button" class="r_delete">삭제</button>
-						2020.11.29 
-					</div>
-					<div class="r_stars_box">
-						<font class="class_stars">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-						</font>
-					</div>
-					<div class="r_cont">
-						<p>	강사님이 아주 잘 알려주시고 재밌었어요<br>
-						</p>
-					</div>
-				</div>
-			</div>
+			<% } %>
+			<% } else { %>
+			수강 중인 재능이 없습니다					
+			<div style="padding-top:100px"></div>
+			<% } %>
 		</div>
 	</div>
 
