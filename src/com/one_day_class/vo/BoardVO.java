@@ -1,6 +1,6 @@
 package com.one_day_class.vo;
 
-public class NoticeVO {
+public class BoardVO {
 	int rno, bhits;
 	String bid, btitle, bcontent, bpart, pcharge, bfile, bsfile, bdate;
 	
@@ -64,7 +64,4 @@ public class NoticeVO {
 	public void setBdate(String bdate) {
 		this.bdate = bdate;
 	}
-		
-	
-	
 }

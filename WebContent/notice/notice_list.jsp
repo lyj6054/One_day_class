@@ -3,7 +3,7 @@
     import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.*"
     %>
 <%
-	NoticeDAO dao = new NoticeDAO();
+	BoardDAO dao = new BoardDAO();
 
 	/* //1. 선택한 페이지값
 	String rpage = request.getParameter("rpage");
@@ -33,7 +33,7 @@
 		end = pageSize;
 	} */
 	
-	ArrayList<NoticeVO> list = dao.getList();
+	ArrayList<BoardVO> list = dao.getList();
 %>
 <!DOCTYPE html>
 <html>
