@@ -5,6 +5,8 @@
 	String cid = "C_1";
 	//String cid = request.getParameter("cid");
 	
+	String email = "zxcvd12@naver.com";
+	
 	sh_ClassDAO dao_class = new sh_ClassDAO();
 	sh_ClassVO vo_class = dao_class.getClassContent(cid);
 	
