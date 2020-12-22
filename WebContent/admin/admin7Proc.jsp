@@ -2,10 +2,21 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*"%>
 <% 
-	String[ ] checkbox=request.getParameterValues("checkTerms");
+	String wbutton=request.getParameter("wbutton");
+	System.out.println(wbutton);
+	String[ ] cids=request.getParameterValues("checkTerms");
 	ClassDAO dao=new ClassDAO();
-	for(String cid:checkbox){
-		dao.updateStatus(cid);
+	if(wbutton.equals("accept")){
+		System.out.println(wbutton);
+		for(String cid:cids){
+			dao.updateStatus1(cid);
+		}
+		response.sendRedirect("admin7.jsp"); 
+	}else if(wbutton.equals("reject")){
+		System.out.println(wbutton);
+		for(String cid:cids){
+			dao.updateStatus2(cid);
+		}
+		response.sendRedirect("admin7.jsp"); 
 	}
-	response.sendRedirect("admin7.jsp");
 %>

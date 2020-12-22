@@ -147,9 +147,9 @@
          
          <!--여기서부터 커리큘럼 가져와서 붙인것 from Tutor2/default03.php-->
                <div class="curri inner1"id="Curri1" style="margin-bottom:20px;">
-                  <div class="index">
+                  <!-- <div class="index">
                      <b>1</b>회차
-                  </div>
+                  </div> -->
                   <div class="box">
                   <textarea class="basic len980" placeholder="커리큘럼을 입력해 주세요." id="Curriculum1" name="curriculum"></textarea>
                   </div>
@@ -159,7 +159,7 @@
                   
                </div>
                <!--  -->                
-               <div class="drag_cont">
+               <!-- <div class="drag_cont">
             <div class="drag_box" id="dropZone">
                     <img Id="ImgPreview" src="" style="height: 352px;width: 551px;opacity: 0;position: absolute;margin: -145px 0 0 -277px;">
                <div class="imgupbt" id="dragInfo">
@@ -183,7 +183,7 @@
                   - 저작권에 위배되는 사진</span>
                </div>
             </div>
-         </div>
+         </div> -->
          
          <script>   
             $(function(){
@@ -392,14 +392,14 @@
                fileIndex++;
             });                     
          </script>
-         <div class="inner1">
+         <!-- <div class="inner1">
             <input type="hidden"  value=""  name="Is_Agree" id="Is_Agree">
             <div class="vdo certi"><label  id="Is_Agree0" onclick="agreeChk(1)" ></label><p>튜터님께서 등록한 이미지를 마케팅에 활용하는것에 동의 합니다.(선택)</p></div> 
             <div style="margin-top:5px;"><span class="pink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;동의 시, 튜터님의 수업이 더 많이 판매될 수 있도록 카카오 1분, 네이버 포스트, 페이스북 등의 SNS 채널에 광고가 집행될 수 있습니다.</span></div>
-         </div>
-         <div style="display:inline;padding:2px 7px;border-radius:3px;position:absolute;background:#ff005a;color:#fff;font-size:12px;line-height:1;margin-top:8px;" class="">
+         </div> -->
+         <!-- <div style="display:inline;padding:2px 7px;border-radius:3px;position:absolute;background:#ff005a;color:#fff;font-size:12px;line-height:1;margin-top:8px;" class="">
             첫 번째
-         </div>
+         </div> -->
          <div style="overflow:hidden" id="fileList">
          
                      </div>

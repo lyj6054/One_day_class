@@ -801,6 +801,7 @@ img, fieldset, iframe {
     border-radius: 4px;
     padding: 12px 20px;
     display: inline-block;
+    margin-bottom:10px;
 } 
 .tutor_cont .box .title .gray8 {
     line-height: 1.29;
