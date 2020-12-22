@@ -6,6 +6,8 @@
 	sh_ReviewDAO dao_review = new sh_ReviewDAO();
 	sh_TutorDAO dao_tutor = new sh_TutorDAO();
 	
+	String cateMain= request.getParameter("cateMain");
+	String cateSub= request.getParameter("cateSub");
 	//1. 선택한 페이지값
 	String rpage= request.getParameter("rpage");
 	
@@ -35,8 +37,17 @@
 		start = reqPage;
 		end = pageSize;
 	}
-	
-	ArrayList<ClassVO> list = dao.getCList2(start,end);
+		ArrayList<ClassVO> list =new ArrayList<ClassVO>();
+ 	if(cateMain==null&&cateSub==null){
+ 		System.out.println("1");
+		 list = dao.getCList2(start,end);
+	}else if(cateMain==null&&cateSub!=null){
+ 		System.out.println("2");
+		list = dao.getCList3(start,end,cateSub);
+	}else if(cateMain!=null&&cateSub==null){
+ 		System.out.println("3");
+		list = dao.getCList4(start,end,cateMain);
+	}
 	int i=0;
 %>
 
@@ -68,7 +79,9 @@ $(document).ready(function(){
 	});
 	
 	jQuery("#ampaginationsm").on('am.pagination.change',function(e){
+		//var para[] = document.location.href.split("?");
 		$(location).attr('href','http://localhost:9000/One_day_class/search/search.jsp?rpage='+e.page); 
+
 		//location.href('이동페이지')';
 	});
 });	
@@ -150,27 +163,27 @@ $(document).ready(function(){
 				<div class="cate_list">
 					<ul>
 						<li class="cate" onmouseover="menuView(0)" id="menu0"><a
-							href="?cateMain=0">
+							href="?cateMain=뷰티/헬스">
 								<div id="cate0">뷰티/헬스</div>
 						</a></li>
 						<li class="cate" onmouseover="menuView(1)" id="menu1"><a
-							href="?cateMain=1">
+							href="?cateMain=액티비티">
 								<div id="cate1">액티비티</div>
 						</a></li>
 						<li class="cate" onmouseover="menuView(2)" id="menu2"><a
-							href="?cateMain=2">
+							href="?cateMain=라이프">
 								<div id="cate2">라이프</div>
 						</a></li>
 						<li class="cate" onmouseover="menuView(3)" id="menu3"><a
-							href="?cateMain=3">
+							href="?cateMain=취미/공예">
 								<div id="cate3">취미/공예</div>
 						</a></li>
 						<li class="cate" onmouseover="menuView(4)" id="menu4"><a
-							href="?cateMain=4">
+							href="?cateMain=커리어">
 								<div id="cate4">커리어</div>
 						</a></li>
 						<li class="cate" onmouseover="menuView(5)" id="menu5"><a
-							href="?cateMain=5">
+							href="?cateMain=외국어">
 								<div id="cate5">외국어</div>
 						</a></li>
 
@@ -182,51 +195,51 @@ $(document).ready(function(){
 				<div class="catesub_list cates" id="show_detail">
 					<div class="catesub_list cates" id="sub0" style="display: bolck">
 						<div class="main">
-							<li><a href="?cateSub=1">메이크업</a></li>
-							<li><a href="?cateSub=2">퍼스널컬러</a></li>
-							<li><a href="?cateSub=3">패션</a></li>
-							<li><a href="?cateSub=4">셀프케어</a></li>
-							<li><a href="?cateSub=5">PT/GX</a></li>
+							<li><a href="?cateSub=메이크업">메이크업</a></li>
+							<li><a href="?cateSub=퍼스널컬러">퍼스널컬러</a></li>
+							<li><a href="?cateSub=패션">패션</a></li>
+							<li><a href="?cateSub=셀프케어">셀프케어</a></li>
+							<li><a href="?cateSub=PT/GX">PT/GX</a></li>
 						</div>
 					</div>
 					<div class="catesub_list cates" id="sub1"  style="display: none">
 						<div class="main">
-							<li><a href="?cateSub=5">댄스</a></li>
-							<li><a href="?cateSub=6">연기/무용</a></li>
-							<li><a href="?cateSub=7">스포츠/레저</a></li>
+							<li><a href="?cateSub=댄스">댄스</a></li>
+							<li><a href="?cateSub=연기/무용">연기/무용</a></li>
+							<li><a href="?cateSub=스포츠/레저">스포츠/레저</a></li>
 						</div>
 					</div>
 
 					<div class="catesub_list cates" id="sub2"  style="display: none">
 						<div class="main">
-							<li><a href="?cateSub=8">인문/교양</a></li>
-							<li><a href="?cateSub=9">인테리어</a></li>
-							<li><a href="?cateSub=10">반려동물</a></li>
-							<li><a href="?cateSub=11">심리상담</a></li>
+							<li><a href="?cateSub=인문/교양">인문/교양</a></li>
+							<li><a href="?cateSub=인테리어">인테리어</a></li>
+							<li><a href="?cateSub=반려동물">반려동물</a></li>
+							<li><a href="?cateSub=심리상담">심리상담</a></li>
 						</div>
 					</div>
 
 					<div class="catesub_list cates" id="sub3" style="display: none">
 						<div class="main">
-							<li><a href="?cateSub=12">공예</a></li>
-							<li><a href="?cateSub=13">사진</a></li>
-							<li><a href="?cateSub=14">요리</a></li>
-							<li><a href="?cateSub=15">음악</a></li>
+							<li><a href="?cateSub=공예">공예</a></li>
+							<li><a href="?cateSub=사진">사진</a></li>
+							<li><a href="?cateSub=요리">요리</a></li>
+							<li><a href="?cateSub=음악">음악</a></li>
 						</div>
 					</div>
 
 					<div class="catesub_list cates" id="sub4" style="display: none">
 						<div class="main">
-							<li><a href="?cateSub=16">실무역량</a></li>
-							<li><a href="?cateSub=17">주식투자</a></li>
-							<li><a href="?cateSub=18">자격증/시험</a></li>
-							<li><a href="?cateSub=19">디자인/영상</a></li>
+							<li><a href="?cateSub=실무역량">실무역량</a></li>
+							<li><a href="?cateSub=주식투자">주식투자</a></li>
+							<li><a href="?cateSub=자격증/시험">자격증/시험</a></li>
+							<li><a href="?cateSub=디자인/영상">디자인/영상</a></li>
 						</div>
 					</div>
 					<div class="catesub_list cates" id="sub5" style="display: none">
 						<div class="main">
-							<li><a href="?cateSub=20">영어회화</a></li>
-							<li><a href="?cateSub=21">기타회화</a></li>
+							<li><a href="?cateSub=영어회화">영어회화</a></li>
+							<li><a href="?cateSub=기타회화">기타회화</a></li>
 						</div>
 					</div>
 				</div>
