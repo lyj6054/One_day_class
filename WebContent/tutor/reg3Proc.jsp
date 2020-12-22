@@ -10,7 +10,7 @@
 	String cid=vo.getCid();
 	
  	if(result){
-		response.sendRedirect("../myclassform/myclassform.jsp");
+		response.sendRedirect("new-class.jsp");
 	}else{
 		response.sendRedirect("../errorPage1.jsp");
 		

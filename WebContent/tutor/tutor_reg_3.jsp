@@ -32,6 +32,15 @@
       </div>
          </div>
    
+    <div class="box">
+      <div class="title">수업숙지<b class="pink">*</b><br><br><span class="gray8">공백포함 500자 이상 권장</span></div>
+      <div class="cont" style="padding-top:15px">
+         <div class="inner1">
+            <textarea class="basic len980 hei190" placeholder="수강생에게 해주고싶은 튜터님의 수업숙지사항을 입력해주세요." id="TutorInfo" name="tutornotice"></textarea>
+         </div>
+      </div>
+   </div>
+   
    <div class="box">
       <div class="title">튜터소개<b class="pink">*</b><br><br><span class="gray8">공백포함 500자 이상 권장</span></div>
       <div class="cont" style="padding-top:15px">
