@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj.css">
+<link rel="stylesheet"
+	href="http://localhost:9000/One_day_class/css/yj.css">
 <script
 	src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 </head>
@@ -15,179 +16,706 @@
 
 	<!--  content  -->
 	<div class="content">
-		<!--container-->
-	<div class="container container info-page">
-	<input type="hidden" id="tScore" value="85">
-		<input type="hidden" id="hScore" value="50">
-			
-		<!--MyTItleBox head-->
-		<h1 style="padding-bottom:20px;border-bottom:1px solid #ddd;text-align:left;position: relative">
-			<div class="refund-tabs">
-				<div class="refund-tab on"onclick="tab('chart',this)">노출도 기준</div>
-				<a href="http://localhost:9000/One_day_class/tutor/tutor_guide_2.jsp"><div class="refund-tab">BEST 수업소개</div></a>
-			</div>
-			튜터 수업 가이드
-		</h1>
-		<!--MyTItleBox head 마무리-->
-		<div class="tutor_cont "   id="chart">
-			<div class="icon-box refund guide">
-				<h2>탈잉은 수업의 노출도를 3가지를 중점으로 산정 합니다</h2>
-				<div class="icons">
-					<div class="box">
-						<div class="cir-box">
-							<div class="cir">
-								<img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_class_view_01.png" style="width:45px">
-							</div>
-						수업소개 완성도
-						</div>
+		<form method="post"  action="reg1Proc.jsp" name="tutor_reg_form1" id="frm-register-detail"
+			enctype="multipart/form-data">
+			<input type="hidden" id="email" name="email" value="test@naver.com"> 
+			<!-- <input type="hidden" id="targetId" name="targetId" value=""> 
+			<input type="hidden" id="CoverImageUrl" name="CoverImageUrl" value=""> -->
+			<div id="popup_notice" class="tutor_cont" style="display: none;">
+				<div class="dim" id="dim" style="display: block;"></div>
+				<div class="phone_box" id="phone_box">
+					<div class="head" style="background: #fff;">
+						<span class="button" onclick="popClose();" style="color: #000">X</span>
 					</div>
-					<div class="bar"></div>
-					<div class="box">
-						<div class="cir-box">
-							<div class="cir" >
-								<img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_class_view_02.png" style="width:51px">
-							</div>
-						날짜-시간 설정여부
-						</div>
-					</div>
-					<div class="bar"></div>
-					<div class="box">
-						<div class="cir-box">
-							<div class="cir">
-								<img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_class_view_03.png" style="width:51px">
-							</div>
-						리뷰 비율
-						</div>
+
+					<div class="box gray5">
+						<h2
+							style="margin-bottom: 20px; font-weight: bold; font-size: 24px; color: #333; font-style: normal; text-align: center;">공지</h2>
+						<p style="color: #333; text-align: center;">튜터 전자책 등록은 기존의 수업과
+							다릅니다.</p>
+						<p style="color: #333; text-align: center;">
+							반드시 아래 등록 가이드를 확인 후, <br>준수해서 작성해 주세요요 <br> <br>
+							가이드 미 준수 시, 수업 심사가 거절됩니다.
+						</p>
+						<br> <a href="https://blog.naver.com/taling_me/221968474192"
+							target="_blank"><div
+								style="width: 201px; height: 42px; border-radius: 4px; border: 1px solid #ff0045; background: #fff; box-sizing: border-box; padding: 9px; text-align: center; color: #ff0045; font-size: 14px; margin-left: 120px;">
+								전자책 등록 가이드 보기</div></a>
+
 					</div>
 				</div>
 			</div>
-			<div class="title-box">
-				<h2 style="margin-bottom:16px">세부점수<span class="info">3가지 항목 개별 점수</span>
-					<select class="class-option" onChange="fnSelectTitle(this);" style="margin-bottom:10px;">
-												<option selected value="30842">누구나 할 수 있는 컴퓨터 프로그래밍</option>
-											</select>
-				</h2>
-			</div>
-			<!--그래프 박스 시작-->
-			<div class="chart-box_pc grid">
-				<div class="graph-box">
-					<div class="graph">
-						<div class="chart" style="background:none;">
+			<div class="tutor_cont">
+				<div class="title_box">
+					<h3>수업등록</h3>
+					<div class="steps">
+						<li class="on"><b>01</b>제목/이미지</li> <img
+							src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_next.png">
+						<li><b>02</b>가격</li> <img
+							src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_next.png">
+						<li><b>03</b>수업</li>
+					</div>
+				</div>
+
+				<div class="box">
+					<div class="title">
+						수업등록지역(대표)<b class="pink">*</b>
+					</div>
+					<div class="cont">
+						<select class="basic len320" id="regionMain" name="regionmain"
+							>
+							<option>수업 대표 지역을 선택해 주세요</option>
+							<option value="1">서울</option>
+							<option value="2">경기</option>
+							<option value="3">인천</option>
+							<option value="4">부산</option>
+							<option value="5">경상,대구,울산</option>
+							<option value="6">대전,충청</option>
+							<option value="7">강원</option>
+							<option value="8">광주,전라,제주</option>
+							<option value="9">온라인</option>
+						</select> 
+						<input type="text" class="basic nick"  id="regionSub" name="regionsub" 
+							value=""  placeholder="상세지역"
+							style="margin-bottom: 10px; margin-top: 10px; width: 100%;">
+					</div>
+				</div>
+
+				<div class="box">
+					<div class="title">
+						수업카테고리<b class="pink">*</b>
+					</div>
+					<div class="cont">
+						<select class="basic len320" id="CateMain" name="catemain"
+							>
+							<option>수업카테고리를 선택해 주세요</option>
+							<option value="1">뷰티/헬스</option>
+							<option value="2">액티비티</option>
+							<option value="3">라이프</option>
+							<option value="4">취미/공예</option>
+							<option value="5">커리어</option>
+							<option value="6">외국어</option>
+						</select>
+						 <select class="basic len320" id="CateSub" name="catesub">
+						 	<option>상세카테고리를 선택해 주세요</option>
+							<option value="1">메이크업</option>
+							<option value="2">퍼스널컬러</option>
+							<option value="3">패션</option>
+							<option value="4">셀프케어</option>
+							<option value="5">PT/GX</option>
+							<option value="6">댄스</option>
+							<option value="7">연기/무용</option>
+							<option value="8">스포츠/레저</option>
+							<option value="9">인문/교양</option>
+							<option value="10">인테리어</option>
+							<option value="11">반려동물</option>
+							<option value="12">심리상담</option>
+							<option value="13">사진</option>
+							<option value="14">음악</option>
+							<option value="15">요리</option>
+							<option value="16">공예</option>
+							<option value="17">주식투자</option>
+							<option value="18">디자인/영상</option>
+							<option value="19">실무역량</option>
+							<option value="20">자격증/시험</option>
+							<option value="21">영어회화</option>
+							<option value="22">기타 외국어</option>
+						</select>
+					</div>
+				</div>
+				<div class="box" id="groupBox">
+					<div class="title">
+						수업참여인원<b class="pink">*</b>
+					</div>
+					<div class="cont">
+						<select class="basic len290" id="MinPerson" name="person">
+							<option>인원을 선택해 주세요</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+						</select>
+
+					</div>
+				</div>
+				<div class="box">
+					<div class="title">
+						수업제목<b class="pink">*</b><br> <br> <span class="gray8">공백포함<br>최대50자
+							이내
+						</span>
+					</div>
+					<div class="cont">
+						<div class="caution caution2" id="classTipDiv">
+							<b class="pink">TIP</b><br>
+							<ul class="gray8">
+								<li>누구를 대상으로, 어떤 재능을 가르치시나요?</li>
+								<li>수업을 통해 어떤것을 얻어갈 수 있나요?</li>
+								<li>예시:미국주식,내 손으로 직접 투자하자/4회만에 내 손으로 만든 영상,유튜브에업로드♥</li>
+								<ul>
 						</div>
-						<div id="donutchart_g" style="width:230px; height:230px;margin-top:-40px;margin-left:50px;"></div>
-													<div style="font-weight:bold;color:#000;position:absolute;margin-top:-124px;width:83px;text-align:center;font-size:20px;margin-left:124px">평가전</div>
-							<input type="hidden" id="Score1" value="0">
+						<div class="caution caution2" id="bookTipDiv"
+							style="display: none">
+							<b class="pink">TIP</b><br>
+							<ul class="gray8">
+								<li>누구를 대상으로, 어떤 재능을 공유하나요?</li>
+								<li>전자책을 통해 어떤것을 얻어갈 수 있나요?</li>
+								<li>예시:[튜터전자책] 회사에서 사랑받는 비법(60page)</li>
+								<ul>
+						</div>
+						<div class="inner1">
+							<input type="text" class="basic nick" id="Title" name="title"
+								value="" placeholder="수강생을 끌어당길 수 있는 개성넘치는 제목을 만들어 보세요.">
+						</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="title">
+						커버이미지<b class="pink">*</b><br> <br> <span class="gray8">최소
+							1장 이상 등록,<br>최대 4장 등록<br> <font
+							class="pink">첫 번째 커버 이미지에 텍스트가 포함되면 반려사유가 됩니다 </font>
+						</span>
+					</div>
+					<div class="cont">
+						<div class="drag_cont">
+							<div class="drag_box" id="dropZone">
+								<img Id="ImgPreview" src=""
+									style="height: 352px; width: 551px; opacity: 0; position: absolute; margin: -145px 0 0 -277px;">
+								<div class="imgupbt" id="dragInfo">
+									<img
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_img_area.png"><br>
+									<br> 이미지를 드래그 해주세요
+								</div>
+							</div>
+							<div class="right">
+								<input  type="file" id="imgnonefile" name="picture" accept="image/*"
+									style="margin-bottom: 10px ;position: absolute; opacity: 0; cursor: pointer;"
+									>
+								<div class="plus button" id="imgUp" data-send="coverImage">
+									<img 
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_add_wh.png">
+									<span  id="img_1">이미지추가1</span>
+								</div>
+								<br>
+								<input  type="file" id="imgnonefile2" name="picture2" accept="image/*"
+									style="position: absolute; opacity: 0; cursor: pointer;"
+									>
+								<div class="plus button" id="imgUp2" data-send="coverImage">
+									<img 
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_add_wh.png">
+									<span id="img_2">이미지추가2</span>
+								</div>
+								<br>
+								<input type="file" id="imgnonefile3" name="picture3" accept="image/*"
+									style="position: absolute; opacity: 0; cursor: pointer;"
+									>
+								<div class="plus button" id="imgUp3" data-send="coverImage">
+									<img 
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_add_wh.png">
+									<span id="img_3">이미지추가3</span>
+								</div>
+								<br>
+								<input  type="file"  id="imgnonefile4" name="picture4" accept="image/*"
+									style="position: absolute; opacity: 0; cursor: pointer;"
+									>
+								<div class="plus button" id="imgUp4" data-send="coverImage">
+									<img 
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_add_wh.png">
+									<span id="img_4">이미지추가4</span>
+								</div>
+								<br>
+								
+								<!-- <div class="verify" style="margin: 10px 0"
+									onclick="deleteImage()">
+									<img
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_del_bk.png">
+									이미지삭제
+								</div> -->
+								<div style="margin-top: 40px">
+									<span class="pink">권장사항</span><br> <br> <span
+										class="gray5">- <font class="pink">10MB 이하의</font>
+										jpg,jpeg,png 파일<br> - 700x490 픽셀 <br> 
+									</span>
+								</div>
+							</div>
+						</div>
+						<script>	
+				$(function(){
+					$('[data-send]').click(function (e) {
+						$('#targetId').val($(this).attr('data-send'));
+						$('#filter').show();
+						$('#image_box').show();
+					});
+
+					$('#imgUp').click(function(e){
+						$('#imgnonefile').click();
+					});
+				});
+
+				function hd_imbox(){
+					$('#filter').hide();
+					$('#image_box').hide();
+					$('#targetId').val('');									
+				}
+
+				// 파일 리스트 번호
+				var fileIndex = 0;
+				// 등록할 전체 파일 사이즈
+				var totalFileSize = 0;
+				// 파일 리스트
+				var fileList = new Array();
+				// 파일 사이즈 리스트
+				var fileSizeList = new Array();
+				// 등록 가능한 파일 사이즈 MB
+				var uploadSize = 10;
+				// 등록 가능한 총 파일 사이즈 MB
+				var maxUploadSize = 100;
+
+				var selectIndex = 0;
+			 
+				$(function (){
+					// 파일 드롭 다운
+					fileDropDown();
+				});
+			 
+				// 파일 드롭 다운
+				function fileDropDown(){
+					var dropZone = $("#dropZone");
+					//Drag기능 
+					dropZone.on('dragenter',function(e){
+						e.stopPropagation();
+						e.preventDefault();
+						// 드롭다운 영역 css
+						//dropZone.css('background-color','#E3F2FC');
+					});
+					dropZone.on('dragleave',function(e){
+						e.stopPropagation();
+						e.preventDefault();
+						// 드롭다운 영역 css
+						//dropZone.css('background-color','#FFFFFF');
+					});
+					dropZone.on('dragover',function(e){
+						e.stopPropagation();
+						e.preventDefault();
+						// 드롭다운 영역 css
+						//dropZone.css('background-color','#E3F2FC');
+					});
+					dropZone.on('drop',function(e){								
+						e.preventDefault();
+						// 드롭다운 영역 css
+						//dropZone.css('background-color','#FFFFFF');
+						
+						var files = e.originalEvent.dataTransfer.files;
+						if(files != null){
+							if(files.length < 1){
+								alert("폴더 업로드 불가");
+								return;
+							}
+							selectFile(files);
+
+						}else{
+							alert("ERROR");
+						}
+					});								
+				}
+			 
+				// 파일 선택시
+				function selectFile(fileObject){
+					var files = null;
+			 
+					if(fileObject != null){
+						// 파일 Drag 이용하여 등록시
+						files = fileObject;
+					}else{
+						// 직접 파일 등록시
+						//files = $('#multipaartFileList_' + fileIndex)[0].files;
+					}
+					
+					// 다중파일 등록
+					if(files != null){
+						
+							for(var i = 0; i < files.length; i++){
+								// 파일 이름
+								var fileName = files[i].name;
+								var fileNameArr = fileName.split("\.");
+								// 확장자
+								var ext = fileNameArr[fileNameArr.length - 1];
+								// 파일 사이즈(단위 :MB)
+								var fileSize = files[i].size /1024/ 1024;
+								
+								if($.inArray(ext, ['exe', 'bat', 'sh', 'java', 'php', 'html', 'js', 'css', 'xml']) >= 0){
+									// 확장자 체크
+									alert("등록 불가 확장자");
+									break;
+								}else if(fileSize > uploadSize){
+									// 파일 사이즈 체크
+									alert("용량 초과\n업로드 가능 용량 : " + uploadSize + " MB");
+									break;
+								}else{
+									// 전체 파일 사이즈
+									totalFileSize += fileSize;
+									
+									// 파일 배열에 넣기
+									fileList[fileIndex] = files[i];
+									
+									// 파일 사이즈 배열에 넣기
+									fileSizeList[fileIndex] = fileSize;
+				
+									// 업로드 파일 목록 생성
+									innerImg(files[i], fileIndex);
+	
+									selectIndex = fileIndex;
+									
+									// 파일 번호 증가
+									fileIndex++;
+								}
+	
+								// 첫번째 테두리 
+								
+								
+							}
+						
+					}else{
+						alert("ERROR");
+					}
+				}
+
+				function onImage(val, num)
+				{
+					$('#dropZone').css({'background':'url('+val+')', 'background-repeat' : 'no-repeat', 'background-position':'center' , 'background-size':'cover' , 'box-sizing':'border-box'});
+
+					$('#dragInfo').hide();
+                    $("#ImgPreview").attr("src", val);
+
+					selectIndex = num;
+				}
+
+				function deleteImage(){
+					// 전체 파일 사이즈 수정
+					totalFileSize -= fileSizeList[selectIndex];
+					
+					// 파일 배열에서 삭제
+					delete fileList[selectIndex];
+					
+					// 파일 사이즈 배열 삭제
+					delete fileSizeList[selectIndex];
+					
+					// 업로드 파일 테이블 목록에서 삭제
+					$("#img-cover" + selectIndex).remove();
+					$('#dragInfo').show();
+
+					$('#dropZone').css({'background':'url()', 'background-color':'#edf0f4', 'background-repeat' : 'no-repeat', 'background-position':'center' , 'background-size':'cover' , 'box-sizing':'border-box'});
+				}
+
+				
+				function innerImg(files, num)
+				{
+					var reader = new FileReader();											
+					reader.readAsDataURL(files);
+					var html = "";
+					var on = "";
+					
+					reader.onload = function() {									
 												
-					</div>
-					<div class="text" style="color: #888;">
-						<div class="title">
-							수업소개 완성도
-						</div>
-						작성하신 수업에 대해서<br> 검토단의 PASS를 반드시 받아야 합니다.<br>
-						PASS이후 다른 가점은 존재하지 않습니다.
-					</div>
-				</div>
-				<div class="graph-box">
-					<div class="graph">
-						<div class="chart">
-						</div>
-						<div id="donutchart_b" style="width:230px; height:230px;margin-top:-40px;margin-left:50px;"></div>
-						<div style="font-weight:bold;color:#000;position:absolute;margin-top:-136px;width:83px;text-align:center;font-size:20px;line-height:1.2;letter-spacing:-0.5px;margin-left:122px"><span style="font-size:20px;font-weight:400;">
-						<span style="font-size:15px;line-height:1.4">수업일자를<br>설정해주세요</span></span>							
-						</div>
-						<input type="hidden" id="Score2" value="100">				
-					</div>
-					<div class="text" style="color: #888;">
-						<div class="title">
-							날짜-시간
-						</div>
-						설정하신 날짜-시간과 가까운 순서대로<br>
-						가점을 얻게 됩니다.
-						수업까지 2주 남은 <br>순간부터는 더 많은 가점을
-						받습니다.
-					</div>
-				</div>
-				<div class="graph-box">
-					<div class="graph">
-						<div class="chart">
-						</div>
-						<div id="donutchart_y" style="width:230px; height:230px;margin-top:-40px;margin-left:50px;"></div>
-						<div style="font-weight:bold;color:#000;position:absolute;margin-top:-145px;width:83px;text-align:center;font-size:40px;overflow:visible;margin-left:130px;">0<span style="font-size:20px;font-weight:400;">%</span></div>
-												<input type="hidden" id="Score3" value="0">
-											</div>
-					<div class="text" style="color: #888;">
-						<div class="title">
-							리뷰 비율
-						</div>
-						리뷰는 실제 수업 진행 인원에게<br> 25% 이상을 
-						받아야 합니다. <br>
-						신청 수가 0인 경우 25%를  충족한 것으로
-						산정합니다. 
-					</div>
-				</div>
-			</div>
-			<!--그래프 박스 끝-->
-		</div>
+						var oImg = ($('<div>').attr('id', 'img-cover'+num)
+							.addClass('cover_img')
+							.css({'background-image':'url('+reader.result+')'})										
+						).on({
+							'click': function() { onImage(reader.result, num) }
+						});
 
-		<div class="tutor_cont" id="best"  style="display:none">
-			<div class="icon-box refund guide" style="padding:62px 130px">
-				<h2>BEST 수업소개는 아래 내용이 명확해야 합니다.</h2>
-				<div class="icons" style="width:initial;padding-left:100px;">
-					<div class="best-details">
-						<div><img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_guide_best01.png">고화질의 커버 이미지</div>
-						<div><img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_guide_best03.png">튜터만의 Story</div>
-						<div><img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_guide_best05.png">수업 후, Before-After가 확실히 나타나는 소개</div>
+						oImg.append($('<img>').attr('src', reader.result)
+							.data('fileData', files)
+							.css({'width':'0','height':'0'})										
+						);
+		
+						$('#fileList').append(oImg);										
+						
+						$('#dragInfo').hide();
+						$('#dropZone').css({'background':'url('+reader.result+')', 'background-repeat' : 'no-repeat', 'background-position':'center' , 'background-size':'cover' , 'box-sizing':'border-box'});
+					};
+					reader.onloadend = function() {						
+						$('#fileList').find('div').removeClass('on');
+						$('#fileList div:first-child').addClass('on');
+
+					};							
+				}						 
+				
+				$('#imgnonefile').change(function (e) {
+						var file = (e.target || window.event.srcElement).files[0];					
+						innerImg(file, fileIndex)
+						$("#imgUp").css("background","rgb(151,151,151)");
+						$("#img_1").text("등록 완료!");
+						fileIndex++;
+				});	
+				$('#imgnonefile2').change(function (e) {
+					var file = (e.target || window.event.srcElement).files[0];					
+					innerImg(file, fileIndex)
+					$("#imgUp2").css("background","rgb(151,151,151)");
+					$("#img_2").text("등록 완료!");
+					fileIndex++;
+			});		
+				$('#imgnonefile3').change(function (e) {
+					var file = (e.target || window.event.srcElement).files[0];					
+					innerImg(file, fileIndex)
+					$("#imgUp3").css("background","rgb(151,151,151)");
+					$("#img_3").text("등록 완료!");
+					fileIndex++;
+			});		
+				$('#imgnonefile4').change(function (e) {
+					var file = (e.target || window.event.srcElement).files[0];					
+					innerImg(file, fileIndex)
+					$("#imgUp4").css("background","rgb(151,151,151)");
+					$("#img_4").text("등록 완료!");
+					fileIndex++;
+			});		
+			</script>
+						<div class="inner1">
+							<div class="vdo certi">
+							</div>
+							<div style="margin-top: 5px;">
+								<span class="pink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;동의
+									시, 튜터님의 수업이 더 많이 판매될 수 있도록 카카오 1분, 네이버 포스트, 페이스북 등의 SNS 채널에 광고가
+									집행될 수 있습니다.</span>
+							</div>
+						</div>
+						<div
+							style="display: inline; padding: 2px 7px; border-radius: 3px; position: absolute; background: #ff005a; color: #fff; font-size: 12px; line-height: 1; margin-top: 8px;"
+							class="">첫 번째</div>
+						<div style="overflow: hidden" id="fileList"></div>
+						<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+						<div class="inner1" style="width: 880px">
+							<div class="sample1">
+								<div class="arw">
+									<img class="button"
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_down.png"
+										onclick="arwpaper(this)"> <img class="button"
+										style="display: none"
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_up.png"
+										onclick="arwpaper(this)">
+								</div>
+								<span>예시 이미지 및 화면보기</span>
+								<div class="ex">
+									<div class="caution caution2"
+										style="margin-left: -10px; width: 100%; margin-bottom: 10px">
+										<ul class="gray8">
+											<li>커버이미지는 튜터님 수업 홍보를 위한 마케팅 자료로 활용될 수 있습니다. (동의 선택시)</li>
+											<li>재능을 활용하고 있는 자연스러운 사진이나, 수업과 관련된 사물/배경 이미지를 올려주세요.</li>
+											<ul>
+									</div>
+									<br> <img
+										src="https://front-img.taling.me/Content/Images/Tutor/Images/img_example_02.png">
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="best-details">
-						<div><img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_guide_best02.png">정확한 수업 대상 (ex."누구나X")</div>
-						<div><img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_guide_best04.png">꼼꼼하고 정확한 커리큘럼</div>
-						<div><img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_guide_best06.png">합리적인 가격과 인원</div>
+				</div>
+				<div class="box">
+					<div class="title">
+						영상등록<br> <br> <span class="gray8">권장사항</span>
 					</div>
-				</div>
-			</div>
-			<div class="info-text bar" style="margin-bottom:30px">
-				<h2 style="margin-bottom:0">이 주의 Best Tutors!</h2>
-			</div>
-						<div class="my-class-list">		
-							<div class="class-box" style="display: block;">
-					<div class="class-info">
-						<div class="image" style="background-image:url('//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_d57c0fcbad8df2d05224eee2fb38533a61f740b1.png')" onclick=location.href="/Talent/Detail/11491"></div>
-						<div class="information-box">
-							<p>참여인원 : <font class="pink">6413명</font></p>
-							<h3 onclick=location.href="/Talent/Detail/11491" style="cursor:pointer;">[탈잉 마케팅1위] 인스타그램 팔로워/좋아요의 비밀 (+수업 후 성장지원✨)11/23(월)</h3>
-							<div class="name" style="color:#333;margin-top:10px" > 엠마 튜터</div>
-							<div class="price" style="margin-top:30px" ><font>￦</font> 25,000</div>
+					<div class="cont">
+						<div>
+							<div class="caution caution1">
+								<b class="pink">주의</b><br>
+								<ul class="gray8">
+									<li>일반 웹페이지 주소가 아닌,Youtbue 영상 URL를 입력해주세요.</li>
+									<li>영상은 최대 5개까지 업로드 가능합니다.</li>
+									<li>사용방법 : 영상 상세페이지에서 공유 버튼 클릭->팝업창에 나온 영상 URL 복사<br>->복사한
+										영상URL을 아래 입력창에 붙여넣기
+									</li>
+									<!--li style="color:#000">커버영상으로 등록을 원하신다면 해당 영상에 체크해주세요.</li-->
+									<ul>
+							</div>
 						</div>
-					</div>				
-				</div>
-							<div class="class-box" style="display: block;">
-					<div class="class-info">
-						<div class="image" style="background-image:url('//img.taling.me/Content/Uploads/Cover/s_f3f9959db818dd1325c2705661603b1c7929c406.png')" onclick=location.href="/Talent/Detail/3913"></div>
-						<div class="information-box">
-							<p>참여인원 : <font class="pink">4104명</font></p>
-							<h3 onclick=location.href="/Talent/Detail/3913" style="cursor:pointer;">⭐영어회화 하지 마세요⭐ 이 강의를 듣기 전에!</h3>
-							<div class="name" style="color:#333;margin-top:10px" > 민경원 튜터</div>
-							<div class="price" style="margin-top:30px" ><font>￦</font> 13,000</div>
+						<div class="inner1">
+							<div class="vdo">
+								<input type="text" name="videos" class="basic len786"
+									placeholder="예) https://youtu.be/1sboNBkTMuU"
+									style="margin-bottom: 10px; width: 100%;">
+							</div>
 						</div>
-					</div>				
-				</div>
-							<div class="class-box" style="display: block;">
-					<div class="class-info">
-						<div class="image" style="background-image:url('//img.taling.me/Content/Uploads/Cover/23cf706613b9c5fd1f9910607f211b273b86d491.png')" onclick=location.href="/Talent/Detail/5508"></div>
-						<div class="information-box">
-							<p>참여인원 : <font class="pink">7196명</font></p>
-							<h3 onclick=location.href="/Talent/Detail/5508" style="cursor:pointer;">[투잡 1위/원데이] 두 번이나 성공한 네이버 스마트스토어 운영방법</h3>
-							<div class="name" style="color:#333;margin-top:10px" > 레이먼드 튜터</div>
-							<div class="price" style="margin-top:30px" ><font>￦</font> 25,000</div>
-						</div>
-					</div>				
-				</div>
+						<script>
+				function addvdo(){					
+					var str='<div class="vdo"><input type="text" class="basic len786" placeholder="예) https://youtu.be/1sboNBkTMuU" style="margin-bottom:10px" name="Videos[]" ></div>';
+					$('.vdo').last().after(str);
+				}
+				function rmvd(val){
+					var name ="#vdcont"+val;
+					$(name).remove();
+				}
+				function vdo(val){
+					var name="#vdo"+val;
+					if($(name).hasClass('on'))
+					{
+						$(name).removeClass('on');
+						name +="c";
+						$(name).attr('checked',false);
+					}
+					else
+					{	
+						$('.vdo').children('input[type=checkbox]').attr('checked',false);
+						$('.vdo').children('label').removeClass('on');
+						$(name).addClass('on');
+						name +="c";
+						$(name).attr('checked',true);
+					}
+				}
+
+				function agreeChk(val){
+					name = "#Is_Agree0";
+					if($(name).hasClass('on'))
+					{
+						$('#Is_Agree').val('0');
+						$(name).removeClass('on');
+					}
+					else
+					{	
+						$('#Is_Agree').val('1');
+						$(name).addClass('on');
+					}
+				}
 			
-			</div>
-		</div>
+			</script>
+					</div>
+				</div>
 
-		<div style="padding-top:200px"></div>
-	</div>
+				<div class="button_box">
+					<div class="next button on"  id="btnReg1" >저장 후 다음단계
+						(1/3)</div>
+				</div>
+
+			</div>
+		</form>
+		<script>
+
+    $(document).ready(function(){
+        $('#Title').on('keyup', function(){
+            if ($(this).val().length > 50) {
+                alert('50자를 초과하였습니다.');
+                $(this).val($(this).val().substr(0, 50));
+            }
+        });
+        $("#btnReg1").click(function(){
+        		var images = $('#fileList img');
+        		
+        	 if($('#regionMain').val() == '수업 대표 지역을 선택해 주세요' ){ alert('수업 대표 지역을 선택해 주세요');$('#regionMain').focus();return false;}
+        	else if($('#regionSub').val() == '' ){ alert('상세지역을 선택해 주세요');$('#regionSub').focus();return false;}
+        	else if($('#CateMain').val() == '수업카테고리를 선택해 주세요' ){ alert('수업카테고리를 선택해 주세요');$('#CateMain').focus();return false;}
+        	else if($('#CateSub').val() == '상세카테고리를 선택해 주세요' ){ alert('상세카테고리를 선택해 주세요');$('#CateSub').focus();return false;}
+        	else if($('#MinPerson').val() == '인원을 선택해 주세요' ){ alert('인원을 선택해 주세요');$('#MinPerson').focus();return false;}
+        	else if($('#Title').val() == '' ){ alert('수업 이름을 입력하세요');$('#Title').focus();return false;}
+        	else if(images.length < 1){
+    				alert('커버 사진을 업로드 하세요');
+    				return false;
+    		}
+        	else{
+        		tutor_reg_form1.submit();
+        	} 
+        });
+    });
+
+	function setMode(val)
+	{
+		Mode = val;
+		//frm-register-detail ==폼 id
+		$('#frm-register-detail').submit();
+	}
+
+	var isUploading = false;
+	// 파일 등록
+	$('#frm-register-detail').submit(function (e) {
+
+		e.preventDefault();
+
+		if($('#groupOption').val()==1)
+		{	
+			var minp = parseInt($('#MinPerson').val());
+			var maxp = parseInt($('#MaxPerson').val());
+
+		}
+
+
+/* 		if(isUploading) {
+			alert('업로드 중입니다. 잠시만 기다려 주세요');
+			return false;
+		} */
+
+
+/* 		var formData = new FormData(this);
+
+		var images = $('#fileList img');
+		
+		formData.append('ImageCnt', images.length); */
+		
+/* 		if(images.length < 1){
+			alert('커버 사진을 업로드 하세요');
+			return false;
+		} */
+		
+		//폼데이터에 이미지 추가
+/* 		for (var i = 0; i < images.length; i++) {
+			if(typeof  $(images[i]).data('fileData') == 'undefined')
+			{										
+				formData.append('Images'+[i], $(images[i]).attr("src"));									
+			}
+			else
+			{										
+				formData.append('Images'+[i], $(images[i]).data('fileData'));
+			}
+		} */
+		//임시로 바로 넘어가게함 - 12.16영재
+		//location.href='tutor_reg_2.jsp';
+		
+		
+		isUploading = true;
+		//데이터보내고 다음페이지 연결하기
+/* 		$.ajax({
+			type: 'POST',
+			url: '/tutor/regiTitle_proc.php',
+			contentType: false,
+			data: formData,
+			processData: false,
+			success: function (response) {
+				isUploading = false;	
+
+				if(response == "error3")
+				{
+					alert("이미지 파일을 확인해주세요! jpg,jpeg,bmp,png 만 가능합니다.");
+					return;
+				}
+				else
+				{
+					alert('제목/이미지 등록이 완료되었습니다.');
+					if(Mode == 1)
+					{
+						location.href="/tutor/regiPrice/"+response;
+					}
+					else
+					{
+						location.href="/tutor/regiTitle/"+response;
+					}
+				}
+			},
+			error: function(response) {
+				alert(response);
+				isUploading = false;
+			}
+		}); */
+		return;
+		
+	});
+</script>
 	</div>
 
 	<!--  footer  -->
