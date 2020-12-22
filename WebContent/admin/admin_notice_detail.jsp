@@ -1,13 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="com.one_day_class.vo.*, com.one_day_class.dao.*"
-    %>
-<%
-	String bid = request.getParameter("bid");
-	BoardDAO dao = new BoardDAO();
-	BoardVO vo = dao.getContent(bid);
-	//dao.getUpdateHits(bid);
-%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>

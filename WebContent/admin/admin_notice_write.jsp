@@ -436,14 +436,14 @@
 		margin-top:30px;
 		margin-bottom:50px;
 	}
-	.udp_title>ul>li.udp_t1 {
+	.udp_title .udp_t1 {
 		clear:left;
 		border-left:2px solid black;
 		border-top:2px solid black;
 		border-right:2px solid black;
 		border-bottom:none;
 	}
-	.udp_title>ul>li.udp_t2 {
+	.udp_title .udp_t2 {
 		clear:left;
 		margin-left:-4px;
 		border-left:none;
@@ -451,17 +451,17 @@
 		border-top:2px solid lightgray;
 		border-right:2px solid lightgray;
 	}
-	div.udp_title>ul{
+	.udp_title ul{
 		text-align:center;
 	}
-	div.udp_title1{
+	.udp_title1{
 		display:inline-block;
-		width:800px;
-		margin-left:50px;
+		width:770px;
+		margin-left:15px;
 		border-bottom:1px solid lightgray;
-		padding-bottom:5px;
+		padding:11px 0;
 	}
-	.udp_title1>label,
+	.udp_title1 label,
 	.file_chum label {
 		border:1px solid lightgray;
 		background-color: lightgray;
@@ -473,7 +473,7 @@
 		padding-top:3px;
 	}
 	.file_chum label {
-		margin-left:50px;
+		margin-left:15px;
 		margin-top:10px;
 	}
 	.file_chum input {
@@ -483,14 +483,14 @@
 	.udp_title1>ul>li {
 		display:inline-block;
 	}
-	.udp_title1>ul>li.udp_t3>input {
+	.udp_title1 input {
 		width:655px; height:35px;
 		margin-left:20px;
 	}
 	.udp_text {
-		margin-top:20px;
+		margin-top:15px;
 	}
-	.udp_text>ul>label {
+	.udp_text label {
 		border:1px solid lightgray;
 		background-color: lightgray;
 		border-radius:5px;
@@ -498,10 +498,10 @@
 		float:left;
 		width:80px; height:500px;
 		padding-top:230px;
-		margin-left:50px;
+		margin-left:15px;
 		text-align:center;
 	}
-	.udp_text>ul>textarea {
+	.udp_text textarea {
 		width:655px; height:500px;
 		margin-left:20px;
 		display:inline-block;
@@ -512,32 +512,37 @@
 		display:inline-block;
 		float:right;
 	}
-	.udp_btnbox>a>button {
+	.udp_btnbox button {
 		display:inline-block;
 		width:80px;
 		height:30px;
-		margin-right:50px;
+		margin-right:10px;
 		margin-top:20px;
 		padding:4px 10px;
      	border-radius:5px;
       	border:none;
 	}
-	.udp_btnbox>a>button:hover {
+	.udp_btnbox button:hover {
 		color:white;
 	}
-	.udp_btnbox>a>button:hover {
+	.udp_btnbox button:hover {
 		background-color:#333;
       	color:white;
 	}
-	.udp_btnbox>a>button {
+	.udp_btnbox button {
 		text-decoration:none;
 	}
-	.udp_btnbox>a>button {
+	.udp_btnbox button {
 		color:black;
 		font-weight:bold;
      	font-size:14px;
 	}
 	
+	.udp_title1 select {
+		margin-left:20px;
+		width:40px;
+		height:25px;
+	}
    
    </style>
 
@@ -568,27 +573,29 @@
    </div>
    <div class="board_wrap" id="newsroom-main">
       <span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
-      <div class="main-section1">
-         <ul class="section1-category">
-            <li id="first" class="first selected"><a href="notice_list_admin.jsp">공지사항</a></li>
-            <li id="second"><a href="notice_list_admin2.jsp">이벤트</a></li>
-         </ul>
-      </div>
       <div class="main-section2">
             <div class="udp_title1">
             	<form name="noticeWriteForm" action="noticeWriteProc.jsp" method="post" class="admin_notice_write">
 					<ul>
-						<li>
-							<label >제목</label>
-							<input type="text" name="ntitle" id="ntitle">
+						<li class="udp_title1">
+							<label>구분</label>
+							<select class="notice_select">
+								<option value="선 택">선 택</option>
+								<option value="공지사항">공지사항</option>
+								<option value="이벤트">이벤트</option>
+							</select>
 						</li>
-						<li>
+						<li class="udp_title1">
+							<label >제목</label>
+							<input type="text" name="ntitle" id="ntitle" class="udp_t3">
+						</li>
+						<li class="udp_text">
 							<label>내용</label>
 							<textarea rows="10" cols="50" name="ncontent" id="ncontent"></textarea>
 						</li>
-						<li>
+						<li class="file_chum">
 							<label>파일첨부</label>
-							<input type="file" name="nfile">
+							<input type="file" name="nfile"  class="udp_t3">
 						</li>
 						<li class="udp_btnbox">
 							<button type="button" class="btn_style" id="btnNoticeWrite">등록</button>
