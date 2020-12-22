@@ -35,7 +35,7 @@
 	}
 
 
-	ArrayList<ClassVO> list = dao.getCList(start,end);
+	ArrayList<ClassVO> list = dao.getCList(start,end); 
 	int i=0;
 %>
 <!DOCTYPE html>

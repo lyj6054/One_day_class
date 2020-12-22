@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.one_day_class.dao.*, com.one_day_class.vo.*"
+    %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -215,9 +218,45 @@
 		padding-right:0;
 	}
 	
-	
-
-
+	.blind {
+	    position: absolute !important;
+	    clip: rect(0,0,0,0);
+	    clip-path: polygon(0 0,0 0,0 0);
+	    width: 1px;
+	    height: 1px;
+	    margin: -1px;
+	    overflow: hidden;
+	    white-space: nowrap;
+	    cursor:pointer;
+	}   
+.box_inp .inp_radio {
+    	position:relative;
+    }
+    
+	 label {
+    	cursor:pointer;
+    }
+	.box_inp .inp_radio::before {
+	    content: '';
+	    display: block;
+	    position: absolute;
+	    left: -22px;
+	    top: 2px;
+	    width: 18px;
+	    height: 18px;
+	    border-radius: 50%;
+	    background: url(http://localhost:9000/One_day_class/images/radio_bg.png) no-repeat center/18px;
+	}
+	.box_inp .inp_label:checked + .inp_radio::before {
+	    background-image: url(http://localhost:9000/One_day_class/images/radio_p2p_act.png);
+	}
+	.box_inp label {
+		margin-left:35px;
+	}
+	.line_inp.check {
+		text-align:left;
+		margin-left:-10px;
+	}
 	
 	
 </style>
@@ -235,6 +274,13 @@
 				 다양한 튜터를 만나보세요
 				</h2>
 				<div class="box_inp">
+					<div class="line_inp check">
+						<input type="radio" name="identity" id="userSelect" class="inp_label blind" value="튜터">
+						<label class="rchk inp_radio" for="userSelect">튜&nbsp;&nbsp;터</label>
+						<input type="radio" name="identity" id="userSelect2" class="inp_label blind" value="튜티">
+						<label class="rchk inp_radio" for="userSelect2">튜&nbsp;&nbsp;티</label>
+						<p class="info_error" id="selectError1">튜터/튜티를 입력해주세요</p>
+					</div>
 					<div class="line_inp">
 						<img class="id_img" src="http://localhost:9000/One_day_class/images/id.png">
 						<input type="text" id="email" name="email" placeholder="이메일 주소를 입력해주세요"> <!--  class="error" -->
@@ -248,7 +294,7 @@
 					</div> <!-- class="line_inp line_pw" -->
 				</div> <!-- class="box_inp" -->
 				<div class="box_btn">
-					<button class="btn_submit" type="button" onclick="login()">로그인 하기</button>
+					<button class="btn_submit" type="submit" id="login_btn">로그인 하기</button>
 					<a class="btn" href="find_pw.jsp">로그인</a>
 					<a class="btn" href="../join/join.jsp">회원가입</a>
 				</div> <!-- class="box_btn" -->
@@ -262,42 +308,62 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 	
 	<script>
-	 	function login() {
-	 		var email, password;
-	 		email = document.getElementById("email");
-	 		password = document.getElementById("password");
-	 		
-	 		if(email.value == "") {
-		 		document.getElementById("email").classList.add('error');
-		 		document.getElementById("emailError1").classList.add('error');
-		 		email.focus();
-		 		return false;
-	 		} else if(email.value != "") {
-		 		document.getElementById("email").classList.remove('error');
-		 		document.getElementById("emailError1").classList.remove('error');
-		 		password.focus();
-			 		if (password.value == "") {
-			 			document.getElementById("password").classList.add('error');
-				 		document.getElementById("passError1").classList.add('error');
-				 		password.focus(); 
-				 			} 
-			 		else if (password.value != "") {
-			 			document.getElementById("password").classList.remove('error');
-				 		document.getElementById("passError1").classList.remove('error');
-				 		password.focus(); 
-						 		 if (email.value != "" || password.value != "") {
-						 			document.getElementById("password").classList.add('error');
-							 		document.getElementById("passError2").classList.add('error');
-							 		 email.value ="";
-							 		 password.value ="";
-						             email.focus();
-							 		return false;
-						 		} else {
-						 			loginForm.submit();
-						 		}
-				 			}
-			 		}
-	 		}   
+	$(document).ready(function(){
+		$("#login_btn").click(function(){
+			if(CheckCount("identity") == 0) {
+	 			alert("aaaaa");
+	 			$("#selectError1").addClass('error');
+	 			$("#userSelect").focus();
+	 			return false;
+	 		} else {
+	 			$("#selectError1").removeClass('error');
+	 			if($("#email").val() == "") {
+			 		$("#email").addClass('error');
+			 		$("#emailError1").addClass('error');
+			 		$("#email").focus();
+			 		return false;
+		 		} else if($("#email").val() != "") {
+			 		$("#email").removeClass('error');
+			 		$("#emailError1").removeClass('error');
+			 		$("#password").focus();
+				 		if ($("#password").val() == "") {
+				 			$("#password").addClass('error');
+					 		$("#passError1").addClass('error');
+					 		$("#password").focus(); 
+					 		return false;
+					 			} 
+				 		else if ($("#password").val() != "") {
+				 			$("#password").removeClass('error');
+				 			$("#passError1").removeClass('error');
+				 			$("#password").focus(); 
+							 		 if ($("#email").val() != "" || $("#password").val() != "") {
+							 			$("#password").addClass('error');
+							 			$("#passError2").addClass('error');
+							 			$("#email").val() ="";
+							 			$("#password").val() ="";
+								 		$("#email").focus();
+								 		return false;
+							 		} else {
+							 			$("#passError2").removeClass('error');
+							 			loginForm.submit();
+							 			
+							 		}
+					 			}
+				 		}
+	 			}
+		});
+	});
+	 	
+	 	
+	 	function CheckCount(name) {
+			var name_list = document.getElementsByName(name);
+			var count = 0;
+			
+			for(var i=0; i<name_list.length; i++) {
+				if(name_list[i].checked) count++;
+			}
+			return count;
+		}
 	 	
 	</script>
 </body>

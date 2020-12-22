@@ -1,5 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.*"
+    %>
+<%
+	NoticeDAO dao = new NoticeDAO();
+
+	/* //1. 선택한 페이지값
+	String rpage = request.getParameter("rpage");
+	
+	//2-1. 페이지값에 따라서 start, end count 구하기
+	int start =0;
+	int end = 0;
+	int pageSize = 10; // 한페이지당 출력되는 row
+	int pageCount = 1; // 전체 페이지 수 : 전체 리스트 row / 한 페이지당 출력되는 row
+	int dbCount = dao.getListCount(); //DB연동 후 전체로우수 출력 
+	int reqPage = 1; //요청페이지
+	
+	//2-2. 전체페이지 수 구하기 - 화면출력
+	if(dbCount % pageSize == 0) {
+		pageCount = dbCount/pageSize;
+	} else {
+		pageCount = dbCount/pageSize + 1;
+	}
+	
+	//2-3. start, end 값 구하기
+	if(rpage != null) {
+		reqPage = Integer.parseInt(rpage);
+		start = (reqPage -1) * pageSize +1;
+		end = reqPage * pageSize;
+	} else {
+		start = reqPage;
+		end = pageSize;
+	} */
+	
+	ArrayList<NoticeVO> list = dao.getList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
