@@ -45,7 +45,7 @@
 			<% for(int i = 0; i < list_class.size(); i++){ %>
 			<div class="class" onclick="location.href='../class/class.jsp?cid=<%=list_class.get(i).getCid()%>'">
 				<div class="profile" >
-					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/upload_sh/<%= pic_array.get(i)%>'); cursor: pointer;">
+					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/upload/<%= pic_array.get(i)%>'); cursor: pointer;">
 					</div>
 				</div>
 				<div class="info">

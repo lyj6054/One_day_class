@@ -59,7 +59,7 @@
 		<div class="myclass">
 			<div class="class">
 				<div class="profile">
-					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/upload_sh/<%= pic_array.get(i)%>')">
+					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/upload/<%= pic_array.get(i)%>')">
 					</div>
 				</div>
 				<div class="info">
@@ -100,7 +100,7 @@
 			
 			<div class="my_review" id="m_r_<%=i%>">
 				<div class="profile">
-					<div class="profile_img" style="background-image: url('http://localhost:9000/One_day_class/upload_sh/<%= vo_tutee.getSprofile_img() %>');
+					<div class="profile_img" style="background-image: url('http://localhost:9000/One_day_class/upload/<%= vo_tutee.getSprofile_img() %>');
 					width: 80px; height: 80px; border-radius: 50%; margin: 0 auto;">
 					</div>
 				</div>

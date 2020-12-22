@@ -71,7 +71,7 @@
 			</div>
 			<div class="profile">
 				<div class="p_info" style="padding-top: 0;">
-					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload_sh/<%= vo_tutor.getSprofile_img()%>)" id="profile_image">
+					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload/<%= vo_tutor.getSprofile_img()%>)" id="profile_image">
 						<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
 						<input type="file" id="p_picture" name="profile_img">
 					</div>
@@ -134,7 +134,7 @@
 			</div>
 			<div class="profile">
 				<div class="p_info" style="padding-top: 0;">
-					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload_sh/<%= vo_tutee.getSprofile_img()%>)" id="profile_image">
+					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload/<%= vo_tutee.getSprofile_img()%>)" id="profile_image">
 						<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
 						<input type="file" id="p_picture" name="profile_img">
 					</div>

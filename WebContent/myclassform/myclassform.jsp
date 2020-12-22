@@ -37,7 +37,7 @@
 			<% for(int i = 0; i < list_applyClass.size(); i++){ %>
 			<div class="class" style="width:calc(50% - 19px); float: left; cursor: pointer;" onclick="location.href='../class/class.jsp?cid=<%=list_class.get(i).getCid()%>'">
 				<div class="profile">
-					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/upload_sh/<%= list_tutor.get(i).getSprofile_img() %>');
+					<div class="pf_img" style="background-image: url('http://localhost:9000/One_day_class/upload/<%= list_tutor.get(i).getSprofile_img() %>');
 					width: 80px; height: 80px; border-radius: 50%; margin: 0 auto;">
 					</div>
 					<div class="pf_name">
