@@ -9,7 +9,7 @@
 	ClassDAO dao=new ClassDAO();
 	boolean result=false;
 	//1. 파일이 저장되는 경로 설정 : upload폴더 주소
-	String save_path=request.getServletContext().getRealPath("/upload_yj");
+	String save_path=request.getServletContext().getRealPath("/upload");
 	//System.out.println("path==> "+ save_path);
 	
 	//2. 파일 업로드 사이즈 설정
