@@ -65,15 +65,15 @@
 						<select class="basic len320" id="regionMain" name="regionmain"
 							>
 							<option>수업 대표 지역을 선택해 주세요</option>
-							<option value="1">서울</option>
-							<option value="2">경기</option>
-							<option value="3">인천</option>
-							<option value="4">부산</option>
-							<option value="5">경상,대구,울산</option>
-							<option value="6">대전,충청</option>
-							<option value="7">강원</option>
-							<option value="8">광주,전라,제주</option>
-							<option value="9">온라인</option>
+							<option value="서울">서울</option>
+							<option value="경기">경기</option>
+							<option value="인천">인천</option>
+							<option value="부산">부산</option>
+							<option value="경상,대구,울산">경상,대구,울산</option>
+							<option value="대전,충청">대전,충청</option>
+							<option value="강원">강원</option>
+							<option value="광주,전라,제주">광주,전라,제주</option>
+							<option value="온라인">온라인</option>
 						</select> 
 						<input type="text" class="basic nick"  id="regionSub" name="regionsub" 
 							value=""  placeholder="상세지역"
@@ -89,37 +89,37 @@
 						<select class="basic len320" id="CateMain" name="catemain"
 							>
 							<option>수업카테고리를 선택해 주세요</option>
-							<option value="1">뷰티/헬스</option>
-							<option value="2">액티비티</option>
-							<option value="3">라이프</option>
-							<option value="4">취미/공예</option>
-							<option value="5">커리어</option>
-							<option value="6">외국어</option>
+							<option value="뷰티/헬스">뷰티/헬스</option>
+							<option value="액티비티">액티비티</option>
+							<option value="라이프">라이프</option>
+							<option value="취미/공예">취미/공예</option>
+							<option value="커리어">커리어</option>
+							<option value="외국어">외국어</option>
 						</select>
 						 <select class="basic len320" id="CateSub" name="catesub">
 						 	<option>상세카테고리를 선택해 주세요</option>
-							<option value="1">메이크업</option>
-							<option value="2">퍼스널컬러</option>
-							<option value="3">패션</option>
-							<option value="4">셀프케어</option>
-							<option value="5">PT/GX</option>
-							<option value="6">댄스</option>
-							<option value="7">연기/무용</option>
-							<option value="8">스포츠/레저</option>
-							<option value="9">인문/교양</option>
-							<option value="10">인테리어</option>
-							<option value="11">반려동물</option>
-							<option value="12">심리상담</option>
-							<option value="13">사진</option>
-							<option value="14">음악</option>
-							<option value="15">요리</option>
-							<option value="16">공예</option>
-							<option value="17">주식투자</option>
-							<option value="18">디자인/영상</option>
-							<option value="19">실무역량</option>
-							<option value="20">자격증/시험</option>
-							<option value="21">영어회화</option>
-							<option value="22">기타 외국어</option>
+							<option value="메이크업">메이크업</option>
+							<option value="퍼스널컬러">퍼스널컬러</option>
+							<option value="패션">패션</option>
+							<option value="셀프케어">셀프케어</option>
+							<option value="PT/GX">PT/GX</option>
+							<option value="댄스">댄스</option>
+							<option value="연기/무용">연기/무용</option>
+							<option value="스포츠/레저">스포츠/레저</option>
+							<option value="인문/교양">인문/교양</option>
+							<option value="인테리어">인테리어</option>
+							<option value="반려동물">반려동물</option>
+							<option value="심리상담">심리상담</option>
+							<option value="사진">사진</option>
+							<option value="음악">음악</option>
+							<option value="요리">요리</option>
+							<option value="공예">공예</option>
+							<option value="주식투자">주식투자</option>
+							<option value="디자인/영상">디자인/영상</option>
+							<option value="실무역량">실무역량</option>
+							<option value="자격증/시험">자격증/시험</option>
+							<option value="영어회화">영어회화</option>
+							<option value="기타 외국어">기타 외국어</option>
 						</select>
 					</div>
 				</div>

@@ -81,13 +81,15 @@ public class ClassDAO extends DBConn{
 	public boolean classUpdate3(ClassVO vo) {
 		boolean result=false;
 		try {
-			String sql="update one_class set tutorinfo=?,introduction=?,target=?,curriculum=? where cid=?";
+			String sql="update one_class set tutorinfo=?,introduction=?,target=?,curriculum=?,tutornotice=? where cid=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getTutorinfo());
 			pstmt.setString(2, vo.getIntroduction());
 			pstmt.setString(3, vo.getTarget());
 			pstmt.setString(4, vo.getCurriculum());
-			pstmt.setString(5,vo.getCid());
+			pstmt.setString(5,vo.getTutornotice());
+			pstmt.setString(6,vo.getCid());
+			
 			int val=pstmt.executeUpdate();
 			if(val!=0) result=true;
 			System.out.println( vo.getTutorinfo());
