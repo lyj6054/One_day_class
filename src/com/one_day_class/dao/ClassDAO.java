@@ -178,7 +178,7 @@ public class ClassDAO extends DBConn{
 	public ArrayList<ClassVO> getCList2(int start, int end){
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		try {
-			String sql = "select * from (select rownum cno,cid,title,picture,price,cstatus from (select * from one_class order by cdate desc)) where cno between ? and ?, cstatus=1";
+			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain from (select * from one_class where cstatus=1 order by cdate desc)) where cno between ? and ? ";
 			getPreparedStatement(sql);
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
@@ -190,6 +190,7 @@ public class ClassDAO extends DBConn{
 				vo.setTitle(rs.getString(3));
 				vo.setPicture(rs.getString(4));
 				vo.setPrice(rs.getInt(5));
+				vo.setRegionmain(rs.getString(6));
 				
 				list.add(vo);
 			}

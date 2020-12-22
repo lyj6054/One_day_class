@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
 <%
-	String cid = "C_1";
-	//String cid = request.getParameter("cid");
+	String cid = request.getParameter("cid");
 	
 	sh_ClassDAO dao_class = new sh_ClassDAO();
 	sh_ClassVO vo_class = dao_class.getClassContent(cid);

@@ -4,9 +4,8 @@
 <%
 	 ClassDAO dao = new ClassDAO();
 	sh_ReviewDAO dao_review = new sh_ReviewDAO();
-/* 	double score = dao_review.getReviewScore(cid);
-	int cnt = dao_review.getReviewCnt(cid); */
-
+	sh_TutorDAO dao_tutor = new sh_TutorDAO();
+	
 	//1. 선택한 페이지값
 	String rpage= request.getParameter("rpage");
 	
@@ -69,7 +68,7 @@ $(document).ready(function(){
 	});
 	
 	jQuery("#ampaginationsm").on('am.pagination.change',function(e){
-		$(location).attr('href','http://localhost:9000/One_day_class/admin/class_list.jsp?rpage='+e.page); 
+		$(location).attr('href','http://localhost:9000/One_day_class/search/search.jsp?rpage='+e.page); 
 		//location.href('이동페이지')';
 	});
 });	
@@ -231,25 +230,25 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
-				<% for(ClassVO vo:list){ i++;String[] pic_array=vo.getPicture().split(",");%>
 				<div class="cont2_box" id="top-space">
 					<div class="cont2">
+				<% for(ClassVO vo:list){ i++;String[] pic_array=vo.getPicture().split(",");sh_TutorVO vo_tutor = dao_tutor.getTutorInfo(vo.getCid());%>
 						<div class="cont2_class">
-							<a
-								href="http://localhost:9000/One_day_class/class/workout/dance/w_d_1.jsp"
+							<a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid() %>"
 								target="_blank">
 								<div class="img"
-									style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_d_1.png);">
+								
+									style="background-image:url(http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>);">
 									<div class="day">1DAY수업</div>
 									<div class="d_day">3429명 찜</div>
 									<!--a class="heart2"></a-->
 								</div>
 								<div class="profile_box">
 									<div class="profile"
-										style="background-image: url(<%=pic_array[0]%>);">
+										style="background-image:url(http://localhost:9000/One_day_class/upload/<%=vo_tutor.getSprofile_img() %>);">
 									</div>
-									<div class="name">채효정 튜터</div>
-									<div class="nick">Cheche</div>
+									<div class="name"><%=vo_tutor.getName() %> 튜터</div>
+									<div class="nick">tutor</div>
 								</div>
 								<div class="title"><%=vo.getTitle() %></div>
 								<div class="price">
@@ -260,7 +259,7 @@ $(document).ready(function(){
 								<div class="info">
 									<div class="info2">
 										<div class="star">★★★★★</div>
-										<div class="review" style="margin-right: 15px;">(13)</div>
+										<div class="review" style="margin-right: 15px;">(<%=dao_review.getReviewCnt(vo.getCid())%>)</div>
 
 										<div class="location"><%=vo.getRegionmain() %></div>
 									</div>
@@ -268,11 +267,9 @@ $(document).ready(function(){
 							</a>
 						</div>
 
+				<%} %>
 					</div>
 				</div>
-				<%} %>
-				
-				
 					<div id="ampaginationsm"></div>
 				<div style="padding-top: 50px"></div>
 			</div>
