@@ -81,13 +81,15 @@ public class ClassDAO extends DBConn{
 	public boolean classUpdate3(ClassVO vo) {
 		boolean result=false;
 		try {
-			String sql="update one_class set tutorinfo=?,introduction=?,target=?,curriculum=? where cid=?";
+			String sql="update one_class set tutorinfo=?,introduction=?,target=?,curriculum=?,tutornotice=? where cid=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getTutorinfo());
 			pstmt.setString(2, vo.getIntroduction());
 			pstmt.setString(3, vo.getTarget());
 			pstmt.setString(4, vo.getCurriculum());
-			pstmt.setString(5,vo.getCid());
+			pstmt.setString(5,vo.getTutornotice());
+			pstmt.setString(6,vo.getCid());
+			
 			int val=pstmt.executeUpdate();
 			if(val!=0) result=true;
 			System.out.println( vo.getTutorinfo());
@@ -169,6 +171,36 @@ public class ClassDAO extends DBConn{
 //			e.printStackTrace();
 //		}
 //	}
+	
+	/**
+	 *  수업리스트 가져오기- 영재
+	 */
+	public ArrayList<ClassVO> getCList2(int start, int end){
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		try {
+			String sql = "select * from (select rownum cno,cid,title,picture,price,cstatus from (select * from one_class order by cdate desc)) where cno between ? and ?, cstatus=1";
+			getPreparedStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()){
+				ClassVO vo=new ClassVO();
+				vo.setCno(rs.getInt(1));
+				vo.setCid(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setPicture(rs.getString(4));
+				vo.setPrice(rs.getInt(5));
+				
+				list.add(vo);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 	
 	/**
 	 *  수업리스트 가져오기- 영재

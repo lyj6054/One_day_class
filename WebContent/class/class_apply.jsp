@@ -39,7 +39,7 @@
 				<hr class="a-bar">
 				<div class="a-left">
 					<div class="a-left-1">
-						<img src="http://localhost:9000/One_day_class/upload_sh/<%= pic_array[0]%>">
+						<img src="http://localhost:9000/One_day_class/upload/<%= pic_array[0]%>">
 					</div>
 					<div class="a-left-2" style="width:281px;">
 						<p class="a-title-1"><%= vo_class.getTitle() %></p><br>

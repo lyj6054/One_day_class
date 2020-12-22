@@ -7,6 +7,26 @@ import com.one_day_class.vo.sh_TuteeVO;
 
 public class sh_TuteeDAO extends DBConn {
 	
+	/* 전체 행 갯수 */
+	public int getListCount() {
+		int result = 0;
+		try {
+			//4. SQL 실행 - ResultSet 객체 생성
+			String sql = "select count(*) from one_tutee";
+			getPreparedStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			//5. ResultSet 객체 생성되는 경우 - 데이터 가져오기
+			while(rs.next()){
+				result = rs.getInt(1);
+			}			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	/* select : 전제 리스트  */
 	public ArrayList<sh_TuteeVO> getTuteeList() {
 		ArrayList<sh_TuteeVO> list = new ArrayList<sh_TuteeVO>();
@@ -15,6 +35,41 @@ public class sh_TuteeDAO extends DBConn {
 			String sql = " select rownum rno, name, gender, email, phone, age, area, hope_class, to_char(edate, 'yyyy.mm.dd') edate "
 					+ " from (select * from one_tutee order by edate) order by rno desc";
 			getPreparedStatement(sql);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_TuteeVO vo = new sh_TuteeVO();
+				vo.setRno(rs.getInt(1));
+				vo.setName(rs.getString(2));
+				vo.setGender(rs.getString(3));
+				vo.setEmail(rs.getString(4));
+				vo.setPhone(rs.getString(5));
+				vo.setAge(rs.getString(6));
+				vo.setArea(rs.getString(7));
+				vo.setHope_class(rs.getString(8));
+				vo.setEdate(rs.getString(9));
+				
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	/* select : 전제 리스트  */
+	public ArrayList<sh_TuteeVO> getTuteeList(int start, int end) {
+		ArrayList<sh_TuteeVO> list = new ArrayList<sh_TuteeVO>();
+		
+		try {
+			String sql = " select * from (select rownum rno, name, gender, email, phone, age, area, hope_class, to_char(edate, 'yyyy.mm.dd') edate "
+					+ " from (select * from one_tutee order by edate) order by rno)"
+					+ " where rno between ? and ?";
+			getPreparedStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
 			
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -193,6 +248,28 @@ public class sh_TuteeDAO extends DBConn {
 		}
 		
 		return result;
+	}
+	
+	/* myclasslist 내가 쓴 리뷰의 튜티정보 */
+	public sh_TuteeVO getMyclassList(String email) {
+		sh_TuteeVO vo = new sh_TuteeVO();
+		
+		try {
+			String sql = "select r.rid, r.cid, rservice, rcontent, to_char(rdate, 'yyyy.mm.dd') rdate, sprofile_img, e.name "
+					+ " from one_review r, one_tutee e where r.email=e.email and r.email=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				vo.setSprofile_img(rs.getString(6));
+				vo.setName(rs.getString(7));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
 	}
 	
 }

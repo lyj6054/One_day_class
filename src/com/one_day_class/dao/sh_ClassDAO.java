@@ -119,4 +119,88 @@ public class sh_ClassDAO extends DBConn {
 		
 		return vo;
 	}
+	
+	/* myclassform 수업 정보 출력 */
+	public ArrayList<sh_ClassVO> getMyclassForm(String email) {
+		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
+		
+		try {
+			String sql = "select r.name, sprofile_img, adate, aschedule, title, c.cid"
+						  + " from one_class c, one_tutor r, one_apply_class a "
+						  + " where c.cid=a.cid and r.email=c.email and a.astatus=0 and a.email=?"
+						  + " order by adate desc";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_ClassVO vo = new sh_ClassVO();
+				vo.setTitle(rs.getString(5));
+				vo.setCid(rs.getString(6));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	/* myclasslist 수업 정보 출력 */
+	public ArrayList<sh_ClassVO> getMyclassList(String email) {
+		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
+		
+		try {
+			String sql = "select c.cid, spicture, title, price, adate, aschedule"
+						  + " from one_class c, one_tutor r, one_apply_class a "
+						  + " where c.cid=a.cid and r.email=c.email and a.astatus=1 and a.email=?"
+						  + " order by adate desc";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_ClassVO vo = new sh_ClassVO();
+				vo.setCid(rs.getString(1));
+				vo.setSpicture(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setPrice(rs.getInt(4));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	/* mywishlist 수업 정보 출력 */
+	public ArrayList<sh_ClassVO> getMywishList(String email) {
+		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
+		
+		try {
+			String sql = "select c.cid, spicture, title, price "
+					+ " from one_class c, one_wishlist w where c.cid=w.cid and w.email=? "
+					+ " order by wdate desc";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_ClassVO vo = new sh_ClassVO();
+				vo.setCid(rs.getString(1));
+				vo.setSpicture(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setPrice(rs.getInt(4));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 }

@@ -36,9 +36,10 @@
 			picture+=","+multi.getOriginalFileName("picture4");
 			spicture+=","+multi.getFilesystemName("picture4");
 		}
-		System.out.println(picture);
-		System.out.println(spicture);
-
+		String videos =multi.getParameter("videos");
+		int idx=videos.indexOf("=");
+		String video=videos.substring(idx+1);
+		
 		vo.setEmail(multi.getParameter("email"));
 		vo.setRegionmain(multi.getParameter("regionmain"));
 		vo.setRegionmain(multi.getParameter("regionmain"));
@@ -49,7 +50,7 @@
 		vo.setTitle(multi.getParameter("title"));
 		vo.setPicture(picture);
 		vo.setSpicture(spicture);	
-		vo.setVideos(multi.getParameter("videos"));
+		vo.setVideos(video);
 		
 		//DB연동 --> 새로운 파일 있는 경우
 		result = dao.classInsert1(vo);

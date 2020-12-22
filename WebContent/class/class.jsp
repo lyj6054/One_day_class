@@ -3,7 +3,7 @@
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
 <%
 	String cid = "C_1";
-	/* String cid = request.getParameter("cid"); */
+	//String cid = request.getParameter("cid");
 	
 	sh_ClassDAO dao_class = new sh_ClassDAO();
 	sh_ClassVO vo_class = dao_class.getClassContent(cid);
@@ -76,7 +76,7 @@
 			<span class="dance-b2"><%=vo_class.getTitle() %></span>
 		</div>
 		<div class="dance-box1">
-			<img src="http://localhost:9000/One_day_class/upload_sh/<%= vo_tutor.getSprofile_img()%>">
+			<img src="http://localhost:9000/One_day_class/upload/<%= vo_tutor.getSprofile_img()%>">
 			<span><%= vo_tutor.getName() %> 튜터</span><br>
 			<span class="dance-b3">★</span>
 			<span> <%= score %>(<%= cnt %>)</span>
@@ -85,7 +85,7 @@
 			<div class="swiper-container gallery-top">
 				<div class="swiper-wrapper">
 					<% for(String pic : pic_array){ %>
-					<div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/upload_sh/<%= pic %>)"></div>
+					<div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/upload/<%= pic %>)"></div>
 					<% } %>
 				</div>
 				<div class="swiper-button-next swiper-button-white"></div>
@@ -94,7 +94,7 @@
 			<div class="swiper-container gallery-thumbs">
 				<div class="swiper-wrapper">
 					<% for(String pic : pic_array){ %>
-					<div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/upload_sh/<%= pic %>)"></div>
+					<div class="swiper-slide" style="background-image:url(http://localhost:9000/One_day_class/upload/<%= pic %>)"></div>
 					<% } %>
 				</div>
 			</div>
@@ -148,9 +148,6 @@
                         <li>평점<span class="avg"><%= score %></span></li>
                     </ul>
                 </div>
-				<div class="dance-b6-1">
-					<button class="dance-btn1" onclick="review()">리뷰 작성하기</button>
-				</div>
 			</div>
 		</div>
 		<div class="dance-box4">
@@ -159,7 +156,7 @@
 				<li>
 					<div class="review_box_all">
 						<span class="dance-b7">
-							<img src="http://localhost:9000/One_day_class/upload_sh/<%= list_tutee.get(i).getSprofile_img() %>">
+							<img src="http://localhost:9000/One_day_class/upload/<%= list_tutee.get(i).getSprofile_img() %>">
 						</span>
 						<span class="dance-b8"><%= list_tutee.get(i).getName() %></span><br>
 						<span class="dance-b9"><%= list_review.get(i).getRdate() %></span>

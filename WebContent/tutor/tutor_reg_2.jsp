@@ -10,6 +10,16 @@
    href="http://localhost:9000/One_day_class/css/yj.css">
 <script
    src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		var idx=1;
+			$("#text_plus_btn").click(function(){
+				$("#text_plus").append('<input type="text" id="plan" name="schedule'+idx+'"  value="" class="basic phone" style="display:block;margin-bottom:5px;" placeholder="ex) 12월 31일 (목) 11:00-13:00">');
+				idx++;
+				$("#idx").val(idx);
+			});
+	}); 
+</script>
 </head>
 <body>
    <!--  header  -->
@@ -17,8 +27,9 @@
 
    <!--  content  -->
    <div class="content">
-      <form method="post" action="reg2Proc.jsp" name="tutor_reg_form2" id="frm-register-detail" >
+      <form method="get" action="reg2Proc.jsp" name="tutor_reg_form2" id="frm-register-detail" >
 <input type="hidden" id="cid" name="cid" value="<%=cid %>">
+<input type="hidden" id="idx" name="idx" value="">
 <div class="tutor_cont">
    <div class="title_box">
       <h3>수업등록</h3>
@@ -53,7 +64,9 @@
          <div class="inner1">
             <div class="gray5 title">수업일정</div>         
                         <input type="text" id="plan" name="schedule" 
-                        value="" class="basic phone" placeholder="수업일정을 입력하세요"> 
+                        value="" class="basic phone" placeholder="ex) 12월 31일 (목) 11:00-13:00"> 
+                        <button type="button" id="text_plus_btn">일정 추가하기</button>
+                        <div id="text_plus"></div>
               
          </div>
       </div>

@@ -27,6 +27,26 @@ public class sh_ReviewDAO extends DBConn {
 		return score;
 	}
 	
+	/* 수업 상세페이지 리뷰 평균 */
+	public int getReviewScoreInt(String cid) {
+		int score = 0;
+		
+		try {
+			String sql = "select round(avg(rservice),0) rservice from one_review where cid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, cid);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				score = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return score;
+	}
+	
 	/* 수업 상세페이지 리뷰 개수 */
 	public int getReviewCnt(String cid) {
 		int cnt = 0;
@@ -63,6 +83,34 @@ public class sh_ReviewDAO extends DBConn {
 				sh_ReviewVO vo = new sh_ReviewVO();
 				vo.setRdate(rs.getString(3));
 				vo.setRcontent(rs.getString(4));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	/* myclasslist 내가 쓴 리뷰 출력 */
+	public ArrayList<sh_ReviewVO> getMyclassList(String email) {
+		ArrayList<sh_ReviewVO> list = new ArrayList<sh_ReviewVO>();
+		
+		try {
+			String sql = "select r.rid, r.cid, rservice, rcontent, to_char(rdate, 'yyyy.mm.dd') rdate, sprofile_img, e.name "
+					+ " from one_review r, one_tutee e where r.email=e.email and r.email=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_ReviewVO vo = new sh_ReviewVO();
+				vo.setRid(rs.getString(1));
+				vo.setCid(rs.getString(2));
+				vo.setRservice(rs.getInt(3));
+				vo.setRcontent(rs.getString(4));
+				vo.setRdate(rs.getString(5));
 				
 				list.add(vo);
 			}

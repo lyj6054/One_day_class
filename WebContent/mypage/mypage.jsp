@@ -62,7 +62,8 @@
 	<!-- content -->
 	<div class="c_container">
 		<form action="mypageProc.jsp" method="POST" id="pf_edit" enctype="multipart/form-data">
-			<% if(vo_tutor.getName() != null){ %>
+			<!-- 튜터일때 -->
+			<% if(vo_tutor.getName() != null){ %> 
 			<input type="hidden" name="email" value="<%=email%>">
 			<input type="hidden" name="type" value="1">
 			<div class="title">
@@ -70,7 +71,7 @@
 			</div>
 			<div class="profile">
 				<div class="p_info" style="padding-top: 0;">
-					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload_sh/<%= vo_tutor.getSprofile_img()%>)" id="profile_image">
+					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload/<%= vo_tutor.getSprofile_img()%>)" id="profile_image">
 						<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
 						<input type="file" id="p_picture" name="profile_img">
 					</div>
@@ -124,6 +125,7 @@
 				<div class="pink_submit" id="regInfo">저장하기</div>
 				<div style="padding-top:200px"></div>
 			</div>
+			<!-- 튜티일때 -->
 			<% } else {%>
 			<input type="hidden" name="email" value="<%=email%>">
 			<input type="hidden" name="type" value="2">
@@ -132,7 +134,7 @@
 			</div>
 			<div class="profile">
 				<div class="p_info" style="padding-top: 0;">
-					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload_sh/<%= vo_tutee.getSprofile_img()%>)" id="profile_image">
+					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload/<%= vo_tutee.getSprofile_img()%>)" id="profile_image">
 						<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
 						<input type="file" id="p_picture" name="profile_img">
 					</div>

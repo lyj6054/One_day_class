@@ -212,7 +212,7 @@
 				</tr>
 				<tr>
 					<td colspan="6">
-						<a href="member_list.jsp"><button type="button" class="btn_style">목록으로</button></a>
+						<a href="tutee_list.jsp"><button type="button" class="btn_style">목록으로</button></a>
 					</td>
 				</tr>
 			</table>
