@@ -3,6 +3,10 @@
 	import="com.one_day_class.dao.*, com.one_day_class.vo.*,java.util.*"%>
 <%
 	 ClassDAO dao = new ClassDAO();
+	sh_ReviewDAO dao_review = new sh_ReviewDAO();
+/* 	double score = dao_review.getReviewScore(cid);
+	int cnt = dao_review.getReviewCnt(cid); */
+
 	//1. 선택한 페이지값
 	String rpage= request.getParameter("rpage");
 	
@@ -33,7 +37,7 @@
 		end = pageSize;
 	}
 	
-	ArrayList<ClassVO> list = dao.getCList(start,end);
+	ArrayList<ClassVO> list = dao.getCList2(start,end);
 	int i=0;
 %>
 
@@ -227,6 +231,7 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
+				<% for(ClassVO vo:list){ i++;String[] pic_array=vo.getPicture().split(",");%>
 				<div class="cont2_box" id="top-space">
 					<div class="cont2">
 						<div class="cont2_class">
@@ -241,16 +246,15 @@ $(document).ready(function(){
 								</div>
 								<div class="profile_box">
 									<div class="profile"
-										style="background-image: url(http://localhost:9000/One_day_class/images/workout/w_d_1_icon.png);">
+										style="background-image: url(<%=pic_array[0]%>);">
 									</div>
 									<div class="name">채효정 튜터</div>
 									<div class="nick">Cheche</div>
 								</div>
-								<div class="title">도심속에서 힐링 댄스!! 몸도 마음도 아름다워지는 하와이의 전통춤 훌라
-									Hula 배워보기 ♥</div>
+								<div class="title"><%=vo.getTitle() %></div>
 								<div class="price">
 									<div class="price2">
-										<span>￦<span><span>15,000<span>
+										<span>￦<span><span><%=vo.getPrice() %><span>
 									</div>
 								</div>
 								<div class="info">
@@ -258,7 +262,7 @@ $(document).ready(function(){
 										<div class="star">★★★★★</div>
 										<div class="review" style="margin-right: 15px;">(13)</div>
 
-										<div class="location">강남</div>
+										<div class="location"><%=vo.getRegionmain() %></div>
 									</div>
 								</div>
 							</a>
@@ -266,6 +270,9 @@ $(document).ready(function(){
 
 					</div>
 				</div>
+				<%} %>
+				
+				
 					<div id="ampaginationsm"></div>
 				<div style="padding-top: 50px"></div>
 			</div>
