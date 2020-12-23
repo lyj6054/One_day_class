@@ -29,7 +29,7 @@
    <div class="content">
       <form method="get" action="reg2Proc.jsp" name="tutor_reg_form2" id="frm-register-detail" >
 <input type="hidden" id="cid" name="cid" value="<%=cid %>">
-<input type="hidden" id="idx" name="idx" value="">
+<input type="hidden" id="idx" name="idx" value="0">
 <div class="tutor_cont">
    <div class="title_box">
       <h3>수업등록</h3>

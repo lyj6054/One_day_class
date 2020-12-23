@@ -7,8 +7,10 @@
 <%
 	int idx=Integer.parseInt(request.getParameter("idx"));
 	String schedule=request.getParameter("schedule");
-	for(int i=1;i<idx;i++){
-		schedule+=","+request.getParameter("schedule"+i);
+	if(idx>0){
+		for(int i=1;i<idx;i++){
+			schedule+=","+request.getParameter("schedule"+i);
+		}
 	}
 	ClassDAO dao=new ClassDAO();
 	vo.setSchedule(schedule);

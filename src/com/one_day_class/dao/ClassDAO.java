@@ -136,7 +136,6 @@ public class ClassDAO extends DBConn{
 			String sql="insert into one_class values('C_'||seq_one_class.nextval,?, " + 
 					"  ?,?,?,?,'원데이',?,?,?,?,?,0,0,'스케줄','튜터소개','수업숙지','수업소개' " + 
 					"  ,'수업대상','커리큘럼',0,0,sysdate)";
-			
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getEmail());
 			pstmt.setString(2, vo.getRegionmain());
@@ -148,6 +147,7 @@ public class ClassDAO extends DBConn{
 			pstmt.setString(8, vo.getPicture());
 			pstmt.setString(9, vo.getSpicture());
 			pstmt.setString(10, vo.getVideos());
+			System.out.println(sql);
 			int val = pstmt.executeUpdate();
 			if(val!=0) {result=true;}
 		}catch(Exception e) {
