@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
 <%
-	String cid = "C_1";
-	//String cid = request.getParameter("cid");
+	String cid = request.getParameter("cid");
 	
 	String email = "zxcvd12@naver.com";
 	//String email = request.getParameter("email");
