@@ -5,6 +5,7 @@
 	 ClassDAO dao = new ClassDAO();
 	sh_ReviewDAO dao_review = new sh_ReviewDAO();
 	sh_TutorDAO dao_tutor = new sh_TutorDAO();
+	sh_WishListDAO dao_wish = new sh_WishListDAO();
 	
 	String cateMain= request.getParameter("cateMain");
 	String cateSub= request.getParameter("cateSub");
@@ -253,7 +254,7 @@ $(document).ready(function(){
 								
 									style="background-image:url(http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>);">
 									<div class="day">1DAY수업</div>
-									<div class="d_day">3429명 찜</div>
+									<div class="d_day"><%=dao_wish.getMywishListCnt(vo.getCid()) %>명 찜</div>
 									<!--a class="heart2"></a-->
 								</div>
 								<div class="profile_box">
