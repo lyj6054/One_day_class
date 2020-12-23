@@ -1,4 +1,8 @@
 	/* class beauty 상세페이지 */
+	function loginMsg(){
+		alert('로그인이 필요합니다');
+	}
+
 	$(document).ready(function(){
 		var p2pGnb = $('.nav ul li')
 		var p2pCont = $('.dance > .idx')
@@ -27,14 +31,47 @@
 		    }
 		});
 		
-		$("#wish_btn").click(function(){
-			if($("#wish_btn").attr("name") == "add"){
-				$("#wish_btn").attr('name', 'remove').addClass('on');
-		        alert('위시리스트에 등록 되었습니다');
-			} else if($("#wish_btn").attr("name") == "remove"){
-				$("#wish_btn").attr("name", "add").removeClass('on');
-				alert('위시리스트에서 삭제 되었습니다');
+		$(document).on('click', '#wish_add_btn', function() {
+			var cid = $("#cid").text();
+			var email = $("#email").text();
+			
+			if(email != "null"){
+				$("#wish_add_btn").attr('id', 'wish_remove_btn').addClass('on');
+				$.ajax({
+					url: "classAddWish.jsp?cid=" + cid + "&email="+email,
+					success: function(data){
+						if(data == 1){
+							alert('위시리스트에 추가 되었습니다');
+						} else {
+							alert('위시리스트에서 등록 중 오류가 발생했습니다');							
+						}
+					}
+				});
+				
+			} else {
+				alert('로그인이 필요합니다');
 			}
+	        
+		});
+		
+		$(document).on('click', '#wish_remove_btn', function() {
+			var cid = $("#cid").text();
+			var email = $("#email").text();
+			
+			$("#wish_remove_btn").attr("id", "wish_add_btn").removeClass('on');
+			
+			$.ajax({
+				url: "classDeleteWish.jsp?cid=" + cid + "&email="+email,
+				success: function(data){
+					if(data == 1){
+						alert('위시리스트에서 삭제 되었습니다');
+					} else {
+						alert('위시리스트에서 삭제 중 오류가 발생했습니다');							
+					}
+				}
+			});
+			
+			
 		});
 		
 		 var galleryThumbs = new Swiper('.gallery-thumbs', {
@@ -56,13 +93,11 @@
 	    });
 	});
 	
-	function review(){
-		alert("로그인 후 이용가능합니다.");
-		 document.getElementById("d-img");
+	/* class beauty apply 페이지 */
+	function rejectMsg(){
+		alert('이미 신청한 수업입니다.');
 	}
 	
-	
-	/* class beauty apply 페이지 */
 	$(document).ready(function() {
 	    $("#btn-plus").click(function(){
 	       $("#btn-minus").removeAttr("disabled");
@@ -89,7 +124,7 @@
 	       }
 	    });
 	    
-	    $(".r-btn3").click(function(){
+	    $("#submit_class").click(function(){
 	    	if(radioCheckCount("aschedule") == 0){
 	            alert("수업일정을 선택해주세요");
 	            $("#checked").empty();

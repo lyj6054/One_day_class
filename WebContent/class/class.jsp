@@ -6,6 +6,7 @@
 	//String cid = request.getParameter("cid");
 	
 	String email = "zxcvd12@naver.com";
+	//String email = request.getParameter("email");
 	
 	sh_ClassDAO dao_class = new sh_ClassDAO();
 	sh_ClassVO vo_class = dao_class.getClassContent(cid);
@@ -23,10 +24,44 @@
 	sh_ReviewDAO dao_review = new sh_ReviewDAO();
 	double score = dao_review.getReviewScore(cid);
 	int cnt = dao_review.getReviewCnt(cid);
-	ArrayList<sh_ReviewVO> list_review = dao_review.getReviewContent(cid);
+	
+	//1. 선택한 페이지값
+	String rpage = request.getParameter("rpage"); 
+	
+	//2-1. 페이지값에 따라서 star, end count 구하기
+	//1페이지(1~10), 2페이지(11~20) ...
+	int start = 0;
+	int end = 0;
+	int pageSize = 5; // 한 페이지당 출력되는 row
+	int pageCount = 1; // 전체 페이지 수 : 전체 리스트 row / 한 페이지당 출력되는 row
+	int dbCount = dao_review.getReviewCnt(cid); // DB연동 후 전체 row 수 출력
+	int reqPage = 1; // 요청 페이지
+	
+	//2-2. 전체페이지 수 구하기
+	if(dbCount % pageSize == 0){
+		pageCount = dbCount / pageSize;
+	} else {
+		pageCount = dbCount / pageSize + 1;
+	}
+	
+	//2-3. start, end 값 구하기
+	if(rpage != null){
+		reqPage = Integer.parseInt(rpage);
+		//start = (요청페이지 - 1) * 한페이지 출력행 + 1;
+		start = (reqPage-1) * pageSize + 1;
+		end = reqPage * pageSize;
+	} else {
+		start = reqPage;
+		end = pageSize;
+	}
+	
+	ArrayList<sh_ReviewVO> list_review = dao_review.getReviewContent(cid, start, end);
 	
 	sh_TuteeDAO dao_tutee = new sh_TuteeDAO();
-	ArrayList<sh_TuteeVO> list_tutee = dao_tutee.getReviewContent(cid);
+	ArrayList<sh_TuteeVO> list_tutee = dao_tutee.getReviewContent(cid, start, end);
+	
+	sh_WishListDAO dao_wishList = new sh_WishListDAO();
+	int wishCheck = dao_wishList.getWishCheck(cid, email);
 %>
 
 <!DOCTYPE html>
@@ -37,8 +72,32 @@
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/One_day_class/js_sh/js_sh.js"></script>
 <script src="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.js"></script>
+<script src="http://localhost:9000/One_day_class/js_sh/am-pagination.js"></script>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
+<link rel="stylesheet" href="http://localhost:9000/One_day_class/css/am-pagination.css">
+<script>
+	$(document).ready(function(){
+		// 페이지 번호 및 링크
+		var pager = jQuery("#ampaginationsm").pagination({
+			maxSize: 5,
+			totals: <%=dbCount%>,
+			pageSize: <%=pageSize%>,
+			page: <%=reqPage%>,
+			
+			lastText: '&raquo;&raquo;',
+			firstText: '&laquo;&laquo;',
+			prevText: '&laquo;',
+			nextText: '&raquo;',
+			
+			btnSize: 'sm'
+		});
+		
+		jQuery("#ampaginationsm").on('am.pagination.change',function(e){
+			$(location).attr('href','http://localhost:9000/One_day_class/class/class.jsp?rpage=' + e.page);
+		});
+	});
+</script>
 </head>
 <body>
 	<!--header -->
@@ -67,10 +126,20 @@
 				<span class="d-span1"><%=vo_class.getPrice() %>원 / 총 1회 <%= vo_class.getTime() %>시간</span>
 			</div>
 			<div class="d-side-box5">
-				<button type="button" name="add" id="wish_btn"></button>
-				<a href="class_apply.jsp?cid=<%= cid%>">
+				<div id="cid" style="display: none;"><%= cid %></div>
+				<div id="email" style="display: none;"><%= email %></div>
+				<% if(wishCheck == 0){ %>
+				<button type="button" name="add" id="wish_add_btn"></button>
+				<% } else { %>
+				<button class="on" type="button" name="add" id="wish_remove_btn"></button>
+				<% } %>
+				<% if(email != null) {%>
+				<a href="class_apply.jsp?cid=<%= cid%>&email=<%= email%>">
 					<img src="http://localhost:9000/One_day_class/images/dance-btn.png">
 				</a>
+				<% } else { %>
+				<img src="http://localhost:9000/One_day_class/images/dance-btn.png" style="cursor: pointer;" onclick="loginMsg()">
+				<% } %>
 			</div>
 		</aside>
 		<div class="dance-box">
@@ -169,15 +238,7 @@
 				</li>
 				<% } %>
 			</ul>
-			<div class="dance-box4-1">
-				<a class="bottom"><</a>
-				<a class="bottom1">1</a>
-				<a class="bottom2">2</a>
-				<a class="bottom2">3</a>
-				<a class="bottom2">4</a>
-				<a class="bottom2">5</a>
-				<a class="bottom">></a>
-			</div>
+			<div class="dance-box4-1"><div id="ampaginationsm"></div></div>
 		</div>
 	</div>
 	<!--header -->

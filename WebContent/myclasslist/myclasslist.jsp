@@ -43,6 +43,19 @@
 		document.getElementById("m_r_" + num).classList.remove('on');
 		document.getElementById("review_btn" + num).setAttribute("onclick", "review_on(" + num + ")");		
 	}
+	function review_write(num){
+		document.getElementById("review_btn" + num).classList.add('on');
+		document.getElementById("m_w_" + num).classList.add('on');
+		document.getElementById("review_btn" + num).setAttribute("onclick", "review_write_off(" + num + ")");			
+	}
+	function review_write_off(num){
+		document.getElementById("review_btn" + num).classList.remove('on');
+		document.getElementById("m_w_" + num).classList.remove('on');
+		document.getElementById("review_btn" + num).setAttribute("onclick", "review_write(" + num + ")");		
+	}
+	function insertReview(obj){
+		alert("등록");
+	}
 </script>
 </head>
 <body>
@@ -89,7 +102,7 @@
 						<% if(cnt != 0){ %>
 						<p role="button" class="review_btn" id="review_btn<%=i%>" onclick="review_on(<%=i%>)">내가 작성한 리뷰</p>
 						<% } else { %>
-                    	<p role="button" class="review_btn" id="review_btn<%=i%>" onclick="">리뷰 작성하기</p>
+                    	<p role="button" class="review_btn" id="review_btn<%=i%>" onclick="review_write(<%=i%>)">리뷰 작성하기</p>
 						<% } %>
                     </div>
                     <div class="price">
@@ -107,10 +120,10 @@
 				<div class="review_content">
 					<div class="r_name"><%= vo_tutee.getName() %></div>
 					<div class="r_date">
-						<button type="button" class="r_update">수정</button>
-						<button type="button" class="r_delete">삭제</button>
 						<% for(int j = 0; j < list_review.size(); j++){ %>
 						<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
+						<button type="button" class="r_update">수정</button>
+						<button type="button" class="r_delete">삭제</button>
 						<%= list_review.get(j).getRdate() %>
 						<% } %> 
 						<% } %>
@@ -136,6 +149,13 @@
 						</p>
 					</div>
 				</div>
+			</div>
+			
+			<div class="my_review" id="m_w_<%=i%>">
+				<form action="reviewInsert.jsp" method="POST" id="review_insert">
+					<input type="text" name="rcontent" class="rcontent">
+					<button type="button" id="btnReviewInsert" onclick="insertReview(this)">등록</button>
+				</form>
 			</div>
 			<% } %>
 			<% } else { %>

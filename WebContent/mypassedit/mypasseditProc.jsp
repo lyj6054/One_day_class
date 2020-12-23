@@ -28,6 +28,6 @@
 	if(result){
 		response.sendRedirect("../index.jsp");
 	} else {
-		//response.sendRedirect("../errorPage.jsp");
+		response.sendRedirect("../errorPage.jsp");
 	}
 %>  

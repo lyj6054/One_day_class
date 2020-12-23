@@ -3,8 +3,7 @@
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
 <%
 	String cid = request.getParameter("cid");
-	String email = "zdfwe21@gmail.com";
-	//String email = request.getParameter("email");
+	String email = request.getParameter("email");
 	
 	sh_ClassDAO dao_class = new sh_ClassDAO();
 	sh_ClassVO vo_class = dao_class.getClassContent(cid);
@@ -14,6 +13,9 @@
 	
 	sh_ReviewDAO dao_review = new sh_ReviewDAO();
 	double score = dao_review.getReviewScore(cid);
+	
+	sh_ApplyClassDAO dao_appplyClass = new sh_ApplyClassDAO();
+	int applyCheck = dao_appplyClass.getApplyCheck(cid, email);
 %>    
     
 <!DOCTYPE html>
@@ -72,7 +74,11 @@
 					<input type="text" value="1" id="rtext" name="aperson" readonly>
 					<button type="button" class="r-btn1" id="btn-plus" name="btn_plus" ></button>
 				</div>
-				<button type="button" class="r-btn3">신청하기</button>
+				<% if(applyCheck == 0) {%>
+				<button type="button" class="r-btn3" id="submit_class">신청하기</button>
+				<% } else { %>
+				<button type="button" class="r-btn3" onclick="rejectMsg()">신청하기</button>
+				<% } %>
 			</div>
 		</div>
 	</form>
