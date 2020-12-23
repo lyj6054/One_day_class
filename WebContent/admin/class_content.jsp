@@ -15,6 +15,7 @@
 	<jsp:include page="../header.jsp" />
 
 	<div class="content">
+		<div style="width:100%; height:50px;"></div>
 		<aside class="admin_main">
 			<nav>
 				<div>
@@ -28,10 +29,10 @@
 						href="notice_list_admin.jsp">공지사항/이벤트</a></li>
 					<li><img
 						src="http://localhost:9000/One_day_class/images/admin_list.png"><a
-						href="#">수업관리</a></li>
+						href="class_list.jsp">수업관리</a></li>
 					<li><img
 						src="http://localhost:9000/One_day_class/images/admin_list.png"><a
-						href="#">회원관리</a></li>
+						href="member_list.jsp">회원관리</a></li>
 				</ul>
 			</nav>
 		</aside>
