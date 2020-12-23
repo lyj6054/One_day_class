@@ -150,7 +150,7 @@
 				</div>
 				<div class="box">
 					<div class="title">
-						수업제목<b class="pink">*</b><br> <br> <span class="gray8">공백포함<br>최대50자
+						수업제목<b class="pink">*</b><br> <br> <span class="gray8">공백포함<br>최대100자
 							이내
 						</span>
 					</div>
@@ -601,9 +601,9 @@
 
     $(document).ready(function(){
         $('#Title').on('keyup', function(){
-            if ($(this).val().length > 50) {
-                alert('50자를 초과하였습니다.');
-                $(this).val($(this).val().substr(0, 50));
+            if ($(this).val().length > 100) {
+                alert('100자를 초과하였습니다.');
+                $(this).val($(this).val().substr(0, 100));
             }
         });
         $("#btnReg1").click(function(){

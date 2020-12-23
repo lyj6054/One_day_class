@@ -40,7 +40,7 @@ ul, ol, li, dl, dt, dd {
       height:15px;
    }
    .content .admin_main ul li a {
-      color:#999;
+      color: black;
       font-size:17px;
       font-weight:bold;
       text-align:center;
