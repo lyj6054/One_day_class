@@ -1,14 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<% String cid=request.getParameter("cid"); %>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj_admin.css">
-<script src="http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
-
+<script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#accept").click(function(){
+			var link='class_contentProc.jsp?wbutton=accept&cid='+'<%=cid%>';
+			location.href=link;
+		});
+		
+		$("#reject").click(function(){
+			var link='class_contentProc.jsp?wbutton=reject&cid='+'<%=cid%>';
+			location.href=link;
+		});
+	});
+</script>
 </head>
 <body>
 	<!--  header  -->
@@ -44,8 +58,8 @@
 				<iframe width="800px"  height="800px"  src="class_iframe.jsp?cid=<%=cid%>">
 				</iframe>
 				<div class="main-section3">
-				<button type=button  class="accept">수락</button>
-				<button type=button  class="reject">거절</button>
+				<button type=button  class="accept" id="accept">수락</button>
+				<button type=button  class="reject" id="reject">거절</button>
 			</div>
 			</div>
 		</div>
