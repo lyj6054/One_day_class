@@ -3,11 +3,13 @@
     import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>
     
 <%
+		String cid = "C_2";
     	ms_TutorclassDAO dao = new ms_TutorclassDAO();
-        	ArrayList<ms_TutorclassVO> list = dao.getSinList();
-        	ArrayList<ms_TutorclassVO> list1 = dao.getSinList();
-%>
-    
+        ArrayList<ms_TutorclassVO> list = dao.getSinList(cid);
+        ArrayList<ms_TutorclassVO> list1 = dao.getreviewList(cid);
+		ms_TutorclassVO vo = dao.getMyclass(cid);
+        	%>
+
 
 <!DOCTYPE html>
 <html>
@@ -325,11 +327,10 @@
 	<!--header -->
 	<jsp:include page="../header.jsp" />
 		<hr class="top-hr">
-	
 		<div class="title-box">
 		<h1 class="tt">내 수업</h1>
 		<select name="title" class="title">
-			<option valuse="흔들어보자">흔들어보자</option>
+			<option value="<%=vo.getTitle()%>"><%=vo.getTitle()%></option>
 		</select>
 		</div>
 		<hr class="line">
@@ -341,11 +342,11 @@
 			<div class="box">
 				<div class="box1">
 					<span class="red">심사중:완료 예정일 2020.11.23</span>
-					<h3>흔들어보자</h3>
+					<h3><%=vo.getTitle()%></h3>
 				</div>
 				<div class="box2">
 					<button class="btn1" id="simsa" name="simsa"><span>심사 취소하기</span></button>
-					<a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp"><button class="btn1"><span>수업 수정하기</span></button></a>
+					<a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp?cid=<%=vo.getCid()%>"><button class="btn1"><span>수업 수정하기</span></button></a>
 				</div>
 			</div>
 		</div>
@@ -362,20 +363,19 @@
 					<li class="ut5">상태</li>
 				</ul>
 				<hr>
-				<%
-					for(ms_TutorclassVO vo : list) {
+			<%
+					for(ms_TutorclassVO vo1 : list) {
 				%>
 				<ul>
-					<input type="checkbox" name="chk" class="blind inp_label" id="chk<%=vo.getRno() %>">
-					<label for="chk<%=vo.getRno() %>" class="inp_chkbox"></label>
-					<li class="ut1"><%=vo.getRno() %></li>
-					<li class="ut2"><%=vo.getName() %></li>
-					<li class="ut3"><%=vo.getAschedule() %></li>
-					<li class="ut4"><%=vo.getAperson() %></li>
-					<li class="ut5"><%=vo.getAstatus() %></li>
+					<input type="checkbox" name="chk" class="blind inp_label" id="chk<%=vo1.getRno() %>">
+					<label for="chk<%=vo1.getRno() %>" class="inp_chkbox"></label>
+					<li class="ut1"><%=vo1.getRno() %></li>
+					<li class="ut2"><%=vo1.getName() %></li>
+					<li class="ut3"><%=vo1.getAschedule() %></li>
+					<li class="ut4"><%=vo1.getAperson() %></li>
+					<li class="ut5"><%=vo1.getAstatus() %></li>
 				</ul>
 				<% } %>
-				
 			</div>
 			<div class="con2_btn">
 				<button type="button" id="fail">거절</button>
@@ -395,16 +395,16 @@
 					<li class="ut4-1">리뷰내용</li>
 					<li class="ut5">작성날짜</li>
 				</ul>
-				<% for(ms_TutorclassVO vo : list1 ) { %>
+				<% for(ms_TutorclassVO vo2 : list1 ) { %>
 				<ul>
-					<li class="ut1"><%=vo.getRno() %></li>
-					<li class="ut2"><%=vo.getName() %></li>
-					<li class="ut3-1"><%=vo.getAschedule() %></li>
-					<li class="ut4-1"><%=vo.getRcontent() %></li>
-					<li class="ut5"><%=vo.getRdate() %></li>
+					<li class="ut1"><%=vo2.getRno() %></li>
+					<li class="ut2"><%=vo2.getName() %></li>
+					<li class="ut3-1"><%=vo2.getSchedule() %></li>
+					<li class="ut4-1"><%=vo2.getRcontent() %></li>
+					<li class="ut5"><%=vo2.getRdate() %></li>
 				</ul>
 				<% } %>
-				
+				 
 				
 				
 		</div>

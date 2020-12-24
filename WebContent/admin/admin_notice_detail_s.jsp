@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import= "com.one_day_class.dao.*, com.one_day_class.vo.*"%>
+    
+    
+<%
+	String bid = request.getParameter("bid");
+	ms_Admin_noticeDAO dao = new ms_Admin_noticeDAO();
+	ms_Admin_noticeVO vo = dao.getContent(bid);
+
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +31,24 @@
 			}
 			
 		});
+		
+		
+	$(document).ready(function(){
+		//파일선택
+		$("input[type='file']").on('change',function(){
+			if(window.FileReader){
+				var fileName = $(this)[0].files[0].name;
+				$("#fname").text("").text(fileName);
+			}
+		});
+			
+			
+	});	
+		
+		
+		
+		
+		
 		
 	});
 </script>
@@ -511,7 +540,8 @@
 		display:inline-block;
 		float:right;
 	}
-	.udp_btnbox>a>button {
+	.udp_btnbox>a>button,
+	#commit {
 		display:inline-block;
 		width:80px;
 		height:30px;
@@ -521,22 +551,34 @@
      	border-radius:5px;
       	border:none;
 	}
-	.udp_btnbox>a>button:hover {
+	.udp_btnbox>a>button:hover,
+	#commit {
 		color:white;
 	}
-	.udp_btnbox>a>button:hover {
+	.udp_btnbox>a>button:hover,
+	#commit:hover {
 		background-color:#333;
       	color:white;
 	}
-	.udp_btnbox>a>button {
+	.udp_btnbox>a>button,
+	#commit {
 		text-decoration:none;
 	}
-	.udp_btnbox>a>button {
+	.udp_btnbox>a>button,
+	#commit {
 		color:black;
 		font-weight:bold;
      	font-size:14px;
 	}
 	
+	/** file-input **/
+	span#fname {
+		display:inline-block;
+		width:190px;
+		margin-left:-176px;
+		background-color:white;
+		font-size:12px
+	}
    
    </style>
 
@@ -574,31 +616,34 @@
          </ul>
       </div>
       <div class="main-section2">
-      
+      	<form name="admin_notice_Update" action="admin_notice_detail_sProc.jsp?bid=<%=vo.getBid()%>" method="post" class="admin_notice_Update">
             <div class="udp_title1">
 			<label>제목</label>
 			<ul>
-				<li class="udp_t3"><input type="text" id="udp_text"></li>
+				<li class="udp_t3"><input type="text" id="udp_text" value="<%=vo.getBtitle()%>" name="btitle"></li>
 			</ul>
 			</div>
 			<div class="udp_text">
 				<ul>
 					<label>내용</label>
-					<textarea  id="udp_text1"></textarea>
+					<textarea  id="udp_text1" name="bcontent"><%=vo.getBcontent() %></textarea>
 				</ul>
 			</div>
 			<ul class="file_chum">
 				<label>파일첨부</label>
-				<input type='file'>
+				<% if(vo.getBfile() != null) { %>
+				<input type="file" name="bfile"><span id="fname"><%=vo.getBfile() %></span>
+				<% }else { %>
+				<input type="file" name="bfile"><span id="fname">선택된 파일 없음</span>
+				<% } %>
 			</ul>
 			<div class="udp_btnbox">
-				<a href="#"><button type="button" id="commit">수정완료</button></a>
-				<a href="http://localhost:9000/One_day_class/admin/admin_notice_detail.jsp"><button type="reset">취소</button></a>		
-				<a href="http://localhost:9000/One_day_class/admin/admin_notice_detail.jsp"><button type="button">목록</button></a>		
+				<button type="submit" id="commit">수정완료</button>
+				<a href="http://localhost:9000/One_day_class/admin/admin_notice_detail.jsp?bid=<%=vo.getBid()%>"><button type="button">취소</button></a>		
+				<a href="http://localhost:9000/One_day_class/admin/notice_list_admin.jsp?bid=<%=vo.getBid()%>"><button type="button">목록</button></a>		
 			</div>
             
-         
-          
+      </form>
       </div>
       <div class="main-section3">
          <div class="section-paging">

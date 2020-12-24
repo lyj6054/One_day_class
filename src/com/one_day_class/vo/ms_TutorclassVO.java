@@ -2,12 +2,67 @@ package com.one_day_class.vo;
 
 public class ms_TutorclassVO {
 	int rno,aperson, astatus;
-	String email, name, aschedule, rcontent, rdate;
+	String email, name, aschedule, rcontent, rdate ,cid ,title, picture, spicture ,aid ,sysdate,schedule;
+
+	
 
 	
 	
-	
-	
+	public String getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
+	}
+
+	public String getAid() {
+		return aid;
+	}
+
+	public void setAid(String aid) {
+		this.aid = aid;
+	}
+
+	public String getSysdate() {
+		return sysdate;
+	}
+
+	public void setSysdate(String sysdate) {
+		this.sysdate = sysdate;
+	}
+
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getPicture() {
+		return picture;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
+	public String getSpicture() {
+		return spicture;
+	}
+
+	public void setSpicture(String spicture) {
+		this.spicture = spicture;
+	}
 
 	public String getRcontent() {
 		return rcontent;
