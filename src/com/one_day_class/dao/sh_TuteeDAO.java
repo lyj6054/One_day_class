@@ -149,6 +149,34 @@ public class sh_TuteeDAO extends DBConn {
 		return list;
 	}
 	
+	/* 수업 상세페이지 리뷰 내용(이름, 프로필사진)*/
+	public ArrayList<sh_TuteeVO> getReviewContent(String cid, int start, int end) {
+		ArrayList<sh_TuteeVO> list = new ArrayList<sh_TuteeVO>();
+		
+		try {
+			String sql = "select * from (select rownum rno, name, sprofile_img, rdate, rcontent "
+					+ " from (select * from one_tutee e, one_review r where e.email = r.email order by rdate desc) "
+					+ " where cid=?) where rno between ? and ?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, cid);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_TuteeVO vo = new sh_TuteeVO();
+				vo.setName(rs.getString(2));
+				vo.setSprofile_img(rs.getString(3));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	/* mypage 튜티 정보 수정 */
 	public boolean getUpdate(sh_TuteeVO vo) {
 		boolean result = false;

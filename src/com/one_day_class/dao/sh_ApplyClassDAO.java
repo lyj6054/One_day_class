@@ -84,4 +84,25 @@ public class sh_ApplyClassDAO extends DBConn {
 		
 		return list;
 	}
+	
+	/* 수업apply페이지 디비에 있는지 확인 */
+	public int getApplyCheck(String cid, String email) {
+		int cnt = 0;
+		
+		try {
+			String sql = "select count(*) cnt from one_apply_class where cid=? and email=? and astatus=0";
+			getPreparedStatement(sql);
+			pstmt.setString(1, cid);
+			pstmt.setString(2, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				cnt = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
 }

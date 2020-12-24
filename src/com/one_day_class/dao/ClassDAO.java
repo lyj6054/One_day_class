@@ -136,7 +136,6 @@ public class ClassDAO extends DBConn{
 			String sql="insert into one_class values('C_'||seq_one_class.nextval,?, " + 
 					"  ?,?,?,?,'원데이',?,?,?,?,?,0,0,'스케줄','튜터소개','수업숙지','수업소개' " + 
 					"  ,'수업대상','커리큘럼',0,0,sysdate)";
-			
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getEmail());
 			pstmt.setString(2, vo.getRegionmain());
@@ -148,6 +147,7 @@ public class ClassDAO extends DBConn{
 			pstmt.setString(8, vo.getPicture());
 			pstmt.setString(9, vo.getSpicture());
 			pstmt.setString(10, vo.getVideos());
+			System.out.println(sql);
 			int val = pstmt.executeUpdate();
 			if(val!=0) {result=true;}
 		}catch(Exception e) {
@@ -172,13 +172,78 @@ public class ClassDAO extends DBConn{
 //		}
 //	}
 	
+	
+	/**
+	 *  수업리스트 가져오기- 영재
+	 */
+	public ArrayList<ClassVO> getCList4(int start, int end,String cateMain){
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		try {
+			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain from (select * from one_class where cstatus=1 and catemain=? order by cdate desc)) where cno between ? and ? ";
+			getPreparedStatement(sql);
+			pstmt.setString(1, cateMain);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()){
+				ClassVO vo=new ClassVO();
+				vo.setCno(rs.getInt(1));
+				vo.setCid(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setPicture(rs.getString(4));
+				vo.setPrice(rs.getInt(5));
+				vo.setRegionmain(rs.getString(6));
+				
+				list.add(vo);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	/**
+	 *  수업리스트 가져오기- 영재
+	 */
+	public ArrayList<ClassVO> getCList3(int start, int end,String cateSub){
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		try {
+			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain from (select * from one_class where cstatus=1 and catesub=? order by cdate desc)) where cno between ? and ? ";
+			getPreparedStatement(sql);
+			pstmt.setString(1,cateSub);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()){
+				ClassVO vo=new ClassVO();
+				vo.setCno(rs.getInt(1));
+				vo.setCid(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setPicture(rs.getString(4));
+				vo.setPrice(rs.getInt(5));
+				vo.setRegionmain(rs.getString(6));
+				
+				list.add(vo);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	/**
 	 *  수업리스트 가져오기- 영재
 	 */
 	public ArrayList<ClassVO> getCList2(int start, int end){
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		try {
-			String sql = "select * from (select rownum cno,cid,title,picture,price,cstatus from (select * from one_class order by cdate desc)) where cno between ? and ?, cstatus=1";
+			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain from (select * from one_class where cstatus=1 order by cdate desc)) where cno between ? and ? ";
 			getPreparedStatement(sql);
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
@@ -190,6 +255,7 @@ public class ClassDAO extends DBConn{
 				vo.setTitle(rs.getString(3));
 				vo.setPicture(rs.getString(4));
 				vo.setPrice(rs.getInt(5));
+				vo.setRegionmain(rs.getString(6));
 				
 				list.add(vo);
 			}

@@ -93,6 +93,34 @@ public class sh_ReviewDAO extends DBConn {
 		return list;
 	}
 	
+	/* 수업 상세페이지 리뷰 내용(날짜, 내용)*/
+	public ArrayList<sh_ReviewVO> getReviewContent(String cid, int start, int end) {
+		ArrayList<sh_ReviewVO> list = new ArrayList<sh_ReviewVO>();
+		
+		try {
+			String sql = "select * from (select rownum rno, name, sprofile_img, rdate, rcontent "
+					+ " from (select * from one_tutee e, one_review r where e.email = r.email order by rdate desc) "
+					+ " where cid=?) where rno between ? and ?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, cid);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_ReviewVO vo = new sh_ReviewVO();
+				vo.setRdate(rs.getString(4));
+				vo.setRcontent(rs.getString(5));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	/* myclasslist 내가 쓴 리뷰 출력 */
 	public ArrayList<sh_ReviewVO> getMyclassList(String email) {
 		ArrayList<sh_ReviewVO> list = new ArrayList<sh_ReviewVO>();

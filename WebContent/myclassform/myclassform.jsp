@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
 <%
-	String email = "zdfwe21@gmail.com";
+	String email = "zxcvd12@naver.com";
 	//String email = request.getParameter("email");
 	
 	sh_TutorDAO dao_tutor = new sh_TutorDAO();

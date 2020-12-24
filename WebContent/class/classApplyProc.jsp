@@ -14,6 +14,6 @@
 	if(result){
 		response.sendRedirect("../myclassform/myclassform.jsp");
 	} else {
-		//response.sendRedirect("../errorPage.jsp");
+		response.sendRedirect("../errorPage.jsp");
 	}
 %>    
