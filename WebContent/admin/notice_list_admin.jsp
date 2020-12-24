@@ -1,12 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.*"
+    %>
+<% 
+	String bpart = request.getParameter("bpart");
+	BoardDAO dao = new BoardDAO();
+ 	//1. 선택한 페이지값
+	String rpage = request.getParameter("rpage");
+	
+	//2-1. 페이지값에 따라서 start, end count 구하기
+	//1페이지(1~10), 2페이지(11~20) ...
+	int start =0;
+	int end = 0;
+	int pageSize = 5; // 한페이지당 출력되는 row
+	int pageCount = 1; // 전체 페이지 수 : 전체 리스트 row / 한 페이지당 출력되는 row
+	int dbCount = dao.getListCount(); //DB연동 후 전체로우수 출력 
+	int reqPage = 1; //요청페이지
+	
+	//2-2. 전체페이지 수 구하기 - 화면출력
+	if(dbCount % pageSize == 0) {
+		pageCount = dbCount/pageSize;
+	}else {
+		pageCount = dbCount/pageSize +1;
+	}
+	
+	//2-3. start, end 값 구하기
+	if(rpage != null) {
+		reqPage = Integer.parseInt(rpage);
+		start = (reqPage -1) * pageSize +1;
+		end = reqPage*pageSize;
+	} else { 
+		start = reqPage;
+		end = pageSize;
+	} 
+	ArrayList<BoardVO> list = dao.getList(start, end, bpart); 
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost:9000/One_day_class/css/am-pagination.css">
 <script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://localhost:9000/One_day_class/js_yh/am-pagination.js"></script>
 <style>
 	
 	#newsroom-main {
@@ -477,19 +514,47 @@
 			$("#first").removeClass('selected');
 		});
 		//open/close 변경
-		$("#open").click(function(){
-			var status = $(this).attr("src");
-			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
-				$("#cont-8").css("display","block").height("450px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-				$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
-				
-			} else {
-				$("#cont-8").css("display","none").height("0px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
-			}
+			$(".open").click(function(){
+				var bid = $(this).attr("id");
+				alert(bid);
+				var status = $(this).attr("src");
+				if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
+					$("li#"+bid).css("display","block");
+					$(this).attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
+					//$("#cont8-wrap").css("display","block");
+					//$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
+					
+				} else {
+					$("li#"+bid).css("display","none");
+					$(this).attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
+					//$("#cont8-wrap").css("display","none");
+				}
 		});
-	});
+		
+			 //페이지 번호 및  링크
+			var pager = jQuery("#ampaginationsm").pagination({
+				maxSize : 5,
+				totals : '<%=dbCount%>',
+				pageSize : '<%=pageSize%>',
+				page : '<%=reqPage%>',
+				
+				//alert(maxSize + "," + totals + "," + pageSize + "," + page);
+				
+				lastText : '&raquo;&raquo;',
+				firstText : '&laquo;&laquo;',
+				preTest : '&laquo;',
+				nextTest : '&raquo;',
+				
+				btnSize : 'sm'
+			});
+			
+			//
+			jQuery("#ampaginationsm").on('am.pagination.change',function(e){
+				$(location).attr('href','http://localhost:9000/One_day_class/admin/notice/notice_list.jsp?rpage='+e.page); 
+				//location.href('이동페이지');
+			});
+		});  
+		
 	
 	function allCheck() { 
 		var all = document.getElementById("checkAll");
@@ -553,8 +618,8 @@
 		<span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
 		<div class="main-section1">
 			<ul class="section1-category">
-				<li id="first" class="first selected"><a href="notice_list_admin.jsp">공지사항</a></li>
-				<li id="second"><a href="notice_list_admin2.jsp">이벤트</a></li>
+				<li id="first" class="first selected"><a href="notice_list_admin.jsp?bpart=notice">공지사항</a></li>
+				<li id="second"><a href="notice_list_admin2.jsp?bpart=event">이벤트</a></li>
 			</ul>
 		</div>
 		<div class="main-section2">
@@ -570,428 +635,44 @@
 				<li class="title-5">조회수</li>
 			</ul>
 			<div id="nesListNew">
+			<% for(BoardVO vo : list) { %>
 				<ul class="section2-cont">
 					<li class="cont-0">
 						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check1">
 						<label for="check1" class="inp_chkbox"></label>
 					</li>
-					<li class="cont-1">30</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
+						<li class="cont-1"><%= vo.getRno() %></li>
+						<li class="cont-2">
+							<a id="test1" class="cont2-btn">
+								<img src="http://localhost:9000/One_day_class/images/notice_open.png" class="open" id=<%= vo.getBid()%>>
+								<label></label>
+							</a>
+						</li>
+						<li class="cont-3">
+							<label class="cont3-label normal"></label>
+						</li>
+						<li class="cont-4">
+							<a href="admin_notice_detail.jsp?bid=<%=vo.getBid()%>"><%= vo.getBtitle() %></a>
+						</li>
+						<li class="cont-5">탈멍</li>
+						<li class="cont-6"><%= vo.getBdate() %></li>
+						<li class="cont-7"><%= vo.getBhits() %></li>
+						<li class="cont-8" id="<%=vo.getBid()%>" >
+							<div class="cont8-wrap" id="cont8-wrap">
+							<%-- <a href="admin_notice_detail.jsp?<%=vo.getBid()%>"></a> --%>
+							</div>
+						</li>
 				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check2">
-						<label for="check2" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">29</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label normal"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check3">
-						<label for="check3" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">28</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check4">
-						<label for="check4" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">27</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label normal"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check5">
-						<label for="check5" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">26</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check6">
-						<label for="check6" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">25</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check7">
-						<label for="check7" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">24</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check8">
-						<label for="check8" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">23</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label normal"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check9">
-						<label for="check9" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">22</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check10">
-						<label for="check10" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">21</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check11">
-						<label for="check11" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">20</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check12">
-						<label for="check12" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">19</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check13">
-						<label for="check13" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">18</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check14">
-						<label for="check14" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">17</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check15">
-						<label for="check15" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">16</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check16">
-						<label for="check16" class="inp_chkbox"></label>
-					</li>
-					<li class="cont-1">15</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				
+		<% } %>
 			</div>
 		</div>
 		<div class="main-section3">
 			<div class="section-paging">
 				<div class="paging-page">
-					<a id="prev-off" class="prev-off" href="#"></a>
-					<a class="selected" href="#">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#">4</a>
-					<a href="#">5</a>
-					<a href="#">6</a>
-					<a href="#">7</a>
-					<a href="#">8</a>
-					<a href="#">9</a>
-					<a href="#">10</a>
-					<a id="next" class="next" href="#"></a>
+					<div id="ampaginationsm"></div>
 				</div>
 				<div class="admin_btn">
-					<a href="#"><button type="button" class="btn_style">글쓰기</button></a>
+					<a href="admin_notice_write.jsp"><button type="button" class="btn_style">글쓰기</button></a>
 					<a href="#"><button type="button" class="btn_style">삭제</button></a>
 				</div>
 			</div>

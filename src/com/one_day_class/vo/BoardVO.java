@@ -2,7 +2,7 @@ package com.one_day_class.vo;
 
 public class BoardVO {
 	int rno, bhits;
-	String bid, btitle, bcontent, bpart, pcharge, bfile, bsfile, bdate;
+	String bid, btitle, bcontent, bpart, bcharge, bfile, bsfile, bdate;
 	
 	public int getRno() {
 		return rno;
@@ -40,11 +40,11 @@ public class BoardVO {
 	public void setBpart(String bpart) {
 		this.bpart = bpart;
 	}
-	public String getPcharge() {
-		return pcharge;
+	public String getBcharge() {
+		return bcharge;
 	}
-	public void setPcharge(String pcharge) {
-		this.pcharge = pcharge;
+	public void setBcharge(String bcharge) {
+		this.bcharge = bcharge;
 	}
 	public String getBfile() {
 		return bfile;

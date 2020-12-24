@@ -6,21 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>admin_notice_write</title>
-<script src="http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <script>
 	$(document).ready(function(){
-		$("#commit").click(function(){
-			if($("#udp_text").val() == ""){
+		$("#btnNoticeWrite").click(function(){
+			if($(".notice_select").val() == "선 택") {
+				alert("구분을 선택해주세요");
+				$(".notice_select").focus();
+				return false;
+			} else if($("#btitle").val() == ""){
 				alert("제목을 입력해주세요.");
-				$("#udp_text").focus();
+				$("#btitle").focus();
 				return false;
-			}else if($("#udp_text1").val() == ""){
-				alert("내용을 입력해주세요.");
-				$("#udp_text1").focus();
-				return false;
+			} else {
+				//서버로전송
+				noticeWriteForm.submit(); 
 			}
 			
-		});
+		}); 
 		
 	});
 </script>
@@ -540,10 +543,12 @@
 	
 	.udp_title1 select {
 		margin-left:20px;
-		width:40px;
-		height:25px;
+		width:110px;
+		height:28px;
 	}
-   
+   .udp_title1 select option {
+   		text-align:center;
+   }
    </style>
 
 </head>
@@ -579,26 +584,27 @@
 					<ul>
 						<li class="udp_title1">
 							<label>구분</label>
-							<select class="notice_select">
-								<option value="선 택">선 택</option>
-								<option value="공지사항">공지사항</option>
+							<select name="bpart" class="notice_select">
+								<option  value="선 택">선 택</option>
+								<option value="공지사항/일반">공지사항/일반</option>
+								<option value="공지사항/약관">공지사항/약관</option>
 								<option value="이벤트">이벤트</option>
 							</select>
 						</li>
 						<li class="udp_title1">
 							<label >제목</label>
-							<input type="text" name="ntitle" id="ntitle" class="udp_t3">
+							<input type="text" name="btitle" id="btitle" class="udp_t3">
 						</li>
 						<li class="udp_text">
 							<label>내용</label>
-							<textarea rows="10" cols="50" name="ncontent" id="ncontent"></textarea>
+							<textarea rows="10" cols="50" name="bcontent" id="bcontent"></textarea>
 						</li>
 						<li class="file_chum">
 							<label>파일첨부</label>
-							<input type="file" name="nfile"  class="udp_t3">
+							<input type="file" name="bfile" class="udp_t3">
 						</li>
 						<li class="udp_btnbox">
-							<button type="button" class="btn_style" id="btnNoticeWrite">등록</button>
+							<button type="submit" class="btn_style" id="btnNoticeWrite">등록</button>
 							<button type="reset" class="btn_style">취소</button>
 							<a href="notice_list_admin.jsp"><button type="button" class="btn_style">목록으로</button></a>
 						</li>
