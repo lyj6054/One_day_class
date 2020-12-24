@@ -1,53 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" 
-    import="com.one_day_class.dao.*, com.one_day_class.vo.*,java.util.*"%>
-<%
-	 ClassDAO dao = new ClassDAO();
+    pageEncoding="UTF-8"
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.*"
+    %>
+<% 
+	String bpart = request.getParameter("bpart");
+	BoardDAO dao = new BoardDAO();
+ 	//1. 선택한 페이지값
+	String rpage = request.getParameter("rpage");
 	
-	//1. 선택한 페이지값
-	String rpage= request.getParameter("rpage");
-	
-	//2-1. 페이지 값에 따라서 start, end count 구하기
-	//1페이지(1~10) , 2페이지(11~20)...
+	//2-1. 페이지값에 따라서 start, end count 구하기
+	//1페이지(1~10), 2페이지(11~20) ...
 	int start =0;
-	int end=0;
-	int pageSize=10; //한 페이지당 출력되는 row
-	int pageCount = 1;//전체 페이지수 : 전체 리스트 row / 한 페이지당 출력되는 row
-	int dbCount = dao.getListCount();// DB연동 후 전체로우수 출력
-	int reqPage = 1;//요청페이지
+	int end = 0;
+	int pageSize = 5; // 한페이지당 출력되는 row
+	int pageCount = 1; // 전체 페이지 수 : 전체 리스트 row / 한 페이지당 출력되는 row
+	int dbCount = dao.getListCount(); //DB연동 후 전체로우수 출력 
+	int reqPage = 1; //요청페이지
 	
-	//2-2. 전체페이지 수 구하기
-	if(dbCount%pageSize==0){
-		pageCount= dbCount/pageSize;
-	}else{
-		pageCount= dbCount/pageSize+1;
-	
+	//2-2. 전체페이지 수 구하기 - 화면출력
+	if(dbCount % pageSize == 0) {
+		pageCount = dbCount/pageSize;
+	}else {
+		pageCount = dbCount/pageSize +1;
 	}
 	
 	//2-3. start, end 값 구하기
-	if(rpage != null){
+	if(rpage != null) {
 		reqPage = Integer.parseInt(rpage);
-		start = (reqPage -1) * pageSize +1 ;
-		end = reqPage * pageSize;
-	}else{
+		start = (reqPage -1) * pageSize +1;
+		end = reqPage*pageSize;
+	} else { 
 		start = reqPage;
 		end = pageSize;
-	}
-
-
-	ArrayList<ClassVO> list = dao.getCList(start,end); 
-	int i=0;
-	
+	} 
+	ArrayList<BoardVO> list = dao.getList(start, end, bpart); 
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/am-pagination.css">
-<script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
-<script src="http://localhost:9000/One_day_class/js_yj/am-pagination.js"></script> <!-- 제이쿼리 라이브러리 -->
+<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://localhost:9000/One_day_class/js_yh/am-pagination.js"></script>
 <style>
 	
 	#newsroom-main {
@@ -56,10 +52,9 @@
 		overflow:hidden;
 		heigth:auto;
 		width:853px;
-		padding: 10px 18px 120px 17px;
+		padding: 10px 18px 80px 17px;
 		border:1px #e3e3e3 solid;
 		margin-bottom:40px;
-		/* position:absolute; */
 	}
 	div {
 		border: 0;
@@ -82,6 +77,7 @@
 	}
 	#newsroom-main .main-section1 .section1-category {
 	    height: 41px;
+	    border-bottom: 1px #ff0045 solid;
 	    padding-left:24px;
 	    margin-left:0;
 	}
@@ -96,7 +92,7 @@
 	#newsroom-main .main-section1 .section1-category li {
 	    position: relative;
 	    float: left;
-	    width: 770px;
+	    width: 385px;
 	    height: 40px;
 	    border-top: 1px #dadada solid;
 	    border-left: 1px #dadada solid;
@@ -118,7 +114,7 @@
 	#newsroom-main .main-section1 .section1-category li a {
 	    position: absolute;
 	    display: block;
-	    width: 766px;
+	    width: 383px;
 	    height: 30px;
 	    padding-top:12px;
 	    letter-spacing: -1px;
@@ -172,7 +168,6 @@
 		padding-left:0;
 	}
 	.main-section2 .section2-title .title-2 {
-		margin-left:50px;
 		width: 440px;
 	}
 	.main-section2 .section2-title .title-3 {
@@ -180,6 +175,9 @@
 	}
 	.main-section2 .section2-title .title-4 {
 		width: 90px;
+	}
+	.main-section2 .section2-title .title-5 {
+		width: 50px;
 	}
 	.main-section2 .section2-cont {
 		display: inline-block;
@@ -237,15 +235,20 @@
 		width: 31px;
     	height: 15px;
     	display: block;
-    	background-image:url(http://localhost:9000/One_day_class/images/wait.png); 
+    	background-image:url(http://localhost:9000/One_day_class/images/notice_con1.png);
     	background-repeat:no-repeat;
 	    background-size: 28px 18px;
 	}
-	#status1{
-		background-image:url(http://localhost:9000/One_day_class/images/complete.png); 
+	.main-section2 .section2-cont li.cont-3 .cont3-label.normal {
+		width: 31px;
+    	height: 15px;
+    	display: block;
+    	background-image:url(http://localhost:9000/One_day_class/images/notice_con3.png);
+    	background-repeat:no-repeat;
+	    background-size: 28px 18px;
 	}
 	.main-section2 .section2-cont li.cont-4 {
-		width: 413px;
+		width: 365px;
 	    padding: 2px 50px 0 30px;
 	    text-align: left;
 	}
@@ -255,6 +258,10 @@
 	}
 	.main-section2 .section2-cont li.cont-6 {
 		width: 99px;
+    	padding-top: 2px;
+	}
+	.main-section2 .section2-cont li.cont-7 {
+		width: 48px;
     	padding-top: 2px;
 	}
 	
@@ -273,7 +280,7 @@
 		display:none;
 	    width: 831px;
 	    height: 430px;
-	    overflow-y: hidden !important;
+	    overflow-y: auto !important;
 	}
 	.main-section2 .section2-cont li.cont-8 .cont8-wrap {
 	    margin: 20px 0;
@@ -380,11 +387,14 @@
 	
 	/* aside */
 	.content {
-		width:1040px;
-		margin: 0 auto;
+		width: 1100px;
+	    margin: 0 auto;
+	    padding: 50px 0 110px 20px;
+	    
 	}
-	.content .admin_main {
+	.admin_main {
 		float:left;
+		margin: 0 auto;
 		width:220px; height:970px;
 		background-color:#eee;
 		padding:20px 0 0 15px;
@@ -444,28 +454,16 @@
 	.main-section3 .admin_btn:hover {
 		float:right;
 		margin-top:-22px;
+		margin-right:17px;
 	}
-	.accept, .reject {
-    margin: 10px;
-    width:85px;
-    height:45px;
-    color:white;
-     border:none;
-     font-size:20px;
+	.main-section3 .admin_btn .btn_style {
+		margin-right:6px;
+		padding:4px 10px;
+		border-radius:5px;
+		font-weight:bold;
+		font-size:14px;
+		border:none;
 	}
-	.accept:hover, .reject:hover{
-    border:3px solid #999;
-    }
-    .accept:active, .reject:active{
-    border:3px solid black;
-    }
-     .main-section3 .accept{
-     background-color: rgb(99,206,197);
-     }
-      .main-section3 .reject{
-     background-color: rgb(233,136,137);
-     }
-	
 	 .blind {
 		position: absolute !important;
 	    clip: rect(0,0,0,0);
@@ -502,58 +500,61 @@
 	    background-repeat: no-repeat;
 	    background-size: 13px;
 	}
-	#ampaginationsm{
-		text-align: center;
-	}
+	
 	</style>
 <script>
 	$(document).ready(function(){
+		// 공지사항/이벤트 페이지 변경
+		$("#first").click(function(){
+			$("#first").addClass('selected');
+			$("#second").removeClass('selected');
+		});
+		$("#second").click(function(){
+			$("#second").addClass('selected');
+			$("#first").removeClass('selected');
+		});
 		//open/close 변경
-		$("img[name=open]").click(function(){
-			var i=$(this).attr("id");
-			var status = $(this).attr("src");
-			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
-				var url="http://localhost:9000/One_day_class/admin/class_iframe.jsp?cno="+$(this).attr("alt");
-				$("#cont-8-"+i).css("display","block").height("450px");
-				$("#"+i).attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-				$("#cont8-wrap-"+i).load(url+" .section2-cont");
-			} else {
-				$("#cont-8-"+i).css("display","none").height("0px");
-				$("#"+i).attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
-			}
+			$(".open").click(function(){
+				var bid = $(this).attr("id");
+				alert(bid);
+				var status = $(this).attr("src");
+				if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
+					$("li#"+bid).css("display","block");
+					$(this).attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
+					//$("#cont8-wrap").css("display","block");
+					//$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
+					
+				} else {
+					$("li#"+bid).css("display","none");
+					$(this).attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
+					//$("#cont8-wrap").css("display","none");
+				}
 		});
 		
-		//페이지 번호 및 링크
-		var pager = jQuery("#ampaginationsm").pagination({
-			maxSize : 5,
-			totals: <%=dbCount%>,
-			pageSize: <%=pageSize%>,
-			page: <%=reqPage%>,
+			 //페이지 번호 및  링크
+			var pager = jQuery("#ampaginationsm").pagination({
+				maxSize : 5,
+				totals : '<%=dbCount%>',
+				pageSize : '<%=pageSize%>',
+				page : '<%=reqPage%>',
+				
+				//alert(maxSize + "," + totals + "," + pageSize + "," + page);
+				
+				lastText : '&raquo;&raquo;',
+				firstText : '&laquo;&laquo;',
+				preTest : '&laquo;',
+				nextTest : '&raquo;',
+				
+				btnSize : 'sm'
+			});
 			
-			lastText : '&raquo;&raquo;',
-			firstText : '&laquo,&laquo',
-			prevTest : '&laquo;',
-			nextTest : '&raquo;',
-			
-			btnSize : 'sm'
-		});
+			//
+			jQuery("#ampaginationsm").on('am.pagination.change',function(e){
+				$(location).attr('href','http://localhost:9000/One_day_class/admin/notice/notice_list.jsp?rpage='+e.page); 
+				//location.href('이동페이지');
+			});
+		});  
 		
-		jQuery("#ampaginationsm").on('am.pagination.change',function(e){
-			$(location).attr('href','http://localhost:9000/One_day_class/admin/class_list.jsp?rpage='+e.page); 
-			//location.href('이동페이지')';
-		});
-		
-		 $("#accept").click(function(){
-			 $("#wbutton").val("accept");
-			 ClassMForm.submit(); 
-		 });
-		 
-		 $("#reject").click(function(){
-			 $("#wbutton").val("reject");
-			 ClassMForm.submit(); 
-		 });
-		
-	});
 	
 	function allCheck() { 
 		var all = document.getElementById("checkAll");
@@ -598,10 +599,8 @@
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
 
-	<!-- content -->
-	<div style="margin:0 auto;">
-	<div style="width:100%; height:50px;"></div>
-	<div class="content">
+<!-- content -->
+<div class="content">
 		<aside class="admin_main">
 			<nav>
 				<div>
@@ -610,19 +609,17 @@
 				</div>
 				<ul>
 					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="notice_list_admin.jsp">공지사항/이벤트</a></li>
-					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="class_list.jsp">수업관리</a></li>
-					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="member_list.jsp">회원관리</a></li>
+					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="#">수업관리</a></li>
+					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="#">회원관리</a></li>
 				</ul>
 			</nav>
 		</aside>
-
-	
-	</div>
 	<div class="board_wrap" id="newsroom-main">
-		<span class="main-logo">TALMUNG <span>'Class M'</span> ROOM</span>
+		<span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
 		<div class="main-section1">
 			<ul class="section1-category">
-				<li id="first" class="first selected"><a href="#">수업관리</a></li>
+				<li id="first" class="first selected"><a href="notice_list_admin.jsp?bpart=notice">공지사항</a></li>
+				<li id="second"><a href="notice_list_admin2.jsp?bpart=event">이벤트</a></li>
 			</ul>
 		</div>
 		<div class="main-section2">
@@ -635,52 +632,50 @@
 				<li class="title-2">제목</li>
 				<li class="title-3">담당</li>
 				<li class="title-4">작성일</li>
+				<li class="title-5">조회수</li>
 			</ul>
 			<div id="nesListNew">
-			<form name="ClassMForm" action="class_listProc.jsp" method="get" class="join">
-				<input type="hidden" name="wbutton" value="" id="wbutton">
-				<% for(ClassVO vo:list){ i++;%>
-					<ul class="section2-cont">
-						<li class="cont-0">
-							<input class="blind inp_label" type="checkbox" name="checkTerms"
-							 id="check<%=i%>" value="<%=vo.getCid()%>">
-							<label for="check<%=i%>" class="inp_chkbox"></label>
-						</li>
-						<li class="cont-1"><%=vo.getCno() %></li>
+			<% for(BoardVO vo : list) { %>
+				<ul class="section2-cont">
+					<li class="cont-0">
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check1">
+						<label for="check1" class="inp_chkbox"></label>
+					</li>
+						<li class="cont-1"><%= vo.getRno() %></li>
 						<li class="cont-2">
 							<a id="test1" class="cont2-btn">
-								<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="<%=i%>" name="open" >
+								<img src="http://localhost:9000/One_day_class/images/notice_open.png" class="open" id=<%= vo.getBid()%>>
 								<label></label>
 							</a>
 						</li>
 						<li class="cont-3">
-							<label class="cont3-label" id="status<%=vo.getCstatus() %>" ></label>
+							<label class="cont3-label normal"></label>
 						</li>
 						<li class="cont-4">
-							<a href="http://localhost:9000/One_day_class/admin/class_content.jsp?cid=<%=vo.getCid()%>"><%=vo.getTitle()%></a>
+							<a href="admin_notice_detail.jsp?bid=<%=vo.getBid()%>"><%= vo.getBtitle() %></a>
 						</li>
 						<li class="cont-5">탈멍</li>
-						<li class="cont-6"><%=vo.getCdate()%></li>
-						<li class="cont-8" id="cont-8-<%=i%>" >
-							<%-- <div class="cont8-wrap" id="cont8-wrap-<%=i%>" ></div> --%>
-							<iframe width="800px"  height="800px"  src="class_iframe.jsp?cid=<%=vo.getCid()%>">
-							</iframe>
+						<li class="cont-6"><%= vo.getBdate() %></li>
+						<li class="cont-7"><%= vo.getBhits() %></li>
+						<li class="cont-8" id="<%=vo.getBid()%>" >
+							<div class="cont8-wrap" id="cont8-wrap">
+							<%-- <a href="admin_notice_detail.jsp?<%=vo.getBid()%>"></a> --%>
+							</div>
 						</li>
-					</ul>
-					<%} %>
-				</form>
-	
-				
+				</ul>
+		<% } %>
 			</div>
 		</div>
 		<div class="main-section3">
-			<div id="ampaginationsm"></div>
-			<div class="admin_btn">
-					<button type="button" class="accept" id="accept">수락</button>
-					<button type="button" class="reject" id="reject">거절</button>
+			<div class="section-paging">
+				<div class="paging-page">
+					<div id="ampaginationsm"></div>
+				</div>
+				<div class="admin_btn">
+					<a href="admin_notice_write.jsp"><button type="button" class="btn_style">글쓰기</button></a>
+					<a href="#"><button type="button" class="btn_style">삭제</button></a>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 </div>

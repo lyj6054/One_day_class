@@ -1,8 +1,33 @@
 package com.one_day_class.dao;
 
-import com.one_day_class.vo.TuteeVO;
+import java.sql.ResultSet;
+
+import com.one_day_class.vo.TuteeVO; 
 
 public class TuteeDAO extends DBConn {
+	
+	/* login */
+	public int getLogin(String email, String password) {
+		int result = 0;
+		try {
+			String sql = "select count(*) from one_tutee "
+					+ " where email=? and password=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			pstmt.setString(2, password);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) result = rs.getInt(1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+		
+	}
+	
 	/* insert :회원가입 */
 	public boolean getInsert(TuteeVO vo) {
 		boolean result = false;
