@@ -283,7 +283,7 @@ public class sh_TuteeDAO extends DBConn {
 		sh_TuteeVO vo = new sh_TuteeVO();
 		
 		try {
-			String sql = "select r.rid, r.cid, rservice, rcontent, to_char(rdate, 'yyyy.mm.dd') rdate, sprofile_img, e.name "
+			String sql = "select r.rid, r.cid, r.rservice, r.rcontent, to_char(r.rdate, 'yyyy.mm.dd') rdate, e.sprofile_img, e.name "
 					+ " from one_review r, one_tutee e where r.email=e.email and r.email=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, email);
