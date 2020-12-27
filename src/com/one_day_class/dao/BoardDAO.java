@@ -7,6 +7,8 @@ import com.one_day_class.vo.BoardVO;
 
 public class BoardDAO extends DBConn {
 	
+	
+	
 	/**
 	    *  Select : 상세정보출력(수정눌렀을시 나오는 내용)
 	    */
@@ -61,13 +63,13 @@ public class BoardDAO extends DBConn {
 	
 	
 	/* Update :조회수 업데이트 */
-	public void getUpdateHits(String nid) {
+	public void getUpdateHits(String bid) {
 		try {
 			String sql = "update one_board set bhits=bhits+1 "
-					+ " where nid=?";
+					+ " where bid=?";
 			
 			getPreparedStatement(sql);
-			pstmt.setString(1, nid);
+			pstmt.setString(1, bid);
 			
 			pstmt.executeUpdate();
 			

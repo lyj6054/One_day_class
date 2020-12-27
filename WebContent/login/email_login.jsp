@@ -295,7 +295,7 @@
 				</div> <!-- class="box_inp" -->
 				<div class="box_btn">
 					<button class="btn_submit" type="submit" id="login_btn">로그인 하기</button>
-					<a class="btn" href="find_pw.jsp">로그인</a>
+					<a class="btn" href="email_login.jsp">로그인</a>
 					<a class="btn" href="../join/join.jsp">회원가입</a>
 				</div> <!-- class="box_btn" -->
 			</div> <!-- class="box_login login_email" -->

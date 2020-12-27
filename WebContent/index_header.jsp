@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import = "com.one_day_class.vo.*, com.one_day_class.dao.*"
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,6 +118,33 @@
 		$('#bar_true_list').mouseleave(function() {
 			$("#bar_true_list").css("display","none");
 		});
+		
+		// Ajax 검색하기 
+		function search_list(inp_sch, btn_sch) {
+			$.ajax({
+				url:"index_header_proc.jsp?inp_sch="+inp_sch+"&btn_sch="+btn_sch,
+				success:function(result){
+					alert(result);
+					var jdata = JSON.parse(result);
+					
+					//$(".ser")\
+				}
+			});
+		}
+		
+		
+		$("#btn_sch").click(function(){
+			if($("#inp_sch").val() == "") {
+				alert("검색할 데이터를 입력해주세요");
+				$("#inp_sch").focus();
+				return false;
+			} else {
+				var inp_sch = $("#inp_sch").val();
+				var btn_sch = $("#btn_sch").val();
+				
+				search_list(inp_sch, btn_sch)
+			}
+		});
 	});
 </script>
 </head>
@@ -128,7 +157,7 @@
 				</h1>
 				<div class="box_sch" id="box_sch">
                     <input type="text" class="inp_sch" name="inp_sch" id="inp_sch" placeholder="배우고 싶은 재능이나 튜터를 검색해보세요.">
-                    <button class="btn_sch"></button>
+                    <button class="btn_sch" id="btn_sch"></button>
 	                <div class="Search_Container" id="bar_true_list" style="display: none;">
 						<div class="Search_Container_Header" id="bar_true_text">
 							<h3 class="Search_Container_HeaderText">인기 검색어</h3>

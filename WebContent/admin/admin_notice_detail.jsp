@@ -6,6 +6,7 @@
    String bid = request.getParameter("bid");
    BoardDAO dao = new BoardDAO();
    BoardVO vo = dao.getContent(bid); 
+   dao.getUpdateHits(bid);
 
 %>
     
@@ -606,7 +607,13 @@
          </ul>
      </div>
      <div class="udp_text">
-            <p><%=vo.getBcontent()%></p>
+            <p>
+            <%=vo.getBcontent().replace("\r\n", "<br>")%> <!-- \r\n ==> <br> -->
+            <% if(vo.getBsfile() != null) { %>
+            <br><img src="http://localhost:9000/One_day_class/upload/<%=vo.getBsfile()%>" 
+            style="width:600px; heigth:500px;">
+            <% }  %>
+            </p>
          </div>
       
       <div class="main-section3">
