@@ -72,8 +72,8 @@ public class sh_ReviewDAO extends DBConn {
 		ArrayList<sh_ReviewVO> list = new ArrayList<sh_ReviewVO>();
 		
 		try {
-			String sql = "select name, sprofile_img, rdate, rcontent "
-					+ " from (select * from one_tutee e, one_review r where e.email = r.email order by rdate desc) "
+			String sql = "select name, sprofile_img, rdate, rcontent, cid "
+					+ " from (select e.name, e.sprofile_img, r.rdate, r.rcontent,r.cid from one_tutee e, one_review r where e.email = r.email order by rdate desc) "
 					+ " where cid=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, cid);
@@ -98,8 +98,8 @@ public class sh_ReviewDAO extends DBConn {
 		ArrayList<sh_ReviewVO> list = new ArrayList<sh_ReviewVO>();
 		
 		try {
-			String sql = "select * from (select rownum rno, name, sprofile_img, rdate, rcontent "
-					+ " from (select * from one_tutee e, one_review r where e.email = r.email order by rdate desc) "
+			String sql = "select * from (select rownum rno, name, sprofile_img, rdate, rcontent,cid "
+					+ " from (select e.name, e.sprofile_img, r.rdate, r.rcontent, r.cid from one_tutee e, one_review r where e.email = r.email order by rdate desc) "
 					+ " where cid=?) where rno between ? and ?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, cid);
@@ -126,7 +126,7 @@ public class sh_ReviewDAO extends DBConn {
 		ArrayList<sh_ReviewVO> list = new ArrayList<sh_ReviewVO>();
 		
 		try {
-			String sql = "select r.rid, r.cid, rservice, rcontent, to_char(rdate, 'yyyy.mm.dd') rdate, sprofile_img, e.name "
+			String sql = "select r.rid, r.cid, r.rservice, r.rcontent, to_char(r.rdate, 'yyyy.mm.dd') rdate, e.sprofile_img, e.name "
 					+ " from one_review r, one_tutee e where r.email=e.email and r.email=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, email);
