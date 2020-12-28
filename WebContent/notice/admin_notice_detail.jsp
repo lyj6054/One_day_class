@@ -1,156 +1,140 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import= "com.one_day_class.dao.*, com.one_day_class.vo.*"%>
-    
-    
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*"
+    %>
 <%
-	String bid = request.getParameter("bid");
-	ms_Admin_noticeDAO dao = new ms_Admin_noticeDAO();
-	ms_Admin_noticeVO vo = dao.getContent(bid);
+   String bid = request.getParameter("bid");
+   BoardDAO dao = new BoardDAO();
+   BoardVO vo = dao.getContent(bid); 
+   dao.getUpdateHits(bid);
 
 %>
-
-
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/One_day_class/js_minsu/jquery-3.5.1.min.js"></script>
 <script>
-$(document).ready(function(){
-	$("#btnNoticeUpdate").click(function(){
-		if($(".notice_select").val() == "선 택") {
-			alert("구분을 선택해주세요");
-			$(".notice_select").focus();
-			return false;
-		} else if($("#btitle").val() == ""){
-			alert("제목을 입력해주세요.");
-			$("#btitle").focus();
-			return false;
-		} else {
-			//서버로전송
-			noticeUpdateForm.submit(); 
-		}
-		
-	}); 
-	
-	
-	//파일선택
-	$("input[type='file']").on('change',function(){
-		if(window.FileReader){
-			var fileName = $(this)[0].files[0].name;
-			$("#fname").text("").text(fileName);
-		}
-	});
-	
-	
-	
-});
-		
+   $(document).ready(function(){
+      
+      /** 삭제 알림  **/
+      $("#and_del").click(function(){
+         alert("삭제 하시겠습니까?");
+         
+         
+      });//and_del
+      
+      
+      
+   });//ready
+
+
 </script>
 <style>
    * {
      font-family: 'Noto Sans KR';
    }
    #newsroom-main {
-      display:inline-block;
-      margin:0 atuo;
-      overflow:hidden;
-      width:853px; height:970px;
-      padding: 10px 18px 80px 17px;
-      border:1px #e3e3e3 solid;
-      margin-bottom:40px;
-      position:absolute;
-      
-   }
-   div {
-      border: 0;
-       margin: 0;
-       padding: 0;
-       font-size: 11px;
-   }
-   #newsroom-main .main-logo{
-      display:inline-block;
-      margin:20px 0 30px 117px;
-       font-size:50px;
-   }
-   #newsroom-main .main-logo span {
-      font-weight:bold;
-   }
-   #newsroom-main .main-section1 {
-       margin: 0 auto;
-       width: 820px;
-       height: 50px;
-   }
-   #newsroom-main .main-section1 .section1-category {
-       height: 41px;
-       border-bottom: 1px #ff0045 solid;
-       padding-left:24px;
-       margin-left:0;
-   }
-   ul, li {
-       list-style: none;
-       border: 0;
-       margin: 0;
-       padding: 0;
-       font-size: 12px;
-   }
-   
-   #newsroom-main .main-section1 .section1-category li {
-       position: relative;
-       float: left;
-       width: 385px;
-       height: 40px;
-       border-top: 1px #dadada solid;
-       border-left: 1px #dadada solid;
-       border-right: 1px #dadada solid;
-       text-align: left;
-       z-index: 5;
-   }
-   #newsroom-main .main-section1 .section1-category .selected {
-       margin-left: -1px;
-       border-left: 1px #ff0045 solid;
-       border-top: 1px #ff0045 solid;
-       border-right: 1px #ff0045 solid;
-       border-bottom:none;
-       z-index: 10;
-   }
-   /* #newsroom-main .main-section1 .section1-category li.first {
-       margin-left: 0 !important;
-   } */
-   #newsroom-main .main-section1 .section1-category li a {
-       position: absolute;
-       display: block;
-       width: 383px;
-       height: 30px;
-       padding-top:12px;
-       letter-spacing: -1px;
-       font-weight: bold;
-       text-align: center;
-       font-size:15px;
-       
-   }
-   #newsroom-main .main-section1 .section1-category .selected a {
-       height: 40px;
-       color: #333;
-       background-color: #fff;
-   }
-   a, a:visited {
-       border: 0;
-       margin: 0;
-       padding: 0;
-       color: #666;
-       text-decoration: none;
-       cursor: pointer;
-   }
-   #newsroom-main .main-section2 {
-       position: relative;
-       display: inline-block;
-       float: left;
-       width: 853px;
-       margin-top: 15px;
-   }
+		display:inline-block;
+		margin:0 auto;
+		overflow:hidden;
+		height:970px;
+		width:853px;
+		padding: 10px 18px 80px 17px;
+		border:1px #e3e3e3 solid;
+		margin-bottom:40px;
+		position: absolute;
+	}
+	div {
+		border: 0;
+	    margin: 0;
+	    padding: 0;
+	    font-size: 11px;
+	}
+	.main-logo{
+		display:inline-block;
+		margin:20px 0 30px 117px;
+    	font-size:50px;
+	}
+	.main-logo span {
+		font-weight:bold;
+	}
+	.main-section1 {
+	    margin: 0 auto;
+	    width: 820px;
+	    height: 50px;
+	}
+	 .main-section1 .section1-category {
+	    height: 41px;
+	    border-bottom: 1px #ff0045 solid;
+	    padding-left:24px;
+	    margin-left:0;
+	}
+	ul, li {
+	    list-style: none;
+	    border: 0;
+	    margin: 0;
+	    padding: 0;
+	    font-size: 12px;
+	}
+	
+	.main-section1 .section1-category li {
+	    position: relative;
+	    float: left;
+	    width: 385px;
+	    height: 40px;
+	    border-top: 1px #dadada solid;
+	    border-left: 1px #dadada solid;
+	    border-right: 1px #dadada solid;
+	    text-align: left;
+	    
+	}
+	.main-section1 .section1-category .selected {
+	    margin-left: -1px;
+	    border-left: 1px #ff0045 solid;
+	    border-top: 1px #ff0045 solid;
+	    border-right: 1px #ff0045 solid;
+	    border-bottom:none;
+	    
+	}
+	/* #newsroom-main .main-section1 .section1-category li.first {
+	    margin-left: 0 !important;
+	} */
+	.main-section1 .section1-category li a {
+	   position:relative;
+	    display: block;
+	    width: 383px;
+	    height: 30px;
+	    padding-top:12px;
+	    letter-spacing: -1px;
+	    font-weight: bold;
+	    text-align: center;
+	    font-size:15px;
+	    
+	}
+	.main-section1 .section1-category .selected a {
+	    height: 40px;
+	    color: #333;
+	    background-color: #fff;
+	}
+	a, a:visited {
+	    border: 0;
+	    margin: 0;
+	    padding: 0;
+	    color: #666;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+	.main-section2 {
+	    position: relative;
+	    display: inline-block;
+	    float: left;
+	    width: 853px;
+	    margin-top: 15px;
+	}
    .main-section2 .section2-title {
        display: inline-block;
        float: left;
@@ -225,7 +209,7 @@ $(document).ready(function(){
    }
    .main-section2 .section2-cont li.cont-2 .cont2-btn label {
       display: none; 
-       position: absolute;
+       position:relative;
        width: 70px;
        height: 20px;
        margin: -18px 0 0 -12px;
@@ -296,7 +280,7 @@ $(document).ready(function(){
        color: #777;
        text-align: left;
    }
-   #newsroom-main .main-section3 {
+   .main-section3 {
        position: relative;
        display: inline-block;
        float: left;
@@ -450,144 +434,143 @@ $(document).ready(function(){
       text-align:center;
       font-weight:bold;
    }
-  
-   /** 수정본 **/
-   
-   .udp_title>ul>li {
+   /** 수정본  **/
+   .udp_text{
+   	height:600px;
+   	width:810px;
+   	overflow: auto;
+   }
+   .udp_title1{
 		display:inline-block;
-		font-size:26px;
-		border:1px solid gray;
-		width:500px;
-		margin-top:30px;
-		margin-bottom:50px;
-	}
-	.udp_title .udp_t1 {
-		clear:left;
-		border-left:2px solid black;
-		border-top:2px solid black;
-		border-right:2px solid black;
-		border-bottom:none;
-	}
-	.udp_title .udp_t2 {
-		clear:left;
-		margin-left:-4px;
-		border-left:none;
-		border-bottom:2px solid black;
-		border-top:2px solid lightgray;
-		border-right:2px solid lightgray;
-	}
-	.udp_title ul{
+		width:800px;
 		text-align:center;
-	}
-	.udp_title1{
-		display:inline-block;
-		width:770px;
-		margin-left:15px;
-		border-bottom:1px solid lightgray;
-		padding:11px 0;
-	}
-	.udp_title1 label,
-	.file_chum label {
-		border:1px solid lightgray;
-		background-color: lightgray;
-		border-radius:5px;
-		display:inline-block;
-		float:left;
-		width:80px; height:30px;
-		text-align:center;
-		padding-top:3px;
-	}
-	.file_chum label {
-		margin-left:15px;
-		margin-top:10px;
-	}
-	.file_chum input {
-		margin-top:15px;
 		margin-left:20px;
+		margin-top:10px;
+		border-bottom:1px solid lightgray;
+		padding-bottom:5px;
 	}
 	.udp_title1>ul>li {
 		display:inline-block;
 	}
-	.udp_title1 input {
-		width:655px; height:35px;
-		margin-left:20px;
-	}
-	.udp_text {
-		margin-top:15px;
-	}
-	.udp_text label {
-		border:1px solid lightgray;
-		background-color: lightgray;
-		border-radius:5px;
-		display:inline-block;
+	.udp_title1>ul>li.udp_t3 {
 		float:left;
-		width:80px; height:500px;
-		padding-top:230px;
-		margin-left:15px;
-		text-align:center;
+		color:black;
+		font-size:14px;
+		font-weight:bold;
 	}
-	.udp_text textarea {
-		width:655px; height:500px;
-		margin-left:20px;
-		display:inline-block;
-		clear:left;
+	.udp_title1>ul>li.udp_t4,
+	.udp_title1>ul>li.udp_t5,
+	.udp_title1>ul>li.udp_t6 {
+		float:right;
+		color:#999999;
+		font-size:11px;
+		margin-left:30px;
+	}
+	/** 내용 글자 **/
+	.udp_text>p {
+	margin-left:40px;
 	}
 	/** 버튼 **/
 	.udp_btnbox {
 		display:inline-block;
 		float:right;
 	}
-	.udp_btnbox button {
+	.udp_btnbox>a>button {
 		display:inline-block;
-		width:80px;
+		width:60px;
 		height:30px;
-		margin-right:10px;
+		margin-right:50px;
 		margin-top:20px;
 		padding:4px 10px;
      	border-radius:5px;
       	border:none;
 	}
-	.udp_btnbox button:hover {
+	.udp_btnbox>a>button:hover {
 		color:white;
 	}
-	.udp_btnbox button:hover {
+	.udp_btnbox>a>button:hover {
 		background-color:#333;
       	color:white;
 	}
-	.udp_btnbox button {
+	.udp_btnbox>a>button {
 		text-decoration:none;
 	}
-	.udp_btnbox button {
+	.udp_btnbox>a>button {
 		color:black;
 		font-weight:bold;
      	font-size:14px;
 	}
-	
-	.udp_title1 select {
-		margin-left:20px;
-		width:110px;
-		height:28px;
-	}
-   .udp_title1 select option {
-   		text-align:center;
-   }
-   /** file-input **/
-	span#fname {
-		display:inline-block;
-		width:190px;
-		margin-left:-176px;
-		background-color:white;
-		font-size:12px
-	}
+   
    </style>
+<script>
+    $(document).ready(function(){
+      // 공지사항/이벤트 페이지 변경
+      $("#first").click(function(){
+         $("#first").addClass('selected');
+         $("#second").removeClass('selected');
+      });
+      $("#second").click(function(){
+         $("#second").addClass('selected');
+         $("#first").removeClass('selected');
+      });
+      //open/close 변경
+      /* $("#open").click(function(){
+			var status = $(this).attr("src");
+			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
+				$("#cont-8").css("display","block").height("450px");
+				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
+				$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
+				
+			} else {
+				$("#cont-8").css("display","none").height("0px");
+				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
+			}
+		}); */
+   });
+   
+   function allCheck() { 
+      var all = document.getElementById("checkAll");
+      var chk_list = document.getElementsByName("checkTerms");
+      
+      if(all.checked) {
+         for(var i=0;i<chk_list.length;i++) {
+            chk_list[i].checked = true;
+         }
+         
+      }   else {
+         for(var i=0;i<chk_list.length;i++) {
+            chk_list[i].checked = false;
+         }
+      }
+      
+   }
+   
+   /* function partCheck() {
 
+      var cnt = 0;
+      var all = document.getElementById("checkAll");
+      var chk_list = document.getElementsByName("checkTerms");
+
+      if(chk_list.checked)
+           {
+         all.checked = true;
+           } else {
+                   for(var i=0; i < chk_list.length; i++)  {
+                         if(chk_list[i].checked == true)
+                              cnt ++;
+                   }
+                    if(cnt == 0)  all.checked = false;
+      }
+
+   } */
+</script>
 </head>
 <body>
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
 
    <!-- content -->
-   <div style="margin:0 auto;"></div>
+   <div style="margin:0 auto;">
    <div style="width:100%; height:50px;"></div>
    <div class="content">
       <aside class="admin_main">
@@ -608,55 +591,50 @@ $(document).ready(function(){
    </div>
    <div class="board_wrap" id="newsroom-main">
       <span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
-      <div class="main-section2">
-            <div class="udp_title1">
-            	<form name="noticeUpdateForm" action="admin_notice_detail_sProc.jsp" method="post" class="admin_notice_Update"
-            	enctype="multipart/form-data">
-            	<input type="hidden" name="bid" value="<%=vo.getBid()%>">
-					<ul>
-						<li class="udp_title1">
-							<label>구분</label>
-							<select name="bpart" class="notice_select">
-								<option  value="선 택">선 택</option>
-								<option value="공지사항/일반">공지사항/일반</option>
-								<option value="공지사항/약관">공지사항/약관</option>
-								<option value="이벤트">이벤트</option>
-							</select>
-						</li>
-						<li class="udp_title1">
-							<label >제목</label>
-							<input type="text" name="btitle" id="btitle" class="udp_t3" value="<%=vo.getBtitle()%>">
-						</li>
-						<li class="udp_text">
-							<label>내용</label>
-							<textarea rows="10" cols="50" name="bcontent" id="bcontent"><%=vo.getBcontent() %></textarea>
-						</li>
-						<li class="file_chum">
-							<label>파일첨부</label>
-							<% if(vo.getBfile() != null) { %>
-							<input type="file" name="bfile"><span id="fname"><%=vo.getBfile() %></span>
-							<% }else { %>
-							<input type="file" name="bfile"><span id="fname">선택된 파일 없음</span>
-							<% } %>
-						</li>
-						<li class="udp_btnbox">
-							<button type="submit" class="btn_style" id="btnNoticeUpdate">등록</button>
-							<a href="http://localhost:9000/One_day_class/admin/admin_notice_detail.jsp?bid=<%=vo.getBid()%>"><button type="button" class="btn_style">취소</button></a>
-							<a href="notice_list_admin.jsp?bid=<%=vo.getBid()%>"><button type="button" class="btn_style">목록으로</button></a>
-						</li>
-					</ul>
-				</form>
-     	 </div>
+      <div class="main-section1">
+       <!--   <ul class="section1-category">
+           <li id="first" class="first"><a href="notice_list_admin.jsp?bpart=notice">공지사항</a></li>
+			<li id="second" class="selected"><a href="notice_list_admin2.jsp?bpart=event">이벤트</a></li>
+         </ul> -->
+      </div>
+       <div class="main-section2">
+          <div class="udp_title1">
+         <ul>
+            <li class="udp_t3">· <%=vo.getBtitle() %></li>
+            <li class="udp_t4"><%=vo.getBhits() %></li>
+            <li class="udp_t5"><%=vo.getBcharge() %></li>
+            <li class="udp_t6"><%=vo.getBdate() %></li>
+         </ul>
      </div>
+     <div class="udp_text">
+            <p>
+            <%=vo.getBcontent().replace("\r\n", "<br>")%> <!-- \r\n ==> <br> -->
+            <% if(vo.getBsfile() != null) { %>
+            <br><img src="http://localhost:9000/One_day_class/upload/<%=vo.getBsfile()%>" 
+            style="width:600px; heigth:500px;">
+            <% }  %>
+            </p>
+         </div>
+      
       <div class="main-section3">
          <div class="section-paging">
-            <div class="paging-page">
+           
+           <div class="udp_btnbox">
+            <a href="http://localhost:9000/One_day_class/admin/admin_notice_detail_s.jsp?bid=<%=vo.getBid()%>"><button type="button">수정</button></a>   
+            <a href="http://localhost:9000/One_day_class/admin/admin_notice_detail_delProc.jsp?bid=<%=vo.getBid()%>"><button type="button" id="and_del">삭제</button></a>      
+            <a href="http://localhost:9000/One_day_class/admin/notice_list_admin.jsp?bid=<%=vo.getBid()%>"><button type="button">목록</button></a>      
          </div>
+         </div>
+         
       </div>
-   	</div>
+   </div>
 </div>
-	<!-- footer -->
-	<jsp:include page="../footer.jsp"></jsp:include>
-
+</div>
+   <div class="footer">
+   
+   </div>
+   <!-- footer -->
+   <jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
+              

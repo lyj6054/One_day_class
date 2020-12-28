@@ -24,6 +24,7 @@
 	BoardVO vo = new BoardVO();
 	vo.setBtitle(multi.getParameter("btitle"));
 	vo.setBcontent(multi.getParameter("bcontent"));
+	vo.setBcharge(multi.getParameter("bcharge"));
 	vo.setBpart(multi.getParameter("bpart"));
 	vo.setBfile(multi.getOriginalFileName("bfile"));
 	vo.setBsfile(multi.getFilesystemName("bfile")); 
@@ -42,20 +43,20 @@
 	
 	if(vo.getBpart().equals("공지사항/일반")) {
 		if(result) {
-			response.sendRedirect("http://localhost:9000/One_day_class/admin/notice_list_admin.jsp");
+			response.sendRedirect("http://localhost:9000/One_day_class/admin/notice_list_admin.jsp?bpart=notice");
 		} else {
 			response.sendRedirect("http://localhost:9000/One_day_class/errorPage.jsp");
 		}
 	} else if(vo.getBpart().equals("공지사항/약관")) {
 		if(result) {
-			response.sendRedirect("http://localhost:9000/One_day_class/admin/notice_list_admin.jsp");
+			response.sendRedirect("http://localhost:9000/One_day_class/admin/notice_list_admin.jsp?bpart=notice");
 		} else {
 			response.sendRedirect("http://localhost:9000/One_day_class/errorPage.jsp");
 		}
 
 	} else {
 		if(result) {
-			response.sendRedirect("http://localhost:9000/One_day_class/admin/notice_list_admin2.jsp");
+			response.sendRedirect("http://localhost:9000/One_day_class/admin/notice_list_admin2.jsp?bpart=event");
 		} else {
 			response.sendRedirect("http://localhost:9000/One_day_class/errorPage.jsp");
 		}

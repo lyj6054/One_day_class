@@ -1,17 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.*"
+    %>
+<%
+	String bpart = request.getParameter("bpart");
+	BoardDAO dao = new BoardDAO();
+	//1. 선택한 페이지값
+		String rpage = request.getParameter("rpage");
+		
+		//2-1. 페이지값에 따라서 start, end count 구하기
+		//1페이지(1~10), 2페이지(11~20) ...
+		int start =0;
+		int end = 0;
+		int pageSize = 5; // 한페이지당 출력되는 row
+		int pageCount = 1; // 전체 페이지 수 : 전체 리스트 row / 한 페이지당 출력되는 row
+		int dbCount = dao.getListCount(); //DB연동 후 전체로우수 출력 
+		int reqPage = 1; //요청페이지
+		
+		//2-2. 전체페이지 수 구하기 - 화면출력
+		if(dbCount % pageSize == 0) {
+			pageCount = dbCount/pageSize;
+		}else {
+			pageCount = dbCount/pageSize +1;
+		}
+		
+		//2-3. start, end 값 구하기
+		if(rpage != null) {
+			reqPage = Integer.parseInt(rpage);
+			start = (reqPage -1) * pageSize +1;
+			end = reqPage*pageSize;
+		} else { 
+			start = reqPage;
+			end = pageSize;
+		} 
+		ArrayList<BoardVO> list = dao.getList(start, end, bpart); 
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost:9000/One_day_class/css/am-pagination.css">
 <script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://localhost:9000/One_day_class/js_yh/am-pagination.js"></script>
 <style>
+	
 	
 	#newsroom-main {
 		margin: 0 auto;
-		height:930px;
+		overflow:hidden;
+		height:auto;
 		width:853px;
 		padding: 10px 18px 80px 17px;
 		border:1px #e3e3e3 solid;
@@ -25,7 +64,7 @@
 	}
 	#newsroom-main .main-logo{
 		display:inline-block;
-		margin:20px 0 30px 142px;
+		margin:20px 0 30px 117px;
     	font-size:50px;
 	}
 	#newsroom-main .main-logo span {
@@ -93,7 +132,6 @@
 	    border: 0;
 	    margin: 0;
 	    padding: 0;
-	    font-family: Dotum;
 	    color: #666;
 	    text-decoration: none;
 	    cursor: pointer;
@@ -121,8 +159,12 @@
 	    color: #999;
 	    font-size: 11px;
 	}
+	.main-section2 .section2-title .title-0 {
+		width:40px;
+		padding-left:20px;
+	}
 	.main-section2 .section2-title .title-1 {
-		width: 110px;
+		width: 80px;
 		padding-left:0;
 	}
 	.main-section2 .section2-title .title-2 {
@@ -132,7 +174,7 @@
 		width: 85px;
 	}
 	.main-section2 .section2-title .title-4 {
-		width: 95px;
+		width: 90px;
 	}
 	.main-section2 .section2-title .title-5 {
 		width: 50px;
@@ -151,8 +193,12 @@
 	    color: #999;
 	    font-size: 11px;
 	}
+	.main-section2 .section2-cont li.cont-0 {
+		width: 39px;
+		padding-left:20px;
+	}
 	.main-section2 .section2-cont li.cont-1 {
-		width: 100px;
+		width: 72px;
 		padding-left:5px;
     	padding-top: 2px;
 	}
@@ -182,8 +228,8 @@
 	
 	.main-section2 .section2-cont li.cont-3 {
 		padding-top: 2px;
-		width: 45px;
-		padding-left:2px;
+		width: 44px;
+		padding-left:15px;
 	}
 	.main-section2 .section2-cont li.cont-3 .cont3-label {
 		width: 31px;
@@ -195,7 +241,7 @@
 	}
 	.main-section2 .section2-cont li.cont-4 {
 		width: 365px;
-	    padding: 2px 50px 0 7px;
+	    padding: 2px 50px 0 30px;
 	    text-align: left;
 	}
 	.main-section2 .section2-cont li.cont-5 {
@@ -215,7 +261,6 @@
 	    border: 0;
 	    margin: 0;
 	    padding: 0;
-	    font-family: Dotum, sans-serif;
 	    color: #636363;
 	    text-decoration: none;
 	    cursor: pointer;
@@ -240,12 +285,13 @@
 	    display: inline-block;
 	    float: left;
 	    width: 853px;
+	    height:10px;
+	    margin-left:-17px;
 	}
 	.main-section3 .section-paging {
 	    width: 853px;
 	    height: 39px;
-	    margin-top: 20px;
-	    padding-bottom: 2px;
+	    margin-top: 30px;
 	}
 	.section-paging {
 	    position: relative;
@@ -256,10 +302,11 @@
 	}
 	.paging-page {
 	    position: relative;
-	    width: 100%;
+	    width: 50%;
 	    height: 22px;
 	    text-align: center;
 	    z-index: 2;
+	    margin-left:210px;
 	}
 	.main-section3 .paging-page .prev-off {
 	    width: 20px;
@@ -284,13 +331,13 @@
 	}
 	.main-section3 .paging-page a {
 	    height: 16px;
-	    padding-top: 5px;
+	    padding-top: 3px;
 	    color: #ababab;
 	    font-size: 11px;
 	}
 	.main-section3 .paging-page a.selected, .main-section3 .paging-page a:hover {
 		color: #333;
-	    padding-top: 5px;
+	    padding-top: 3px;
 	    border: 0;
 	    background-color: #fff;
 	}
@@ -316,7 +363,6 @@
 	    border: 0;
 	    margin: 0;
 	    padding: 0;
-	    font-family: Dotum, sans-serif;
 	    color: #636363;
 	    text-decoration: none;
 	    cursor: pointer;
@@ -325,10 +371,126 @@
 	    border: 0;
 	    margin: 0;
 	    padding: 0;
-	    font-family: Dotum;
 	    color: #666;
 	    text-decoration: none;
 	    cursor: pointer;
+	}
+	
+	
+	/* aside */
+	.content {
+		width: 1100px;
+	    margin: 0 auto;
+	    padding: 50px 0 110px 20px;
+	    
+	}
+	.admin_main {
+		float:left;
+		margin: 0 auto;
+		width:220px; height:970px;
+		background-color:#eee;
+		padding:20px 0 0 15px;
+	}
+	
+	.content .admin_main ul {
+		width:195px;
+		height:200px;
+		margin-top:20px;
+	}
+	.content .admin_main ul li {
+		list-style-type:none;
+		padding: 4px 0;
+		margin:25px 0 5px 15px;
+	}	
+	.content .admin_main ul li img {
+		width:15px;
+		height:15px;
+	}
+	.content .admin_main ul li a {
+		color:black;
+		font-size:17px;
+		font-weight:bold;
+		text-align:center;
+		text-decoration:none;
+		margin-left:10px;
+	}	
+	
+	.content .admin_main ul li a:hover {
+		text-decoration:underline;
+	}
+	.content .admin_main div {
+		background-color: #fff;
+		padding-top:7px;
+		width:195px;
+		height:145px;
+	}
+	.content .admin_main div img{
+		margin:10px 0 0 62px;
+		width:80px; 
+		height:80px;
+	}
+	.content .admin_main .admin_icon2 {
+		display:inline-block;
+		font-size:20px;
+		margin:7px 0 0 27px;
+		color: #333;
+		text-align:center;
+		font-weight:bold;
+	}
+	/* 버튼 */
+	.main-section3 .admin_btn {
+		float:right;
+		margin-top:-22px;
+		margin-right:17px;
+	}
+	.main-section3 .admin_btn:hover {
+		float:right;
+		margin-top:-22px;
+		margin-right:17px;
+	}
+	.main-section3 .admin_btn .btn_style {
+		margin-right:6px;
+		padding:4px 10px;
+		border-radius:5px;
+		font-weight:bold;
+		font-size:14px;
+		border:none;
+	}
+	 .blind {
+		position: absolute !important;
+	    clip: rect(0,0,0,0);
+	    clip-path: polygon(0 0,0 0,0 0);
+	    width: 1px;
+	    height: 1px;
+	    margin: -1px;
+	    overflow: hidden;
+	    white-space: nowrap;
+	} 
+	.inp_chkbox {
+		float:left;
+		line-height:20px;
+	}
+	label {
+		cursor:pointer;
+	}
+	.main-section3 .admin_btn .btn_style:hover {
+		background-color:#333;
+		color:white;
+	}
+	.inp_label:checked + label::before {
+    	background-image: url(http://localhost:9000/One_day_class/images/mb_check_on.png);
+    	background-size: 13px;
+	}
+	.inp_chkbox::before {
+	    content: '';
+	    display: inline-block;
+	    width: 18px;
+	    height: 18px;
+	    margin-right: 9px;
+	    vertical-align: middle;
+	    background-image:url(http://localhost:9000/One_day_class/images/mb_check_off.png);
+	    background-repeat: no-repeat;
+	    background-size: 13px;
 	}
 	
 	</style>
@@ -344,38 +506,142 @@
 			$("#first").removeClass('selected');
 		});
 		//open/close 변경
-		$("#open").click(function(){
-			var status = $(this).attr("src");
-			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
-				$("#cont-8").css("display","block").height("450px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-				$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
-				
-			} else {
-				$("#cont-8").css("display","none").height("0px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
-			}
+		$(".open").click(function(){
+				var bid = $(this).attr("id");
+				alert(bid);
+				var status = $(this).attr("src");
+				if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
+					$("li#"+bid).css("display","block");
+					$(this).attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
+					//$("#cont8-wrap").css("display","block");
+					//$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
+					
+				} else {
+					$("li#"+bid).css("display","none");
+					$(this).attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
+					//$("#cont8-wrap").css("display","none");
+				}
 		});
+		
+		 //페이지 번호 및  링크
+		var pager = jQuery("#ampaginationsm").pagination({
+			maxSize : 5,
+			totals : '<%=dbCount%>',
+			pageSize : '<%=pageSize%>',
+			page : '<%=reqPage%>',
+			
+			//alert(maxSize + "," + totals + "," + pageSize + "," + page);
+			
+			lastText : '&raquo;&raquo;',
+			firstText : '&laquo;&laquo;',
+			preTest : '&laquo;',
+			nextTest : '&raquo;',
+			
+			btnSize : 'sm'
+		});
+		
+		//
+		jQuery("#ampaginationsm").on('am.pagination.change',function(e){
+			$(location).attr('href','http://localhost:9000/One_day_class/admin/notice/notice_list.jsp?rpage='+e.page); 
+			//location.href('이동페이지');
+		});
+		
 	});
+	//체크박스        
+	function allCheckFunc(obj) {
+		$("[name=checkTerms]").prop("checked", $(obj).prop("checked"));
+		//alert($("[name=checkAll]:checked").val());
+		
+	}
+	/* 체크박스 체크시 전체선택 체크 여부 */
+	function oneCheckFunc(obj) {
+		var allObj = $("[name=checkAll]");
+		var objName = $(obj).attr("name");
+
+		if($(obj).prop("checked")){
+			checkBoxLength = $("[name="+ objName +"]").length;
+			checkedLength = $("[name="+ objName +"]:checked").length;                
+
+			if(checkBoxLength == checkedLength){
+				allObj.prop("checked", true);    
+			}else{
+				allObj.prop("checked", false);
+			}
+		}else{
+			allObj.prop("checked", false); 
+		}
+	}
+
+	$(function(){
+		$("[name=checkAll]").click(function(){
+			allCheckFunc(this);
+				});
+		});
+		$("[name=checkTerms]").each(function(){
+			$(this).click(function(){
+				oneCheckFunc($(this));
+			});                
+		});
 	
+	/* function allCheck() { 
+		var all = document.getElementById("checkAll");
+		/* var chk = document.getElementById("check1");
+		var privacy = document.getElementById("termsPrivacy"); 
+		var chk_list = document.getElementsByName("checkTerms");
+		
+		if(all.checked) {
+			for(var i=0;i<chk_list.length;i++) {
+				chk_list[i].checked = true;
+			}
+			
+		}   else {
+			for(var i=0;i<chk_list.length;i++) {
+				chk_list[i].checked = false;
+			}
+		}
+		
+	}
+	 */
+	/* function partCheck() {
+
+		var cnt = 0;
+		var all = document.getElementById("checkAll");
+		var chk_list = document.getElementsByName("checkTerms");
+
+		if(chk_list.checked)
+	        {
+			all.checked = true;
+	        } else {
+	                for(var i=0; i < chk_list.length; i++)  {
+	                      if(chk_list[i].checked == true)
+	                           cnt ++;
+	                }
+	                 if(cnt == 0)  all.checked = false;
+		}
+
+	} */
 </script>
 </head>
 <body>
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
 
-	<!-- content -->
-	<div style="width:100%; height:50px;"></div>
+<!-- content -->
+<div class="content">
 	<div class="board_wrap" id="newsroom-main">
-		<span class="main-logo">TALMUNG <span>NEWS</span> ROOM</span>
+		<span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
 		<div class="main-section1">
 			<ul class="section1-category">
-				<li id="first" class="first"><a href="http://localhost:9000/One_day_class/notice/notice_list.jsp">공지사항</a></li>
-				<li id="second" class="selected"><a href="http://localhost:9000/One_day_class/notice/notice_list2.jsp">이벤트</a></li>
+				<li id="first" class="first"><a href="notice_list.jsp?bpart=notice">공지사항</a></li>
+				<li id="second"class="selected"><a href="notice_list2.jsp?bpart=event">이벤트</a></li>
 			</ul>
 		</div>
 		<div class="main-section2">
 			<ul class="section2-title">
+				<li class="title-0">
+					<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll">
+					<label for="checkAll" class="inp_chkbox"></label>
+				</li>
 				<li class="title-1">번호</li>
 				<li class="title-2">제목</li>
 				<li class="title-3">담당</li>
@@ -383,370 +649,46 @@
 				<li class="title-5">조회수</li>
 			</ul>
 			<div id="nesListNew">
-				<ul class="section2-cont">
-					<li class="cont-1">30</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">29</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">28</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">27</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">26</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">25</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">24</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">23</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">22</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">21</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">20</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">19</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">18</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">17</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">16</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				<ul class="section2-cont">
-					<li class="cont-1">15</li>
-					<li class="cont-2">
-						<a id="test1" class="cont2-btn">
-							<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
-							<label></label>
-						</a>
-					</li>
-					<li class="cont-3">
-						<label class="cont3-label"></label>
-					</li>
-					<li class="cont-4">
-						<a href="#">탈멍 이용약관 및 개인정보처리 방침 변경 안내</a>
-					</li>
-					<li class="cont-5">탈멍</li>
-					<li class="cont-6">2020.12.08</li>
-					<li class="cont-7">22</li>
-					<li class="cont-8" id="cont-8" >
-						<div class="cont8-wrap" id="cont8-wrap" ></div>
-					</li>
-				</ul>
-				
+				<% for(BoardVO vo : list) { %>
+					<ul class="section2-cont">
+						<li class="cont-0">
+							<input class="blind inp_label" type="checkbox" name="checkTerms" id="<%= vo.getBid()%>">
+							<label for="<%= vo.getBid()%>" class="inp_chkbox"></label>
+						</li>
+						<li class="cont-1"><%= vo.getRno() %></li>
+						<li class="cont-2">
+							<a id="test1" class="cont2-btn">
+								<img src="http://localhost:9000/One_day_class/images/notice_open.png" class="open" id=<%= vo.getBid()%>>
+								<label></label>
+							</a>
+						</li>
+						<li class="cont-3">
+							<label class="cont3-label"></label>
+						</li>
+						<li class="cont-4">
+							<a href="notice_content.jsp?bid=<%=vo.getBid()%>"><%= vo.getBtitle() %></a>
+						</li>
+						<li class="cont-5">탈멍</li>
+						<li class="cont-6"><%= vo.getBdate() %></li>
+						<li class="cont-7"><%= vo.getBhits() %></li>
+						<li class="cont-8" id="<%=vo.getBid()%>" >
+							<div class="cont8-wrap" id="cont8-wrap">
+							<%-- <a href="admin_notice_detail.jsp?<%=vo.getBid()%>"></a> --%>
+							</div>
+						</li>
+					</ul>
+				<% } %>
 			</div>
 		</div>
 		<div class="main-section3">
 			<div class="section-paging">
 				<div class="paging-page">
-					<a id="prev-off" class="prev-off" href="#"></a>
-					<a class="selected" href="#">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#">4</a>
-					<a href="#">5</a>
-					<a href="#">6</a>
-					<a href="#">7</a>
-					<a href="#">8</a>
-					<a href="#">9</a>
-					<a href="#">10</a>
-					<a id="next" class="next" href="#"></a>
+					<div id="ampaginationsm"></div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script>
-
-
-	
-
-	</script>
+</div>
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>

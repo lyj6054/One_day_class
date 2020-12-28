@@ -584,9 +584,11 @@
             <div class="udp_title1">
             	<form name="noticeWriteForm" action="noticeWriteProc.jsp"  method="post" 
             	class="admin_notice_write" id="admin_notice_write" enctype="multipart/form-data"> 
-            	
-            	<!-- enctype="multipart/form-data" --> 
 					<ul>
+						<li class="udp_title1">
+							<label>작성자</label>
+							<input type="text" name="bcharge" id="bcharge" style="width:115px;">
+						</li>
 						<li class="udp_title1">
 							<label>구분</label>
 							<select name="bpart" class="notice_select">
