@@ -9,10 +9,11 @@
 	boolean result=dao.classUpdate3(vo);
 	String cid=vo.getCid();
 	
- 	if(result){
-		response.sendRedirect("new-class.jsp");
+	
+/*  	if(result){
+		response.sendRedirect("myclasslist.jsp");
 	}else{
 		response.sendRedirect("../errorPage.jsp");
 		
-	} 
+	}  */
 %>

@@ -59,7 +59,7 @@
 	if(result){
 		response.sendRedirect("tutor_reg_2.jsp?cid="+cid);
 	}else{
-		response.sendRedirect("../errorPage1.jsp");
+		response.sendRedirect("../errorPage.jsp");
 		
 	}   
 

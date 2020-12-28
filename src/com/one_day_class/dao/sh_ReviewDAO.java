@@ -6,7 +6,65 @@ import java.util.ArrayList;
 import com.one_day_class.vo.sh_ReviewVO;
 
 public class sh_ReviewDAO extends DBConn {
-
+	
+	/* 리뷰 등록하기 */
+	public boolean insertReview(sh_ReviewVO vo) {
+		boolean result =false;
+		try {
+			String sql=" insert into one_review values('R_'||seq_one_review.nextval,?,?,?,?,sysdate)";
+			getPreparedStatement(sql);
+			pstmt.setString(1, vo.getCid());
+			pstmt.setString(2, vo.getEmail() );
+			pstmt.setInt(3, vo.getRservice() );
+			pstmt.setString(4, vo.getRcontent() );
+			int idx=pstmt.executeUpdate();
+			
+			if(idx!=0) result=true;
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	/* 리뷰 업데이트하기 */
+	public boolean updateReview(String rcontent, String rid) {
+		boolean result =false;
+		try {
+			String sql="update one_review set rcontent=? where rid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, rcontent);
+			pstmt.setString(2, rid);
+			int idx=pstmt.executeUpdate();
+			
+			if(idx!=0) result=true;
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	/* 리뷰 삭제하기 */
+	public boolean delReview(String rid) {
+		boolean result =false;
+		try {
+			String sql="delete from one_review where rid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, rid);
+			int idx=pstmt.executeUpdate();
+			
+			if(idx!=0) result=true;
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	/* 수업 상세페이지 리뷰 평균 */
 	public double getReviewScore(String cid) {
 		double score = 0.0;
