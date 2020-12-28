@@ -18,39 +18,36 @@
 <title>Insert title here</title>
 <script src="http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <script>
-	$(document).ready(function(){
-		$("#commit").click(function(){
-			if($("#udp_text").val() == ""){
-				alert("제목을 입력해주세요.");
-				$("#udp_text").focus();
-				return false;
-			}else if($("#udp_text1").val() == ""){
-				alert("내용을 입력해주세요.");
-				$("#udp_text1").focus();
-				return false;
-			}
-			
-		});
+$(document).ready(function(){
+	$("#btnNoticeUpdate").click(function(){
+		if($(".notice_select").val() == "선 택") {
+			alert("구분을 선택해주세요");
+			$(".notice_select").focus();
+			return false;
+		} else if($("#btitle").val() == ""){
+			alert("제목을 입력해주세요.");
+			$("#btitle").focus();
+			return false;
+		} else {
+			//서버로전송
+			noticeUpdateForm.submit(); 
+		}
 		
-		
-	$(document).ready(function(){
-		//파일선택
-		$("input[type='file']").on('change',function(){
-			if(window.FileReader){
-				var fileName = $(this)[0].files[0].name;
-				$("#fname").text("").text(fileName);
-			}
-		});
-			
-			
-	});	
-		
-		
-		
-		
-		
-		
+	}); 
+	
+	
+	//파일선택
+	$("input[type='file']").on('change',function(){
+		if(window.FileReader){
+			var fileName = $(this)[0].files[0].name;
+			$("#fname").text("").text(fileName);
+		}
 	});
+	
+	
+	
+});
+		
 </script>
 <style>
    * {
@@ -464,14 +461,14 @@
 		margin-top:30px;
 		margin-bottom:50px;
 	}
-	.udp_title>ul>li.udp_t1 {
+	.udp_title .udp_t1 {
 		clear:left;
 		border-left:2px solid black;
 		border-top:2px solid black;
 		border-right:2px solid black;
 		border-bottom:none;
 	}
-	.udp_title>ul>li.udp_t2 {
+	.udp_title .udp_t2 {
 		clear:left;
 		margin-left:-4px;
 		border-left:none;
@@ -479,17 +476,17 @@
 		border-top:2px solid lightgray;
 		border-right:2px solid lightgray;
 	}
-	div.udp_title>ul{
+	.udp_title ul{
 		text-align:center;
 	}
-	div.udp_title1{
+	.udp_title1{
 		display:inline-block;
-		width:800px;
-		margin-left:50px;
+		width:770px;
+		margin-left:15px;
 		border-bottom:1px solid lightgray;
-		padding-bottom:5px;
+		padding:11px 0;
 	}
-	.udp_title1>label,
+	.udp_title1 label,
 	.file_chum label {
 		border:1px solid lightgray;
 		background-color: lightgray;
@@ -501,7 +498,7 @@
 		padding-top:3px;
 	}
 	.file_chum label {
-		margin-left:50px;
+		margin-left:15px;
 		margin-top:10px;
 	}
 	.file_chum input {
@@ -511,14 +508,14 @@
 	.udp_title1>ul>li {
 		display:inline-block;
 	}
-	.udp_title1>ul>li.udp_t3>input {
+	.udp_title1 input {
 		width:655px; height:35px;
 		margin-left:20px;
 	}
 	.udp_text {
-		margin-top:20px;
+		margin-top:15px;
 	}
-	.udp_text>ul>label {
+	.udp_text label {
 		border:1px solid lightgray;
 		background-color: lightgray;
 		border-radius:5px;
@@ -526,10 +523,10 @@
 		float:left;
 		width:80px; height:500px;
 		padding-top:230px;
-		margin-left:50px;
+		margin-left:15px;
 		text-align:center;
 	}
-	.udp_text>ul>textarea {
+	.udp_text textarea {
 		width:655px; height:500px;
 		margin-left:20px;
 		display:inline-block;
@@ -540,38 +537,41 @@
 		display:inline-block;
 		float:right;
 	}
-	.udp_btnbox>a>button,
-	#commit {
+	.udp_btnbox button {
 		display:inline-block;
 		width:80px;
 		height:30px;
-		margin-right:50px;
+		margin-right:10px;
 		margin-top:20px;
 		padding:4px 10px;
      	border-radius:5px;
       	border:none;
 	}
-	.udp_btnbox>a>button:hover,
-	#commit {
+	.udp_btnbox button:hover {
 		color:white;
 	}
-	.udp_btnbox>a>button:hover,
-	#commit:hover {
+	.udp_btnbox button:hover {
 		background-color:#333;
       	color:white;
 	}
-	.udp_btnbox>a>button,
-	#commit {
+	.udp_btnbox button {
 		text-decoration:none;
 	}
-	.udp_btnbox>a>button,
-	#commit {
+	.udp_btnbox button {
 		color:black;
 		font-weight:bold;
      	font-size:14px;
 	}
 	
-	/** file-input **/
+	.udp_title1 select {
+		margin-left:20px;
+		width:110px;
+		height:28px;
+	}
+   .udp_title1 select option {
+   		text-align:center;
+   }
+   /** file-input **/
 	span#fname {
 		display:inline-block;
 		width:190px;
@@ -579,7 +579,6 @@
 		background-color:white;
 		font-size:12px
 	}
-   
    </style>
 
 </head>
@@ -588,7 +587,7 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 
    <!-- content -->
-   <div style="margin:0 auto;">
+   <div style="margin:0 auto;"></div>
    <div style="width:100%; height:50px;"></div>
    <div class="content">
       <aside class="admin_main">
@@ -609,49 +608,52 @@
    </div>
    <div class="board_wrap" id="newsroom-main">
       <span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
-      <div class="main-section1">
-         <ul class="section1-category">
-            <li id="first" class="first selected"><a href="notice_list_admin.jsp">공지사항</a></li>
-            <li id="second"><a href="notice_list_admin2.jsp">이벤트</a></li>
-         </ul>
-      </div>
       <div class="main-section2">
-      	<form name="admin_notice_Update" action="admin_notice_detail_sProc.jsp?bid=<%=vo.getBid()%>" method="post" class="admin_notice_Update">
             <div class="udp_title1">
-			<label>제목</label>
-			<ul>
-				<li class="udp_t3"><input type="text" id="udp_text" value="<%=vo.getBtitle()%>" name="btitle"></li>
-			</ul>
-			</div>
-			<div class="udp_text">
-				<ul>
-					<label>내용</label>
-					<textarea  id="udp_text1" name="bcontent"><%=vo.getBcontent() %></textarea>
-				</ul>
-			</div>
-			<ul class="file_chum">
-				<label>파일첨부</label>
-				<% if(vo.getBfile() != null) { %>
-				<input type="file" name="bfile"><span id="fname"><%=vo.getBfile() %></span>
-				<% }else { %>
-				<input type="file" name="bfile"><span id="fname">선택된 파일 없음</span>
-				<% } %>
-			</ul>
-			<div class="udp_btnbox">
-				<button type="submit" id="commit">수정완료</button>
-				<a href="http://localhost:9000/One_day_class/admin/admin_notice_detail.jsp?bid=<%=vo.getBid()%>"><button type="button">취소</button></a>		
-				<a href="http://localhost:9000/One_day_class/admin/notice_list_admin.jsp?bid=<%=vo.getBid()%>"><button type="button">목록</button></a>		
-			</div>
-            
-      </form>
-      </div>
+            	<form name="noticeUpdateForm" action="admin_notice_detail_sProc.jsp" method="post" class="admin_notice_Update"
+            	enctype="multipart/form-data">
+            	<input type="hidden" name="bid" value="<%=vo.getBid()%>">
+					<ul>
+						<li class="udp_title1">
+							<label>구분</label>
+							<select name="bpart" class="notice_select">
+								<option  value="선 택">선 택</option>
+								<option value="공지사항/일반">공지사항/일반</option>
+								<option value="공지사항/약관">공지사항/약관</option>
+								<option value="이벤트">이벤트</option>
+							</select>
+						</li>
+						<li class="udp_title1">
+							<label >제목</label>
+							<input type="text" name="btitle" id="btitle" class="udp_t3" value="<%=vo.getBtitle()%>">
+						</li>
+						<li class="udp_text">
+							<label>내용</label>
+							<textarea rows="10" cols="50" name="bcontent" id="bcontent"><%=vo.getBcontent() %></textarea>
+						</li>
+						<li class="file_chum">
+							<label>파일첨부</label>
+							<% if(vo.getBfile() != null) { %>
+							<input type="file" name="bfile"><span id="fname"><%=vo.getBfile() %></span>
+							<% }else { %>
+							<input type="file" name="bfile"><span id="fname">선택된 파일 없음</span>
+							<% } %>
+						</li>
+						<li class="udp_btnbox">
+							<button type="submit" class="btn_style" id="btnNoticeUpdate">등록</button>
+							<a href="http://localhost:9000/One_day_class/admin/admin_notice_detail.jsp?bid=<%=vo.getBid()%>"><button type="button" class="btn_style">취소</button></a>
+							<a href="notice_list_admin.jsp?bid=<%=vo.getBid()%>"><button type="button" class="btn_style">목록으로</button></a>
+						</li>
+					</ul>
+				</form>
+     	 </div>
+     </div>
       <div class="main-section3">
          <div class="section-paging">
             <div class="paging-page">
          </div>
-         
       </div>
-   </div>
+   	</div>
 </div>
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>

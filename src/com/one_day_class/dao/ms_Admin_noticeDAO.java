@@ -8,6 +8,39 @@ import com.one_day_class.vo.ms_Admin_noticeVO;
 
 public class ms_Admin_noticeDAO extends DBConn{
 	
+	/**
+	 * Update : 거절 시 클레스 astatus 1로변경
+	 */
+	public void updateStatus2(String cid) {
+		System.out.println(cid);
+		try {
+			String sql="update one_apply_class set astatus=0 where cid=? ";
+			getPreparedStatement(sql);
+			pstmt.setString(1, cid);
+			int val=pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Update : 수락 시 클레스 astatus 1로변경
+	 */
+	public void updateStatus1(String cid) {
+		System.out.println(cid);
+		try {
+			String sql="update one_apply_class set astatus=1 where cid=? ";
+			getPreparedStatement(sql);
+			pstmt.setString(1, cid);
+			int val=pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
 	
 	/**
 	 *	delete 삭제 
@@ -99,7 +132,6 @@ public class ms_Admin_noticeDAO extends DBConn{
 	public boolean getUpdate(ms_Admin_noticeVO vo) {
 		boolean result= false;
 		try {
-			System.out.println(vo.getBid());
 			String sql = "update one_board set btitle=?, bcontent=?, bfile=?, bsfile=? where bid=?";
 					
 			
