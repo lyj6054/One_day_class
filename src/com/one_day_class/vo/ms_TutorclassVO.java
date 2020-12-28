@@ -2,12 +2,22 @@ package com.one_day_class.vo;
 
 public class ms_TutorclassVO {
 	int rno,aperson, astatus;
-	String email, name, aschedule, rcontent, rdate ,cid ,title, picture, spicture ,aid ,sysdate,schedule;
+	String email, name, aschedule, rcontent, rdate ,cid ,title, picture, spicture ,aid ,sysdate,schedule ,adate;
 
 	
 
 	
 	
+	
+	
+	public String getAdate() {
+		return adate;
+	}
+
+	public void setAdate(String adate) {
+		this.adate = adate;
+	}
+
 	public String getSchedule() {
 		return schedule;
 	}
