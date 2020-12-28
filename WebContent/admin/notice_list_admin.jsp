@@ -605,20 +605,20 @@
 				 $("#btnDelete").click(function(){
 					 var del_list = "";
 					 var count = 0;
-					 var bid = $("input[name=checkTerms]:checked").attr("id");
 					 
-					 $("input[name=checkTerms]:checked") .each(function(){
-			            	count++;
-			            	del_list += bid+",";
-			                /* var tr=$(".cont-0#"+bid);
-			                tr.remove(); */
-			            });
 			            
 			            	 if(count == 0){
 			                     alert("한 개 이상 선택하셔야 삭제가 가능합니다.")
 			                     return false;
 			                  }else{
 			                     //서버전송   
+			                      $("input[name=checkTerms]:checked") .each(function(){
+						            	count++;
+						            	//del_list += "bid=" $(this).attr("id")+"&";
+						            	del_list +=  $(this).attr("id") +",";
+						                /* var tr=$(".cont-0#"+bid);
+						                tr.remove(); */
+						            });
 			                     alert(del_list);
 			                  }
 					 
@@ -628,29 +628,7 @@
 						 success:function(result) {
 							 
 							 alert(result);
-							 /*  if(result != 0) {
-								 if(confirm("삭제하시겠습니까?")){
-									 $("input[name=checkTerms]:checked").each(function(){
-							            	count++;
-							            	del_list += bid+",";
-							                /* var tr=$(".cont-0#"+bid);
-							                tr.remove(); 
-							            });
-							            
-							            	 if(count == 0){
-							                     alert("한 개 이상 선택하셔야 삭제가 가능합니다.")
-							                     return false;
-							                  }else{
-							                     //서버전송   
-							                     alert(del_list);
-							                  }
-							            
-							        }else{
-							            return false;
-							        }
-							 } else {
-								 return false;
-							 } */ 
+							 
 						 }
 					 })
 		
@@ -662,7 +640,29 @@
 		
 	
 	
-	
+	/*  if(result != 0) {
+	 if(confirm("삭제하시겠습니까?")){
+		 $("input[name=checkTerms]:checked").each(function(){
+           	count++;
+           	del_list += bid+",";
+               /* var tr=$(".cont-0#"+bid);
+               tr.remove(); 
+           });
+           
+           	 if(count == 0){
+                    alert("한 개 이상 선택하셔야 삭제가 가능합니다.")
+                    return false;
+                 }else{
+                    //서버전송   
+                    alert(del_list);
+                 }
+           
+       }else{
+           return false;
+       }
+} else {
+	 return false;
+} */ 
 	
 	/* function allCheck() { 
 		var all = document.getElementById("checkAll");
