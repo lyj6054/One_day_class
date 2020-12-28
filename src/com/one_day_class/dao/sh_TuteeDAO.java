@@ -128,8 +128,8 @@ public class sh_TuteeDAO extends DBConn {
 		ArrayList<sh_TuteeVO> list = new ArrayList<sh_TuteeVO>();
 		
 		try {
-			String sql = "select name, sprofile_img, rdate, rcontent "
-					+ " from (select * from one_tutee e, one_review r where e.email = r.email order by rdate desc) "
+			String sql = "select name, sprofile_img, rdate, rcontent, cid "
+					+ " from (select e.name, e.sprofile_img, r.rdate, r.rcontent,r.cid from one_tutee e, one_review r where e.email = r.email order by rdate desc) "
 					+ " where cid=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, cid);
@@ -154,8 +154,8 @@ public class sh_TuteeDAO extends DBConn {
 		ArrayList<sh_TuteeVO> list = new ArrayList<sh_TuteeVO>();
 		
 		try {
-			String sql = "select * from (select rownum rno, name, sprofile_img, rdate, rcontent "
-					+ " from (select * from one_tutee e, one_review r where e.email = r.email order by rdate desc) "
+			String sql = "select * from (select rownum rno, name, sprofile_img, rdate, rcontent,cid "
+					+ " from (select e.name, e.sprofile_img, r.rdate, r.rcontent, r.cid from one_tutee e, one_review r where e.email = r.email order by rdate desc) "
 					+ " where cid=?) where rno between ? and ?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, cid);

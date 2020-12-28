@@ -33,6 +33,16 @@
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script>
+	
+	function review_update(num){
+		document.getElementById("review_textarea_update" + num).value=document.getElementById("review_p" + num).innerText;
+		document.getElementById("review_p" + num).classList.add('off');
+		document.getElementById("review_textarea_update" + num).classList.add('on');
+		document.getElementById("update_button" + num).classList.add('on');
+	}
+	function review_delete(num){
+		
+	}
 	function review_on(num){
 		document.getElementById("review_btn" + num).classList.add('on');
 		document.getElementById("m_r_" + num).classList.add('on');
@@ -52,9 +62,6 @@
 		document.getElementById("review_btn" + num).classList.remove('on');
 		document.getElementById("m_w_" + num).classList.remove('on');
 		document.getElementById("review_btn" + num).setAttribute("onclick", "review_write(" + num + ")");		
-	}
-	function insertReview(obj){
-		alert("등록");
 	}
 </script>
 </head>
@@ -111,52 +118,56 @@
 				</div>
 			</div>
 			
-			<div class="my_review" id="m_r_<%=i%>">
-				<div class="profile">
-					<div class="profile_img" style="background-image: url('http://localhost:9000/One_day_class/upload/<%= vo_tutee.getSprofile_img() %>');
-					width: 80px; height: 80px; border-radius: 50%; margin: 0 auto;">
+			<form action="reviewInsert.jsp" method="POST" id="review_insert">
+				<div class="my_review" id="m_r_<%=i%>">
+					<div class="profile">
+						<div class="profile_img" style="background-image: url('http://localhost:9000/One_day_class/upload/<%= vo_tutee.getSprofile_img() %>');
+						width: 80px; height: 80px; border-radius: 50%; margin: 0 auto;">
+						</div>
 					</div>
-				</div>
-				<div class="review_content">
-					<div class="r_name"><%= vo_tutee.getName() %></div>
-					<div class="r_date">
-						<% for(int j = 0; j < list_review.size(); j++){ %>
-						<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
-						<button type="button" class="r_update">수정</button>
-						<button type="button" class="r_delete">삭제</button>
-						<%= list_review.get(j).getRdate() %>
-						<% } %> 
-						<% } %>
-					</div>
-					<div class="r_stars_box">
-						<font class="class_stars">
+					<div class="review_content">
+						<div class="r_name"><%= vo_tutee.getName() %></div>
+						<div class="r_date">
 							<% for(int j = 0; j < list_review.size(); j++){ %>
 							<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
-							<% for(int k=0; k < list_review.get(j).getRservice(); k++){ %>
-							<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
-							<% } %>
+							<button type="button" class="r_update" id="review_btn<%=i%>" onclick="review_update(<%=i%>)">수정</button>
+							<button type="button" class="r_delete" id="review_btn<%=i%>" onclick="review_delete(<%=i%>)">삭제</button>
+							<%= list_review.get(j).getRdate() %>
 							<% } %> 
 							<% } %>
-						</font>
-					</div>
-					<div class="r_cont">
-						<p>	
-						<% for(int j = 0; j < list_review.size(); j++){ %>
-						<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
-						<%= list_review.get(j).getRcontent() %>
-						<% } %> 
-						<% } %>
-						</p>
+						</div>
+						<div class="r_stars_box">
+							<font class="class_stars">
+								<% for(int j = 0; j < list_review.size(); j++){ %>
+								<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
+								<% for(int k=0; k < list_review.get(j).getRservice(); k++){ %>
+								<img src="http://localhost:9000/One_day_class/images/star_act.png" width="15px">
+								<% } %>
+								<% } %> 
+								<% } %>
+							</font>
+						</div>
+						<div class="r_cont">
+							<p id="review_p<%=i%>" >
+							<% for(int j = 0; j < list_review.size(); j++){ %>
+							<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
+							<%= list_review.get(j).getRcontent() %>
+							<% } %> 
+							<% } %>
+							</p>
+							<div class="update_div" >
+								<textarea  class="review_textarea " placeholder=" 리뷰를 입력해주세요."   id="review_textarea_update<%=i%>" name="rcontent_update"></textarea>
+								<button type="button" class="update_button"   id="update_button<%=i%>">수정 완료</button>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="my_review" id="m_w_<%=i%>">
-				<form action="reviewInsert.jsp" method="POST" id="review_insert">
-					<input type="text" name="rcontent" class="rcontent">
-					<button type="button" id="btnReviewInsert" onclick="insertReview(this)">등록</button>
-				</form>
-			</div>
+				
+				<div class="my_review" id="m_w_<%=i%>">
+						<textarea  class="review_textarea_reg " placeholder=" 리뷰를 입력해주세요."   id="review_textarea_reg<%=i%>" name="rcontent_insert"></textarea>
+						<button type="button"  class="insert_button" id="insert_button<%=i%>" >등록 완료</button>
+				</div>
+			</form>
 			<% } %>
 			<% } else { %>
 			수강 중인 재능이 없습니다					
