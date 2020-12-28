@@ -11,12 +11,12 @@
 		for(String cid:cids){
 			dao.updateStatus1(cid);
 		}
-		response.sendRedirect("new_class.jsp"); 
+		response.sendRedirect("new-class.jsp"); 
 	}else if(classbtn.equals("fail")){
 		System.out.println(classbtn);
 		for(String cid:cids){
 			dao.updateStatus2(cid);
 		}
-		response.sendRedirect("new_class.jsp"); 
+		response.sendRedirect("new-class.jsp"); 
 	}
 %> 

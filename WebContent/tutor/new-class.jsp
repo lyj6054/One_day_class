@@ -8,7 +8,7 @@
 		ms_TutorclassVO vo = dao.getMyclass(cid);
         ArrayList<ms_TutorclassVO> list = dao.getTutorList(cid);
         ArrayList<ms_TutorclassVO> list1 = dao.getClassList(cid);
-        	%><!-- ㅇㅇㅇ -->
+%>
 
 
 <!DOCTYPE html>
@@ -320,7 +320,7 @@
 		<div class="static-box">
 			<h3 class="tt1">심사중</h3>
 			<div class="image">
-				<img src="http://localhost:9000/One_day_class/images/591.jpg">
+				<img src="<%=vo.getPicture()%>">
 			</div>
 			<div class="box">
 				<div class="box1">
@@ -350,7 +350,7 @@
 				<input type="hidden" name="classbtn" value="" id="classbtn">
 				<% for(ms_TutorclassVO vo2 : list1) { %>
 				<ul>
-					<input type="checkbox" name="chk" class="blind inp_label" id="chk<%=vo2.getRno() %>">
+					<input type="checkbox" name="chk" class="blind inp_label" id="chk<%=vo2.getRno() %>" value="<%=vo.getCid()%>">
 					<label for="chk<%=vo2.getRno() %>" class="inp_chkbox"></label>
 					<li class="ut1"><%=vo2.getRno() %></li>
 					<li class="ut2"><%=vo2.getName() %></li>

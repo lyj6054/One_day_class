@@ -9,7 +9,7 @@ import com.one_day_class.vo.ms_Admin_noticeVO;
 public class ms_Admin_noticeDAO extends DBConn{
 	
 	/**
-	 * Update : 거절 시 클레스 astatus 1로변경
+	 * Update : 거절 시 클레스 astatus 0로변경
 	 */
 	public void updateStatus2(String cid) {
 		System.out.println(cid);
