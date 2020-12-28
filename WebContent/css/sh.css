@@ -1497,7 +1497,7 @@
      display:inline;
 }
 	.c_container .myclass .my_review.on .review_textarea_reg {
-    width: 900px;
+    width: 840px;
     height: 130px;
     background: #fff;
     display:inline;
@@ -1506,4 +1506,9 @@
     text-align: left;
     box-sizing: border-box;
     display: flex;
+	}
+	.star_point{
+	width:70px;
+	height:130px;
+	text-align:center;
 	}
