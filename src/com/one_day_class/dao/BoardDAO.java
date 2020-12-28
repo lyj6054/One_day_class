@@ -7,7 +7,34 @@ import com.one_day_class.vo.BoardVO;
 
 public class BoardDAO extends DBConn {
 	
-	
+	/*
+	 * Delete : 삭제
+	 */
+	public int getDelete(String bid) {
+		int result = 0;
+		
+		try {
+			/*
+			 * String str = ""; if(bpart == null) { str = "where bpart like '%공지사항%'"; }
+			 * else if(bpart.equals("event")) { str = "where bpart = '이벤트'"; } else { str =
+			 * "where bpart like '%공지사항%'"; }
+			 */
+			
+			String sql = "delete from one_board where bid=?";
+			
+			getPreparedStatement(sql);
+			pstmt.setString(1, bid);
+			
+			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = 1;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 	
 	/**
 	    *  Select : 상세정보출력(수정눌렀을시 나오는 내용)

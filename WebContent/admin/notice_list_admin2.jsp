@@ -506,17 +506,21 @@
 			$("#first").removeClass('selected');
 		});
 		//open/close 변경
-		$("#open").click(function(){
-			var status = $(this).attr("src");
-			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
-				$("#cont-8").css("display","block").height("450px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-				$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
-				
-			} else {
-				$("#cont-8").css("display","none").height("0px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
-			}
+		$(".open").click(function(){
+				var bid = $(this).attr("id");
+				alert(bid);
+				var status = $(this).attr("src");
+				if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
+					$("li#"+bid).css("display","block");
+					$(this).attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
+					//$("#cont8-wrap").css("display","block");
+					//$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
+					
+				} else {
+					$("li#"+bid).css("display","none");
+					$(this).attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
+					//$("#cont8-wrap").css("display","none");
+				}
 		});
 		
 		 //페이지 번호 및  링크
@@ -543,11 +547,46 @@
 		});
 		
 	});
+	//체크박스        
+	function allCheckFunc(obj) {
+		$("[name=checkTerms]").prop("checked", $(obj).prop("checked"));
+		//alert($("[name=checkAll]:checked").val());
+		
+	}
+	/* 체크박스 체크시 전체선택 체크 여부 */
+	function oneCheckFunc(obj) {
+		var allObj = $("[name=checkAll]");
+		var objName = $(obj).attr("name");
+
+		if($(obj).prop("checked")){
+			checkBoxLength = $("[name="+ objName +"]").length;
+			checkedLength = $("[name="+ objName +"]:checked").length;                
+
+			if(checkBoxLength == checkedLength){
+				allObj.prop("checked", true);    
+			}else{
+				allObj.prop("checked", false);
+			}
+		}else{
+			allObj.prop("checked", false); 
+		}
+	}
+
+	$(function(){
+		$("[name=checkAll]").click(function(){
+			allCheckFunc(this);
+				});
+		});
+		$("[name=checkTerms]").each(function(){
+			$(this).click(function(){
+				oneCheckFunc($(this));
+			});                
+		});
 	
-	function allCheck() { 
+	/* function allCheck() { 
 		var all = document.getElementById("checkAll");
 		/* var chk = document.getElementById("check1");
-		var privacy = document.getElementById("termsPrivacy"); */
+		var privacy = document.getElementById("termsPrivacy"); 
 		var chk_list = document.getElementsByName("checkTerms");
 		
 		if(all.checked) {
@@ -562,7 +601,7 @@
 		}
 		
 	}
-	
+	 */
 	/* function partCheck() {
 
 		var cnt = 0;
@@ -607,13 +646,13 @@
 		<div class="main-section1">
 			<ul class="section1-category">
 				<li id="first" class="first"><a href="notice_list_admin.jsp?bpart=notice">공지사항</a></li>
-				<li id="second" class="selected"><a href="notice_list_admin2.jsp?bpart=event">이벤트</a></li>
+				<li id="second"class="selected"><a href="notice_list_admin2.jsp?bpart=event">이벤트</a></li>
 			</ul>
 		</div>
 		<div class="main-section2">
 			<ul class="section2-title">
 				<li class="title-0">
-					<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll" onchange="allCheck()">
+					<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll">
 					<label for="checkAll" class="inp_chkbox"></label>
 				</li>
 				<li class="title-1">번호</li>
@@ -626,13 +665,13 @@
 				<% for(BoardVO vo : list) { %>
 					<ul class="section2-cont">
 						<li class="cont-0">
-							<input class="blind inp_label" type="checkbox" name="checkTerms" id="check1">
-							<label for="check1" class="inp_chkbox"></label>
+							<input class="blind inp_label" type="checkbox" name="checkTerms" id="<%= vo.getBid()%>">
+							<label for="<%= vo.getBid()%>" class="inp_chkbox"></label>
 						</li>
 						<li class="cont-1"><%= vo.getRno() %></li>
 						<li class="cont-2">
 							<a id="test1" class="cont2-btn">
-								<img src="http://localhost:9000/One_day_class/images/notice_open.png" id="open">
+								<img src="http://localhost:9000/One_day_class/images/notice_open.png" class="open" id=<%= vo.getBid()%>>
 								<label></label>
 							</a>
 						</li>
@@ -645,8 +684,10 @@
 						<li class="cont-5">탈멍</li>
 						<li class="cont-6"><%= vo.getBdate() %></li>
 						<li class="cont-7"><%= vo.getBhits() %></li>
-						<li class="cont-8" id="cont-8" >
-							<div class="cont8-wrap" id="cont8-wrap" ></div>
+						<li class="cont-8" id="<%=vo.getBid()%>" >
+							<div class="cont8-wrap" id="cont8-wrap">
+							<%-- <a href="admin_notice_detail.jsp?<%=vo.getBid()%>"></a> --%>
+							</div>
 						</li>
 					</ul>
 				<% } %>
@@ -659,7 +700,7 @@
 				</div>
 				<div class="admin_btn">
 					<a href="admin_notice_write.jsp"><button type="button" class="btn_style">글쓰기</button></a>
-					<a href="#"><button type="button" class="btn_style">삭제</button></a>
+					<a href="notice_list_admin_proc.jsp"><button type="button" class="btn_style">삭제</button></a>
 				</div>
 			</div>
 		</div>

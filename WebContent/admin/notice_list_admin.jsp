@@ -553,13 +553,119 @@
 				$(location).attr('href','http://localhost:9000/One_day_class/admin/notice/notice_list.jsp?rpage='+e.page); 
 				//location.href('이동페이지');
 			});
+			
+			
+			//체크박스        
+			function allCheckFunc(obj) {
+				$("[name=checkTerms]").prop("checked", $(obj).prop("checked"));
+				//alert($("[name=checkAll]:checked").val());
+				
+			}
+			/* 체크박스 체크시 전체선택 체크 여부 */
+			function oneCheckFunc(obj) {
+				var allObj = $("[name=checkAll]");
+				var objName = $(obj).attr("name");
+
+				if($(obj).prop("checked")){
+					checkBoxLength = $("[name="+ objName +"]").length;
+					checkedLength = $("[name="+ objName +"]:checked").length;                
+
+					if(checkBoxLength == checkedLength){
+						allObj.prop("checked", true);    
+					}else{
+						allObj.prop("checked", false);
+					}
+				}else{
+					allObj.prop("checked", false); 
+				}
+			}
+
+			$(function(){
+				$("[name=checkAll]").click(function(){
+					allCheckFunc(this);
+						});
+				});
+				$("[name=checkTerms]").each(function(){
+					$(this).click(function(){
+						oneCheckFunc($(this));
+					});                
+				});
+				
+				$("#btnDelete").click(function(){
+					var del_list = "";
+					
+					$("input[name='chk']:checked").each(function(index) {
+						del_list += $(this).attr("id") + ",";
+					});
+					
+					//ajax를 이용하여 서버로 전송 후 삭제 진행
+					
+				});
+				
+				 $("#btnDelete").click(function(){
+					 var del_list = "";
+					 var count = 0;
+					 var bid = $("input[name=checkTerms]:checked").attr("id");
+					 
+					 $("input[name=checkTerms]:checked") .each(function(){
+			            	count++;
+			            	del_list += bid+",";
+			                /* var tr=$(".cont-0#"+bid);
+			                tr.remove(); */
+			            });
+			            
+			            	 if(count == 0){
+			                     alert("한 개 이상 선택하셔야 삭제가 가능합니다.")
+			                     return false;
+			                  }else{
+			                     //서버전송   
+			                     alert(del_list);
+			                  }
+					 
+					 
+					 $.ajax({
+						 url:"noticeDeleteProc.jsp?id="+bid.val(),
+						 success:function(result) {
+							 
+							 alert(result);
+							 /*  if(result != 0) {
+								 if(confirm("삭제하시겠습니까?")){
+									 $("input[name=checkTerms]:checked").each(function(){
+							            	count++;
+							            	del_list += bid+",";
+							                /* var tr=$(".cont-0#"+bid);
+							                tr.remove(); 
+							            });
+							            
+							            	 if(count == 0){
+							                     alert("한 개 이상 선택하셔야 삭제가 가능합니다.")
+							                     return false;
+							                  }else{
+							                     //서버전송   
+							                     alert(del_list);
+							                  }
+							            
+							        }else{
+							            return false;
+							        }
+							 } else {
+								 return false;
+							 } */ 
+						 }
+					 })
+		
+				    });
+				 
+
+				
 		});  
 		
 	
-	function allCheck() { 
+	
+	
+	
+	/* function allCheck() { 
 		var all = document.getElementById("checkAll");
-		/* var chk = document.getElementById("check1");
-		var privacy = document.getElementById("termsPrivacy"); */
 		var chk_list = document.getElementsByName("checkTerms");
 		
 		if(all.checked) {
@@ -574,7 +680,7 @@
 		}
 		
 	}
-	
+	 */
 	/* function partCheck() {
 
 		var cnt = 0;
@@ -625,7 +731,7 @@
 		<div class="main-section2">
 			<ul class="section2-title">
 				<li class="title-0">
-					<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll" onchange="allCheck()">
+					<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll">
 					<label for="checkAll" class="inp_chkbox"></label>
 				</li>
 				<li class="title-1">번호</li>
@@ -638,8 +744,8 @@
 			<% for(BoardVO vo : list) { %>
 				<ul class="section2-cont">
 					<li class="cont-0">
-						<input class="blind inp_label" type="checkbox" name="checkTerms" id="check1">
-						<label for="check1" class="inp_chkbox"></label>
+						<input class="blind inp_label" type="checkbox" name="checkTerms" id="<%= vo.getBid()%>">
+						<label for="<%= vo.getBid()%>" class="inp_chkbox"></label>
 					</li>
 						<li class="cont-1"><%= vo.getRno() %></li>
 						<li class="cont-2">
@@ -673,7 +779,7 @@
 				</div>
 				<div class="admin_btn">
 					<a href="admin_notice_write.jsp"><button type="button" class="btn_style">글쓰기</button></a>
-					<a href="#"><button type="button" class="btn_style">삭제</button></a>
+					<button type="button" class="btn_style" id="btnDelete">삭제</button>
 				</div>
 			</div>
 		</div>

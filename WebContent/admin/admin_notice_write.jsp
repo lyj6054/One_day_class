@@ -26,16 +26,6 @@
 		}); 
 		
 	});
-	/* 
-		function doSubmit()
-		{
-			var admin_notice_write = documetn.getElementById("admin_notice_write");
-			admin_notice_write.action = "noticeWriteProc.jsp";
-			admin_notice_write.encoding = "application/x-www-form-urlencoded";
-			admin_notice_write.submit();
-		}
- */
-		
 	
 	
 </script>
@@ -593,9 +583,9 @@
       <div class="main-section2">
             <div class="udp_title1">
             	<form name="noticeWriteForm" action="noticeWriteProc.jsp"  method="post" 
-            	class="admin_notice_write" id="admin_notice_write"> 
+            	class="admin_notice_write" id="admin_notice_write" enctype="multipart/form-data"> 
             	
-            	<!-- enctype="multipart/form-data" -->
+            	<!-- enctype="multipart/form-data" --> 
 					<ul>
 						<li class="udp_title1">
 							<label>구분</label>
@@ -619,7 +609,7 @@
 							<input type="file" name="bfile" class="udp_t3">
 						</li>
 						<li class="udp_btnbox">
-							<button type="submit" class="btn_style" id="btnNoticeWrite" onclick="doSubmit()">등록</button>
+							<button type="submit" class="btn_style" id="btnNoticeWrite">등록</button>
 							<button type="reset" class="btn_style">취소</button>
 							<a href="notice_list_admin.jsp"><button type="button" class="btn_style">목록으로</button></a>
 						</li>
