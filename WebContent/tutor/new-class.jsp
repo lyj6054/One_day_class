@@ -8,7 +8,7 @@
 		ms_TutorclassVO vo = dao.getMyclass(cid);
         ArrayList<ms_TutorclassVO> list = dao.getTutorList(cid);
         ArrayList<ms_TutorclassVO> list1 = dao.getClassList(cid);
-        	%>
+        	%><!-- ㅇㅇㅇ -->
 
 
 <!DOCTYPE html>
