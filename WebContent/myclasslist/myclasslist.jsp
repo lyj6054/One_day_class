@@ -29,7 +29,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>myclassList</title>
+<title> 탈멍 - myclassList</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script>

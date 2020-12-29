@@ -43,7 +43,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>탈멍 - 수업 리스트</title>
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/am-pagination.css">
 <script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>

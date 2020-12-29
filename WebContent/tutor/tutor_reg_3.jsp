@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>탈멍 - 수업 등록하기3</title>
 <link rel="stylesheet"
    href="http://localhost:9000/One_day_class/css/yj.css">
 <script
