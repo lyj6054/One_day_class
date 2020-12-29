@@ -8,6 +8,39 @@ import com.one_day_class.vo.ms_TutorclassVO;
 public class ms_TutorclassDAO extends DBConn {
 	
 	
+	/**
+	 * 내수업리스트(위상단에 콤보박스)
+	 */
+	public  ArrayList<ms_TutorclassVO> getMyList(String email){
+		ArrayList<ms_TutorclassVO> list2 = new ArrayList<ms_TutorclassVO>();
+		try {
+			String sql=" SELECT CID, EMAIL, TITLE,PICTURE,SPICTURE FROM (SELECT CID, OTR.EMAIL, TITLE,PICTURE,SPICTURE FROM ONE_CLASS ONEC, ONE_TUTOR OTR WHERE ONEC.EMAIL=OTR.EMAIL ORDER BY CID ASC)  WHERE EMAIL=? ";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ms_TutorclassVO vo = new ms_TutorclassVO();
+				vo.setCid(rs.getString(1));
+				vo.setEmail(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setPicture(rs.getString(4));
+				vo.setSpicture(rs.getString(5));
+				
+				list2.add(vo);
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list2;
+	}
+	
+	
+	
+	
 	/** 
 	 * 수업신청 리스트
 	 */
@@ -76,19 +109,17 @@ public class ms_TutorclassDAO extends DBConn {
 	 * 리뷰작성한 /학생 리스트
 	 */
 	
-	  public ArrayList<ms_TutorclassVO> getTutorList(String cid){
+	  public ArrayList<ms_TutorclassVO> getTutorList(String email){
 	  ArrayList<ms_TutorclassVO> list = new ArrayList<ms_TutorclassVO>(); 
 	  try { 
 
-		  String sql = "select rownum rno, cid, name, email, aschedule, aperson, astatus, rcontent, rdate " + 
-		  		"from (select  cid, name, email, aschedule, aperson, astatus, rcontent, to_char(rdate,'YYYY-MM-DD') rdate " + 
-		  		"		  		from (select oac.cid, ot.email, ot.name, orr.rcontent, orr.rdate,oac.aschedule,oac.aperson,oac.astatus " + 
-		  		"              from one_tutee ot,one_review orr,one_apply_class oac \r\n" + 
-		  		"               where ot.email = orr.email and orr.email = oac.email and oac.email = ot.email and orr.cid='C_1' order by orr.rdate desc" + 
-		  		"              )  " + 
-		  		" where cid= ?)";
+		  String sql = " select rownum rno, od.cid,ot.name,ot.email,oac.aschedule,oac.aperson,oac.astatus, orr.rcontent, to_char(orr.rdate,'YYYY-MM-DD') rdate " + 
+		  		" from (select oc.cid from one_tutor ot, one_class oc\r\n" + 
+		  		" where ot.email = oc.email and ot.email=? order by rdate desc) od, one_apply_class oac, one_tutee ot," + 
+		  		" one_review orr" + 
+		  		" where od.cid = oac.cid and oac.email=ot.email and oac.cid=orr.cid(+)";
 	  getPreparedStatement(sql);
-		  pstmt.setString(1, cid);
+		  pstmt.setString(1, email);
 	  ResultSet rs = pstmt.executeQuery();
 	  
 	  while(rs.next()) { 
