@@ -4,10 +4,13 @@
     
 <%
 		String cid = "C_5";
+		String email ="alstndkrl@naver.com";
+		
     	ms_TutorclassDAO dao = new ms_TutorclassDAO();
 		ms_TutorclassVO vo = dao.getMyclass(cid);
-        ArrayList<ms_TutorclassVO> list = dao.getTutorList(cid);
+        ArrayList<ms_TutorclassVO> list = dao.getTutorList(email);
         ArrayList<ms_TutorclassVO> list1 = dao.getClassList(cid);
+		ArrayList<ms_TutorclassVO> list2= dao.getMyList(email);
 %>
 
 
@@ -52,6 +55,13 @@
 			$("#simsa").attr("name","simsa");
 		}
 	});	 	
+	
+	
+
+	
+	
+	
+	
 		
 });//ready
 	
@@ -312,15 +322,17 @@
 		<hr class="top-hr">
 		<div class="title-box">
 		<h1 class="tt">내 수업</h1>
-		<select name="title" class="title">
-			<option value="<%=vo.getTitle()%>"><%=vo.getTitle()%></option>
+		<select name="title" class="title" id="selectbox">
+		<% for(ms_TutorclassVO vo3 : list2){ %>
+			<option id="selectbox1" value="<%=vo3.getTitle()%>?cid=<%=vo.getCid()%>"><%=vo3.getTitle()%></option>
+		<%} %>
 		</select>
 		</div>
 		<hr class="line">
 		<div class="static-box">
 			<h3 class="tt1">심사중</h3>
 			<div class="image">
-				<img src="<%=vo.getPicture()%>">
+				<img src="http://localhost:9000/One_day_class/upload/<%=vo.getPicture()%>">
 			</div>
 			<div class="box">
 				<div class="box1">
@@ -382,6 +394,7 @@
 				<%
 					for(ms_TutorclassVO vo1 : list) {
 				%>
+				<% if(vo1.getRcontent() != null) {%>
 				<ul>
 					<li class="ut1"><%=vo1.getRno() %></li>
 					<li class="ut2"><%=vo1.getName() %></li>
@@ -389,6 +402,7 @@
 					<li class="ut4-1"><%=vo1.getRcontent() %></li>
 					<li class="ut5"><%=vo1.getRdate() %></li>
 				</ul>
+				<% } %>
 				<% } %>
 				 
 				
