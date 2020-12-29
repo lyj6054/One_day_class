@@ -12,7 +12,7 @@
 		//1페이지(1~10), 2페이지(11~20) ...
 		int start =0;
 		int end = 0;
-		int pageSize = 5; // 한페이지당 출력되는 row
+		int pageSize = 7; // 한페이지당 출력되는 row
 		int pageCount = 1; // 전체 페이지 수 : 전체 리스트 row / 한 페이지당 출력되는 row
 		int dbCount = dao.getListCount(); //DB연동 후 전체로우수 출력 
 		int reqPage = 1; //요청페이지
@@ -189,9 +189,10 @@
 	}
 	.main-section2 .section2-cont li {
 		float: left;
-	    text-align: center;
+	    /* text-align: center; */
 	    color: #999;
 	    font-size: 11px;
+	    margin-lefit:50px;
 	}
 	.main-section2 .section2-cont li.cont-0 {
 		width: 39px;
@@ -199,6 +200,7 @@
 	}
 	.main-section2 .section2-cont li.cont-1 {
 		width: 72px;
+		text-align:center;
 		padding-left:5px;
     	padding-top: 2px;
 	}
@@ -235,10 +237,18 @@
 		width: 31px;
     	height: 15px;
     	display: block;
-    	background-image:url(http://localhost:9000/One_day_class/images/notice_con2.png);
+    	background-image:url(http://localhost:9000/One_day_class/images/notice_con1.png);
     	background-repeat:no-repeat;
 	    background-size: 28px 18px;
 	}
+	.main-section2 .section2-cont li.cont-3 .normal {
+		width: 31px;
+    	height: 15px;
+    	display: block;
+    	background-image:url(http://localhost:9000/One_day_class/images/notice_con3.png);
+    	background-repeat:no-repeat;
+	    background-size: 28px 18px;
+	} 
 	.main-section2 .section2-cont li.cont-4 {
 		width: 365px;
 	    padding: 2px 50px 0 30px;
@@ -246,14 +256,17 @@
 	}
 	.main-section2 .section2-cont li.cont-5 {
 		width: 75px;
+		text-align:center;
     	padding-top: 2px;
 	}
 	.main-section2 .section2-cont li.cont-6 {
 		width: 99px;
+		text-align:center;
     	padding-top: 2px;
 	}
 	.main-section2 .section2-cont li.cont-7 {
 		width: 48px;
+		text-align:center;
     	padding-top: 2px;
 	}
 	
@@ -273,6 +286,7 @@
 	    width: 831px;
 	    height: 430px;
 	    overflow-y: auto !important;
+	    margin-left:120px;
 	}
 	.main-section2 .section2-cont li.cont-8 .cont8-wrap {
 	    margin: 20px 0;
@@ -285,14 +299,22 @@
 	    display: inline-block;
 	    float: left;
 	    width: 853px;
-	    height:10px;
+	    height:30px;
 	    margin-left:-17px;
 	}
 	.main-section3 .section-paging {
 	    width: 853px;
-	    height: 39px;
+	    height: 70px;
 	    margin-top: 30px;
 	}
+	.section-paging #ampaginationsm {
+		width:60%; 
+		height:60px; 
+		text-align:center; 
+		margin-left:190px; 
+		margin-top:10px;
+	}
+	
 	.section-paging {
 	    position: relative;
 	    display: inline-block;
@@ -303,31 +325,10 @@
 	.paging-page {
 	    position: relative;
 	    width: 50%;
-	    height: 22px;
+	    height: 40px;
 	    text-align: center;
 	    z-index: 2;
 	    margin-left:210px;
-	}
-	.main-section3 .paging-page .prev-off {
-	    width: 20px;
-	    height: 20px !important;
-	    margin-top: 4px;
-	    padding: 0 !important;
-	    vertical-align: top;
-	    background-image: url(http://localhost:9000/One_day_class/images/arrow_left.png);
-	    background-repeat:no-repeat;
-	    background-size: 15px 15px;
-	}
-	.main-section3 .paging-page .next {
-	    background-image: url(http://localhost:9000/One_day_class/images/arrow_right.png);
-	    width: 20px;
-	    height: 20px !important;
-	    margin-top: 4px;
-	    margin-left:4px;
-	    padding: 0 !important;
-	    vertical-align: top;
-	    background-repeat: no-repeat;
-	    background-size: 15px 15px;
 	}
 	.main-section3 .paging-page a {
 	    height: 16px;
@@ -440,13 +441,11 @@
 	/* 버튼 */
 	.main-section3 .admin_btn {
 		float:right;
-		margin-top:-22px;
-		margin-right:17px;
+		margin-right:20px;
 	}
 	.main-section3 .admin_btn:hover {
 		float:right;
-		margin-top:-22px;
-		margin-right:17px;
+		margin-right:20px;
 	}
 	.main-section3 .admin_btn .btn_style {
 		margin-right:6px;
@@ -492,6 +491,21 @@
 	    background-repeat: no-repeat;
 	    background-size: 13px;
 	}
+	.am-pagination-default > .active > a {
+	 	background-color:#ff0045;
+	 	border-color: #ff0045;
+	}
+	.am-pagination-default > .active > a:hover {
+	 	background-color:#ff0045;
+	 	border-color: #ff0045;
+	}
+	.am-pagination-default > li > a {
+		color:#666;
+	}
+	.am-pagination-default > .disabled > a {
+		color:#ccc;
+	}
+	
 	
 	</style>
 <script>
@@ -507,25 +521,25 @@
 		});
 		//open/close 변경
 		$(".open").click(function(){
-				var bid = $(this).attr("id");
-				alert(bid);
-				var status = $(this).attr("src");
-				if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
-					$("li#"+bid).css("display","block");
-					$(this).attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-					//$("#cont8-wrap").css("display","block");
-					//$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
-					
-				} else {
-					$("li#"+bid).css("display","none");
-					$(this).attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
-					//$("#cont8-wrap").css("display","none");
-				}
-		});
+			var bid = $(this).attr("id");
+			//alert(bid);
+			var status = $(this).attr("src");
+			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
+				$("li#"+bid).css("display","block");
+				$(this).attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
+				//$("#cont8-wrap").css("display","block");
+				$(".cont-8#"+bid).load("http://localhost:9000/One_day_class/admin/admin_notice_detail.jsp?bid="+bid+" .udp_text"); 
+				
+			} else {
+				$("li#"+bid).css("display","none");
+				$(this).attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
+				//$("#cont8-wrap").css("display","none");
+			}
+	});
 		
 		 //페이지 번호 및  링크
 		var pager = jQuery("#ampaginationsm").pagination({
-			maxSize : 5,
+			maxSize : 7,
 			totals : '<%=dbCount%>',
 			pageSize : '<%=pageSize%>',
 			page : '<%=reqPage%>',
@@ -542,66 +556,11 @@
 		
 		//
 		jQuery("#ampaginationsm").on('am.pagination.change',function(e){
-			$(location).attr('href','http://localhost:9000/One_day_class/admin/notice/notice_list.jsp?rpage='+e.page); 
+			$(location).attr('href','http://localhost:9000/One_day_class/notice/notice_list2.jsp?bpart=event&rpage='+e.page); 
 			//location.href('이동페이지');
 		});
 		
 	});
-	//체크박스        
-	function allCheckFunc(obj) {
-		$("[name=checkTerms]").prop("checked", $(obj).prop("checked"));
-		//alert($("[name=checkAll]:checked").val());
-		
-	}
-	/* 체크박스 체크시 전체선택 체크 여부 */
-	function oneCheckFunc(obj) {
-		var allObj = $("[name=checkAll]");
-		var objName = $(obj).attr("name");
-
-		if($(obj).prop("checked")){
-			checkBoxLength = $("[name="+ objName +"]").length;
-			checkedLength = $("[name="+ objName +"]:checked").length;                
-
-			if(checkBoxLength == checkedLength){
-				allObj.prop("checked", true);    
-			}else{
-				allObj.prop("checked", false);
-			}
-		}else{
-			allObj.prop("checked", false); 
-		}
-	}
-
-	$(function(){
-		$("[name=checkAll]").click(function(){
-			allCheckFunc(this);
-				});
-		});
-		$("[name=checkTerms]").each(function(){
-			$(this).click(function(){
-				oneCheckFunc($(this));
-			});                
-		});
-	
-	/* function allCheck() { 
-		var all = document.getElementById("checkAll");
-		/* var chk = document.getElementById("check1");
-		var privacy = document.getElementById("termsPrivacy"); 
-		var chk_list = document.getElementsByName("checkTerms");
-		
-		if(all.checked) {
-			for(var i=0;i<chk_list.length;i++) {
-				chk_list[i].checked = true;
-			}
-			
-		}   else {
-			for(var i=0;i<chk_list.length;i++) {
-				chk_list[i].checked = false;
-			}
-		}
-		
-	}
-	 */
 	/* function partCheck() {
 
 		var cnt = 0;
@@ -619,7 +578,7 @@
 	                 if(cnt == 0)  all.checked = false;
 		}
 
-	} */
+	} */ 
 </script>
 </head>
 <body>
@@ -651,10 +610,6 @@
 			<div id="nesListNew">
 				<% for(BoardVO vo : list) { %>
 					<ul class="section2-cont">
-						<li class="cont-0">
-							<input class="blind inp_label" type="checkbox" name="checkTerms" id="<%= vo.getBid()%>">
-							<label for="<%= vo.getBid()%>" class="inp_chkbox"></label>
-						</li>
 						<li class="cont-1"><%= vo.getRno() %></li>
 						<li class="cont-2">
 							<a id="test1" class="cont2-btn">
@@ -668,11 +623,11 @@
 						<li class="cont-4">
 							<a href="notice_content.jsp?bid=<%=vo.getBid()%>"><%= vo.getBtitle() %></a>
 						</li>
-						<li class="cont-5">탈멍</li>
+						<li class="cont-5"><%= vo.getBcharge() %></li>
 						<li class="cont-6"><%= vo.getBdate() %></li>
 						<li class="cont-7"><%= vo.getBhits() %></li>
 						<li class="cont-8" id="<%=vo.getBid()%>" >
-							<div class="cont8-wrap" id="cont8-wrap">
+							<div class="cont8-wrap" id="<%=vo.getBid()%>">
 							<%-- <a href="admin_notice_detail.jsp?<%=vo.getBid()%>"></a> --%>
 							</div>
 						</li>
@@ -680,12 +635,10 @@
 				<% } %>
 			</div>
 		</div>
-		<div class="main-section3">
-			<div class="section-paging">
-				<div class="paging-page">
-					<div id="ampaginationsm"></div>
+			<div class="main-section3">
+				<div class="section-paging">
+						<div id="ampaginationsm"></div>
 				</div>
-			</div>
 		</div>
 	</div>
 </div>
