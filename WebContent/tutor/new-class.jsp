@@ -3,8 +3,9 @@
     import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>
     
 <%
-		String cid = "C_1";
+		String cid = "C_5";
 		String email ="alstndkrl@naver.com";
+		
     	ms_TutorclassDAO dao = new ms_TutorclassDAO();
 		ms_TutorclassVO vo = dao.getMyclass(cid);
         ArrayList<ms_TutorclassVO> list = dao.getTutorList(email);

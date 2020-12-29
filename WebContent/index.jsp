@@ -273,7 +273,7 @@
 	    overflow: hidden;
 	    width: 30%;
 	    height: 180px;
-	    margin-bottom: 10px;
+	    margin-bottom: 5px;
 	    padding: 0 10px;
 	    border: 1px solid #eee;
 	    border-radius: 10px;
@@ -285,20 +285,23 @@
 	    font-weight: bold;
 	    font-size: 18px;
 	    line-height: 25px;
+	    text-align:center;
 	}
 	.login_box .link_login {
-	    display: block;
+	    display: inline-block;
 	    padding: 12px 0;
 	    border-radius: 6px;
 	    text-align: center;
 	    color: #fff;
-	    font-size: 15px;
+	    font-size: 16px;
 	    line-height: 24px;
 	    background-color: #ff0045;
+	    width:143px;
 	}
 	.login_box .box_btns {
 	    display: flex;
-	    margin-top: 12px;
+	   	margin-top:-80px;
+	   	padding-right:10px;
 	}
 	.login_box .box_btns a {
 	    color: #999;
@@ -599,22 +602,22 @@
 				<div class="category">
 	                <ul class="cate_list">
 	                    <li class="beauty">
-	                    	<a href="http://localhost:9000/One_day_class/search/beauty.jsp">뷰티 · 헬스</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=뷰티/헬스">뷰티 · 헬스</a>
 	                    </li>
 	                    <li class="activity">
-	                    	<a href="http://localhost:9000/One_day_class/search/activities.jsp">액티비티</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=액티비티">액티비티</a>
 	                    </li>
 	                    <li class="life">
-	                    	<a href="http://localhost:9000/One_day_class/search/life.jsp">라이프</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=라이프">라이프</a>
 	                    </li>
 	                    <li class="hobby">
-	                    	<a href="http://localhost:9000/One_day_class/search/hobby.jsp">취미 · 공예</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=취미/공예">취미 · 공예</a>
 	                    </li>
 	                    <li class="work">
-	                    	<a href="http://localhost:9000/One_day_class/search/career.jsp">커리어</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=커리어">커리어</a>
 	                    </li>
 	                    <li class="language">
-	                    	<a href="http://localhost:9000/One_day_class/search/language.jsp">외국어</a>
+	                    	<a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=외국어">외국어</a>
 	                    </li>
 	                </ul>
 	                <button type="button" class="btn_category">전체 카테고리</button>
@@ -630,55 +633,55 @@
 	            					<table>
 	            						<tbody>
 	            							<tr>
-	                                            <th><a href="http://localhost:9000/One_day_class/search/beauty.jsp" style="color: #ccc;">뷰티/헬스</a></th>
-	                                            <td>
-											        <a href="">메이크업</a>
-											        <a href="">퍼스널컬러</a>
-											        <a href="">패션</a>
-											        <a href="">셀프케어</a>
-											        <a href="">PT/GX</a>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=뷰티/헬스" style="color: #ccc;">뷰티/헬스</a></th>
+	                                             <td>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=메이크업">메이크업</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=퍼스널컬러">퍼스널컬러</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=패션">패션</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=셀프케어">셀프케어</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=PT/GX">PT/GX</a>
+												</td> 
+	                                        </tr>
+	                                        <tr>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=액티비티" style="color: #ccc;">액티비티</a></th>
+	                                          	<td>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=댄스">댄스</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=연기/무용">연기/무용</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=스포츠/레저">스포츠/레저</a>
 												</td>
 	                                        </tr>
 	                                        <tr>
-	                                            <th><a href="http://localhost:9000/One_day_class/search/activities.jsp" style="color: #ccc;">액티비티</a></th>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=라이프" style="color: #ccc;">라이프</a></th>
 	                                            <td>
-											        <a href="">댄스</a>
-											        <a href="">연기/무용</a>
-											        <a href="">스포츠/레저</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=인문/교양">인문/교양</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=인테리어">인테리어</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=반려동물">반려동물</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=심리상담">심리상담</a>
 												</td>
 	                                        </tr>
 	                                        <tr>
-	                                            <th><a href="http://localhost:9000/One_day_class/search/life.jsp" style="color: #ccc;">라이프</a></th>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=취미/공예" style="color: #ccc;">취미/공예</a></th>
 	                                            <td>
-											        <a href="">인문/교양</a>
-											        <a href="">인테리어</a>
-											        <a href="">반려동물</a>
-											        <a href="">심리상담</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=공예">공예</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=사진">사진</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=요리">요리</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=음악">음악</a>
 												</td>
 	                                        </tr>
 	                                        <tr>
-	                                            <th><a href="http://localhost:9000/One_day_class/search/hobby.jsp" style="color: #ccc;">취미/공예</a></th>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=커리어" style="color: #ccc;">커리어</a></th>
 	                                            <td>
-											        <a href="">공예</a>
-											        <a href="">사진</a>
-											        <a href="">요리</a>
-											        <a href="">음악</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=실무역량">실무역량</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=주식투자">주식투자</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=자격증/시험">자격증/시험</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=디자인/영상">디자인/영상</a>
 												</td>
 	                                        </tr>
 	                                        <tr>
-	                                            <th><a href="http://localhost:9000/One_day_class/search/career.jsp" style="color: #ccc;">커리어</a></th>
+	                                            <th><a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=외국어" style="color: #ccc;">외국어</a></th>
 	                                            <td>
-											        <a href="">실무역량</a>
-											        <a href="">주식투자</a>
-											        <a href="">자격증/시험</a>
-											        <a href="">디자인/영상</a>
-												</td>
-	                                        </tr>
-	                                        <tr>
-	                                            <th><a href="http://localhost:9000/One_day_class/search/language.jsp" style="color: #ccc;">외국어</a></th>
-	                                            <td>
-											        <a href="">영어회화</a>
-											        <a href="">기타회화</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=영어회화">영어회화</a>
+											        <a href="http://localhost:9000/One_day_class/search/search.jsp?cateSub=기타회화">기타회화</a>
 												</td>
 	                                        </tr>
 	            						</tbody>
@@ -689,12 +692,13 @@
 	            	</div>
 	            </div>
 	            <div class="login_box">
-				    <p class="login_msg">로그인 하시고 탈잉의<br>다양한 튜터를 만나보세요.</p>
-				    <a class="link_login" href="http://localhost:9000/One_day_class/login/login_how_to.jsp">탈잉 로그인</a>
+				    <p class="login_msg">안녕하세요:)<br>로그인 하시고 탈잉의<br>"다양한 튜터"를 만나보세요.</p>
+					    <a class="link_login" href="http://localhost:9000/One_day_class/login/email_login.jsp">탈잉 로그인</a>
+					    <a class="link_login" href="http://localhost:9000/One_day_class/join/join.jsp">회원가입</a>
 				    <div class="box_btns">
-				        <a class="find_id" href="http://localhost:9000/One_day_class/login/find_id.jsp">아이디 찾기</a>
-				        <a class="find_pw" href="http://localhost:9000/One_day_class/login/find_pw.jsp">비밀번호 찾기</a>
-				        <a class="link_join" href="http://localhost:9000/One_day_class/join/join_start.jsp">회원가입</a>
+				        <!-- <a class="find_id" href="http://localhost:9000/One_day_class/login/find_id.jsp">아이디 찾기</a>
+				        <a class="find_pw" href="http://localhost:9000/One_day_class/login/find_pw.jsp">비밀번호 찾기</a> -->
+				        <!-- <a class="link_join" href="http://localhost:9000/One_day_class/join/join.jsp">회원가입</a> -->
 				    </div>
 				</div>
 			</section>

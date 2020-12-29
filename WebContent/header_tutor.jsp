@@ -269,7 +269,7 @@
 		<div class="container"  >
 		 <div class="container hd_wrap">
 			<h1 class="logo">
-				<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
+				<a href="http://localhost:9000/One_day_class/index_login.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
 				<span></span>
 				<!-- <a href=""><img src="http://localhost:9000/One_day_class/images/menu.png" class="all"></a> -->
 			</h1>

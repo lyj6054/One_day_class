@@ -2,29 +2,40 @@ package com.one_day_class.dao;
 
 import java.sql.ResultSet;
 
+import com.one_day_class.vo.SessionVO;
 import com.one_day_class.vo.TuteeVO; 
 
 public class TuteeDAO extends DBConn {
 	
 	/* login */
-	public int getLogin(String email, String password) {
-		int result = 0;
+	public SessionVO getLogin(String email, String password) {
+		//int result = 0;
+		SessionVO svo = new SessionVO();
 		try {
-			String sql = "select count(*) from one_tutee "
-					+ " where email=? and password=?";
+			String sql = "select count(*), name, identity from one_tutee "
+					+ " where email=? and password=? group by name, identity";
+			
 			getPreparedStatement(sql);
+			
 			pstmt.setString(1, email);
 			pstmt.setString(2, password);
 			
 			ResultSet rs = pstmt.executeQuery();
 			
-			if(rs.next()) result = rs.getInt(1);
+			if(rs.next()) {
+				svo.setResult(rs.getInt(1));
+				svo.setName(rs.getString(2));
+				svo.setIdentity(rs.getString(3));
+			}
+				
+				//result = rs.getInt(1);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return result;
+		//return result;
+		return svo;
 		
 	}
 	

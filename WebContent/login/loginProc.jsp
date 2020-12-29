@@ -13,21 +13,25 @@
 	String password = request.getParameter("password");
 	String identity = request.getParameter("identity"); 
 	
-	System.out.println(identity);
-	int result = 0;
+	/* System.out.println(identity); */
+	//int result = 0;
 	
 		if(identity.equals("튜터")){
 			TutorDAO dao_tutor = new TutorDAO();
-			result = dao_tutor.getLogin(email, password); 
-			if(result != 0) {
+			SessionVO svo = dao_tutor.getLogin(email, password);
+			// result = dao_tutor.getLogin(email, password); 
+			if(svo.getResult() != 0) {
+				session.setAttribute("svo", svo);
 				response.sendRedirect("http://localhost:9000/One_day_class/index_login.jsp");
 			} else {
 				response.sendRedirect("http://localhost:9000/One_day_class/errorPage.jsp");  
 			}
 		}else{
 			TuteeDAO dao_tutee = new TuteeDAO();
-			result = dao_tutee.getLogin(email, password);
-			if(result != 0) {
+			SessionVO svo = dao_tutee.getLogin(email, password);
+			//result = dao_tutee.getLogin(email, password);
+			if( svo.getResult() != 0) {
+				session.setAttribute("svo", svo);
 				response.sendRedirect("http://localhost:9000/One_day_class/index_login.jsp");
 			} else {
 				response.sendRedirect("http://localhost:9000/One_day_class/errorPage.jsp");  

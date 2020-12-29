@@ -7,6 +7,35 @@ import com.one_day_class.vo.sh_ClassVO;
 
 public class sh_ClassDAO extends DBConn {
 	
+	/* 검색 기능 */
+	public ArrayList<sh_ClassVO> getSearchList(String inp_sch, String btn_sch) {
+		
+		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
+		
+		try {
+			
+			String sql = "select catemain, catesub, title "
+					+ " from (select * from one_class order by cdate desc) ";
+			System.out.println(sql);
+			getStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				sh_ClassVO vo = new sh_ClassVO();
+				vo.setCatemain(rs.getString(1));
+				vo.setCatesub(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	/* 개설한 클래스 목록 */
 	public ArrayList<sh_ClassVO> getMakeClass(String email) {
 		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
