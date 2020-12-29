@@ -17,27 +17,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="http://localhost:9000/One_day_class/js_minsu/jquery-3.5.1.min.js"></script>
-<script>
-   $(document).ready(function(){
-      
-      /** 삭제 알림  **/
-      $("#and_del").click(function(){
-         alert("삭제 하시겠습니까?");
-         
-         
-      });//and_del
-      
-      
-      
-   });//ready
-
-
-</script>
 <style>
-* {
-    box-sizing: border-box;
-}
- #newsroom-main {
+	* {
+	    box-sizing: border-box;
+	}
+	#newsroom-main {
 		display:inline-block;
 		margin:0 atuo;
 		overflow:hidden;
