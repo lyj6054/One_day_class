@@ -23,7 +23,7 @@
 			if(request.getParameter("rcontent_insert"+i)!=null && !request.getParameter("rcontent_insert"+i).equals("") ){
 				sh_ReviewVO vo=new sh_ReviewVO();
 				
-				String email=request.getParameter("email");
+				String email=request.getParameter("email"); 
 				String rcontent_insert=request.getParameter("rcontent_insert"+i);
 				int star_point=Integer.parseInt(request.getParameter("star_point"+i));
 				String cid=request.getParameter("cid"+i);

@@ -7,6 +7,35 @@ import com.one_day_class.vo.BoardVO;
 
 public class BoardDAO extends DBConn {
 	
+	/*
+	 * Delete : 삭제
+	 */
+	public int getDelete(String[] bid_list) {
+	      int result = 0;
+	      
+	      try {
+	    	  //String bid = String.join(",", bid_list); 
+	          //System.out.println(bid);
+	          
+	         String sql = "delete from one_board where bid in (";
+	       for(int i=0; i<bid_list.length; i++){
+	          if(i == 0){
+	             sql += "'" + bid_list[i] + "'";
+	          }else if(i != bid_list.length){
+	             sql += ",'" + bid_list[i] +"'";
+	          }
+	       }   
+	       sql += ")";    
+	          
+	          getStatement();
+	          result = stmt.executeUpdate(sql);        
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	      
+	      return result;
+	   } 
+	
 	/**
 	    *  Select : 상세정보출력(수정눌렀을시 나오는 내용)
 	    */
@@ -61,13 +90,13 @@ public class BoardDAO extends DBConn {
 	
 	
 	/* Update :조회수 업데이트 */
-	public void getUpdateHits(String nid) {
+	public void getUpdateHits(String bid) {
 		try {
 			String sql = "update one_board set bhits=bhits+1 "
-					+ " where nid=?";
+					+ " where bid=?";
 			
 			getPreparedStatement(sql);
-			pstmt.setString(1, nid);
+			pstmt.setString(1, bid);
 			
 			pstmt.executeUpdate();
 			
@@ -92,7 +121,7 @@ public class BoardDAO extends DBConn {
 				str = "where bpart like '%공지사항%'";
 			}
 			
-			String sql ="select * from (select rownum rno, bid, btitle, to_char(bdate, 'yyyy.mm.dd') bdate, bhits " + 
+			String sql ="select * from (select rownum rno, bid, bpart, btitle, bcharge, to_char(bdate, 'yyyy.mm.dd') bdate, bhits " + 
 					" from (select * from one_board order by bdate desc)" + str + ") "
 					+ " where rno between ? and ?";
 			getPreparedStatement(sql);
@@ -104,9 +133,11 @@ public class BoardDAO extends DBConn {
 				BoardVO vo = new BoardVO();
 				vo.setRno(rs.getInt(1));
 				vo.setBid(rs.getString(2));
-				vo.setBtitle(rs.getString(3));
-				vo.setBdate(rs.getString(4));
-				vo.setBhits(rs.getInt(5));
+				vo.setBpart(rs.getString(3));
+				vo.setBtitle(rs.getString(4));
+				vo.setBcharge(rs.getString(5));
+				vo.setBdate(rs.getString(6));
+				vo.setBhits(rs.getInt(7));
 				
 				list.add(vo);
 			}
@@ -123,7 +154,7 @@ public class BoardDAO extends DBConn {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		
 		try {
-			String sql = "select rownum rno, bid, btitle, to_char(bdate, 'yyyy.mm.dd') bdate, bhits " + 
+			String sql = "select rownum rno, bid, bpart, btitle, bcharge, to_char(bdate, 'yyyy.mm.dd') bdate, bhits " + 
 					" from (select * from one_board order by bdate desc)";
 			getPreparedStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
@@ -131,9 +162,11 @@ public class BoardDAO extends DBConn {
 				BoardVO vo = new BoardVO();
 				vo.setRno(rs.getInt(1));
 				vo.setBid(rs.getString(2));
-				vo.setBtitle(rs.getString(3));
-				vo.setBdate(rs.getString(4));
-				vo.setBhits(rs.getInt(5));
+				vo.setBpart(rs.getString(3));
+				vo.setBtitle(rs.getString(4));
+				vo.setBcharge(rs.getString(5));
+				vo.setBdate(rs.getString(6));
+				vo.setBhits(rs.getInt(7));
 				
 				list.add(vo);
 			}

@@ -326,7 +326,7 @@
 				allCheckFunc(this);
 					});
 			});
-			$("[name=checkTerms").each(function(){
+			$("[name=checkTerms]").each(function(){
 				$(this).click(function(){
 					oneCheckFunc($(this));
 				});                

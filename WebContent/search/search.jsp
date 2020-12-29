@@ -7,6 +7,8 @@
 	sh_TutorDAO dao_tutor = new sh_TutorDAO();
 	sh_WishListDAO dao_wish = new sh_WishListDAO();
 	
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
+	
 	String cateMain= request.getParameter("cateMain");
 	String cateSub= request.getParameter("cateSub");
 	//1. 선택한 페이지값
@@ -85,13 +87,22 @@ $(document).ready(function(){
 
 		//location.href('이동페이지')';
 	});
+	
+	
 });	
 </script>
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
-
+	<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
 	<!-- content -->
 	<div class="content">
 

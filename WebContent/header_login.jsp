@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.one_day_class.vo.*"
+    %>
+<%
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -268,7 +273,7 @@
 		<div class="container"  >
 		 <div class="container hd_wrap">
 			<h1 class="logo">
-				<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
+				<a href="http://localhost:9000/One_day_class/index_login.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
 				<span></span>
 				<!-- <a href=""><img src="http://localhost:9000/One_day_class/images/menu.png" class="all"></a> -->
 			</h1>
@@ -329,8 +334,8 @@
 						</p>
 						<div class="profile_list_container" id="profile_list_container">
 							<ul class="profile_list">
-								<li><a href="">내 프로필</a></li>
-								<li><a href="">로그아웃</a></li>
+								<li><a href="http://localhost:9000/One_day_class/mypage/mypage.jsp">내 프로필</a></li>
+								<li><a href="http://localhost:9000/One_day_class/login/logout.jsp">로그아웃</a></li>
 							</ul>
 						</div>
 					</li>
