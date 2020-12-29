@@ -684,11 +684,7 @@
 			</div>
 		</div>
 		<div class="main-section3">
-			<div class="section-paging">
-				<div class="paging-page">
 					<div id="ampaginationsm"></div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
