@@ -108,30 +108,34 @@
 		font-weight: 600;
 	}
 </style>
-<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <script>
 	$(document).ready(function(){
-		$('#inp_sch').click(function() {
+		/* $('#inp_sch').click(function() {
 			$("#bar_true_list").css("display","block");
 		});
 		
 		$('#bar_true_list').mouseleave(function() {
 			$("#bar_true_list").css("display","none");
-		});
+		}); */
 		
-		// Ajax 검색하기 
-		function search_list(inp_sch, btn_sch) {
-			$.ajax({
-				url:"index_header_proc.jsp?inp_sch="+inp_sch+"&btn_sch="+btn_sch,
-				success:function(result){
-					alert(result);
-					var jdata = JSON.parse(result);
-					
-					//$(".ser")\
-				}
-			});
-		}
-		
+		/* //Ajax 호출
+		function search_list(inp_sch) {
+	      var url ="http://localhost:9000/One_day_class/search/search.jsp";
+	      var params = "inp_sch="+inp_sch;
+	      $.ajax({
+	         type:"GET", 
+	         url:url, 
+	         data:encodeURI(params), 
+	           success:function(result){
+	              alert(result);
+	              //var jdata = JSON.parse(result);
+	              
+	              //$(".ser")\
+	           }
+	        });
+	     }
+		*/
 		
 		$("#btn_sch").click(function(){
 			if($("#inp_sch").val() == "") {
@@ -141,11 +145,13 @@
 			} else {
 				var inp_sch = $("#inp_sch").val();
 				var btn_sch = $("#btn_sch").val();
+				$(location).attr('href',"http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="+inp_sch); 
 				
-				search_list(inp_sch, btn_sch)
 			}
-		});
+		}); 
 	});
+	
+	
 </script>
 </head>
 <body>

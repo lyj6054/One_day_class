@@ -9,20 +9,75 @@ import com.one_day_class.vo.ClassVO;
 public class ClassDAO extends DBConn{
 	
 	/**
-	 * index : MD 추천 클래스
+	 * index : 검색어
 	 */
-	public int indexRecommend(String video) {
-		int result = 0;
+	public ArrayList<ClassVO> SearchList(String inp_sch) {
+		ArrayList<ClassVO> search_list = new ArrayList<ClassVO>();
 		
 		try {
-			String sql = "select ";
+			getStatement();
+			String sql = "select cid, email, regionmain, catemain, catesub, price, picture, "
+					+ " schedule, title from one_class where title "
+					+ " like '%" +inp_sch+ "%' or catemain like '%" + inp_sch +"%' or catesub like '%" + inp_sch + "%'"; 
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				ClassVO vo = new ClassVO();
+				vo.setCid(rs.getString(1));
+				vo.setEmail(rs.getString(2));
+				vo.setRegionmain(rs.getString(3));
+				vo.setCatemain(rs.getString(4));
+				vo.setCatesub(rs.getString(5));
+				vo.setPrice(rs.getInt(6));
+				vo.setPicture(rs.getString(7));
+				vo.setSchedule(rs.getString(8));
+				vo.setTitle(rs.getString(9));
+				
+				
+				search_list.add(vo);
+				
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
+		return search_list;
+	}
+	
+	/**
+	 * index : MD 추천 클래스
+	 */
+	public ArrayList<ClassVO> indexRecommend() {
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		
-		return result;
+		try {
+			String sql = "select rownum cno, cid, email, picture, title, schedule, regionmain " + 
+					" from(select cid, email, picture, title, schedule, regionmain " + 
+					" from one_class" + 
+					" where videos IS NOT NULL " + 
+					" order by cdate desc) " + 
+					" where rownum between 1 and 4";
+			getPreparedStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ClassVO vo=new ClassVO();
+				vo.setCno(rs.getInt(1));
+				vo.setCid(rs.getString(2));
+				vo.setEmail(rs.getString(3));
+				vo.setPicture(rs.getString(4));
+				vo.setTitle(rs.getString(5));
+				vo.setSchedule(rs.getString(6));
+				vo.setRegionmain(rs.getString(7));
+				
+				list.add(vo);
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 	
 	

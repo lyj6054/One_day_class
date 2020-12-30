@@ -9,6 +9,13 @@
 	
 	SessionVO svo = (SessionVO)session.getAttribute("svo");
 	
+	// 검색어
+	String inp_sch = request.getParameter("inp_sch");
+	
+	ArrayList<ClassVO> search_list = new ArrayList<ClassVO>();
+	search_list = dao.SearchList(inp_sch);
+	System.out.println(search_list.size());
+	
 	String cateMain= request.getParameter("cateMain");
 	String cateSub= request.getParameter("cateSub");
 	//1. 선택한 페이지값
@@ -257,6 +264,44 @@ $(document).ready(function(){
 				</div>
 				<div class="cont2_box" id="top-space">
 					<div class="cont2">
+				<% if(inp_sch != null) { %>
+					<% for(ClassVO vo:search_list){ i++;String[] pic_array=vo.getPicture().split(",");sh_TutorVO vo_tutor = dao_tutor.getTutorInfo(vo.getCid());%>
+							<div class="cont2_class">
+								<a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid() %>"
+									target="_blank">
+									<div class="img"
+									
+										style="background-image:url(http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>);">
+										<div class="day">1DAY수업</div>
+										<div class="d_day"><%=dao_wish.getMywishListCnt(vo.getCid()) %>명 찜</div>
+										<!--a class="heart2"></a-->
+									</div>
+									<div class="profile_box">
+										<div class="profile"
+											style="background-image:url(http://localhost:9000/One_day_class/upload/<%=vo_tutor.getSprofile_img() %>);">
+										</div>
+										<div class="name"><%=vo_tutor.getName() %> 튜터</div>
+										<div class="nick">tutor</div>
+									</div>
+									<div class="title"><%=vo.getTitle() %></div>
+									<div class="price">
+										<div class="price2">
+											<span>￦<span><span><%=vo.getPrice() %> 원/시간<span>
+										</div>
+									</div>
+									<div class="info">
+										<div class="info2">
+											<div class="star">★★★★★</div>
+											<div class="review" style="margin-right: 15px;">(<%=dao_review.getReviewCnt(vo.getCid())%>)</div>
+	
+											<div class="location"><%=vo.getRegionmain() %></div>
+										</div>
+									</div>
+								</a>
+							</div>
+	
+					<%} %>
+				<% } else {%>
 				<% for(ClassVO vo:list){ i++;String[] pic_array=vo.getPicture().split(",");sh_TutorVO vo_tutor = dao_tutor.getTutorInfo(vo.getCid());%>
 						<div class="cont2_class">
 							<a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid() %>"
@@ -278,7 +323,7 @@ $(document).ready(function(){
 								<div class="title"><%=vo.getTitle() %></div>
 								<div class="price">
 									<div class="price2">
-										<span>￦<span><span><%=vo.getPrice() %><span>
+										<span>￦<span><span><%=vo.getPrice() %> 원/시간<span>
 									</div>
 								</div>
 								<div class="info">
@@ -292,6 +337,7 @@ $(document).ready(function(){
 							</a>
 						</div>
 
+					<%} %>
 				<%} %>
 					</div>
 				</div>

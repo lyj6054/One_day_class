@@ -19,14 +19,38 @@ public class TutorDAO extends DBConn {
 			pstmt.setString(1, email);
 			ResultSet rs = pstmt.executeQuery();
 			
-			if(rs.next()) vo.setProfile_img(rs.getString(1));
+			if(rs.next()) {
+				vo.setProfile_img(rs.getString(1));
+			}
 			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+
+	/* content : 수업 상세페이지에서 회원 이름, 프로필사진 출력 */
+	public TutorVO getTutorInfo(String cid) {
+		TutorVO vo = new TutorVO();
+		
+		try {
+			String sql = "select name, profile_img from one_tutor "
+					+ " where email=(select email from one_class where cid=?)";
+			getPreparedStatement(sql);
+			pstmt.setString(1, cid);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				vo.setName(rs.getString(1));
+				vo.setProfile_img(rs.getString(2));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		return vo;
 	}
+	
 	
 	/* mypage 튜터 정보 수정 */
 	public boolean getUpdate(TutorVO vo) {
