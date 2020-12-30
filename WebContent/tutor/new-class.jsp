@@ -3,12 +3,14 @@
     import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>
     
 <%
-		String cid = "C_5";
+		String cid = request.getParameter("cid");
+		if(cid == null) cid = "C_5";
+		/* String cid = "C_5"; */
 		String email ="alstndkrl@naver.com";
 		
     	ms_TutorclassDAO dao = new ms_TutorclassDAO();
 		ms_TutorclassVO vo = dao.getMyclass(cid);
-        ArrayList<ms_TutorclassVO> list = dao.getTutorList(email);
+        ArrayList<ms_TutorclassVO> list = dao.getTutorList(email,cid);
         ArrayList<ms_TutorclassVO> list1 = dao.getClassList(cid);
 		ArrayList<ms_TutorclassVO> list2= dao.getMyList(email);
 %>
@@ -22,6 +24,10 @@
 <script src="http://localhost:9000/One_day_class/js_minsu/jquery-3.5.1.min.js"></script>
 <script>
 	$(document).ready(function(){
+		 //해당 cid값에 맞는 select 값 세팅
+	      $("#selectbox").val("<%=cid%>");
+		
+		
 			//전체체크 선택
 		$("#all").change(function(){
 			if($(this).is(":checked")){
@@ -56,13 +62,14 @@
 		}
 	});	 	
 	
-	
+		
+	$("#selectbox").change(function(){
+		$(location).attr('href','http://localhost:9000/One_day_class/tutor/new-class.jsp?cid='+$(this).val()); 
+		/* $(this).attr('text','$("#selectbox").text()+$(this).val())'; */
+	});
 
 	
-	
-	
-	
-		
+	 
 });//ready
 	
 </script>
@@ -228,12 +235,6 @@
 		text-align:center;
 		overflow: auto;
 	}
-	.con2>ul,
-	.con2>form>ul {
-		width:660px;
-		margin-left:40px;
-		margin-bottom:5px;
-	}
 	.con2-1>.ul_title1 {
 		border-bottom:1px solid lightgray;
 		padding-bottom:5px;
@@ -312,6 +313,7 @@
 	    overflow: hidden;
 	    white-space: nowrap;
 	} 
+	
 </style>
 </head>
 <body>
@@ -324,7 +326,7 @@
 		<h1 class="tt">내 수업</h1>
 		<select name="title" class="title" id="selectbox">
 		<% for(ms_TutorclassVO vo3 : list2){ %>
-			<option id="selectbox1" value="<%=vo3.getTitle()%>?cid=<%=vo.getCid()%>"><%=vo3.getTitle()%></option>
+			<option id="selectbox1" value="<%=vo3.getCid()%>"><%=vo3.getTitle()%></option>
 		<%} %>
 		</select>
 		</div>
@@ -336,7 +338,6 @@
 			</div>
 			<div class="box">
 				<div class="box1">
-					<span class="red">심사중:완료 예정일 2020.11.23</span>
 					<h3><%=vo.getTitle()%></h3>
 				</div>
 				<div class="box2">
@@ -359,16 +360,22 @@
 				</ul>
 				<hr>
 			<form name="class_check" action="new_classProc.jsp" method="post" class="class_check">
-				<input type="hidden" name="classbtn" value="" id="classbtn">
-				<% for(ms_TutorclassVO vo2 : list1) { %>
+				<input type="hidden" name="classbtn" value="" id="classbtn" class="blind inp_label">
+				<% for(ms_TutorclassVO vo2 : list1) {  String i ="" ;
+				  if(vo2.getAstatus()!=0) {
+						i="신청수락";
+					}else{
+						i="대기중";
+					} 
+				%>
 				<ul>
-					<input type="checkbox" name="chk" class="blind inp_label" id="chk<%=vo2.getRno() %>" value="<%=vo.getCid()%>">
+					<input type="checkbox" name="chk" class="blind inp_label" id="chk<%=vo2.getRno() %>" value="<%=vo2.getEmail()%>"> <!-- 원래 cid값을 받아옴-->
 					<label for="chk<%=vo2.getRno() %>" class="inp_chkbox"></label>
 					<li class="ut1"><%=vo2.getRno() %></li>
 					<li class="ut2"><%=vo2.getName() %></li>
 					<li class="ut3"><%=vo2.getAschedule() %></li>
 					<li class="ut4"><%=vo2.getAperson() %></li>
-					<li class="ut5"><%=vo2.getAstatus() %></li>
+					<li class="ut5"><%=i%></li>
 				</ul>
 				<% } %>
 				</form>
@@ -389,20 +396,19 @@
 					<li class="ut2">이름</li>
 					<li class="ut3-1">일정</li>
 					<li class="ut4-1">리뷰내용</li>
-					<li class="ut5">작성날짜</li>
+					<li class="ut6">작성날짜</li>
 				</ul>
 				<%
 					for(ms_TutorclassVO vo1 : list) {
 				%>
-				<% if(vo1.getRcontent() != null) {%>
-				<ul>
+ 			<ul>
 					<li class="ut1"><%=vo1.getRno() %></li>
 					<li class="ut2"><%=vo1.getName() %></li>
-					<li class="ut3-1"><%=vo1.getAschedule() %></li>
+					<li class="ut3-1"><%=vo1.getSchedule() %></li>
 					<li class="ut4-1"><%=vo1.getRcontent() %></li>
-					<li class="ut5"><%=vo1.getRdate() %></li>
+					<li class="ut6"><%=vo1.getRdate() %></li>
 				</ul>
-				<% } %>
+			
 				<% } %>
 				 
 				
