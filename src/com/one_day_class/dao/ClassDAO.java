@@ -11,18 +11,36 @@ public class ClassDAO extends DBConn{
 	/**
 	 * index : MD 추천 클래스
 	 */
-	public int indexRecommend(String video) {
-		int result = 0;
+	public ArrayList<ClassVO> indexRecommend() {
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		
 		try {
-			String sql = "select ";
-			
+			String sql = "select rownum cno, cid, email, picture, title, schedule, regionmain " + 
+					" from(select cid, email, picture, title, schedule, regionmain " + 
+					" from one_class" + 
+					" where videos IS NOT NULL " + 
+					" order by cdate desc) " + 
+					" where rownum between 1 and 4";
+			getPreparedStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ClassVO vo=new ClassVO();
+				vo.setCno(rs.getInt(1));
+				vo.setCid(rs.getString(2));
+				vo.setEmail(rs.getString(3));
+				vo.setPicture(rs.getString(4));
+				vo.setTitle(rs.getString(5));
+				vo.setSchedule(rs.getString(6));
+				vo.setRegionmain(rs.getString(7));
+				
+				list.add(vo);
+				
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		
-		return result;
+		return list;
 	}
 	
 	

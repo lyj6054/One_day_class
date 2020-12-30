@@ -2,12 +2,27 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.*"
     %>
+<%
+	String email = request.getParameter("email");
+
+	
+	
+	ClassDAO dao = new ClassDAO();
+	sh_ReviewDAO dao_review = new sh_ReviewDAO();
+	TutorDAO dao_tutor = new TutorDAO();
+	
+	int i=0;
+	
+	ArrayList<ClassVO> list =new ArrayList<ClassVO>();
+	list = dao.indexRecommend(); 
+%> 
 <!DOCTYPE html> 
 <html>
 <head>
 <meta charset="UTF-8">
 <title>index</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
+<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <style>
 	*{
 		box-sizing: border-box;
@@ -517,33 +532,61 @@
 	    margin-top: -10px;
 	}
 </style>
-<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
+
 <script>
-	$(document).ready(function(){
-		$('.btn_category').click(function() {
-			$("#all_category").addClass("on");
-		});
-		
-		$('.btn_close').click(function() {
-			$("#all_category").removeClass("on");
-		});
+$(document).ready(function(){
+	
+	$('.btn_category').click(function() {
+		$("#all_category").addClass("on");
 	});
-	function addWish(obj){
-		var $this = $(obj);
-		var on = $this.hasClass('on');
-		
-		$this.addClass('on');
-		alert('위시리스트에 등록 되었습니다');
-		$this.attr('onclick',"deleteWish(this)");
-	}
-	function deleteWish(obj){
-		var $this = $(obj);
-		var on = $this.hasClass('on');
-		
-		$this.removeClass('on');
-		alert('위시리스트에 삭제 되었습니다');
-		$this.attr('onclick',"addWish(this)");
-	}
+	
+	$('.btn_close').click(function() {
+		$("#all_category").removeClass("on");
+	});
+	 $("#btn_wish").click(function(){
+		 var cid = $(this).attr("class");
+		 $("li."+cid).addClass('on');
+		 alert("위시리스트에 등록되었습니다");
+		 $("li."+cid).attr()
+		 
+	 });
+});
+/* function addWish(obj){
+	var $(this) = $(obj);
+	var on = $this.hasClass('on');
+	
+	$this.addClass('on');
+	alert('위시리스트에 등록 되었습니다');
+	$this.attr('onclick',"deleteWish(this)");
+}
+function deleteWish(obj){
+	var $(this) = $(obj);
+	var on = $this.hasClass('on');
+	
+	$this.removeClass('on');
+	alert('위시리스트에 삭제 되었습니다');
+	$this.attr('onclick',"addWish(this)");
+}
+function addWish(obj,cid){
+	alert("aaa");
+	var $(this) = $(obj);
+	var on = $this.hasClass('on');
+	
+	$(this).addClass('on');
+	alert('위시리스트에 등록 되었습니다');
+	$(this).attr('onclick',"deleteWish(this)"); 
+}
+function deleteWish(obj,cid){
+	alert("aaa");
+	 var $(this) = $(obj);
+	var on = $this.hasClass('on');
+	
+	$(this).removeClass('on');
+	alert('위시리스트에 삭제 되었습니다');
+	$(this).attr('onclick',"addWish(this)");
+}
+ */
+
 </script>
 </head>
 <body>
@@ -733,7 +776,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -755,7 +798,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -777,7 +820,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -799,7 +842,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
@@ -830,7 +873,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -852,7 +895,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -874,7 +917,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										    <li class="swiper-slide swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -896,7 +939,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -918,7 +961,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
@@ -949,7 +992,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -971,7 +1014,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -993,7 +1036,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1015,7 +1058,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" ></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1048,116 +1091,44 @@
 									<h2 class="main_title">MD 추천 클래스</h2>
 									<div class="talent_list swiper-container swiper2">
 										<ul class="swiper-wrapper">
+										<% for(ClassVO vo : list) {
+											i++;
+											String[] pic_array=vo.getPicture().split(",");
+											
+											TutorVO vo_tutor = dao_tutor.getTutorInfo(vo.getCid());
+											String date = vo.getSchedule();
+											int day_idx = date.indexOf("일");
+											String day = "";
+											if(day_idx>0) {
+												//day=date.substring(day_idx-6, day_idx+1);
+											} else {
+												day="협의 후 날짜 시간 결정";
+											}
+
+										%>
 											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
+										        <a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid()%>">
+										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>');">
 										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
+										            <h3 class="talent_title"><%= vo.getTitle() %></h3>
 										            <div class="talent_info">					    
 										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/upload/<%=vo_tutor.getProfile_img()%>">
 										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
+										            	<span class="name"><%= vo_tutor.getName() %></span>						
+										            	<span class="d_day"><%= day %> </span>						
+										            	<span class="location"><%= vo.getRegionmain() %></span>	
 										            	<span class="review">
 								                            <span class="star_img">
 								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
 								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
+								                            <span class="grade_total"><%= dao_review.getReviewScore(vo.getCid()) %><span>(<%=dao_review.getReviewCnt(vo.getCid()) %>)</span></span>
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										        <button type="button" class="<%= vo.getCid()%>" id="btn_wish"></button>
 										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
-										    </li>
+										<% } %>
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
 										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
@@ -1281,7 +1252,7 @@
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
-      });
+    });
   </script>
 	</main>
 
