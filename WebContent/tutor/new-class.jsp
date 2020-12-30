@@ -3,14 +3,17 @@
     import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>
     
 <%
-		String cid = "C_5";
-		String email ="test@naver.com";
+		String cid = request.getParameter("cid");
+		if(cid == null) cid = "C_5";
 		
+		String email ="alstndkrl@naver.com";
     	ms_TutorclassDAO dao = new ms_TutorclassDAO();
 		ms_TutorclassVO vo = dao.getMyclass(cid);
-        ArrayList<ms_TutorclassVO> list = dao.getTutorList(email);
+		ArrayList<ms_TutorclassVO> list = dao.getTutorList(email,cid);
         ArrayList<ms_TutorclassVO> list1 = dao.getClassList(cid);
 		ArrayList<ms_TutorclassVO> list2= dao.getMyList(email);
+		int j=0;
+	
 %>
 
 
@@ -52,11 +55,8 @@
 	$("#simsa").click(function(){
 		var choice = $(this).attr("name");
 		if(choice == "simsa"){
-			alert("심사를 취소 했습니다.");
-			$("#simsa").attr("name","simsa1");
-		}else{
-			alert("심사 신청을 했습니다.");
-			$("#simsa").attr("name","simsa");
+			alert("수업을 취소 하시겠습니까?");
+			
 		}
 	});	 	
 	
@@ -66,6 +66,13 @@
 		/* $(this).attr('text','$("#selectbox").text()+$(this).val())'; */
 	});
 
+	
+	$("#selectbox").change(function(){
+		$("$cid_1").text()
+		
+		
+	});
+	
 	
 	 
 });//ready
@@ -316,6 +323,7 @@
 </head>
 <body>
 	
+	
 	<div class="new_class">
 	<!--header -->
 	<jsp:include page="../header.jsp" />
@@ -339,11 +347,12 @@
 					<h3><%=vo.getTitle()%></h3>
 				</div>
 				<div class="box2">
-					<button class="btn1" id="simsa" name="simsa"><span>심사 취소하기</span></button>
-					<a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp?cid=<%=vo.getCid()%>"><button class="btn1"><span>수업 수정하기</span></button></a>
+					<a href="http://localhost:9000/One_day_class/tutor/new_classDeleteProc.jsp?cid=<%=vo.getCid()%>"><button class="btn1" id="simsa" name="simsa"><span>수업 취소</span></button></a>
+					<a href="http://localhost:9000/One_day_class/tutor/class_update.jsp?cid=<%=vo.getCid()%>"><button class="btn1"><span>수업 수정</span></button></a>
 				</div>
 			</div>
 		</div>
+		
 		<div class="container3">
 			<h3 class="tt2">신청 현황</h3>
 			<div class="con2">
@@ -357,15 +366,17 @@
 					<li class="ut5">상태</li>
 				</ul>
 				<hr>
-			<form name="class_check" action="new_classProc.jsp" method="post" class="class_check">
+			<form name="class_check" action="new_classProc.jsp" method="get" class="class_check">
+			<input type="hidden" name="cid1" value="<%=cid%>">
 				<input type="hidden" name="classbtn" value="" id="classbtn" class="blind inp_label">
-				<% for(ms_TutorclassVO vo2 : list1) {  String i ="" ;
+				<% for(ms_TutorclassVO vo2 : list1) { j++;  String  i ="" ;
 				  if(vo2.getAstatus()!=0) {
 						i="신청수락";
 					}else{
 						i="대기중";
 					} 
 				%>
+				
 				<ul>
 					<input type="checkbox" name="chk" class="blind inp_label" id="chk<%=vo2.getRno() %>" value="<%=vo2.getEmail()%>"> <!-- 원래 cid값을 받아옴-->
 					<label for="chk<%=vo2.getRno() %>" class="inp_chkbox"></label>
@@ -376,6 +387,7 @@
 					<li class="ut5"><%=i%></li>
 				</ul>
 				<% } %>
+				<input type="hidden" name="idx" value="<%=j %>">
 				</form>
 			</div>
 			<div class="con2_btn">
@@ -394,7 +406,7 @@
 					<li class="ut2">이름</li>
 					<li class="ut3-1">일정</li>
 					<li class="ut4-1">리뷰내용</li>
-					<li class="ut6">작성날짜</li>
+					<li class="ut5">작성날짜</li>
 				</ul>
 				<%
 					for(ms_TutorclassVO vo1 : list) {
@@ -404,7 +416,7 @@
 					<li class="ut2"><%=vo1.getName() %></li>
 					<li class="ut3-1"><%=vo1.getSchedule() %></li>
 					<li class="ut4-1"><%=vo1.getRcontent() %></li>
-					<li class="ut6"><%=vo1.getRdate() %></li>
+					<li class="ut5"><%=vo1.getRdate() %></li>
 				</ul>
 			
 				<% } %>

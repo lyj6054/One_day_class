@@ -4,21 +4,26 @@
     
 <% 
 	
+	
+	String cid = request.getParameter("cid1");
 	String classbtn=request.getParameter("classbtn");
 	System.out.println(classbtn);
-	String[ ] cids=request.getParameterValues("chk");
+	String[ ] emails=request.getParameterValues("chk");
 	ms_TutorclassDAO dao= new ms_TutorclassDAO();
+	 
 	if(classbtn.equals("true")){
-		/* System.out.println(classbtn); */
-		for(String cid:cids){
-			dao.updateStatus1(cid,email);
+		for(String email:emails){
+			 System.out.println(cid);
+			 System.out.println(email);
+			 dao.updateStatus1(cid,email); 
 		}
-		response.sendRedirect("new-class.jsp"); 
+		 response.sendRedirect("new-class.jsp");  
 	}else if(classbtn.equals("fail")){
-		/* System.out.println(classbtn); */
-		for(String cid:cids){
-			dao.updateStatus2(cid,eamil);
+		for(String email:emails){
+			 System.out.println(cid);
+			 System.out.println(email);
+			 dao.updateStatus2(cid,email); 
 		}
-		response.sendRedirect("new-class.jsp"); 
-	}
+		 response.sendRedirect("new-class.jsp"); 
+	} 
 %> 
