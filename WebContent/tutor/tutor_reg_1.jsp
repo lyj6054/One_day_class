@@ -18,7 +18,7 @@
 	<div class="content">
 		<form method="post"  action="reg1Proc.jsp" name="tutor_reg_form1" id="frm-register-detail"
 			enctype="multipart/form-data">
-			<input type="hidden" id="email" name="email" value="test123@naver.com"> 
+			<input type="hidden" id="email" name="email" value="test8@naver.com"> 
 			<!-- <input type="hidden" id="targetId" name="targetId" value=""> 
 			<input type="hidden" id="CoverImageUrl" name="CoverImageUrl" value=""> -->
 			<div id="popup_notice" class="tutor_cont" style="display: none;">

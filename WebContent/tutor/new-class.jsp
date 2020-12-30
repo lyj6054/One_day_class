@@ -4,7 +4,7 @@
     
 <%
 		String cid = "C_5";
-		String email ="alstndkrl@naver.com";
+		String email ="test@naver.com";
 		
     	ms_TutorclassDAO dao = new ms_TutorclassDAO();
 		ms_TutorclassVO vo = dao.getMyclass(cid);
