@@ -1513,3 +1513,18 @@
 	height:130px;
 	text-align:center;
 	}
+	#form_button_div{
+	text-align:right;
+	}
+	#form_button_div button{
+	   background-color: #fff;
+	    padding: 8px 40px;
+	    color: #ff005a;
+	    border-color: #ff005a;
+	    border-radius: 5px;
+	}
+	
+	#form_button_div button:hover {
+	    border-color: #2916f3;
+	    color: #2916f3;
+	}

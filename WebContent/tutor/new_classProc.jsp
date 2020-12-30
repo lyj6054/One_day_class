@@ -8,6 +8,7 @@
 	System.out.println(classbtn);
 	String[ ] cids=request.getParameterValues("chk");
 	ms_TutorclassDAO dao= new ms_TutorclassDAO();
+	System.out.println(cids.length);
 	if(classbtn.equals("true")){
 		/* System.out.println(classbtn); */
 		for(String cid:cids){
