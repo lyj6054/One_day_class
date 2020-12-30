@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+	import="com.one_day_class.vo.*"%>
+<%
+	SessionVO svo=(SessionVO)session.getAttribute("svo");
+	
+	//svo 객체가 !=null    >> 로그인 성공!!
+	//svo 객체가 ==nul이면  >> 로그인 실패!
+%>
+<%if(svo != null){  if(svo.getIdentity().equals("튜터")){String email = svo.getEmail();%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +20,20 @@
 </head>
 <body>
 	<!--  header  -->
-	<jsp:include page="../header.jsp" />
-
+			<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
 	<!--  content  -->
 	<div class="content">
 		<form method="post"  action="reg1Proc.jsp" name="tutor_reg_form1" id="frm-register-detail"
 			enctype="multipart/form-data">
-			<input type="hidden" id="email" name="email" value="test1123@naver.com"> 
+			<input type="hidden" id="email" name="email" value="<%=email%>"> 
 			<!-- <input type="hidden" id="targetId" name="targetId" value=""> 
 			<input type="hidden" id="CoverImageUrl" name="CoverImageUrl" value=""> -->
 			<div id="popup_notice" class="tutor_cont" style="display: none;">
@@ -722,3 +737,8 @@
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>
+<%}}else{%>
+<script>
+	alert(" 튜터로 로그인을 진행하셔야 접근이 가능합니다.");
+</script>
+<%response.sendRedirect("../index.jsp");}%>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
 <%
-	String email = "test2123@naver.com";
+	String email = "test@naver.com";
 	//String email = request.getParameter("email");
 	
 	sh_TutorDAO dao_tutor = new sh_TutorDAO();
@@ -22,6 +22,15 @@
 <meta charset="UTF-8">
 <title>myclassForm</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
+<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("button").click(function(){
+			$("#cid").val($(this).attr("name"));
+			myclassform.submit();
+		});
+	});
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -33,6 +42,9 @@
 			<h1>나의 수업신청서</h1>
 		</div>
 		<div class="myclass">
+			<form method="post"  action="myclassformProc.jsp" name="myclassform"  >
+			<input type="hidden" name="email" value="<%=email %>" id="email">
+			<input type="hidden" name="cid" value="" id="cid">
 			<% if(list_applyClass.size() != 0){ %>
 			<% for(int i = 0; i < list_applyClass.size(); i++){ %>
 			<div class="class" style="width:calc(50% - 19px); float: left; cursor: pointer;" onclick="location.href='../class/class.jsp?cid=<%=list_class.get(i).getCid()%>'">
@@ -53,6 +65,7 @@
                     <div class="status">
                     	신청 수락 대기중
                     </div>
+                    <div id="form_button_div"><button type="button" name="<%=list_applyClass.get(i).getCid()%>"id="cancel_button" onclick="if(event.stopPropagation){event.stopPropagation();}event.cancelBubble=true;"> 신청 취소하기</button></div>
 				</div>
 			</div>
 			<% } %>
@@ -60,6 +73,7 @@
 			수강 중인 재능이 없습니다					
 			<div style="padding-top:100px"></div>
 			<% } %>
+			</form>
 		</div>
 	</div>
 

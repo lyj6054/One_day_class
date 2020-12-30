@@ -2,11 +2,15 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
 <%
+	SessionVO svo=(SessionVO)session.getAttribute("svo");
 	String cid = request.getParameter("cid");
 	//String cid = "C_5";
-	
-	String email = "test@naver.com";
-	//String email = request.getParameter("email");
+	String email="";
+	if(svo!=null){
+		email = svo.getEmail();
+	}else{
+		email = "guest";
+	}
 	
 	sh_ClassDAO dao_class = new sh_ClassDAO();
 	sh_ClassVO vo_class = dao_class.getClassContent(cid);
@@ -61,9 +65,9 @@
 	ArrayList<sh_TuteeVO> list_tutee = dao_tutee.getReviewContent(cid, start, end);
 	
 	sh_WishListDAO dao_wishList = new sh_WishListDAO();
+	
 	int wishCheck = dao_wishList.getWishCheck(cid, email);
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,7 +105,15 @@
 </head>
 <body>
 	<!--header -->
-	<jsp:include page="../header.jsp" />
+	<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
 	<div class="nav">
 		<ul>
 			<li class="active" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
@@ -133,7 +145,7 @@
 				<% } else { %>
 				<button class="on" type="button" name="add" id="wish_remove_btn"></button>
 				<% } %>
-				<% if(email != null) {%>
+				<% if(email != null && !email.equals("guest")) {%>
 				<a href="class_apply.jsp?cid=<%= cid%>&email=<%= email%>">
 					<img src="http://localhost:9000/One_day_class/images/dance-btn.png">
 				</a>

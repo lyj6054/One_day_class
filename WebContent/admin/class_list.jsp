@@ -555,6 +555,10 @@
 		
 	});
 	
+	function getselectbox(){
+		 document.getElementById("cid_1").value()=document.getElementById("selectbox").value();
+	}
+	
 	function allCheck() { 
 		var all = document.getElementById("checkAll");
 		/* var chk = document.getElementById("check1");
