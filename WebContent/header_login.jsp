@@ -235,13 +235,13 @@
 		display:none;
 		position: absolute;
 	    right: 5px;
-	    z-index: 60;
+	    z-index: 2;
 	    margin-top: 5px;
 	}
 	.profile_list_container.act {
 		display:block;
 		position: absolute;
-		z-index: 2;
+		z-index: 1;
 		width: 100px;
 		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.04);
 	}
@@ -267,6 +267,23 @@
 		position: absolute;
 	}
 </style>
+<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#btn_sch").click(function(){
+		if($("#inp_sch").val() == "") {
+			alert("검색할 데이터를 입력해주세요");
+			$("#inp_sch").focus();
+			return false;
+		} else {
+			var inp_sch = $("#inp_sch").val();
+			var btn_sch = $("#btn_sch").val();
+			$(location).attr('href',"http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="+inp_sch); 
+			
+		}
+	}); 
+});
+</script>
 </head>
 <body>
 	<header>
@@ -279,13 +296,11 @@
 			</h1>
 				<div class="hd_bar">
 					<div class="hd_search_box">
-						<form name="search" action="#" method="get">
 							<fieldset>
 								<input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
-										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox" onclick="search_list()" onblur="search_end()">
-								<button class=search_btn type="submit"></button>
+										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox" id="inp_sch" >
+								<button class=search_btn type="submit" id="btn_sch"></button>
 							</fieldset>
-						</form>			
 					</div> <!-- hd_search_box -->
 							<div class="Search_Container" id="bar_true_list" >
 								<div class="Search_Container_Header" id="bar_true_text">

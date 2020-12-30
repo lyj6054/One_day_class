@@ -83,9 +83,9 @@
 	    width: calc(100% - 30px);
 	    height: 25px;
 	    border: none;
-	    background-color: transparent;
+	    background-color:white;
 	}
-	.hd_search_box .search_btn {
+	.hd_search_box .btn_sch {
 	    float: right;
 	    width: 30px;
 	    height: 20px;
@@ -263,6 +263,24 @@
 		position: absolute;
 	}
 </style>
+<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	$("#btn_sch").click(function(){
+		if($("#inp_sch").val() == "") {
+			alert("검색할 데이터를 입력해주세요");
+			$("#inp_sch").focus();
+			return false;
+		} else {
+			var inp_sch = $("#inp_sch").val();
+			var btn_sch = $("#btn_sch").val();
+			$(location).attr('href',"http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="+inp_sch); 
+			
+		}
+	}); 
+});
+</script>
 </head>
 <body>
 	<header>
@@ -275,14 +293,11 @@
 			</h1>
 				<div class="hd_bar">
 					<div class="hd_search_box">
-						<form name="search" action="#" method="get">
 							<fieldset>
-								<input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
-										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox" onclick="search_list()" onblur="search_end()">
-								<button class=search_btn type="submit"></button>
+								<input type="text" class="inp_sch" name="inp_sch" id="inp_sch" placeholder="배우고 싶은 재능이나 튜터를 검색해보세요."
+								style="width:260px; height:20px; border:none;"><button class="btn_sch" id="btn_sch"></button>
 							</fieldset>
-						</form>			
-					</div> <!-- hd_search_box -->
+					</div>
 							<div class="Search_Container" id="bar_true_list" >
 								<div class="Search_Container_Header" id="bar_true_text">
 									<h3 class="Search_Container_HeaderText">인기 검색어</h3>

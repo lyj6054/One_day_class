@@ -9,6 +9,43 @@ import com.one_day_class.vo.ClassVO;
 public class ClassDAO extends DBConn{
 	
 	/**
+	 * index : 검색어
+	 */
+	public ArrayList<ClassVO> SearchList(String inp_sch) {
+		ArrayList<ClassVO> search_list = new ArrayList<ClassVO>();
+		
+		try {
+			getStatement();
+			String sql = "select cid, email, regionmain, catemain, catesub, price, picture, "
+					+ " schedule, title from one_class where title "
+					+ " like '%" +inp_sch+ "%' or catemain like '%" + inp_sch +"%' or catesub like '%" + inp_sch + "%'"; 
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				ClassVO vo = new ClassVO();
+				vo.setCid(rs.getString(1));
+				vo.setEmail(rs.getString(2));
+				vo.setRegionmain(rs.getString(3));
+				vo.setCatemain(rs.getString(4));
+				vo.setCatesub(rs.getString(5));
+				vo.setPrice(rs.getInt(6));
+				vo.setPicture(rs.getString(7));
+				vo.setSchedule(rs.getString(8));
+				vo.setTitle(rs.getString(9));
+				
+				
+				search_list.add(vo);
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return search_list;
+	}
+	
+	/**
 	 * index : MD 추천 클래스
 	 */
 	public ArrayList<ClassVO> indexRecommend() {

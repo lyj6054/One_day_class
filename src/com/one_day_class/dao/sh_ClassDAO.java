@@ -8,7 +8,7 @@ import com.one_day_class.vo.sh_ClassVO;
 public class sh_ClassDAO extends DBConn {
 	
 	/* 검색 기능 */
-	public ArrayList<sh_ClassVO> getSearchList(String inp_sch, String btn_sch) {
+	public ArrayList<sh_ClassVO> getSearchList(String inp_sch) {
 		
 		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
 		
@@ -16,7 +16,6 @@ public class sh_ClassDAO extends DBConn {
 			
 			String sql = "select catemain, catesub, title "
 					+ " from (select * from one_class order by cdate desc) ";
-			System.out.println(sql);
 			getStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
