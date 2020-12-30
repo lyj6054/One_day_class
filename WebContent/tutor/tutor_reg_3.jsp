@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-   <% String cid= request.getParameter("cid"); %>
+   pageEncoding="UTF-8"
+   import="com.one_day_class.vo.*"%>
+<%
+	SessionVO svo=(SessionVO)session.getAttribute("svo");
+	
+	//svo 객체가 !=null    >> 로그인 성공!!
+	//svo 객체가 ==nul이면  >> 로그인 실패!
+%>
+<% String cid= request.getParameter("cid"); %>
+<%if(svo != null){  if(svo.getIdentity().equals("튜터")){String email = svo.getEmail();%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +21,15 @@
 </head>
 <body>
    <!--  header  -->
-   <jsp:include page="../header.jsp" />
-
+   		<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
    <!--  content  -->
    <div class="content">
       <form name="tutor_reg_form3" method="POST"  action="reg3Proc.jsp" id="frm-register-detail" >
@@ -448,3 +463,8 @@ $(document).ready(function(){
    <jsp:include page="../footer.jsp" />
 </body>
 </html>
+<%}}else{%>
+<script>
+	alert(" 튜터로 로그인을 진행하셔야 접근이 가능합니다.");
+</script>
+<%response.sendRedirect("../index.jsp");}%>
