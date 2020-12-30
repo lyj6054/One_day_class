@@ -3,14 +3,12 @@
     import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>
     
 <%
-		String cid = request.getParameter("cid");
-		if(cid == null) cid = "C_5";
-		/* String cid = "C_5"; */
-		String email ="alstndkrl@naver.com";
+		String cid = "C_5";
+		String email ="test@naver.com";
 		
     	ms_TutorclassDAO dao = new ms_TutorclassDAO();
 		ms_TutorclassVO vo = dao.getMyclass(cid);
-        ArrayList<ms_TutorclassVO> list = dao.getTutorList(email,cid);
+        ArrayList<ms_TutorclassVO> list = dao.getTutorList(email);
         ArrayList<ms_TutorclassVO> list1 = dao.getClassList(cid);
 		ArrayList<ms_TutorclassVO> list2= dao.getMyList(email);
 %>

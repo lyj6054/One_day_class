@@ -298,6 +298,58 @@ public class ClassDAO extends DBConn{
 		return list;
 	}
 	
+	/*인덱스 페이지에 평점 높은 순서로 상위 8개 가져오기*/
+	public ArrayList<ClassVO> getIndexList4(){
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		try {
+			String sql = " select cid ,catemain from one_class where cid in (select cid from(select rownum ,cid ,starpoint from(select cid ,avg(rservice)starpoint from one_review  group by cid)where rownum between 1 and 8 order by starpoint desc))";
+			getPreparedStatement(sql);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()){
+				ClassVO vo=new ClassVO();
+				vo.setCid(rs.getString(1));
+				vo.setCatemain(rs.getString(2));
+				
+				list.add(vo);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	/**
+	 * 튜티들이 많이 찾는 수업 리스트- 영재
+	 */
+	public ArrayList<ClassVO> getIndexList3(){
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		try {
+			String sql = "select cid,email,title,regionmain,schedule,spicture from one_class where cid in (select cid from(select rownum , cid, count1 from(select cid ,count(*) count1 from one_apply_class group by cid order by count1 desc,sysdate desc)where rownum between 1 and 4))";
+			getPreparedStatement(sql);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()){
+				ClassVO vo=new ClassVO();
+				vo.setCid(rs.getString(1));
+				vo.setEmail(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setRegionmain(rs.getString(4));
+				vo.setSchedule(rs.getString(5));
+				vo.setSpicture(rs.getString(6));
+				
+				list.add(vo);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	/**
 	 *  수업리스트 가져오기- 영재
 	 */
