@@ -2,17 +2,21 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*, com.one_day_class.vo.*"%>
 <%
-	String email = "sk231@nate.com";
-	//String email = "zxcvd12@naver.com";
-	//String email = request.getParameter("email");
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
+	String email = svo.getEmail();
 	
-	sh_TuteeDAO dao_tutee = new sh_TuteeDAO();
-	sh_TuteeVO vo_tutee = dao_tutee.getTuteeContent(email);
+	TuteeDAO dao_tutee = new TuteeDAO();
+	TuteeVO vo_tutee = dao_tutee.getTuteeContent(email); 
 	
-	sh_TutorDAO dao_tutor = new sh_TutorDAO();
-	sh_TutorVO vo_tutor = dao_tutor.getTutorContent(email);
-%>
-    
+	TutorDAO dao_tutor = new TutorDAO();
+	TutorVO vo_tutor = dao_tutor.getTutorContent(email); 
+
+		System.out.println(svo.getEmail());
+		System.out.println(svo.getIdentity());
+		
+	if(svo != null) {
+
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,138 +61,144 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
 
 	<!-- content -->
 	<div class="c_container">
 		<form action="mypageProc.jsp" method="POST" id="pf_edit" enctype="multipart/form-data">
 			<!-- 튜터일때 -->
-			<% if(vo_tutor.getName() != null){ %> 
-			<input type="hidden" name="email" value="<%=email%>">
-			<input type="hidden" name="type" value="1">
-			<div class="title">
-				<h1>내 프로필</h1>
-			</div>
-			<div class="profile">
-				<div class="p_info" style="padding-top: 0;">
-					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload/<%= vo_tutor.getSprofile_img()%>)" id="profile_image">
-						<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
-						<input type="file" id="p_picture" name="profile_img">
+			<% if(svo.getIdentity().equals("튜터")) { %>
+					<input type="hidden" name="email" value="<%=email%>">
+					<input type="hidden" name="type" value="1">
+					<div class="title">
+						<h1>내 프로필</h1>
 					</div>
-				</div>
-				<div class="p_info">
-					<div class="p_label">ID</div>
-					<div class="p_contents"><%= vo_tutor.getEmail()%></div>
-				</div>
-				<div class="p_info">
-					<div class="p_label">비밀번호</div>
-					<div class="p_passedit">
-						<a href="http://localhost:9000/One_day_class/mypassedit/mypassedit.jsp?email=<%= email %>&type=1" class="pass_edit" style="padding: 11px 18px;">비밀번호 변경하기
-						</a>
-                </div>
-				</div>
-				<div class="p_info">
-					<div class="p_label">전화번호</div>
-					<input type="text" id="phone" class="full" name="phone" value="<%= vo_tutor.getPhone()%>">
-				</div>
-				<div class="p_info">
-					<div class="p_label">이름</div>
-					<input type="text" id="name" class="full" name="name" value="<%= vo_tutor.getName()%>">
-				</div>
-				<div class="p_info">
-					<div class="p_label">나이</div>
-					<input type="text" id="age" class="full" name="age" value="<%= vo_tutor.getAge()%>">
-				</div>
-				<div class="p_info">
-					<div class="p_label">거주지역</div>
-					<input type="text" id="area" class="full" name="area" value="<%= vo_tutor.getArea()%>">
-				</div>
-				<div class="p_info">
-					<div class="p_label">내소개</div>
-					<div class="p_contents">
-						<% if(vo_tutor.getPr() != null){ %>
-						<textarea class="introduction" id="introduction" name="pr"><%= vo_tutor.getPr()%></textarea>
-						<% } else { %>
-						<textarea class="introduction" id="introduction" name="pr"></textarea>
-						<% } %>
-						<div class="count_char">
-							<% if(vo_tutor.getPr() != null){ %>
-							<font id="introduction_count"><%= vo_tutor.getPr().length() %></font>/300
-							<% } else { %>
-							<font id="introduction_count">0</font>/300
-							<% } %>
-							
+					<div class="profile">
+						<div class="p_info" style="padding-top: 0;">
+							<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload/<%= vo_tutor.getSprofile_img()%>)" id="profile_image">
+								<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
+								<input type="file" id="p_picture" name="profile_img">
+							</div>
 						</div>
+						<div class="p_info">
+							<div class="p_label">ID</div>
+							<div class="p_contents"><%= vo_tutor.getEmail()%></div>
+						</div>
+						<div class="p_info">
+							<div class="p_label">비밀번호</div>
+							<div class="p_passedit">
+								<a href="http://localhost:9000/One_day_class/mypassedit/mypassedit.jsp?email=<%= email %>&type=1" class="pass_edit" style="padding: 11px 18px;">비밀번호 변경하기
+								</a>
+		                </div>
+						</div>
+						<div class="p_info">
+							<div class="p_label">전화번호</div>
+							<input type="text" id="phone" class="full" name="phone" value="<%= vo_tutor.getPhone()%>">
+						</div>
+						<div class="p_info">
+							<div class="p_label">이름</div>
+							<input type="text" id="name" class="full" name="name" value="<%= vo_tutor.getName()%>">
+						</div>
+						<div class="p_info">
+							<div class="p_label">나이</div>
+							<input type="text" id="age" class="full" name="age" value="<%= vo_tutor.getAge()%>">
+						</div>
+						<div class="p_info">
+							<div class="p_label">거주지역</div>
+							<input type="text" id="area" class="full" name="area" value="<%= vo_tutor.getArea()%>">
+						</div>
+						<div class="p_info">
+							<div class="p_label">내소개</div>
+							<div class="p_contents">
+								<% if(vo_tutor.getPr() != null){ %>
+								<textarea class="introduction" id="introduction" name="pr"><%= vo_tutor.getPr()%></textarea>
+								<% } else { %>
+								<textarea class="introduction" id="introduction" name="pr"></textarea>
+								<% } %>
+								<div class="count_char">
+									<% if(vo_tutor.getPr() != null){ %>
+									<font id="introduction_count"><%= vo_tutor.getPr().length() %></font>/300
+									<% } else { %>
+									<font id="introduction_count">0</font>/300
+									<% } %>
+									
+								</div>
+							</div>
+						</div>
+						<a href="http://localhost:9000/One_day_class/myleave/myleave.jsp?email=<%= email %>&type=1" class="member_leave">회원 탈퇴하기</a>
+						<div class="pink_submit" id="regInfo">저장하기</div>
+						<div style="padding-top:200px"></div>
 					</div>
-				</div>
-				<a href="http://localhost:9000/One_day_class/myleave/myleave.jsp?email=<%= email %>&type=1" class="member_leave">회원 탈퇴하기</a>
-				<div class="pink_submit" id="regInfo">저장하기</div>
-				<div style="padding-top:200px"></div>
-			</div>
 			<!-- 튜티일때 -->
-			<% } else {%>
-			<input type="hidden" name="email" value="<%=email%>">
-			<input type="hidden" name="type" value="2">
-			<div class="title">
-				<h1>내 프로필</h1>
-			</div>
-			<div class="profile">
-				<div class="p_info" style="padding-top: 0;">
-					<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload/<%= vo_tutee.getSprofile_img()%>)" id="profile_image">
-						<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
-						<input type="file" id="p_picture" name="profile_img">
-					</div>
+			<% } else { %>
+				<input type="hidden" name="email" value="<%=email%>">
+				<input type="hidden" name="type" value="2">
+				<div class="title">
+					<h1>내 프로필</h1>
 				</div>
-				<div class="p_info">
-					<div class="p_label">ID</div>
-					<div class="p_contents"><%= vo_tutee.getEmail()%></div>
-				</div>
-				<div class="p_info">
-					<div class="p_label">비밀번호</div>
-					<div class="p_passedit">
-						<a href="http://localhost:9000/One_day_class/mypassedit/mypassedit.jsp?email=<%= email %>&type=2" class="pass_edit" style="padding: 11px 18px;">비밀번호 변경하기
-						</a>
-                </div>
-				</div>
-				<div class="p_info">
-					<div class="p_label">전화번호</div>
-					<input type="text" id="phone" class="full" name="phone" value="<%= vo_tutee.getPhone()%>">
-				</div>
-				<div class="p_info">
-					<div class="p_label">이름</div>
-					<input type="text" id="name" class="full" name="name" value="<%= vo_tutee.getName()%>">
-				</div>
-				<div class="p_info">
-					<div class="p_label">나이</div>
-					<input type="text" id="age" class="full" name="age" value="<%= vo_tutee.getAge()%>">
-				</div>
-				<div class="p_info">
-					<div class="p_label">거주지역</div>
-					<input type="text" id="area" class="full" name="area" value="<%= vo_tutee.getArea()%>">
-				</div>
-				<div class="p_info">
-					<div class="p_label">내소개</div>
-					<div class="p_contents">
-						<% if(vo_tutee.getPr() != null){ %>
-						<textarea class="introduction" id="introduction" name="pr"><%= vo_tutee.getPr()%></textarea>
-						<% } else { %>
-						<textarea class="introduction" id="introduction" name="pr"></textarea>
-						<% } %>
-						<div class="count_char">
-							<% if(vo_tutee.getPr() != null){ %>
-							<font id="introduction_count"><%= vo_tutee.getPr().length() %></font>/300
-							<% } else { %>
-							<font id="introduction_count">0</font>/300
-							<% } %>
-							
+				<div class="profile">
+					<div class="p_info" style="padding-top: 0;">
+						<div class="p_image" style="background-image: url(http://localhost:9000/One_day_class/upload/<%= vo_tutee.getSprofile_img()%>)" id="profile_image">
+							<img class="p_camera" src="http://localhost:9000/One_day_class/images/mp_btn_pf.png">
+							<input type="file" id="p_picture" name="profile_img">
 						</div>
 					</div>
+					<div class="p_info">
+						<div class="p_label">ID</div>
+						<div class="p_contents"><%= vo_tutee.getEmail()%></div>
+					</div>
+					<div class="p_info">
+						<div class="p_label">비밀번호</div>
+						<div class="p_passedit">
+							<a href="http://localhost:9000/One_day_class/mypassedit/mypassedit.jsp?email=<%= email %>&type=2" class="pass_edit" style="padding: 11px 18px;">비밀번호 변경하기
+							</a>
+	                </div>
+					</div>
+					<div class="p_info">
+						<div class="p_label">전화번호</div>
+						<input type="text" id="phone" class="full" name="phone" value="<%= vo_tutee.getPhone()%>">
+					</div>
+					<div class="p_info">
+						<div class="p_label">이름</div>
+						<input type="text" id="name" class="full" name="name" value="<%= vo_tutee.getName()%>">
+					</div>
+					<div class="p_info">
+						<div class="p_label">나이</div>
+						<input type="text" id="age" class="full" name="age" value="<%= vo_tutee.getAge()%>">
+					</div>
+					<div class="p_info">
+						<div class="p_label">거주지역</div>
+						<input type="text" id="area" class="full" name="area" value="<%= vo_tutee.getArea()%>">
+					</div>
+					<div class="p_info">
+						<div class="p_label">내소개</div>
+						<div class="p_contents">
+							<% if(vo_tutee.getPr() != null){ %>
+							<textarea class="introduction" id="introduction" name="pr"><%= vo_tutee.getPr()%></textarea>
+							<% } else { %>
+							<textarea class="introduction" id="introduction" name="pr"></textarea>
+							<% } %>
+							<div class="count_char">
+								<% if(vo_tutee.getPr() != null){ %>
+								<font id="introduction_count"><%= vo_tutee.getPr().length() %></font>/300
+								<% } else { %>
+								<font id="introduction_count">0</font>/300
+								<% } %>
+								
+							</div>
+						</div>
+					</div>
+					<a href="http://localhost:9000/One_day_class/myleave/myleave.jsp?email=<%= email %>&type=2" class="member_leave">회원 탈퇴하기</a>
+					<div class="pink_submit" id="regInfo">저장하기</div>
+					<div style="padding-top:200px"></div>
 				</div>
-				<a href="http://localhost:9000/One_day_class/myleave/myleave.jsp?email=<%= email %>&type=2" class="member_leave">회원 탈퇴하기</a>
-				<div class="pink_submit" id="regInfo">저장하기</div>
-				<div style="padding-top:200px"></div>
-			</div>
-			<% } %>
+				<% } %>
 		</form>
 	</div>
 
@@ -196,3 +206,8 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
+<% } else { %>
+<script>
+	alert("로그인을 진행하셔야 접근이 가능합니다");
+</script>
+<% } %>

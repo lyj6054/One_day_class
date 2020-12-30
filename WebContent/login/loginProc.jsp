@@ -19,7 +19,7 @@
 		if(identity.equals("튜터")){
 			TutorDAO dao_tutor = new TutorDAO();
 			SessionVO svo = dao_tutor.getLogin(email, password);
-			// result = dao_tutor.getLogin(email, password); 
+			svo.setEmail(email); 
 			if(svo.getResult() != 0) {
 				session.setAttribute("svo", svo);
 				response.sendRedirect("http://localhost:9000/One_day_class/index_login.jsp");
@@ -29,7 +29,7 @@
 		}else{
 			TuteeDAO dao_tutee = new TuteeDAO();
 			SessionVO svo = dao_tutee.getLogin(email, password);
-			//result = dao_tutee.getLogin(email, password);
+			svo.setEmail(email);
 			if( svo.getResult() != 0) {
 				session.setAttribute("svo", svo);
 				response.sendRedirect("http://localhost:9000/One_day_class/index_login.jsp");

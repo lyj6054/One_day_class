@@ -2,7 +2,7 @@ package com.one_day_class.vo;
 
 public class ms_TutorclassVO {
 	int rno,aperson, astatus;
-	String email, name, aschedule, rcontent, rdate ,cid ,title, picture, spicture ,aid ,sysdate,schedule ,adate;
+	String email, name, aschedule, rcontent, rdate ,cid ,title, picture, spicture ,aid ,sysdate,schedule ,adate, cdate;
 
 	
 
@@ -10,6 +10,14 @@ public class ms_TutorclassVO {
 	
 	
 	
+	public String getCdate() {
+		return cdate;
+	}
+
+	public void setCdate(String cdate) {
+		this.cdate = cdate;
+	}
+
 	public String getAdate() {
 		return adate;
 	}

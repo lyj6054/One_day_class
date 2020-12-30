@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="com.one_day_class.vo.*, com.one_day_class.dao.*"
-    %>
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>
+    
 <%
-	SessionVO svo = (SessionVO)session.getAttribute("svo");
-	String email = svo.getEmail();
+
+	ms_indexDAO dao = new ms_indexDAO();
+	ArrayList<ms_indexVO> list = dao.getFastList();
+
+
+
 %>
-<%
-		TutorDAO dao = new TutorDAO();
-		TutorVO vo = dao.getIndexProfile(email); 
-%>	
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index_login</title>
+<title>index</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
 <style>
 	*{
@@ -76,9 +77,6 @@
 	    border-collapse: collapse;
 	    border-spacing: 0;
 	    table-layout: fixed;
-	}
-	em {
-	    font-style: normal;
 	}
 	.i_content {
 	    width: 1040px;
@@ -286,124 +284,49 @@
 	    overflow: hidden;
 	    width: 30%;
 	    height: 180px;
-	    margin-bottom: 10px;
+	    margin-bottom: 5px;
 	    padding: 0 10px;
 	    border: 1px solid #eee;
 	    border-radius: 10px;
 	    background-color: #fff;
 	    float: right;
 	}
-	.status_logon {
-		padding:0;
-		background-color:#fafafa;
+	.login_box .login_msg {
+	    margin-bottom: 22px;
+	    font-weight: bold;
+	    font-size: 18px;
+	    line-height: 25px;
+	    text-align:center;
 	}
-	.status_logon .area_info_top {
-		display:flex;
-		align-items: center;
-		padding: 0 15px 0;
+	.login_box .link_login {
+	    display: inline-block;
+	    padding: 12px 0;
+	    border-radius: 6px;
+	    text-align: center;
+	    color: #fff;
+	    font-size: 16px;
+	    line-height: 24px;
+	    background-color: #ff0045;
+	    width:143px;
 	}
-	.status_logon .my_profile {
-		margin-top:12px;
-		position: relative;
-	}
-	.status_logon .img_profile {
-		border:1px solid #ccc;
-		width:70px;
-		height:72px;
-		border-radius: 50%;
-		object-position: center;
-		object-fit: cover;
-		background-size:cover;
-		background-position:center;
-		background-repeat: no-repeat;
-		
-	}
-	.status_logon .my_profile::after {
-		content:'';
-		position: absolute;
-		right:-3px;
-		bottom:0;
-		width:19px;
-		height:19px;
-		border-radius:50%;
-		background: url(http://localhost:9000/One_day_class/images/icon-setting@2x.png) 
-		no-repeat center/19px;
-	}
-	.status_logon .logon_msg {
-		padding-left:15px;
-		margin-top:15px;
-		font-size:0;
-	}
-	.status_logon .logon_msg b {
-		display: block;
-		margin-top:5px;
-		margin-bottom:5px;
-	}
-	.status_logon .level {
-		font-size:14px;
-		margin-right:3px;
-	}
-	.status_logon .logon_msg b {
-		font-size:15px;
-		line-height:22px;
-		margin-bottom:3px;
-	}
-	.status_logon .logon_msg span {
-		font-size:14px;
-		line-height:22px;
-		margin-bottom:3px;
-	}
-	.status_logon .area_info_bottom {
+	.login_box .box_btns {
 	    display: flex;
-	    align-items: center;
-	    justify-content: space-between;
-	    padding: 2px 20px 0;
+	   	margin-top:-80px;
+	   	padding-right:10px;
 	}
-	
-	.status_logon .btn_logout {
-		margin:0 0 10px 218px;
-		font-weight: bold;
-		font-size: 12px;
-		color:#999;
-		text-decoration:underline;
-		
+	.login_box .box_btns a {
+	    color: #999;
 	}
-	.status_logon .tutor_mode {
-		/* margin-left:160px; */
-		margin-top:-10px;
-		padding-right:42px;
-		font-weight:bold;
-		font-size:12px;
-		background:url(http://localhost:9000/One_day_class/images/btn-switch-off@2x.png)
-		no-repeat right center/37px 20px;
+	.login_box .box_btns .find_pw::before {
+	    content: '';
+	    display: inline-block;
+	    width: 1px;
+	    height: 10px;
+	    margin: 0 7px;
+	    background-color: #999;
 	}
-	.status_logon .lnb {
-		display: flex;
-		align-item: center;
-		text-align: center;
-		border-top: 1px solid #eee;
-		margin-bottom:5px;
-	}
-	.status_logon .lnb li {
-		width: 33.333%;
-	    padding: 18px 0 16px;
-	    border-left: 1px solid #eee;
-		}
-	.status_logon .lnb li:first-child {
-		border-left:none;
-	}
-	.status_logon .lnb a {
-		margin-bottom:25px;
-		position: relative;
-   		font-weight: 500;
-	}
-	.status_logon .lnb a:first-child {
-		border-left:0;
-	}
-	.status_logon .lnb .link_wish {
-		padding-left: 18px;
-		background: url(http://localhost:9000/One_day_class/images/icon-wish-clicked@2x.png)
-		no-repeat 5px center/22px;
+	.login_box .box_btns .link_join {
+	    margin-left: auto;
 	}
 	.all_category .dt {
 	    display: table;
@@ -779,29 +702,16 @@
 	            		</div>
 	            	</div>
 	            </div>
-	            <div class="login_box status_logon">
-				    <div class="area_info_top">
-				        <a class="my_profile" href="http://localhost:9000/One_day_class/mypage/mypage.jsp">
-				        	<img class="img_profile" style="background-image:url(http://localhost:9000/One_day_class/upload/<%=vo.getProfile_img()%>)">
-				        </a> 
-				        <div class="logon_msg">
-				        	<b>
-					        	<em class="level">'<%= svo.getName() %>'</em> 
-					        	<em class="level" style="color:#ff005a;"><%= svo.getIdentity() %> </em> 님  
-				        	</b>
-				        	<span>반가워요!<br>오늘도 색다른 탈잉을 즐겨봐요:)</span>
-				     	</div> <!-- class="logon_msg" -->
-				      </div> <!-- class="area_info_top" -->
-				     <div class="area_info_bottom">
-				        <button class="btn_logout" type="button" id="btn-menu-logout" onclick="location.href='http://localhost:9000/One_day_class/login/logout.jsp'">로그아웃</button>
-				       <!--  <button class="tutor_mode" type="button" data-tutormode>튜터모드</button> -->
-				     </div>
-				        <ul class="lnb">
-				        	<li><a href="#">수업신청서</a></li>
-				        	<li><a href="#">수강목록</a></li>
-				        	<li class="link_wish"><a href="#">위시리스트</a></li>
-				        </ul>
-				</div> <!-- class="login_box status_logon" -->
+	            <div class="login_box">
+				    <p class="login_msg">안녕하세요:)<br>로그인 하시고 탈잉의<br>"다양한 튜터"를 만나보세요.</p>
+					    <a class="link_login" href="http://localhost:9000/One_day_class/login/email_login.jsp">탈잉 로그인</a>
+					    <a class="link_login" href="http://localhost:9000/One_day_class/join/join.jsp">회원가입</a>
+				    <div class="box_btns">
+				        <!-- <a class="find_id" href="http://localhost:9000/One_day_class/login/find_id.jsp">아이디 찾기</a>
+				        <a class="find_pw" href="http://localhost:9000/One_day_class/login/find_pw.jsp">비밀번호 찾기</a> -->
+				        <!-- <a class="link_join" href="http://localhost:9000/One_day_class/join/join.jsp">회원가입</a> -->
+				    </div>
+				</div>
 			</section>
 			<section class="group_area">
 				<div class="wrapper swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-autoheight">
@@ -812,94 +722,31 @@
 									<h2 class="main_title">가장 빠른 수업</h2>
 									<div class="talent_list swiper-container swiper2">
 										<ul class="swiper-wrapper">
+										<% for(ms_indexVO vo : list) { %>
 											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
+										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=vo.getPicture()%>');">
 										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
+										            <h3 class="talent_title"><%=vo.getTitle() %></h3>
 										            <div class="talent_info">					    
 										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/upload/<%=vo.getProfile_img()%>">
 										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
+										            	<span class="name"><%=vo.getName() %></span>						
+										            	<span class="d_day"><%=vo.getSchedule() %></span>						
+										            	<span class="location"><%=vo.getRegionmain() %></span>	
 										            	<span class="review">
 								                            <span class="star_img">
 								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
 								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
+								                            <span class="grade_total">4.9<span>(<%=vo.getWish_cnt() %>)</span></span>
 								                        </span>				
 										            </div>
 										        </a>
 										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
-										    </li>
+										   <% } %>
+										  
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
 										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
@@ -929,7 +776,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -951,7 +798,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -973,7 +820,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -995,7 +842,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1017,7 +864,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
@@ -1048,7 +895,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1070,7 +917,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1092,7 +939,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1114,7 +961,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1136,7 +983,7 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
@@ -1167,7 +1014,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1189,7 +1036,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1211,7 +1058,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1233,7 +1080,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="">
@@ -1255,7 +1102,7 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
