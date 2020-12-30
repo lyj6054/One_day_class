@@ -34,19 +34,16 @@
 
 </script>
 <style>
-   * {
-     font-family: 'Noto Sans KR';
-   }
-   #newsroom-main {
+  #newsroom-main {
 		display:inline-block;
-		margin:0 auto;
+		position: relative;
+		margin:0 atuo;
 		overflow:hidden;
-		height:970px;
+		heigth:auto;
 		width:853px;
-		padding: 10px 18px 80px 17px;
+		padding: 10px 18px 75px 17px;
 		border:1px #e3e3e3 solid;
 		margin-bottom:40px;
-		position: absolute;
 	}
 	div {
 		border: 0;
@@ -56,7 +53,7 @@
 	}
 	.main-logo{
 		display:inline-block;
-		margin:20px 0 30px 117px;
+		margin:20px 0 30px 10px;
     	font-size:50px;
 	}
 	.main-logo span {
@@ -436,15 +433,15 @@
    }
    /** 수정본  **/
    .udp_text{
-   	height:600px;
+   	height:auto;
    	width:810px;
-   	overflow: auto;
+   	overflow: hidden;
    }
    .udp_title1{
 		display:inline-block;
 		width:800px;
 		text-align:center;
-		margin-left:20px;
+		margin-left:-10px;
 		margin-top:10px;
 		border-bottom:1px solid lightgray;
 		padding-bottom:5px;
@@ -454,7 +451,7 @@
 	}
 	.udp_title1>ul>li.udp_t3 {
 		float:left;
-		color:black;
+		color:#ff0045;
 		font-size:14px;
 		font-weight:bold;
 	}
@@ -468,7 +465,8 @@
 	}
 	/** 내용 글자 **/
 	.udp_text>p {
-	margin-left:40px;
+	text-align:left;
+	margin-left:20px;
 	}
 	/** 버튼 **/
 	.udp_btnbox {
@@ -486,19 +484,22 @@
       	border:none;
 	}
 	.udp_btnbox>a>button:hover {
-		color:white;
-	}
-	.udp_btnbox>a>button:hover {
-		background-color:#333;
-      	color:white;
-	}
-	.udp_btnbox>a>button {
-		text-decoration:none;
-	}
-	.udp_btnbox>a>button {
-		color:black;
+		float:right;
+		margin-right:20px;
+		padding:4px 10px;
+		border-radius:5px;
 		font-weight:bold;
-     	font-size:14px;
+		font-size:14px;
+		border:none;
+	}
+	.udp_btnbox>a>button {
+		float:right;
+		margin-right:20px;
+		padding:4px 10px;
+		border-radius:5px;
+		font-weight:bold;
+		font-size:14px;
+		border:none;
 	}
    
    </style>
@@ -528,22 +529,6 @@
 		}); */
    });
    
-   function allCheck() { 
-      var all = document.getElementById("checkAll");
-      var chk_list = document.getElementsByName("checkTerms");
-      
-      if(all.checked) {
-         for(var i=0;i<chk_list.length;i++) {
-            chk_list[i].checked = true;
-         }
-         
-      }   else {
-         for(var i=0;i<chk_list.length;i++) {
-            chk_list[i].checked = false;
-         }
-      }
-      
-   }
    
    /* function partCheck() {
 
@@ -570,25 +555,8 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 
    <!-- content -->
-   <div style="margin:0 auto;">
+   <div style="margin:0 auto; text-align:center;">
    <div style="width:100%; height:50px;"></div>
-   <div class="content">
-      <aside class="admin_main">
-         <nav>
-            <div>
-               <img src="http://localhost:9000/One_day_class/images/admin.png"><br>
-               <span class="admin_icon2">[ 관리자 시스템 ]</span>
-            </div>
-            <ul>
-               <li><img src="http://localhost:9000/One_day_class/images/admin_check.png"><a href="notice_list_admin.jsp">공지사항/이벤트</a></li>
-               <li><img src="http://localhost:9000/One_day_class/images/admin_check.png"><a href="#">수업관리</a></li>
-               <li><img src="http://localhost:9000/One_day_class/images/admin_check.png"><a href="#">회원관리</a></li>
-            </ul>
-         </nav>
-      </aside>
-
-   
-   </div>
    <div class="board_wrap" id="newsroom-main">
       <span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
       <div class="main-section1">
@@ -600,7 +568,7 @@
        <div class="main-section2">
           <div class="udp_title1">
          <ul>
-            <li class="udp_t3">· <%=vo.getBtitle() %></li>
+            <li class="udp_t3" ><%=vo.getBtitle() %></li>
             <li class="udp_t4"><%=vo.getBhits() %></li>
             <li class="udp_t5"><%=vo.getBcharge() %></li>
             <li class="udp_t6"><%=vo.getBdate() %></li>
@@ -620,9 +588,7 @@
          <div class="section-paging">
            
            <div class="udp_btnbox">
-            <a href="http://localhost:9000/One_day_class/admin/admin_notice_detail_s.jsp?bid=<%=vo.getBid()%>"><button type="button">수정</button></a>   
-            <a href="http://localhost:9000/One_day_class/admin/admin_notice_detail_delProc.jsp?bid=<%=vo.getBid()%>"><button type="button" id="and_del">삭제</button></a>      
-            <a href="http://localhost:9000/One_day_class/admin/notice_list_admin.jsp?bid=<%=vo.getBid()%>"><button type="button">목록</button></a>      
+            <a href="http://localhost:9000/One_day_class/notice/notice_list.jsp?bid=<%=vo.getBid()%>"><button type="button">목록</button></a>      
          </div>
          </div>
          

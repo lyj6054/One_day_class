@@ -99,6 +99,7 @@
 	    background-image: url('http://localhost:9000/One_day_class/images/mp_pf_img.png');
 	    border-radius: 50%;
 	    overflow: visible;
+	    border:1px sol
 	}
 	.c_container .profile .p_info .p_image .p_camera {
 	    margin-left: 96px;

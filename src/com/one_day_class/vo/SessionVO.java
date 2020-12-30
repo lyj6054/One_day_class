@@ -2,7 +2,7 @@ package com.one_day_class.vo;
 
 public class SessionVO {
 	int result;
-	String name, identity;
+	String name, identity, email;
 	
 	public int getResult() {
 		return result;
@@ -21,6 +21,12 @@ public class SessionVO {
 	}
 	public void setIdentity(String identity) {
 		this.identity = identity;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	

@@ -9,6 +9,24 @@ import com.one_day_class.vo.ClassVO;
 public class ClassDAO extends DBConn{
 	
 	/**
+	 * index : MD 추천 클래스
+	 */
+	public int indexRecommend(String video) {
+		int result = 0;
+		
+		try {
+			String sql = "select ";
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return result;
+	}
+	
+	
+	/**
 	 * Update : 수락 시 클레스 cstatus 1로변경
 	 */
 	public void updateStatus2(String cid) {
