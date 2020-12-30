@@ -153,7 +153,7 @@
 		<div class="container">
 			<div class="container hd_wrap">
 				<h1 class="logo">
-					<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
+					<a href="http://localhost:9000/One_day_class/index_login.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
 				</h1>
 				<div class="box_sch" id="box_sch">
                     <input type="text" class="inp_sch" name="inp_sch" id="inp_sch" placeholder="배우고 싶은 재능이나 튜터를 검색해보세요.">
