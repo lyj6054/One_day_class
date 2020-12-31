@@ -2,10 +2,11 @@
 	pageEncoding="UTF-8"
 	import="com.one_day_class.dao.*, com.one_day_class.vo.*"%>
 <%
-	String email = request.getParameter("email");
+	SessionVO svo=(SessionVO)session.getAttribute("svo");
+	//String email = request.getParameter("email");
 	String type = request.getParameter("type");
 %>		
-	
+<%if(svo != null){String email = svo.getEmail();  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,15 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+	<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
 
 	<!-- content -->
 	<div class="p_title">
@@ -57,3 +66,9 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
+<% }else{%>
+<script>
+	alert("로그인을 진행하셔야 접근이 가능합니다.");
+		location.href="../index.jsp";
+</script>
+<%}%>

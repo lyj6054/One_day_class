@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+		import="com.one_day_class.vo.*"%>
+<%
+	SessionVO svo=(SessionVO)session.getAttribute("svo");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +14,15 @@
 </head>
 <body>
 	<!--  header  -->
-	<jsp:include page="../header.jsp" />
+	<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
 
 	<!--  content  -->
 	<div class="content">
