@@ -26,7 +26,7 @@
 </head>
 <body>
 	<!--  header  -->
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../header_tutor.jsp" />
 
 	<div class="content">
 		<div style="width:100%; height:50px;"></div>

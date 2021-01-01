@@ -584,7 +584,7 @@ $(document).ready(function(){
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="../header_tutor.jsp"></jsp:include>
 
    <!-- content -->
    <div style="margin:0 auto;"></div>

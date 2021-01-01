@@ -11,8 +11,8 @@
 	TutorDAO dao_tutor = new TutorDAO();
 	TutorVO vo_tutor = dao_tutor.getTutorContent(email); 
 
-		System.out.println(svo.getEmail());
-		System.out.println(svo.getIdentity());
+		//System.out.println(svo.getEmail());
+		//System.out.println(svo.getIdentity());
 		
 	if(svo != null) {
 
@@ -55,6 +55,7 @@
 		$('#regInfo').click(function(){
 			alert("등록이 완료되었습니다.");
 			$('#pf_edit').submit();
+
 		});
 	});
 </script>

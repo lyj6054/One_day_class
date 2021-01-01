@@ -16,22 +16,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-   $(document).ready(function(){
-      
-      /** 삭제 알림  **/
-      $("#and_del").click(function(){
-         alert("삭제 하시겠습니까?");
-         
-         
-      });//and_del
-      
-      
-      
-   });//ready
-
-
-</script>
 <style>
   #newsroom-main {
 		display:inline-block;
@@ -375,63 +359,7 @@
    }
    
    
-   /* aside */
-   .content {
-      width:1040px;
-      margin: 0 auto;
-   }
-   .content .admin_main {
-      float:left;
-      width:220px; height:970px;
-      background-color:#eee;
-      padding:20px 0 0 15px;
-   }
-   
-   .content .admin_main ul {
-      width:195px;
-      height:200px;
-      margin-top:20px;
-   }
-   .content .admin_main ul li {
-      list-style-type:none;
-      padding: 4px 0;
-      margin:25px 0 5px 15px;
-   }   
-   .content .admin_main ul li img {
-      width:15px;
-      height:15px;
-   }
-   .content .admin_main ul li a {
-      color:black;
-      font-size:17px;
-      font-weight:bold;
-      text-align:center;
-      text-decoration:none;
-      margin-left:10px;
-   }   
-   
-   .content .admin_main ul li a:hover {
-      text-decoration:underline;
-   }
-   .content .admin_main div {
-      background-color: #fff;
-      padding-top:7px;
-      width:195px;
-      height:145px;
-   }
-   .content .admin_main div img{
-      margin:10px 0 0 62px;
-      width:80px; 
-      height:80px;
-   }
-   .content .admin_main .admin_icon2 {
-      display:inline-block;
-      font-size:20px;
-      margin:7px 0 0 27px;
-      color: #333;
-      text-align:center;
-      font-weight:bold;
-   }
+  
    /** 수정본  **/
    .udp_text{
    	height:auto;
@@ -518,40 +446,9 @@
          $("#second").addClass('selected');
          $("#first").removeClass('selected');
       });
-      //open/close 변경
-      /* $("#open").click(function(){
-			var status = $(this).attr("src");
-			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
-				$("#cont-8").css("display","block").height("450px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-				$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
-				
-			} else {
-				$("#cont-8").css("display","none").height("0px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
-			}
-		}); */
    });
    
    
-   /* function partCheck() {
-
-      var cnt = 0;
-      var all = document.getElementById("checkAll");
-      var chk_list = document.getElementsByName("checkTerms");
-
-      if(chk_list.checked)
-           {
-         all.checked = true;
-           } else {
-                   for(var i=0; i < chk_list.length; i++)  {
-                         if(chk_list[i].checked == true)
-                              cnt ++;
-                   }
-                    if(cnt == 0)  all.checked = false;
-      }
-
-   } */
 </script>
 </head>
 <body>
@@ -600,12 +497,12 @@
          <div class="section-paging">
            
            <div class="udp_btnbox">
-           <% if(vo.getBpart().equals("이벤트")) {%>
-            <a href="http://localhost:9000/One_day_class/notice/notice_list2.jsp?bpart=event"><button type="button">목록으로</button></a>      
-           <% } else { %>
-            <a href="http://localhost:9000/One_day_class/notice/notice_list.jsp?bpart=notice"><button type="button">목록으로</button></a>      
-           <% } %>
-         </div>
+	           <% if(vo.getBpart().equals("이벤트")) {%>
+	            <a href="http://localhost:9000/One_day_class/notice/notice_list2.jsp?bpart=event"><button type="button">목록으로</button></a>      
+	           <% } else { %>
+	            <a href="http://localhost:9000/One_day_class/notice/notice_list.jsp?bpart=notice"><button type="button">목록으로</button></a>      
+	           <% } %>
+           </div>
          </div>
          
       </div>

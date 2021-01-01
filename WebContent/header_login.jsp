@@ -1,15 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="com.one_day_class.vo.*"
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*"
     %>
 <%
 	SessionVO svo = (SessionVO)session.getAttribute("svo");
+	String email = svo.getEmail();
+
+	TutorDAO dao_tutor = new TutorDAO();
+	TutorVO vo_tutor = dao_tutor.getIndexProfile(email);
+	
+	TuteeDAO dao_tutee = new TuteeDAO();
+	TuteeVO vo_tutee = dao_tutee.getIndexProfile(email); 
+	
+	if(svo != null) {
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>header</title>
+<title>header_login</title>
 <style>
 	* {
 		box-sizing: border-box;
@@ -28,19 +37,16 @@
     	margin: 0 auto;
 	}
 	.logo{
-		/* border:1px solid red; */
 		position: absolute;
     	top: 30px;
     	width: 170px;
     	height:80px;
 	}
 	.logo img{
-	/* border:1px solid red; */
 		width: 94px;
     	height: 57px;
 	}
 	  a img.all {
-		/* border:1px solid red; */
 		width:30px; height:30px;
 		margin-left:22px;
 		margin-bottom:-7px;
@@ -49,7 +55,6 @@
 	.hd_bar {
    	 	float: left; 
     	margin-left: 120px;
-    	/* border:1px solid #ff005a;  */
     	padding-top : 5px;
     	margin-top:-15px;
 	}
@@ -65,15 +70,15 @@
 	}
 	
 	.hd_search_box {	
-		/* border:1px solid red; */
-	    width: 350px;
-	    height: 30px;
-	    /* margin-left: 5px; */
+		width: 350px;
+	    height: 40px;
 	    content: '';
 	    display: block;
 	    clear: both;
+	    border:1px solid gray;
+	    border-radius: 10px;
 	}
-	.hd_search_box::after {
+	/* .hd_search_box::after {
 	    content: '';
 	    display: block;
 	    position: relative;
@@ -81,22 +86,51 @@
 	    height: 3px;
 	    background: gray;
 	    margin-top: -5px;
-	}
-	.hd_search_box .inp {
+	} */
+	.hd_search_box .inp_sch {
 	    float: left;
 	    display: block;
-	    width: calc(100% - 30px);
-	    height: 25px;
+	    /* width: calc(100% - 30px); */
+	    height:20px;
 	    border: none;
-	    background-color: transparent;
+	    background-color:white;
+	    margin:5px 0 0 5px;
+	   	width:260px;
+	   	  
 	}
-	.hd_search_box .search_btn {
+	.hd_search_box .inp_sch:focus {
+	    float: left;
+	    display: block;
+	    /* width: calc(100% - 30px); */
+	    height:20px;
+	    border: none;
+	    background-color:white;
+	    margin:5px 0 0 5px;
+	   	width:260px;
+	   	outline:none;
+ 		/* caret-color: #ff005a;
+ 		color: #ff005a;
+ 		text-decoration:none; */
+	   	  
+	}
+	.hd_search_box .btn_sch {
 	    float: right;
 	    width: 30px;
 	    height: 20px;
 	    background: url(http://localhost:9000/One_day_class/images/search.png) no-repeat center/15px;
 	   	border: none;
 	    cursor: pointer;
+	    margin-top:4px;
+	}
+	.hd_search_box .btn_sch:focus {
+	    float: right;
+	    width: 30px;
+	    height: 20px;
+	    background: url(http://localhost:9000/One_day_class/images/search.png) no-repeat center/15px;
+	   	border: none;
+	    cursor: pointer;
+	    margin-top:4px;
+	    outline:none;
 	}
 	.hd_right {
 	    float: right;
@@ -235,13 +269,13 @@
 		display:none;
 		position: absolute;
 	    right: 5px;
-	    z-index: 2;
+	    z-index: 66;
 	    margin-top: 5px;
 	}
 	.profile_list_container.act {
 		display:block;
 		position: absolute;
-		z-index: 1;
+		z-index: 666;
 		width: 100px;
 		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.04);
 	}
@@ -296,9 +330,11 @@ $(document).ready(function(){
 				<div class="hd_bar">
 					<div class="hd_search_box">
 							<fieldset>
-								<input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
+								<!-- <input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
 										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox" id="inp_sch" >
-								<button class=search_btn type="submit" id="btn_sch"></button>
+								<button class=search_btn type="submit" id="btn_sch"></button> -->
+								<input type="text" class="inp_sch" name="inp_sch" id="inp_sch" 
+								placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off"><button class="btn_sch" id="btn_sch"></button>
 							</fieldset>
 					</div> <!-- hd_search_box -->
 							<div class="Search_Container" id="bar_true_list" >
@@ -330,21 +366,24 @@ $(document).ready(function(){
 			<nav class="hd_right">
 				<ul class="gnb">
 					<li class="depth_my_page">
-						<a href="http://localhost:9000/One_day_class/tutor/tutor.jsp">튜터등록</a>
+						<a href="http://localhost:9000/One_day_class/tutor/tutor_reg.jsp">튜터등록</a>
 					</li>
 					<li class="depth_my_page">
-						<a href="#">수업신청서</a>
+						<a href="http://localhost:9000/One_day_class/myclassform/myclassform.jsp">수업신청서</a>
 					</li>
 					<li class="depth_my_page"class="depth_my_page">
-						<a href="#">수강목록</a>
+						<a href="http://localhost:9000/One_day_class/myclasslist/myclasslist.jsp">수강목록</a>
 					</li>
 					<li class="depth_my_page">
-						<a href="#">위시리스트</a>
+						<a href="http://localhost:9000/One_day_class/mywishlist/mywishlist.jsp">위시리스트</a>
 					</li>
 					<li class="depth_my_page" id="depth_my_page" onclick="depth()" >
 						<p role="button" >
-							<span class="profile_img" style="background-image:url('http://localhost:9000/One_day_class/images/profile.png');">
-							</span>
+							<% if(svo.getIdentity().equals("튜터")) { %>
+								<span class="profile_img" style="background-image:url('http://localhost:9000/One_day_class/upload/<%= vo_tutor.getSprofile_img()%>');"></span>
+							<% } else { %>
+								<span class="profile_img" style="background-image:url('http://localhost:9000/One_day_class/upload/<%= vo_tutee.getSprofile_img()%>');"></span>
+							<% } %>
 						</p>
 						<div class="profile_list_container" id="profile_list_container">
 							<ul class="profile_list">
@@ -389,3 +428,8 @@ $(document).ready(function(){
    </script>
 </body>
 </html>
+<% } else { %>
+<script>
+	alert("로그인을 진행하셔야 접근이 가능합니다");
+</script>
+<% } %>

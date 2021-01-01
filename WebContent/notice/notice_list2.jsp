@@ -4,9 +4,12 @@
     %>
 <%
 	String bpart = request.getParameter("bpart");
+	String rpage = request.getParameter("rpage");
+
 	BoardDAO dao = new BoardDAO();
+	
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
 	//1. 선택한 페이지값
-		String rpage = request.getParameter("rpage");
 		
 		//2-1. 페이지값에 따라서 start, end count 구하기
 		//1페이지(1~10), 2페이지(11~20) ...
@@ -386,7 +389,15 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+	<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
 
 <!-- content -->
 <div class="content">

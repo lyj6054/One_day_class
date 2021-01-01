@@ -180,7 +180,7 @@ $(document).ready(function(){
 							<a href="http://localhost:9000/One_day_class/tutor/tutor_reg.jsp">튜터등록</a>
 						</li>
 						<li>
-							<a href="http://localhost:9000/One_day_class/login/login_how_to.jsp">로그인</a>
+							<a href="http://localhost:9000/One_day_class/login/email_login.jsp">로그인</a>
 						</li>
 					</ul>
 				</nav>
