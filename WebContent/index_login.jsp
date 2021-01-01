@@ -831,8 +831,8 @@
 				        			 <li><a href="http://localhost:9000/One_day_class/admin/class_list.jsp">수업관리</a></li>
 						     	 	 <li class="admin"><a href="http://localhost:9000/One_day_class/admin/member_list.jsp">회원관리</a></li>
 				        		<% } else { %>
-					        		 <li><a href="http://localhost:9000/One_day_class/myclassform/myclassform.jsp">수업신청서</a></li>
-					        		 <li><a href="http://localhost:9000/One_day_class/myclasslist/myclasslist.jsp">수강목록</a></li>
+					        		 <li><a href="http://localhost:9000/One_day_class/tutor/new-class.jsp">나의수업</a></li>
+					        		 <li><a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp">수업등록</a></li>
 							     	 <li class="link_wish"><a href="http://localhost:9000/One_day_class/mywishlist/mywishlist.jsp">위시리스트</a></li>
 				        		<% } }%>
 				        	

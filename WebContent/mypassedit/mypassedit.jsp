@@ -2,8 +2,11 @@
 	pageEncoding="UTF-8"
 	import="com.one_day_class.dao.*, com.one_day_class.vo.*"%>
 <%
-	String email = request.getParameter("email");
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
+	String email = svo.getEmail();
 	String type = request.getParameter("type");
+	
+	if(svo != null) {
 %>	
 	
 <!DOCTYPE html>
@@ -95,3 +98,8 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
+<% } else { %>
+<script>
+	alert("로그인을 진행하셔야 접근이 가능합니다");
+</script>
+<% } %>
