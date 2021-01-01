@@ -267,7 +267,6 @@
 		position: absolute;
 	}
 </style>
-<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <script>
 $(document).ready(function(){
 	$("#btn_sch").click(function(){

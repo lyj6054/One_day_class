@@ -50,12 +50,14 @@
 	}
 	.hd_search_box {	
 	    width: 350px;
-	    height: 30px;
+	    height: 40px;
 	    content: '';
 	    display: block;
 	    clear: both;
+	    border:1px solid gray;
+	    border-radius: 10px;
 	}
-	.hd_search_box::after {
+	/* .hd_search_box::after {
 	    content: '';
 	    display: block;
 	    position: relative;
@@ -63,14 +65,32 @@
 	    height: 3px;
 	    background: gray;
 	    margin-top: -5px;
-	}
-	.hd_search_box .inp {
+	} */
+	.hd_search_box .inp_sch {
 	    float: left;
 	    display: block;
-	    width: calc(100% - 30px);
-	    height: 25px;
+	    /* width: calc(100% - 30px); */
+	    height:20px;
 	    border: none;
 	    background-color:white;
+	    margin:5px 0 0 5px;
+	   	width:260px;
+	   	  
+	}
+	.hd_search_box .inp_sch:focus {
+	    float: left;
+	    display: block;
+	    /* width: calc(100% - 30px); */
+	    height:20px;
+	    border: none;
+	    background-color:white;
+	    margin:5px 0 0 5px;
+	   	width:260px;
+	   	outline:none;
+ 		/* caret-color: #ff005a;
+ 		color: #ff005a;
+ 		text-decoration:none; */
+	   	  
 	}
 	.hd_search_box .btn_sch {
 	    float: right;
@@ -79,6 +99,17 @@
 	    background: url(http://localhost:9000/One_day_class/images/search.png) no-repeat center/15px;
 	   	border: none;
 	    cursor: pointer;
+	    margin-top:4px;
+	}
+	.hd_search_box .btn_sch:focus {
+	    float: right;
+	    width: 30px;
+	    height: 20px;
+	    background: url(http://localhost:9000/One_day_class/images/search.png) no-repeat center/15px;
+	   	border: none;
+	    cursor: pointer;
+	    margin-top:4px;
+	    outline:none;
 	}
 	.hd_right {
 	    float: right;
@@ -110,7 +141,6 @@
 		font-weight: bold
 	}
 </style>
-<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <script>
 $(document).ready(function(){
 	
@@ -139,8 +169,8 @@ $(document).ready(function(){
 				<div class="hd_bar">
 					<div class="hd_search_box">
 							<fieldset>
-								<input type="text" class="inp_sch" name="inp_sch" id="inp_sch" placeholder="배우고 싶은 재능이나 튜터를 검색해보세요."
-								style="width:260px; height:20px; border:none;"><button class="btn_sch" id="btn_sch"></button>
+								<input type="text" class="inp_sch" name="inp_sch" id="inp_sch" 
+								placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off"><button class="btn_sch" id="btn_sch"></button>
 							</fieldset>
 					</div>
 				</div>

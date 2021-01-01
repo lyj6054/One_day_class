@@ -16,7 +16,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9000/One_day_class/js_minsu/jquery-3.5.1.min.js"></script>
 <script>
    $(document).ready(function(){
       
@@ -41,7 +40,7 @@
 		overflow:hidden;
 		heigth:auto;
 		width:853px;
-		padding: 10px 18px 75px 17px;
+		padding: 10px 18px 55px 17px;
 		border:1px #e3e3e3 solid;
 		margin-bottom:40px;
 	}
@@ -53,7 +52,7 @@
 	}
 	.main-logo{
 		display:inline-block;
-		margin:20px 0 30px 10px;
+		margin:20px 0 30px 0;
     	font-size:50px;
 	}
 	.main-logo span {
@@ -131,6 +130,8 @@
 	    float: left;
 	    width: 853px;
 	    margin-top: 15px;
+	    margin-left:-12px;
+	    margin-bottom:15px;
 	}
    .main-section2 .section2-title {
        display: inline-block;
@@ -442,7 +443,6 @@
 		width:800px;
 		text-align:center;
 		margin-left:-10px;
-		margin-top:10px;
 		border-bottom:1px solid lightgray;
 		padding-bottom:5px;
 	}
@@ -451,55 +451,59 @@
 	}
 	.udp_title1>ul>li.udp_t3 {
 		float:left;
-		color:#ff0045;
-		font-size:14px;
+		color:black;
+		font-size:16spx;
 		font-weight:bold;
+		margin-left:15px;
+	}
+	.udp_title1>ul>li.udp_t3 span{
+		float:left;
+		color:#ff0045;
+		font-size:16spx;
+		font-weight:bold;
+		margin-right:10px;
 	}
 	.udp_title1>ul>li.udp_t4,
 	.udp_title1>ul>li.udp_t5,
 	.udp_title1>ul>li.udp_t6 {
 		float:right;
-		color:#999999;
+		color:black;
 		font-size:11px;
-		margin-left:30px;
+		margin-left:35px;
+	}
+	.udp_title1>ul>li.udp_t4 {
+		float:right;
+		color:black;
+		font-size:11px;
+		margin-left:35px;
+		margin-right:10px;
 	}
 	/** 내용 글자 **/
 	.udp_text>p {
-	text-align:left;
-	margin-left:20px;
-	}
+		text-align:left;
+		margin-left:50px;
+		margin-top:20px;
+		}
 	/** 버튼 **/
 	.udp_btnbox {
 		display:inline-block;
 		float:right;
 	}
-	.udp_btnbox>a>button {
-		display:inline-block;
-		width:60px;
-		height:30px;
-		margin-right:50px;
-		margin-top:20px;
-		padding:4px 10px;
-     	border-radius:5px;
-      	border:none;
-	}
 	.udp_btnbox>a>button:hover {
+		background-color:#333;
+		color:white;
+	}
+	.udp_btnbox>a>button {
 		float:right;
 		margin-right:20px;
-		padding:4px 10px;
+		padding:4px 12px;
 		border-radius:5px;
 		font-weight:bold;
 		font-size:14px;
 		border:none;
 	}
-	.udp_btnbox>a>button {
-		float:right;
-		margin-right:20px;
-		padding:4px 10px;
-		border-radius:5px;
-		font-weight:bold;
-		font-size:14px;
-		border:none;
+	.udp_btnbox>a>button:focus {
+		outline:none;
 	}
    
    </style>
@@ -559,16 +563,24 @@
    <div style="width:100%; height:50px;"></div>
    <div class="board_wrap" id="newsroom-main">
       <span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
-      <div class="main-section1">
-       <!--   <ul class="section1-category">
+      <!-- <div class="main-section1">
+         <ul class="section1-category">
            <li id="first" class="first"><a href="notice_list_admin.jsp?bpart=notice">공지사항</a></li>
 			<li id="second" class="selected"><a href="notice_list_admin2.jsp?bpart=event">이벤트</a></li>
-         </ul> -->
-      </div>
+         </ul>
+      </div> -->
        <div class="main-section2">
           <div class="udp_title1">
          <ul>
-            <li class="udp_t3" ><%=vo.getBtitle() %></li>
+            <li class="udp_t3" >
+            <% if(vo.getBpart().equals("공지사항/일반")) { %>
+         			<span> [ 일반 ] </span><%=vo.getBtitle() %>
+         		<% } else if(vo.getBpart().equals("공지사항/약관")){ %>
+         			<span> [ 약관 ] </span><%=vo.getBtitle() %>
+         		<% } else { %>
+         			<span> [ 이벤트 ] </span><%=vo.getBtitle() %>
+         		<% } %>
+            </li>
             <li class="udp_t4"><%=vo.getBhits() %></li>
             <li class="udp_t5"><%=vo.getBcharge() %></li>
             <li class="udp_t6"><%=vo.getBdate() %></li>
@@ -588,7 +600,11 @@
          <div class="section-paging">
            
            <div class="udp_btnbox">
-            <a href="http://localhost:9000/One_day_class/notice/notice_list.jsp?bid=<%=vo.getBid()%>"><button type="button">목록</button></a>      
+           <% if(vo.getBpart().equals("이벤트")) {%>
+            <a href="http://localhost:9000/One_day_class/notice/notice_list2.jsp?bpart=event"><button type="button">목록으로</button></a>      
+           <% } else { %>
+            <a href="http://localhost:9000/One_day_class/notice/notice_list.jsp?bpart=notice"><button type="button">목록으로</button></a>      
+           <% } %>
          </div>
          </div>
          

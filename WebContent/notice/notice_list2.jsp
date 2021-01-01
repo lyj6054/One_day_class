@@ -46,15 +46,24 @@
 <script src="http://localhost:9000/One_day_class/js_yh/am-pagination.js"></script>
 <style>
 	
-	
+	*{
+		box-sizing: border-box;
+	}
+	div, main, section {
+		display: block;
+	}
+	div.content {
+		width: 1040px;
+    	margin: 0 auto;
+    	padding: 50px 0 110px 0;
+	}
 	#newsroom-main {
 		margin: 0 auto;
 		overflow:hidden;
 		height:auto;
 		width:853px;
-		padding: 10px 18px 80px 17px;
+		padding: 10px 18px 10px 17px;
 		border:1px #e3e3e3 solid;
-		margin-bottom:40px;
 	}
 	div {
 		border: 0;
@@ -147,7 +156,7 @@
 	    display: inline-block;
 	    float: left;
 	    width: 815px;
-	    height: 35px;
+	    height: 40px;
 	    border-top: 1px #cbcbcb solid;
 	    border-bottom: 1px #ebebeb solid;
 	}
@@ -156,12 +165,9 @@
 	    height: 19px;
 	    padding: 10px 3px 5px 5px;
 	    text-align: center;
-	    color: #999;
-	    font-size: 11px;
-	}
-	.main-section2 .section2-title .title-0 {
-		width:40px;
-		padding-left:20px;
+	    color: black;
+	    font-size: 12px;
+	    font-weight:bold;
 	}
 	.main-section2 .section2-title .title-1 {
 		width: 80px;
@@ -174,10 +180,10 @@
 		width: 85px;
 	}
 	.main-section2 .section2-title .title-4 {
-		width: 90px;
+		width: 100px;
 	}
 	.main-section2 .section2-title .title-5 {
-		width: 50px;
+		width: 75px;
 	}
 	.main-section2 .section2-cont {
 		display: inline-block;
@@ -193,10 +199,6 @@
 	    color: #999;
 	    font-size: 11px;
 	    margin-lefit:50px;
-	}
-	.main-section2 .section2-cont li.cont-0 {
-		width: 39px;
-		padding-left:20px;
 	}
 	.main-section2 .section2-cont li.cont-1 {
 		width: 72px;
@@ -237,18 +239,10 @@
 		width: 31px;
     	height: 15px;
     	display: block;
-    	background-image:url(http://localhost:9000/One_day_class/images/notice_con1.png);
+    	background-image:url(http://localhost:9000/One_day_class/images/notice_con2.png);
     	background-repeat:no-repeat;
 	    background-size: 28px 18px;
 	}
-	.main-section2 .section2-cont li.cont-3 .normal {
-		width: 31px;
-    	height: 15px;
-    	display: block;
-    	background-image:url(http://localhost:9000/One_day_class/images/notice_con3.png);
-    	background-repeat:no-repeat;
-	    background-size: 28px 18px;
-	} 
 	.main-section2 .section2-cont li.cont-4 {
 		width: 365px;
 	    padding: 2px 50px 0 30px;
@@ -260,12 +254,12 @@
     	padding-top: 2px;
 	}
 	.main-section2 .section2-cont li.cont-6 {
-		width: 99px;
+		width: 110px;
 		text-align:center;
     	padding-top: 2px;
 	}
 	.main-section2 .section2-cont li.cont-7 {
-		width: 48px;
+		width: 60px;
 		text-align:center;
     	padding-top: 2px;
 	}
@@ -297,200 +291,11 @@
 	#newsroom-main .main-section3 {
 	    position: relative;
 	    display: inline-block;
-	    float: left;
 	    width: 853px;
 	    height:30px;
-	    margin-left:-17px;
-	}
-	.main-section3 .section-paging {
-	    width: 853px;
-	    height: 70px;
-	    margin-top: 30px;
-	}
-	.section-paging #ampaginationsm {
-		width:60%; 
-		height:60px; 
-		text-align:center; 
-		margin-left:190px; 
-		margin-top:10px;
+	    text-align:center;
 	}
 	
-	.section-paging {
-	    position: relative;
-	    display: inline-block;
-	    float: left;
-	    text-align: left;
-	    padding-top: 0;
-	}
-	.paging-page {
-	    position: relative;
-	    width: 50%;
-	    height: 40px;
-	    text-align: center;
-	    z-index: 2;
-	    margin-left:210px;
-	}
-	.main-section3 .paging-page a {
-	    height: 16px;
-	    padding-top: 3px;
-	    color: #ababab;
-	    font-size: 11px;
-	}
-	.main-section3 .paging-page a.selected, .main-section3 .paging-page a:hover {
-		color: #333;
-	    padding-top: 3px;
-	    border: 0;
-	    background-color: #fff;
-	}
-	.paging-page a {
-    	display: inline-block;
-	    height: 17px;
-	    color: #666;
-	    padding: 5px 7px 0 7px;
-	    margin-left: 1px;
-	    font-size: 12px;
-	    font-weight: bold;
-	    text-align: center;
-	    overflow: hidden;
-	}
-	.paging-page a.selected {
-	    height: 16px;
-	    padding: 4px 7px 0 7px;
-	    margin-left: 1px;
-	    color: #fff;
-	    background-color: #767676;
-	}
-	a {
-	    border: 0;
-	    margin: 0;
-	    padding: 0;
-	    color: #636363;
-	    text-decoration: none;
-	    cursor: pointer;
-	}
-	a, a:visited {
-	    border: 0;
-	    margin: 0;
-	    padding: 0;
-	    color: #666;
-	    text-decoration: none;
-	    cursor: pointer;
-	}
-	
-	
-	/* aside */
-	.content {
-		width: 1100px;
-	    margin: 0 auto;
-	    padding: 50px 0 110px 20px;
-	    
-	}
-	.admin_main {
-		float:left;
-		margin: 0 auto;
-		width:220px; height:970px;
-		background-color:#eee;
-		padding:20px 0 0 15px;
-	}
-	
-	.content .admin_main ul {
-		width:195px;
-		height:200px;
-		margin-top:20px;
-	}
-	.content .admin_main ul li {
-		list-style-type:none;
-		padding: 4px 0;
-		margin:25px 0 5px 15px;
-	}	
-	.content .admin_main ul li img {
-		width:15px;
-		height:15px;
-	}
-	.content .admin_main ul li a {
-		color:black;
-		font-size:17px;
-		font-weight:bold;
-		text-align:center;
-		text-decoration:none;
-		margin-left:10px;
-	}	
-	
-	.content .admin_main ul li a:hover {
-		text-decoration:underline;
-	}
-	.content .admin_main div {
-		background-color: #fff;
-		padding-top:7px;
-		width:195px;
-		height:145px;
-	}
-	.content .admin_main div img{
-		margin:10px 0 0 62px;
-		width:80px; 
-		height:80px;
-	}
-	.content .admin_main .admin_icon2 {
-		display:inline-block;
-		font-size:20px;
-		margin:7px 0 0 27px;
-		color: #333;
-		text-align:center;
-		font-weight:bold;
-	}
-	/* 버튼 */
-	.main-section3 .admin_btn {
-		float:right;
-		margin-right:20px;
-	}
-	.main-section3 .admin_btn:hover {
-		float:right;
-		margin-right:20px;
-	}
-	.main-section3 .admin_btn .btn_style {
-		margin-right:6px;
-		padding:4px 10px;
-		border-radius:5px;
-		font-weight:bold;
-		font-size:14px;
-		border:none;
-	}
-	 .blind {
-		position: absolute !important;
-	    clip: rect(0,0,0,0);
-	    clip-path: polygon(0 0,0 0,0 0);
-	    width: 1px;
-	    height: 1px;
-	    margin: -1px;
-	    overflow: hidden;
-	    white-space: nowrap;
-	} 
-	.inp_chkbox {
-		float:left;
-		line-height:20px;
-	}
-	label {
-		cursor:pointer;
-	}
-	.main-section3 .admin_btn .btn_style:hover {
-		background-color:#333;
-		color:white;
-	}
-	.inp_label:checked + label::before {
-    	background-image: url(http://localhost:9000/One_day_class/images/mb_check_on.png);
-    	background-size: 13px;
-	}
-	.inp_chkbox::before {
-	    content: '';
-	    display: inline-block;
-	    width: 18px;
-	    height: 18px;
-	    margin-right: 9px;
-	    vertical-align: middle;
-	    background-image:url(http://localhost:9000/One_day_class/images/mb_check_off.png);
-	    background-repeat: no-repeat;
-	    background-size: 13px;
-	}
 	.am-pagination-default > .active > a {
 	 	background-color:#ff0045;
 	 	border-color: #ff0045;
@@ -505,8 +310,6 @@
 	.am-pagination-default > .disabled > a {
 		color:#ccc;
 	}
-	
-	
 	</style>
 <script>
 	$(document).ready(function(){
@@ -528,7 +331,7 @@
 				$("li#"+bid).css("display","block");
 				$(this).attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
 				//$("#cont8-wrap").css("display","block");
-				$(".cont-8#"+bid).load("http://localhost:9000/One_day_class/admin/admin_notice_detail.jsp?bid="+bid+" .udp_text"); 
+				$(".cont-8#"+bid).load("http://localhost:9000/One_day_class/notice/notice_content.jsp?bid="+bid+" .udp_text"); 
 				
 			} else {
 				$("li#"+bid).css("display","none");
@@ -597,10 +400,6 @@
 		</div>
 		<div class="main-section2">
 			<ul class="section2-title">
-				<li class="title-0">
-					<input class="blind inp_label" type="checkbox" name="checkAll" id="checkAll">
-					<label for="checkAll" class="inp_chkbox"></label>
-				</li>
 				<li class="title-1">번호</li>
 				<li class="title-2">제목</li>
 				<li class="title-3">담당</li>
@@ -636,9 +435,7 @@
 			</div>
 		</div>
 			<div class="main-section3">
-				<div class="section-paging">
-						<div id="ampaginationsm"></div>
-				</div>
+				<div id="ampaginationsm"></div>
 		</div>
 	</div>
 </div>

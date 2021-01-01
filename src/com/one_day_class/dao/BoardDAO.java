@@ -42,7 +42,9 @@ public class BoardDAO extends DBConn {
 	   public BoardVO getContent(String bid) {
 		   BoardVO vo = new BoardVO();
 	      try {
-	         String sql= " SELECT BID,BTITLE,BCONTENT,BCHARGE, TO_CHAR(BDATE,'YYYY.MM.DD'), BHITS, BFILE, BSFILE FROM ONE_BOARD WHERE BID=?";
+	    	  
+	         String sql= " SELECT BID,BTITLE,BCONTENT,BCHARGE, TO_CHAR(BDATE,'YYYY.MM.DD'), BHITS, BFILE, BSFILE, "
+	         		+ " BPART FROM ONE_BOARD WHERE BID=?";
 	         
 	         getPreparedStatement(sql);
 	         pstmt.setString(1, bid);
@@ -56,8 +58,7 @@ public class BoardDAO extends DBConn {
 	            vo.setBhits(rs.getInt(6));
 	            vo.setBfile(rs.getString(7));
 	            vo.setBsfile(rs.getString(8));
-	            
-	            
+	            vo.setBpart(rs.getString(9));
 	         }
 	         
 	         
