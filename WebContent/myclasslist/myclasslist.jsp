@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
 <%
-	String email = "test2123@naver.com";
+	SessionVO svo=(SessionVO)session.getAttribute("svo");
 	//String email = request.getParameter("email");
+	String email = svo.getEmail();
 	
 	sh_ClassDAO dao_class = new sh_ClassDAO();
 	ArrayList<sh_ClassVO> list_class = dao_class.getMyclassList(email);
@@ -24,7 +25,7 @@
 	sh_TuteeVO vo_tutee = dao_tutee.getMyclassList(email);
 	
 %>      
-    
+<%if(svo != null&& svo.getIdentity().equals("튜티")){  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +65,15 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+	<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
 
 	<!-- content -->
 	<div class="c_container">
@@ -212,3 +221,13 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
+<% }else{%>
+<script>
+	alert(" 튜티로 로그인을 진행하셔야 접근이 가능합니다.");
+	if(<%= svo.getIdentity().equals("튜터")%>){
+		location.href="../index_login.jsp";
+	}else{
+		location.href="../index.jsp";
+	}
+</script>
+<%}%>

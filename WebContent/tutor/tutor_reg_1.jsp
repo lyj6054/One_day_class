@@ -740,5 +740,6 @@
 <%}}else{%>
 <script>
 	alert(" 튜터로 로그인을 진행하셔야 접근이 가능합니다.");
+	location.href="../index.jsp";
 </script>
-<%response.sendRedirect("../index.jsp");}%>
+<%}%>
