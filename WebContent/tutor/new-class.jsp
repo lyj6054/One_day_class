@@ -346,8 +346,8 @@
 		<div class="title-box">
 		<h1 class="tt">내 수업</h1>
 		<select name="title" class="title" id="selectbox">
-		<% for(ms_TutorclassVO vo3 : list2){ %>
-			<option id="selectbox1" value="<%=vo3.getCid()%>"><%=vo3.getTitle()%></option>
+		<% for(ms_TutorclassVO vo3 : list2){ %> 
+			<option id="selectbox1" value="<%=vo.getCid()%>"><%=vo.getTitle()%></option>
 		<%} %>
 		</select>
 		</div>

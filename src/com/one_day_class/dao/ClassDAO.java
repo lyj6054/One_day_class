@@ -44,6 +44,40 @@ public class ClassDAO extends DBConn{
 		
 		return search_list;
 	}
+	/**
+	 * index : 최근 등록 순
+	 */
+	public ArrayList<ClassVO> indexRecent() {
+		ArrayList<ClassVO> list4 = new ArrayList<ClassVO>();
+		
+		try {
+			String sql = "select rownum cno, cid, email, picture, spicture, title, schedule, regionmain " + 
+					" from(select cid, email, picture, spicture, title, schedule, regionmain " + 
+					" from one_class " + 
+					" order by cdate desc) " + 
+					" where rownum between 1 and 4";
+			getPreparedStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ClassVO vo=new ClassVO();
+				vo.setCno(rs.getInt(1));
+				vo.setCid(rs.getString(2));
+				vo.setEmail(rs.getString(3));
+				vo.setPicture(rs.getString(4));
+				vo.setSpicture(rs.getString(5));
+				vo.setTitle(rs.getString(6));
+				vo.setSchedule(rs.getString(7));
+				vo.setRegionmain(rs.getString(8));
+				
+				list4.add(vo);
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list4;
+	}
 	
 	/**
 	 * index : MD 추천 클래스
@@ -52,8 +86,8 @@ public class ClassDAO extends DBConn{
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		
 		try {
-			String sql = "select rownum cno, cid, email, picture, title, schedule, regionmain " + 
-					" from(select cid, email, picture, title, schedule, regionmain " + 
+			String sql = "select rownum cno, cid, email, picture, spicture, title, schedule, regionmain " + 
+					" from(select cid, email, picture, spicture, title, schedule, regionmain " + 
 					" from one_class" + 
 					" where videos IS NOT NULL " + 
 					" order by cdate desc) " + 
@@ -66,9 +100,10 @@ public class ClassDAO extends DBConn{
 				vo.setCid(rs.getString(2));
 				vo.setEmail(rs.getString(3));
 				vo.setPicture(rs.getString(4));
-				vo.setTitle(rs.getString(5));
-				vo.setSchedule(rs.getString(6));
-				vo.setRegionmain(rs.getString(7));
+				vo.setSpicture(rs.getString(5));
+				vo.setTitle(rs.getString(6));
+				vo.setSchedule(rs.getString(7));
+				vo.setRegionmain(rs.getString(8));
 				
 				list.add(vo);
 				
@@ -373,7 +408,7 @@ public class ClassDAO extends DBConn{
 	
 	/*인덱스 페이지에 평점 높은 순서로 상위 8개 가져오기*/
 	public ArrayList<ClassVO> getIndexList4(){
-		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		ArrayList<ClassVO> list3 = new ArrayList<ClassVO>();
 		try {
 			String sql = " select cid ,catemain from one_class where cid in (select cid from(select rownum ,cid ,starpoint from(select cid ,avg(rservice)starpoint from one_review  group by cid)where rownum between 1 and 8 order by starpoint desc))";
 			getPreparedStatement(sql);
@@ -383,7 +418,7 @@ public class ClassDAO extends DBConn{
 				vo.setCid(rs.getString(1));
 				vo.setCatemain(rs.getString(2));
 				
-				list.add(vo);
+				list3.add(vo);
 			}
 			
 			
@@ -391,14 +426,14 @@ public class ClassDAO extends DBConn{
 			e.printStackTrace();
 		}
 		
-		return list;
+		return list3;
 	}
 	
 	/**
 	 * 튜티들이 많이 찾는 수업 리스트- 영재
 	 */
 	public ArrayList<ClassVO> getIndexList3(){
-		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		ArrayList<ClassVO> list2 = new ArrayList<ClassVO>();
 		try {
 			String sql = "select cid,email,title,regionmain,schedule,spicture from one_class where cid in (select cid from(select rownum , cid, count1 from(select cid ,count(*) count1 from one_apply_class group by cid order by count1 desc,sysdate desc)where rownum between 1 and 4))";
 			getPreparedStatement(sql);
@@ -412,7 +447,7 @@ public class ClassDAO extends DBConn{
 				vo.setSchedule(rs.getString(5));
 				vo.setSpicture(rs.getString(6));
 				
-				list.add(vo);
+				list2.add(vo);
 			}
 			
 			
@@ -420,7 +455,7 @@ public class ClassDAO extends DBConn{
 			e.printStackTrace();
 		}
 		
-		return list;
+		return list2;
 	}
 	
 	/**

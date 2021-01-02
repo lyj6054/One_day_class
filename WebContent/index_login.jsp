@@ -1,16 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="com.one_day_class.vo.*, com.one_day_class.dao.*"
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.*"
     %>
 <%
 		SessionVO svo = (SessionVO)session.getAttribute("svo");
 		String email = svo.getEmail();
+		
+		ClassDAO dao = new ClassDAO();
+		sh_ReviewDAO dao_review = new sh_ReviewDAO();
 		
 		TutorDAO dao_tutor = new TutorDAO();
 		TutorVO vo_tutor = dao_tutor.getIndexProfile(email);
 		
 		TuteeDAO dao_tutee = new TuteeDAO();
 		TuteeVO vo_tutee = dao_tutee.getIndexProfile(email); 
+		
+		int i=0;
+		
+		//영화
+		ArrayList<ClassVO> list =new ArrayList<ClassVO>();
+		ArrayList<ClassVO> list4 =new ArrayList<ClassVO>();
+		//영재
+		ArrayList<ClassVO> list2 =new ArrayList<ClassVO>();
+		ArrayList<ClassVO> list3 =new ArrayList<ClassVO>();
+		
+		
+		
+		//영화
+		list = dao.indexRecommend(); 
+		
+		//영재
+		 list2 = dao.getIndexList3();
+		 list3 = dao.getIndexList4();
+		 
+		 list4 = dao.indexRecent(); 
 		
 		if(svo != null) {
 %>	
@@ -845,335 +868,91 @@
 						<div class="swiper-slide group_slide swiper-slide-active" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
 							<div class="talents_group main_cont">
 								<div class="talent_box">
-									<h2 class="main_title">가장 빠른 수업</h2>
+									<h2 class="main_title">최근 개설한 수업</h2>
 									<div class="talent_list swiper-container swiper2">
 										<ul class="swiper-wrapper">
+										<% for(ClassVO vo : list4) { 
+											i++;
+											String[] pic_array=vo.getSpicture().split(",");
+											
+											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid()); 
+											String date = vo.getSchedule();
+											int day_idx = date.indexOf("일");
+											String day = "";
+											if(day_idx>0) {
+												//day=date.substring(day_idx-6, day_idx+1);
+											} else {
+												day="협의 후 날짜 시간 결정";
+											}
+											
+										%>
 											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
+										        <a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid()%>">
+										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>')">
 										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
+										            <h3 class="talent_title"><%= vo.getTitle() %></h3>
 										            <div class="talent_info">					    
 										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/upload/<%=vo_tutor_index.getSprofile_img()%>">
 										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
+										            	<span class="name"><%= vo_tutor_index.getName()%></span>						
+										            	<span class="d_day"><%= day %></span>						
+										            	<span class="location"><%= vo.getRegionmain() %></span>	
 										            	<span class="review">
 								                            <span class="star_img">
 								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
 								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
+								                            <span class="grade_total"><%= dao_review.getReviewScore(vo.getCid()) %><span>(<%=dao_review.getReviewCnt(vo.getCid()) %>)</span></span>
 								                        </span>				
 										            </div>
 										        </a>
 										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
 										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
-										    </li>
+										<% } %>    
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
 										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
 									</div>
 								</div>
-								<div class="talent_box">
-									<h2 class="main_title">유저들이 가장 많이 찾는 수업</h2>
+									<div class="talent_box">
+									<h2 class="main_title">튜터들이 많이 찾는 수업</h2>
 									<div class="talent_list swiper-container swiper2">
 										<ul class="swiper-wrapper">
+											<% for(ClassVO vo:list2){ i++;
+												String[] pic_array=vo.getSpicture().split(",");
+												TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid());
+												String date=vo.getSchedule();
+												int day_idx=date.indexOf("일");
+												String day="";
+												if(day_idx>0) {
+												//day=date.substring(day_idx-6,day_idx+1);
+												}else {
+												day="협의 후 날짜 시간 결정";
+												}
+											%>
 											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
+										        <a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid()%>">
+										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>');">
 										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
+										            <h3 class="talent_title"><%=vo.getTitle() %></h3>
 										            <div class="talent_info">					    
 										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/upload/<%=vo_tutor_index.getSprofile_img()%>">
 										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
+										            	<span class="name"><%=vo_tutor_index.getName() %></span>						
+										            	<span class="d_day"><%=day %> </span>						
+										            	<span class="location"><%=vo.getRegionmain()%></span>	
 										            	<span class="review">
 								                            <span class="star_img">
 								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
 								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
+								                            <span class="grade_total"><%=dao_review.getReviewScore(vo.getCid())%><span>(<%=dao_review.getReviewCnt(vo.getCid())%>)</span></span>
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this,<%=vo.getCid()%>);"></button>
 										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										    <li class="swiper-slide swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										</ul>
-										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
-										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
-									</div>
-								</div>
-								<div class="talent_box">
-									<h2 class="main_title">오늘의 인기 원데이</h2>
-									<div class="talent_list swiper-container swiper2">
-										<ul class="swiper-wrapper">
-											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img2.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 강남역오픈♥  자존감이 두배 올라가는 메이크업!</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img2.png">
-										            	</span>					    
-										            	<span class="name">홍하율</span>						
-										            	<span class="d_day">11월 26일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(728)</span></span>
-								                        </span>				
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
+										    <%} %>
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
 										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
@@ -1183,116 +962,44 @@
 									<h2 class="main_title">MD 추천 클래스</h2>
 									<div class="talent_list swiper-container swiper2">
 										<ul class="swiper-wrapper">
+										<% for(ClassVO vo : list) {
+											i++;
+											String[] pic_array=vo.getPicture().split(",");
+											
+											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid());
+											String date = vo.getSchedule();
+											int day_idx = date.indexOf("일");
+											String day = "";
+											if(day_idx>0) {
+												//day=date.substring(day_idx-6, day_idx+1);
+											} else {
+												day="협의 후 날짜 시간 결정";
+											}
+
+										%>
 											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
+										        <a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid()%>">
+										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>');">
 										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
+										            <h3 class="talent_title"><%= vo.getTitle() %></h3>
 										            <div class="talent_info">					    
 										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/upload/<%=vo_tutor_index.getSprofile_img()%>">
 										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
+										            	<span class="name"><%= vo_tutor_index.getName() %></span>						
+										            	<span class="d_day"><%= day %> </span>						
+										            	<span class="location"><%= vo.getRegionmain() %></span>	
 										            	<span class="review">
 								                            <span class="star_img">
 								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
 								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
+								                            <span class="grade_total"><%= dao_review.getReviewScore(vo.getCid()) %><span>(<%=dao_review.getReviewCnt(vo.getCid()) %>)</span></span>
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
+										        <button type="button" class="<%= vo.getCid()%>" id="btn_wish"></button>
 										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
-										    <li class="swiper-slide" style="width: 326px; margin-right: 32px;">
-										        <a href="">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/images/cl_img1.png');">
-										            </div>
-										            <h3 class="talent_title">♥ 아직도 샵다녀? 이젠 혼자할수있다! ♥</h3>
-										            <div class="talent_info">					    
-										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/images/cf_img1.jpg">
-										            	</span>					    
-										            	<span class="name">심효정</span>						
-										            	<span class="d_day">11월 27일 </span>						
-										            	<span class="location">강남</span>	
-										            	<span class="review">
-								                            <span class="star_img">
-								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
-								                            </span>
-								                            <span class="grade_total">4.9<span>(75)</span></span>
-								                        </span>					
-										            </div>
-										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish();"></button>
-										    </li>
+										<% } %>
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
 										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
@@ -1302,76 +1009,17 @@
 									<h2 class="main_title">높은 리뷰 평점</h2>
 									<div class="high_score swiper-container swiper3">
 										<ul class="swiper-wrapper">
-											<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-												<a href="">
-													<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img2.png');"></div>
-													<p class="cate_main">메이크업</p>
-													<p class="name">홍하율</p>
-												</a>
-											</li>
-											<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-												<a href="">
-													<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img1.jpg');"></div>
-													<p class="cate_main">메이크업</p>
-													<p class="name">심효정</p>
-												</a>
-											</li>
-											<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-												<a href="">
-													<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img2.png');"></div>
-													<p class="cate_main">메이크업</p>
-													<p class="name">홍하율</p>
-												</a>
-											</li>
-											<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-												<a href="">
-													<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img1.jpg');"></div>
-													<p class="cate_main">메이크업</p>
-													<p class="name">홍하율</p>
-												</a>
-											</li>
-											<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-												<a href="">
-													<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img2.png');"></div>
-													<p class="cate_main">메이크업</p>
-													<p class="name">심효정</p>
-												</a>
-											</li>
-											<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-												<a href="">
-													<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img1.jpg');"></div>
-													<p class="cate_main">메이크업</p>
-													<p class="name">심효정</p>
-												</a>
-											</li>
-											<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-												<a href="">
-													<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img2.png');"></div>
-													<p class="cate_main">메이크업</p>
-													<p class="name">심효정</p>
-												</a>
-											</li>
-											<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-												<a href="">
-													<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img1.jpg');"></div>
-													<p class="cate_main">메이크업</p>
-													<p class="name">심효정</p>
-												</a>
-											</li>
-											<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-												<a href="">
-													<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img2.png');"></div>
-													<p class="cate_main">메이크업</p>
-													<p class="name">심효정</p>
-												</a>
-											</li>
-											<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-												<a href="">
-													<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/images/cf_img1.jpg');"></div>
-													<p class="cate_main">메이크업</p>
-													<p class="name">심효정</p>
-												</a>
-											</li>
+										
+											<%for(ClassVO vo:list3){  i++; TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid());%>
+												<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
+													<a href="">
+														<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=vo_tutor_index.getSprofile_img()%>');"></div>
+														<p class="cate_main"><%= vo.getCatemain()%></p>
+														<p class="name"><%= vo_tutor_index.getName()%></p>
+													</a>
+												</li>
+											<%} %>
+											
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
 										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
