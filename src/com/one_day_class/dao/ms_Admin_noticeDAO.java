@@ -45,7 +45,7 @@ public class ms_Admin_noticeDAO extends DBConn{
 	public ms_Admin_noticeVO getContent(String bid) {
 		ms_Admin_noticeVO vo = new ms_Admin_noticeVO();
 		try {
-			String sql= " SELECT BID,BTITLE,BCONTENT,BCHARGE, TO_CHAR(BDATE,'YYYY.MM.DD'), BHITS, BFILE, BSFILE FROM ONE_BOARD WHERE BID=?";
+			String sql= " SELECT BID,BTITLE,BCONTENT,BCHARGE, TO_CHAR(BDATE,'YYYY.MM.DD'), BHITS, BFILE, BSFILE,BPART FROM ONE_BOARD WHERE BID=?";
 			
 			getPreparedStatement(sql);
 			pstmt.setString(1, bid);
@@ -59,7 +59,9 @@ public class ms_Admin_noticeDAO extends DBConn{
 				vo.setBhits(rs.getInt(6));
 				vo.setBfile(rs.getString(7));
 				vo.setBsfile(rs.getString(8));
+				vo.setBpart(rs.getString(9));
 				
+			System.out.println(vo.getBpart());
 			}
 			
 			
@@ -77,12 +79,13 @@ public class ms_Admin_noticeDAO extends DBConn{
 	public boolean getUpdateNofile(ms_Admin_noticeVO vo) {
 		boolean result= false;
 		try {
-			String sql ="update one_board set btitle=?, bcontent=? "
+			String sql ="update one_board set bpart=?, btitle=?, bcontent=? "
 					+ "  where bid=?";
 			getPreparedStatement(sql);
-			pstmt.setString(1, vo.getBtitle());
-			pstmt.setString(2, vo.getBcontent());
-			pstmt.setString(3, vo.getBid());
+			pstmt.setString(1, vo.getBpart());
+			pstmt.setString(2, vo.getBtitle());
+			pstmt.setString(3, vo.getBcontent());
+			pstmt.setString(4, vo.getBid());
 			
 			int val = pstmt.executeUpdate();
 			if(val != 0) result = true;
@@ -101,20 +104,24 @@ public class ms_Admin_noticeDAO extends DBConn{
 	 */
 	public boolean getUpdate(ms_Admin_noticeVO vo) {
 		boolean result= false;
+		System.out.println("bpart :");
+		System.out.println(vo.getBpart());
 		try {
-			String sql = "update one_board set btitle=?, bcontent=?, bfile=?, bsfile=? where bid=?";
+			String sql = "update one_board set bpart=?, btitle=?, bcontent=?, bfile=?, bsfile=? where bid=?";
 					
 			
 			getPreparedStatement(sql);
 			
-			pstmt.setString(1, vo.getBtitle());
-			pstmt.setString(2, vo.getBcontent());
-			pstmt.setString(3, vo.getBfile());
-			pstmt.setString(4, vo.getBsfile());
-			pstmt.setString(5, vo.getBid());
+			pstmt.setString(1, vo.getBpart());
+			pstmt.setString(2, vo.getBtitle());
+			pstmt.setString(3, vo.getBcontent());
+			pstmt.setString(4, vo.getBfile());
+			pstmt.setString(5, vo.getBsfile());
+			pstmt.setString(6, vo.getBid());
 
 			int val = pstmt.executeUpdate();
 			if(val !=0) result = true;
+			
 			
 			
 			

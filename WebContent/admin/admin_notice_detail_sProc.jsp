@@ -9,8 +9,12 @@
 
 
 <%
-		String bpart = request.getParameter("bpart");
 
+
+System.out.println("request getContentType : " + request.getContentType());
+		String bpart = request.getParameter("bpart");
+		System.out.println("proc");
+		System.out.println(bpart);
 		//1. 파일이 저장되는 경로 설정 : upload폴더 주소
 		String save_path = request.getServletContext().getRealPath("/upload");
 		System.out.println("path==> " + save_path);
@@ -33,17 +37,21 @@
 			vo.setBcontent(multi.getParameter("bcontent"));
 			vo.setBfile(multi.getOriginalFileName("bfile"));
 			vo.setBsfile(multi.getFilesystemName("bfile"));
+			vo.setBpart(multi.getParameter("bpart"));
 			
 			//DB연동 --> 새로운 파일 있는 경우
 			System.out.println("---------> 파일이 있는 경우(새로운 파일)");
+			System.out.println(bpart);
 			result = dao.getUpdate(vo);
 		}else {
 			vo.setBid(multi.getParameter("bid"));
 			vo.setBtitle(multi.getParameter("btitle"));
 			vo.setBcontent(multi.getParameter("bcontent"));
+			vo.setBpart(multi.getParameter("bpart"));
 			
 			//DB연동 --> 새로운 파일 없음 : 기존 파일 유지!!
 			System.out.println("---------> 파일선택 X, 기존파일 유지");
+			System.out.println(bpart);
 			result = dao.getUpdateNofile(vo);
 		}
 		
@@ -67,5 +75,5 @@
 				response.sendRedirect("http://localhost:9000/One_day_class/errorPage.jsp");
 			}
 		}
-
+		
 %>

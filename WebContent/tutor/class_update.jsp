@@ -4,10 +4,12 @@
 	
 	
 <%
+SessionVO svo=(SessionVO)session.getAttribute("svo");
 	String cid = request.getParameter("cid");
 	ms_TutorclassDAO dao = new ms_TutorclassDAO();
-	ms_TutorclassVO vo = dao.getMyclass(cid);
+	ms_TutorclassVO vo = dao.getSelectclass(cid);
 %>
+<%if(svo != null){  if(svo.getIdentity().equals("튜터")){String email = svo.getEmail();%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +21,18 @@
 	src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 </head>
 <body>
+	<!--  session  -->
+			<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
+
+
 	<!--  header  -->
 	<jsp:include page="../header.jsp" />
 
@@ -26,7 +40,7 @@
 	<div class="content">
 		<form method="post"  action="class_updateProc.jsp" name="updateform" id="frm-register-detail"
 			enctype="multipart/form-data">
-			<input type="hidden" id="email" name="email" value="alstndkrl@naver.com"> 
+			<input type="hidden" id="email" name="email" value="<%=svo.getEmail()%>"> 
 			<input type="hidden"  name="cid" value="<%=cid%>"> 
 			<!-- <input type="hidden" id="targetId" name="targetId" value=""> 
 			<input type="hidden" id="CoverImageUrl" name="CoverImageUrl" value=""> -->
@@ -73,7 +87,7 @@
 					<div class="cont">
 						<select class="basic len320" id="regionMain" name="regionmain"
 							>
-							<option>수업 대표 지역을 선택해 주세요</option>
+							<option><%=vo.getRegionmain()%></option>
 							<option value="서울">서울</option>
 							<option value="경기">경기</option>
 							<option value="인천">인천</option>
@@ -85,7 +99,7 @@
 							<option value="온라인">온라인</option>
 						</select> 
 						<input type="text" class="basic nick"  id="regionSub" name="regionsub" 
-							value=""  placeholder="상세지역"
+							value="<%=vo.getRegionsub()%>"  placeholder="상세지역"
 							style="margin-bottom: 10px; margin-top: 10px; width: 100%;">
 					</div>
 				</div>
@@ -97,7 +111,7 @@
 					<div class="cont">
 						<select class="basic len320" id="CateMain" name="catemain"
 							>
-							<option>수업카테고리를 선택해 주세요</option>
+							<option><%=vo.getCatemain() %></option>
 							<option value="뷰티/헬스">뷰티/헬스</option>
 							<option value="액티비티">액티비티</option>
 							<option value="라이프">라이프</option>
@@ -106,7 +120,7 @@
 							<option value="외국어">외국어</option>
 						</select>
 						 <select class="basic len320" id="CateSub" name="catesub">
-						 	<option>상세카테고리를 선택해 주세요</option>
+						 	<option><%=vo.getCatesub() %></option>
 							<option value="메이크업">메이크업</option>
 							<option value="퍼스널컬러">퍼스널컬러</option>
 							<option value="패션">패션</option>
@@ -138,7 +152,7 @@
 					</div>
 					<div class="cont">
 						<select class="basic len290" id="MinPerson" name="person">
-							<option>인원을 선택해 주세요</option>
+							<option><%=vo.getPerson() %></option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -183,7 +197,7 @@
 						</div>
 						<div class="inner1">
 							<input type="text" class="basic nick" id="Title" name="title"
-								value="" placeholder="수강생을 끌어당길 수 있는 개성넘치는 제목을 만들어 보세요.">
+								value="<%=vo.getTitle() %>" placeholder="수강생을 끌어당길 수 있는 개성넘치는 제목을 만들어 보세요.">
 						</div>
 					</div>
 				</div>
@@ -549,11 +563,18 @@
 						</div>
 						<div class="inner1">
 							<div class="vdo">
+						<% if(vo.getVideos() != null) { %>
+									<input type="text" name="videos" class="basic len786" 
+										placeholder="예) https://youtu.be/1sboNBkTMuU" value="<%=vo.getVideos()%>"
+										style="margin-bottom: 10px; width: 100%;">
+								<% }else{ %>
 								<input type="text" name="videos" class="basic len786"
 									placeholder="예) https://youtu.be/1sboNBkTMuU"
 									style="margin-bottom: 10px; width: 100%;">
+								<% } %>
 							</div>
 						</div>
+						
 						<script>
 				function addvdo(){					
 					var str='<div class="vdo"><input type="text" class="basic len786" placeholder="예) https://youtu.be/1sboNBkTMuU" style="margin-bottom:10px" name="Videos[]" ></div>';
@@ -731,3 +752,9 @@
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>
+<%}}else{%>
+<script>
+	alert(" 튜터로 로그인을 진행하셔야 접근이 가능합니다.");
+	location.href="../index.jsp";
+</script>
+<%}%>

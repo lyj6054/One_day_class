@@ -31,6 +31,7 @@ $(document).ready(function(){
 		} else {
 			//서버로전송
 			noticeUpdateForm.submit(); 
+			
 		}
 		
 	}); 
@@ -610,14 +611,14 @@ $(document).ready(function(){
       <span class="main-logo">TALMUNG <span>'NEWS'</span> ROOM</span>
       <div class="main-section2">
             <div class="udp_title1">
-            	<form name="noticeUpdateForm" action="admin_notice_detail_sProc.jsp" method="post" class="admin_notice_Update"
-            	enctype="multipart/form-data">
+            	<form name="noticeUpdateForm" action="admin_notice_detail_sProc.jsp?bpart=<%=vo.getBpart()%>" method="post" class="admin_notice_Update" enctype="multipart/form-data">
             	<input type="hidden" name="bid" value="<%=vo.getBid()%>">
+				<input type="hidden" name="bpart1" value="<%=vo.getBpart()%>">
 					<ul>
 						<li class="udp_title1">
 							<label>구분</label>
 							<select name="bpart" class="notice_select">
-								<option  value="선 택">선 택</option>
+								<option  value="<%=vo.getBpart()%>"><%=vo.getBpart()%></option>
 								<option value="공지사항/일반">공지사항/일반</option>
 								<option value="공지사항/약관">공지사항/약관</option>
 								<option value="이벤트">이벤트</option>
@@ -640,7 +641,7 @@ $(document).ready(function(){
 							<% } %>
 						</li>
 						<li class="udp_btnbox">
-							<button type="submit" class="btn_style" id="btnNoticeUpdate">등록</button>
+							<button type="button" class="btn_style" id="btnNoticeUpdate">등록</button>
 							<a href="http://localhost:9000/One_day_class/admin/admin_notice_detail.jsp?bid=<%=vo.getBid()%>"><button type="button" class="btn_style">취소</button></a>
 							<a href="notice_list_admin.jsp?bid=<%=vo.getBid()%>"><button type="button" class="btn_style">목록으로</button></a>
 						</li>

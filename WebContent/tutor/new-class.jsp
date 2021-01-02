@@ -1,21 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>\
     
-<%
-		String cid = request.getParameter("cid");
-		if(cid == null) cid = "C_5";
+    
+<%SessionVO svo=(SessionVO)session.getAttribute("svo"); %>
+<%if(svo != null){  if(svo.getIdentity().equals("튜터")){String email = svo.getEmail();
 		
-		String email ="alstndkrl@naver.com";
+		/* String cid = request.getParameter("cid"); */
+	
+		
+		/* String email ="alstndkrl@naver.com"; */
     	ms_TutorclassDAO dao = new ms_TutorclassDAO();
+    	String cid = dao.getCid1(email);
+		if(cid == null) cid = "C_1";
 		ms_TutorclassVO vo = dao.getMyclass(cid);
 		ArrayList<ms_TutorclassVO> list = dao.getTutorList(email,cid);
         ArrayList<ms_TutorclassVO> list1 = dao.getClassList(cid);
 		ArrayList<ms_TutorclassVO> list2= dao.getMyList(email);
 		int j=0;
-	
+		
 %>
-
 
 <!DOCTYPE html>
 <html>
@@ -322,6 +326,17 @@
 </style>
 </head>
 <body>
+	<!--  session  -->
+			<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
+	
 	
 	
 	<div class="new_class">
@@ -431,3 +446,9 @@
 	
 </body>
 </html>
+<%}}else{%>
+<script>
+	alert(" 튜터로 로그인을 진행하셔야 접근이 가능합니다.");
+	location.href="../index.jsp";
+</script>
+<%}%>

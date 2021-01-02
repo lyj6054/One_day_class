@@ -63,14 +63,12 @@
 		System.out.println("---------> 파일이 있는 경우(새로운 파일)");
 		result = dao.UpdatePage1(vo);
 		String cid=dao.getCid1(vo.getEmail());
-		System.out.println(result);
-		System.out.println(cid);
-		
+		System.out.println(vo.getEmail());
 	if(result){
+		System.out.println(vo.getEmail());
 		System.out.println(cid);
-		response.sendRedirect("tutor_reg_2.jsp?cid="+cid);
+		response.sendRedirect("class_update1.jsp?cid="+cid);
 	}else{
-		System.out.println(cid);
 		response.sendRedirect("../errorPage.jsp");
 		
 	}   

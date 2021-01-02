@@ -10,12 +10,109 @@ public class ms_TutorclassDAO extends DBConn {
 	
 	
 	/**
+	 * 수업 수정시 내용 불러오기 
+	 */
+	public ms_TutorclassVO getSelectclass(String cid){
+			ms_TutorclassVO vo = new ms_TutorclassVO();
+		try {
+			String sql = " SELECT REGIONMAIN, REGIONSUB, CATEMAIN,CATESUB,PERSON, TITLE,PICTURE,VIDEOS,PRICE,TIME,SCHEDULE,TUTORINFO,INTRODUCTION,TARGET,CURRICULUM,TUTORNOTICE FROM ONE_CLASS WHERE CID =? ";
+			   
+			getPreparedStatement(sql);
+			pstmt.setString(1, cid);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				vo.setRegionmain(rs.getString(1));
+				vo.setRegionsub(rs.getString(2));
+				vo.setCatemain(rs.getString(3));
+				vo.setCatesub(rs.getString(4));
+				vo.setPerson(rs.getInt(5));
+				vo.setTitle(rs.getString(6));
+				vo.setPicture(rs.getString(7));
+				vo.setVideos(rs.getString(8));
+				vo.setPrice(rs.getInt(9));
+				vo.setTime(rs.getInt(10));
+				vo.setSchedule(rs.getString(11));
+				vo.setTutorinfo(rs.getString(12));
+				vo.setIntroduction(rs.getString(13));
+				vo.setTarget(rs.getString(14));
+				vo.setCurriculum(rs.getString(15));
+				vo.setTutornotice(rs.getString(16));
+				
+		
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return vo;
+	}
+	
+	/**
+	 *  수업 수정하기 3페이지
+	 */
+	public boolean Updatepage3(ClassVO vo) {
+		boolean result=false;
+		try {
+			String sql="update one_class set tutorinfo=?,introduction=?,target=?,curriculum=?,tutornotice=? where cid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, vo.getTutorinfo());
+			pstmt.setString(2, vo.getIntroduction());
+			pstmt.setString(3, vo.getTarget());
+			pstmt.setString(4, vo.getCurriculum());
+			pstmt.setString(5,vo.getTutornotice());
+			pstmt.setString(6,vo.getCid());
+			
+			int val=pstmt.executeUpdate();
+			if(val!=0) result=true;
+			System.out.println( vo.getTutorinfo());
+			System.out.println(vo.getIntroduction());
+			System.out.println(vo.getTarget());
+			System.out.println(vo.getCurriculum());
+			System.out.println(vo.getCid());
+			
+			System.out.println("결과 :"+result);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	
+	/**
+	 *  수업수정하기 2페이지
+	 */
+	public boolean Updatepage2(ClassVO vo) {
+		boolean result=false;
+	
+		try {
+			String sql="update one_class set price=?,time=?,schedule=? where cid=?";
+			getPreparedStatement(sql);
+			pstmt.setInt(1, vo.getPrice());
+			pstmt.setInt(2, vo.getTime());
+			pstmt.setString(3, vo.getSchedule());
+			pstmt.setString(4,vo.getCid());
+			
+			
+			int val=pstmt.executeUpdate();
+			if(val!=0) result=true;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	
+	/**
 	 * 수업 수정하기 1페이지
 	 */
 	public boolean UpdatePage1(ClassVO vo) {
 		boolean result = false;
 		try {
-			String sql= " UPDATE ONE_CLASS SET REGIONMAIN=?,REGIONSUB=?,CATEMAIN=?,CATESUB=?,PERSON=?,TITLE=?,PICTURE=?,VIDEOS=? WHERE CID=?";
+			String sql= " UPDATE ONE_CLASS SET REGIONMAIN=?,REGIONSUB=?,CATEMAIN=?,CATESUB=?,PERSON=?,TITLE=?,PICTURE=?,SPICTURE=?,VIDEOS=? WHERE CID=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getRegionmain());
 			pstmt.setString(2, vo.getRegionsub());
@@ -24,20 +121,11 @@ public class ms_TutorclassDAO extends DBConn {
 			pstmt.setInt(5, vo.getPerson());
 			pstmt.setString(6, vo.getTitle());
 			pstmt.setString(7, vo.getPicture());
-			pstmt.setString(8, vo.getVideos());
-			pstmt.setString(9, vo.getCid());
+			pstmt.setString(8, vo.getSpicture());
+			pstmt.setString(9, vo.getVideos());
+			pstmt.setString(10, vo.getCid());
 			
-			System.out.println(vo.getRegionmain());
-			System.out.println(vo.getRegionsub());
-			System.out.println(vo.getCatemain());
-			System.out.println(vo.getCatesub());
-			System.out.println(vo.getPerson());
-			System.out.println(vo.getTitle());
-			System.out.println(vo.getPicture());
-			System.out.println(vo.getVideos());
-			System.out.println(vo.getCid());
-			
-			
+		
 			int val = pstmt.executeUpdate();
 			if(val != 0) result = true;
 			
@@ -76,11 +164,10 @@ public class ms_TutorclassDAO extends DBConn {
 	
 	
 	/**
-	 * Select : spicture을 이용하여 Cid가져오기
+	 * Select : email을 이용하여 Cid가져오기
 	 */
 	public String getCid1(String email) {
 		String cid="";
-		System.out.println(email);
 		try {
 			String sql="select cid from one_class where email=?";
 			getPreparedStatement(sql);
@@ -226,8 +313,7 @@ public class ms_TutorclassDAO extends DBConn {
 		return list1;
 	}
 	
-	
-	
+
 	/**
 	 * 내수업 정보
 	 */

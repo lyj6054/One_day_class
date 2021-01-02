@@ -1,15 +1,121 @@
 package com.one_day_class.vo;
 
 public class ms_TutorclassVO {
-	int rno,aperson, astatus;
-	String email, name, aschedule, rcontent, rdate ,cid ,title, picture, spicture ,aid ,sysdate,schedule ,adate, cdate;
+	int rno,aperson, astatus, person,price,time;
+	String email, name, aschedule, rcontent, rdate ,cid ,title, picture, spicture ,aid ,sysdate,schedule ,adate, cdate,
+			regionmain, regionsub, catemain,catesub,videos,tutorinfo,introduction,curriculum,tutornotice,target;
 
 	
+	
+	
+	
+	
+	
+	
+	public String getTarget() {
+		return target;
+	}
 
-	
-	
-	
-	
+	public void setTarget(String target) {
+		this.target = target;
+	}
+
+	public String getTutorinfo() {
+		return tutorinfo;
+	}
+
+	public void setTutorinfo(String tutorinfo) {
+		this.tutorinfo = tutorinfo;
+	}
+
+	public String getIntroduction() {
+		return introduction;
+	}
+
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
+	}
+
+	public String getCurriculum() {
+		return curriculum;
+	}
+
+	public void setCurriculum(String curriculum) {
+		this.curriculum = curriculum;
+	}
+
+	public String getTutornotice() {
+		return tutornotice;
+	}
+
+	public void setTutornotice(String tutornotice) {
+		this.tutornotice = tutornotice;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+	public int getPerson() {
+		return person;
+	}
+
+	public void setPerson(int person) {
+		this.person = person;
+	}
+
+	public String getRegionmain() {
+		return regionmain;
+	}
+
+	public void setRegionmain(String regionmain) {
+		this.regionmain = regionmain;
+	}
+
+	public String getRegionsub() {
+		return regionsub;
+	}
+
+	public void setRegionsub(String regionsub) {
+		this.regionsub = regionsub;
+	}
+
+	public String getCatemain() {
+		return catemain;
+	}
+
+	public void setCatemain(String catemain) {
+		this.catemain = catemain;
+	}
+
+	public String getCatesub() {
+		return catesub;
+	}
+
+	public void setCatesub(String catesub) {
+		this.catesub = catesub;
+	}
+
+	public String getVideos() {
+		return videos;
+	}
+
+	public void setVideos(String videos) {
+		this.videos = videos;
+	}
+
 	public String getCdate() {
 		return cdate;
 	}
