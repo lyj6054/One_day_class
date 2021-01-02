@@ -403,7 +403,7 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="../header_tutor.jsp"></jsp:include>
 
 	<!-- content -->
 	<div class="admin_content">

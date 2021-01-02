@@ -3,12 +3,16 @@
     import="com.one_day_class.vo.*, com.one_day_class.dao.*"
     %>
 <%
-	SessionVO svo = (SessionVO)session.getAttribute("svo");
-	String email = svo.getEmail();
-%>
-<%
-		TutorDAO dao = new TutorDAO();
-		TutorVO vo = dao.getIndexProfile(email); 
+		SessionVO svo = (SessionVO)session.getAttribute("svo");
+		String email = svo.getEmail();
+		
+		TutorDAO dao_tutor = new TutorDAO();
+		TutorVO vo_tutor = dao_tutor.getIndexProfile(email);
+		
+		TuteeDAO dao_tutee = new TuteeDAO();
+		TuteeVO vo_tutee = dao_tutee.getIndexProfile(email); 
+		
+		if(svo != null) {
 %>	
 <!DOCTYPE html>
 <html>
@@ -16,6 +20,7 @@
 <meta charset="UTF-8">
 <title>index_login</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
+<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <style>
 	*{
 		box-sizing: border-box;
@@ -405,6 +410,9 @@
 		background: url(http://localhost:9000/One_day_class/images/icon-wish-clicked@2x.png)
 		no-repeat 5px center/22px;
 	}
+	.status_logon .lnb .admin {
+		padding-left: 5px;
+	}
 	.all_category .dt {
 	    display: table;
 	    width: 100%;
@@ -603,7 +611,6 @@
 	    margin-top: -10px;
 	}
 </style>
-<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script>
 	$(document).ready(function(){
 		$('.btn_category').click(function() {
@@ -782,12 +789,29 @@
 	            <div class="login_box status_logon">
 				    <div class="area_info_top">
 				        <a class="my_profile" href="http://localhost:9000/One_day_class/mypage/mypage.jsp">
-				        	<img class="img_profile" style="background-image:url(http://localhost:9000/One_day_class/upload/<%=vo.getProfile_img()%>)">
+				        	<% if(svo.getIdentity().equals("튜터")) { %>
+				        		<% if(vo_tutor.getName().equals("탈멍")) { %>
+					        		<img class="img_profile" style="background-image:url(http://localhost:9000/One_day_class/images/admin.png)">
+				        		<% } else { %>
+					        		<img class="img_profile" style="background-image:url(http://localhost:9000/One_day_class/upload/<%=vo_tutor.getSprofile_img()%>)">
+				        		<% } %>
+				       		<% } else { %>
+				        		<img class="img_profile" style="background-image:url(http://localhost:9000/One_day_class/upload/<%=vo_tutee.getSprofile_img()%>)">
+				       		<% } %>
 				        </a> 
 				        <div class="logon_msg">
 				        	<b>
 					        	<em class="level">'<%= svo.getName() %>'</em> 
-					        	<em class="level" style="color:#ff005a;"><%= svo.getIdentity() %> </em> 님  
+					        	<% if(svo.getIdentity().equals("튜티")) {%>
+					        		<em class="level" style="color:#ff005a;"><%= svo.getIdentity() %> </em> 님  
+					        	<% } else { %>
+					        		<% if(vo_tutor.getName().equals("탈멍")) { %>
+					        			<em class="level" style="color:#ff005a;">관리자</em> 님  
+					        		<% } else { %>
+					        			<em class="level" style="color:#ff005a;"><%= svo.getIdentity() %> </em> 님  
+					        		<% } %>
+					        	<% } %>
+					        	
 				        	</b>
 				        	<span>반가워요!<br>오늘도 색다른 탈잉을 즐겨봐요:)</span>
 				     	</div> <!-- class="logon_msg" -->
@@ -797,9 +821,21 @@
 				       <!--  <button class="tutor_mode" type="button" data-tutormode>튜터모드</button> -->
 				     </div>
 				        <ul class="lnb">
-				        	<li><a href="#">수업신청서</a></li>
-				        	<li><a href="#">수강목록</a></li>
-				        	<li class="link_wish"><a href="#">위시리스트</a></li>
+				        	<% if(svo.getIdentity().equals("튜티")) { %>
+				        		 <li><a href="http://localhost:9000/One_day_class/myclassform/myclassform.jsp">수업신청서</a></li>
+				        		 <li><a href="http://localhost:9000/One_day_class/myclasslist/myclasslist.jsp">수강목록</a></li>
+						     	 <li class="link_wish"><a href="http://localhost:9000/One_day_class/mywishlist/mywishlist.jsp">위시리스트</a></li>
+				        	<% } else { %>
+				        		<% if(vo_tutor.getName().equals("탈멍")) { %>
+				        			 <li><a href="http://localhost:9000/One_day_class/admin/notice_list_admin.jsp">공지사항</a></li>
+				        			 <li><a href="http://localhost:9000/One_day_class/admin/class_list.jsp">수업관리</a></li>
+						     	 	 <li class="admin"><a href="http://localhost:9000/One_day_class/admin/member_list.jsp">회원관리</a></li>
+				        		<% } else { %>
+					        		 <li><a href="http://localhost:9000/One_day_class/tutor/new-class.jsp">나의수업</a></li>
+					        		 <li><a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp">수업등록</a></li>
+							     	 <li class="link_wish"><a href="http://localhost:9000/One_day_class/mywishlist/mywishlist.jsp">위시리스트</a></li>
+				        		<% } }%>
+				        	
 				        </ul>
 				</div> <!-- class="login_box status_logon" -->
 			</section>
@@ -1388,3 +1424,8 @@
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
+<% } else { %>
+<script>
+	alert("로그인을 진행하셔야 접근이 가능합니다");
+</script>
+<% } %>

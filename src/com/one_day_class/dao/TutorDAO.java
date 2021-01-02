@@ -13,14 +13,15 @@ public class TutorDAO extends DBConn {
 		TutorVO vo = new TutorVO();
 		
 		try {
-			String sql = "select profile_img from one_tutor where email=?";
+			String sql = "select sprofile_img, name from one_tutor where email=?";
 			
 			getPreparedStatement(sql);
 			pstmt.setString(1, email);
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				vo.setProfile_img(rs.getString(1));
+				vo.setSprofile_img(rs.getString(1));
+				vo.setName(rs.getString(2));
 			}
 			
 		} catch (Exception e) {

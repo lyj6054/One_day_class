@@ -4,10 +4,12 @@
     %>
 <% 
 	String bpart = request.getParameter("bpart");
+	String rpage = request.getParameter("rpage");
+
 	BoardDAO dao = new BoardDAO();
  	//1. 선택한 페이지값
-	String rpage = request.getParameter("rpage");
 	
+ 	SessionVO svo = (SessionVO)session.getAttribute("svo");
 	//2-1. 페이지값에 따라서 start, end count 구하기
 	//1페이지(1~10), 2페이지(11~20) ...
 	int start =0;
@@ -46,6 +48,13 @@
 <script src="http://localhost:9000/One_day_class/js_yh/am-pagination.js"></script>
 <style>
 	
+	
+	*{
+		box-sizing: border-box;
+	}
+	div, main, section {
+		display: block;
+	}
 	#newsroom-main {
 		display:inline-block;
 		margin:0 atuo;
@@ -156,8 +165,9 @@
 	    height: 19px;
 	    padding: 10px 3px 5px 5px;
 	    text-align: center;
-	    color: #999;
-	    font-size: 11px;
+	    color: black;
+	    font-size: 12px;
+	    font-weight:500;
 	}
 	.main-section2 .section2-title .title-0 {
 		width:40px;
@@ -177,7 +187,7 @@
 		width: 90px;
 	}
 	.main-section2 .section2-title .title-5 {
-		width: 50px;
+		width: 60px;
 	}
 	.main-section2 .section2-cont {
 		display: inline-block;
@@ -647,72 +657,11 @@
 		         });  //btnDelete
 		});  
 		
-	
-	
-	/*  if(result != 0) {
-	 if(confirm("삭제하시겠습니까?")){
-		 $("input[name=checkTerms]:checked").each(function(){
-           	count++;
-           	del_list += bid+",";
-               /* var tr=$(".cont-0#"+bid);
-               tr.remove(); 
-           });
-           
-           	 if(count == 0){
-                    alert("한 개 이상 선택하셔야 삭제가 가능합니다.")
-                    return false;
-                 }else{
-                    //서버전송   
-                    alert(del_list);
-                 }
-           
-       }else{
-           return false;
-       }
-} else {
-	 return false;
-} */ 
-	
-	/* function allCheck() { 
-		var all = document.getElementById("checkAll");
-		var chk_list = document.getElementsByName("checkTerms");
-		
-		if(all.checked) {
-			for(var i=0;i<chk_list.length;i++) {
-				chk_list[i].checked = true;
-			}
-			
-		}   else {
-			for(var i=0;i<chk_list.length;i++) {
-				chk_list[i].checked = false;
-			}
-		}
-		
-	}
-	 */
-	/* function partCheck() {
-
-		var cnt = 0;
-		var all = document.getElementById("checkAll");
-		var chk_list = document.getElementsByName("checkTerms");
-
-		if(chk_list.checked)
-	        {
-			all.checked = true;
-	        } else {
-	                for(var i=0; i < chk_list.length; i++)  {
-	                      if(chk_list[i].checked == true)
-	                           cnt ++;
-	                }
-	                 if(cnt == 0)  all.checked = false;
-		}
-
-	} */
 </script>
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="../header_tutor.jsp"></jsp:include>
 
 <!-- content -->
 <div class="content">
@@ -724,8 +673,8 @@
 				</div>
 				<ul>
 					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="notice_list_admin.jsp">공지사항/이벤트</a></li>
-					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="#">수업관리</a></li>
-					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="#">회원관리</a></li>
+					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="class_list.jsp">수업관리</a></li>
+					<li><img src="http://localhost:9000/One_day_class/images/admin_list.png"><a href="member_list.jsp">회원관리</a></li>
 				</ul>
 			</nav>
 		</aside>

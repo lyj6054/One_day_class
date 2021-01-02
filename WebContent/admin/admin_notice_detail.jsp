@@ -34,9 +34,6 @@
 
 </script>
 <style>
-   * {
-     font-family: 'Noto Sans KR';
-   }
    #newsroom-main {
 		display:inline-block;
 		margin:0 auto;
@@ -436,16 +433,15 @@
    }
    /** 수정본  **/
    .udp_text{
-   	height:600px;
+   	height:auto;
    	width:810px;
-   	overflow: auto;
+   	overflow: hidden;
    }
    .udp_title1{
 		display:inline-block;
 		width:800px;
 		text-align:center;
-		margin-left:20px;
-		margin-top:10px;
+		margin-left:-10px;
 		border-bottom:1px solid lightgray;
 		padding-bottom:5px;
 	}
@@ -455,50 +451,58 @@
 	.udp_title1>ul>li.udp_t3 {
 		float:left;
 		color:black;
-		font-size:14px;
+		font-size:16spx;
 		font-weight:bold;
+		margin-left:15px;
+	}
+	.udp_title1>ul>li.udp_t3 span{
+		float:left;
+		color:#ff0045;
+		font-size:16spx;
+		font-weight:bold;
+		margin-right:10px;
 	}
 	.udp_title1>ul>li.udp_t4,
 	.udp_title1>ul>li.udp_t5,
 	.udp_title1>ul>li.udp_t6 {
 		float:right;
-		color:#999999;
+		color:black;
 		font-size:11px;
-		margin-left:30px;
+		margin-left:35px;
+	}
+	.udp_title1>ul>li.udp_t4 {
+		float:right;
+		color:black;
+		font-size:11px;
+		margin-left:35px;
+		margin-right:10px;
 	}
 	/** 내용 글자 **/
 	.udp_text>p {
-	margin-left:40px;
-	}
+		text-align:left;
+		margin-left:50px;
+		margin-top:20px;
+		}
 	/** 버튼 **/
 	.udp_btnbox {
 		display:inline-block;
 		float:right;
-	}
-	.udp_btnbox>a>button {
-		display:inline-block;
-		width:60px;
-		height:30px;
-		margin-right:50px;
-		margin-top:20px;
-		padding:4px 10px;
-     	border-radius:5px;
-      	border:none;
-	}
-	.udp_btnbox>a>button:hover {
-		color:white;
+		width:28%;
 	}
 	.udp_btnbox>a>button:hover {
 		background-color:#333;
-      	color:white;
+		color:white;
 	}
 	.udp_btnbox>a>button {
-		text-decoration:none;
-	}
-	.udp_btnbox>a>button {
-		color:black;
+		margin-right:5px;
+		padding:4px 12px;
+		border-radius:5px;
 		font-weight:bold;
-     	font-size:14px;
+		font-size:14px;
+		border:none;
+	}
+	.udp_btnbox>a>button:focus {
+		outline:none;
 	}
    
    </style>
@@ -513,61 +517,13 @@
          $("#second").addClass('selected');
          $("#first").removeClass('selected');
       });
-      //open/close 변경
-      /* $("#open").click(function(){
-			var status = $(this).attr("src");
-			if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
-				$("#cont-8").css("display","block").height("450px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_close.png");
-				$("#cont8-wrap").load("http://localhost:9000/One_day_class/notice/notice_content.jsp .section2-cont");
-				
-			} else {
-				$("#cont-8").css("display","none").height("0px");
-				$("#open").attr("src","http://localhost:9000/One_day_class/images/notice_open.png");
-			}
-		}); */
    });
    
-   function allCheck() { 
-      var all = document.getElementById("checkAll");
-      var chk_list = document.getElementsByName("checkTerms");
-      
-      if(all.checked) {
-         for(var i=0;i<chk_list.length;i++) {
-            chk_list[i].checked = true;
-         }
-         
-      }   else {
-         for(var i=0;i<chk_list.length;i++) {
-            chk_list[i].checked = false;
-         }
-      }
-      
-   }
-   
-   /* function partCheck() {
-
-      var cnt = 0;
-      var all = document.getElementById("checkAll");
-      var chk_list = document.getElementsByName("checkTerms");
-
-      if(chk_list.checked)
-           {
-         all.checked = true;
-           } else {
-                   for(var i=0; i < chk_list.length; i++)  {
-                         if(chk_list[i].checked == true)
-                              cnt ++;
-                   }
-                    if(cnt == 0)  all.checked = false;
-      }
-
-   } */
 </script>
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="../header_tutor.jsp"></jsp:include>
 
    <!-- content -->
    <div style="margin:0 auto;">
@@ -600,7 +556,15 @@
        <div class="main-section2">
           <div class="udp_title1">
          <ul>
-            <li class="udp_t3">· <%=vo.getBtitle() %></li>
+            <li class="udp_t3" >
+            <% if(vo.getBpart().equals("공지사항/일반")) { %>
+         			<span> [ 일반 ] </span><%=vo.getBtitle() %>
+         		<% } else if(vo.getBpart().equals("공지사항/약관")){ %>
+         			<span> [ 약관 ] </span><%=vo.getBtitle() %>
+         		<% } else { %>
+         			<span> [ 이벤트 ] </span><%=vo.getBtitle() %>
+         		<% } %>
+            </li>
             <li class="udp_t4"><%=vo.getBhits() %></li>
             <li class="udp_t5"><%=vo.getBcharge() %></li>
             <li class="udp_t6"><%=vo.getBdate() %></li>
@@ -620,10 +584,14 @@
          <div class="section-paging">
            
            <div class="udp_btnbox">
-            <a href="http://localhost:9000/One_day_class/admin/admin_notice_detail_s.jsp?bid=<%=vo.getBid()%>"><button type="button">수정</button></a>   
-            <a href="http://localhost:9000/One_day_class/admin/admin_notice_detail_delProc.jsp?bid=<%=vo.getBid()%>"><button type="button" id="and_del">삭제</button></a>      
-            <a href="http://localhost:9000/One_day_class/admin/notice_list_admin.jsp?bid=<%=vo.getBid()%>"><button type="button">목록</button></a>      
-         </div>
+            	<a href="http://localhost:9000/One_day_class/admin/admin_notice_detail_s.jsp?bid=<%=vo.getBid()%>"><button type="button">수정</button></a>   
+            	<a href="http://localhost:9000/One_day_class/admin/admin_notice_detail_delProc.jsp?bid=<%=vo.getBid()%>"><button type="button" id="and_del">삭제</button></a>      
+        	 	<% if(vo.getBpart().equals("이벤트")) {%>
+	            <a href="http://localhost:9000/One_day_class/admin/notice_list_admin2.jsp?bpart=event"><button type="button">목록으로</button></a>      
+	           	<% } else { %>
+	            <a href="http://localhost:9000/One_day_class/admin/notice_list_admin.jsp?bpart=notice"><button type="button">목록으로</button></a>      
+	           	<% } %>
+         	</div>
          </div>
          
       </div>

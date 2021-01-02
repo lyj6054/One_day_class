@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"
     import = "com.one_day_class.vo.*, com.one_day_class.dao.*"
     %>
+<%
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,6 +72,7 @@
 	    width: 35px;
 	    height: 35px;
 	    background: url(http://localhost:9000/One_day_class/images/search2.png) left center/cover;
+	    outline: none;
 	}
 	.Search_Container {
 	    box-shadow: rgba(0,0,0,0.02) 0px 0px 5px, rgba(0,0,0,0.02) 0px 6px 4px, rgba(0,0,0,0.03) 0px 9px 6px, rgba(0,0,0,0.03) 0px 16px 12px, rgba(0,0,0,0.08) 0px 24px 24px;
@@ -108,7 +112,6 @@
 		font-weight: 600;
 	}
 </style>
-<script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <script>
 	$(document).ready(function(){
 		/* $('#inp_sch').click(function() {
@@ -159,10 +162,18 @@
 		<div class="container">
 			<div class="container hd_wrap">
 				<h1 class="logo">
-					<a href="http://localhost:9000/One_day_class/index_login.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
+					<% if(svo != null) { %>
+						<% if(svo.getIdentity().equals("튜터")) { %>
+							<a href="http://localhost:9000/One_day_class/index_login.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
+						<% } else if(svo.getIdentity().equals("튜티")) {%>
+							<a href="http://localhost:9000/One_day_class/index_login.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
+						<% } %>
+					<% } else {%>
+						<a href="http://localhost:9000/One_day_class/index.jsp"><img src="http://localhost:9000/One_day_class/images/logo.png"></a>
+					<% } %>
 				</h1>
 				<div class="box_sch" id="box_sch">
-                    <input type="text" class="inp_sch" name="inp_sch" id="inp_sch" placeholder="배우고 싶은 재능이나 튜터를 검색해보세요.">
+                    <input type="text" class="inp_sch" name="inp_sch" id="inp_sch" placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off">
                     <button class="btn_sch" id="btn_sch"></button>
 	                <div class="Search_Container" id="bar_true_list" style="display: none;">
 						<div class="Search_Container_Header" id="bar_true_text">

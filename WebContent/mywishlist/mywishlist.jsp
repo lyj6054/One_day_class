@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
 <%
-	String email = "zxcvd12@naver.com";
-	//String email = request.getParameter("email");
+	//String email = "zxcvd12@naver.com";
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
+	String email = svo.getEmail();
 	
 	sh_ClassDAO dao_class = new sh_ClassDAO();
 	ArrayList<sh_ClassVO> list_class = dao_class.getMywishList(email);
@@ -17,6 +18,8 @@
 	sh_WishListDAO dao_wishList = new sh_WishListDAO();
 	
 	sh_ReviewDAO dao_review = new sh_ReviewDAO();
+	
+	if(svo != null) {
 %>    
     
 <!DOCTYPE html>
@@ -33,7 +36,11 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+		<% } %>
 
 	<!-- content -->
 	<div class="c_container">
@@ -77,3 +84,8 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
+<% } else { %>
+<script>
+	alert("로그인을 진행하셔야 접근이 가능합니다");
+</script>
+<% } %>

@@ -4,9 +4,32 @@ import java.sql.ResultSet;
 
 import com.one_day_class.vo.SessionVO;
 import com.one_day_class.vo.TuteeVO;
+import com.one_day_class.vo.TutorVO;
 import com.one_day_class.vo.sh_TuteeVO; 
 
 public class TuteeDAO extends DBConn {
+	
+	/** index에서 프로필사진 불러오기 */
+	public TuteeVO getIndexProfile(String email) {
+		TuteeVO vo = new TuteeVO();
+		
+		try {
+			String sql = "select sprofile_img, name from one_tutee where email=?";
+			
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setSprofile_img(rs.getString(1));
+				vo.setName(rs.getString(2));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 	
 	/* mypage 튜티 정보 수정 */
 	public boolean getUpdate(TuteeVO vo) {
