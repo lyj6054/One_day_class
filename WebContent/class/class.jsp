@@ -145,7 +145,7 @@
 				<% } else { %>
 				<button class="on" type="button" name="add" id="wish_remove_btn"></button>
 				<% } %>
-				<% if(email != null && !email.equals("guest")) {%>
+				<% if(email != null && !email.equals("guest")&& !svo.getIdentity().equals("튜터")) {%>
 				<a href="class_apply.jsp?cid=<%= cid%>&email=<%= email%>">
 					<img src="http://localhost:9000/One_day_class/images/dance-btn.png">
 				</a>

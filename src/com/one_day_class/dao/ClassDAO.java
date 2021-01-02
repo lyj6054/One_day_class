@@ -400,7 +400,7 @@ public class ClassDAO extends DBConn{
 	public ArrayList<ClassVO> getIndexList3(){
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		try {
-			String sql = "select cid,email,title,regionmain,schedule,spicture from one_class where cid in (select cid from(select rownum , cid, count1 from(select cid ,count(*) count1 from one_apply_class group by cid order by count1 desc,sysdate desc)where rownum between 1 and 4))";
+			String sql = "select cid,email,title,regionmain,schedule,spicture,price from one_class where cid in (select cid from(select rownum , cid, count1 from(select cid ,count(*) count1 from one_apply_class group by cid order by count1 desc,sysdate desc)where rownum between 1 and 4))";
 			getPreparedStatement(sql);
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()){
@@ -411,6 +411,7 @@ public class ClassDAO extends DBConn{
 				vo.setRegionmain(rs.getString(4));
 				vo.setSchedule(rs.getString(5));
 				vo.setSpicture(rs.getString(6));
+				vo.setPrice(Integer.parseInt(rs.getString(7)));
 				
 				list.add(vo);
 			}
