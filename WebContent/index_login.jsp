@@ -5,8 +5,10 @@
 <%
 		SessionVO svo = (SessionVO)session.getAttribute("svo");
 		String email = svo.getEmail();
+		String cid = request.getParameter("cid");
 		
 		ClassDAO dao = new ClassDAO();
+		
 		sh_ReviewDAO dao_review = new sh_ReviewDAO();
 		
 		TutorDAO dao_tutor = new TutorDAO();
@@ -15,16 +17,17 @@
 		TuteeDAO dao_tutee = new TuteeDAO();
 		TuteeVO vo_tutee = dao_tutee.getIndexProfile(email); 
 		
+		sh_WishListDAO dao_wishList = new sh_WishListDAO();
+		
 		int i=0;
 		
 		//영화
 		ArrayList<ClassVO> list =new ArrayList<ClassVO>();
 		ArrayList<ClassVO> list4 =new ArrayList<ClassVO>();
+		
 		//영재
 		ArrayList<ClassVO> list2 =new ArrayList<ClassVO>();
 		ArrayList<ClassVO> list3 =new ArrayList<ClassVO>();
-		
-		
 		
 		//영화
 		list = dao.indexRecommend(); 
@@ -34,8 +37,10 @@
 		 list3 = dao.getIndexList4();
 		 
 		 list4 = dao.indexRecent(); 
-		
-		if(svo != null) {
+
+		 int wishCheck = dao_wishList.getWishCheck(cid, email);
+		 
+		 if(svo != null) {
 %>	
 <!DOCTYPE html>
 <html>
@@ -44,6 +49,7 @@
 <title>index_login</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
 	*{
 		box-sizing: border-box;
@@ -566,7 +572,7 @@
 	    width: 14px;
 	    height: 14px;
 	}
-	.talent_list .btn_wish {
+	/* .talent_list .btn_wish {
 	    position: absolute;
 	    right: 6px;
 	    top: 6px;
@@ -574,9 +580,30 @@
 	    height: 46px;
 	    background: url('http://localhost:9000/One_day_class/images/icon_wish.png') no-repeat center/46px;
 	}
-	.talent_list .btn_wish.on {
-	    background-image: url('http://localhost:9000/One_day_class/images/icon_wish_clicked.png');
+	.talent_list .btn_wish_on {
+	 	position: absolute;
+	    right: 6px;
+	    top: 6px;
+	    width: 46px;
+	    height: 46px;
+	    background-image: url('http://localhost:9000/One_day_class/images/icon_wish_clicked.png') no-repeat center/46px;
+	} */
+	
+	.talent_list button {
+		position: absolute;
+	    right: 6px;
+	    top: 6px;
+		width: 46px;
+	    height: 46px;
+		background: url("http://localhost:9000/One_day_class/images/icon_wish.png");
+		background-size: cover;
+		border-radius: 6px;
+		cursor: pointer;
 	}
+	.talent_list button.on {
+		background-image: url("http://localhost:9000/One_day_class/images/icon_wish_clicked.png");
+	}
+	
 	.talent_list .btn_swiper, .high_score .btn_swiper {
 	    top: -42px;
 	    width: 25px;
@@ -635,31 +662,54 @@
 	}
 </style>
 <script>
-	$(document).ready(function(){
-		$('.btn_category').click(function() {
-			$("#all_category").addClass("on");
+$(document).on('click', '.wish_add_btn', function() {
+	var cid = $(".cid").text();
+	var email_chk = $(".email_chk").text();
+	
+	alert(cid);
+	alert(email_chk);
+	
+	/* if(email != "null"){
+		$("#wish_add_btn").attr('id', 'wish_remove_btn').addClass('on');
+		$.ajax({
+			url: "classAddWish.jsp?cid=" + cid + "&email="+email,
+			success: function(data){
+				if(data == 1){
+					alert('위시리스트에 추가 되었습니다');
+				} else {
+					alert('위시리스트에서 등록 중 오류가 발생했습니다');							
+				}
+			}
 		});
 		
-		$('.btn_close').click(function() {
-			$("#all_category").removeClass("on");
-		});
-	});
-	function addWish(obj){
-		var $this = $(obj);
-		var on = $this.hasClass('on');
-		
-		$this.addClass('on');
-		alert('위시리스트에 등록 되었습니다');
-		$this.attr('onclick',"deleteWish(this)");
-	}
-	function deleteWish(obj){
-		var $this = $(obj);
-		var on = $this.hasClass('on');
-		
-		$this.removeClass('on');
-		alert('위시리스트에 삭제 되었습니다');
-		$this.attr('onclick',"addWish(this)");
-	}
+	} else {
+		alert('로그인이 필요합니다');
+	} */
+    
+});
+
+$(document).on('click', '.wish_remove_btn', function() {
+	var cid = $(".cid").attr("id");
+	var email_chk = $(".email_chk").text();
+	
+	alert(cid);
+	alert(email_chk);
+	
+	/* $("#wish_remove_btn").attr("id", "wish_add_btn").removeClass('on');
+	
+	$.ajax({
+		url: "classDeleteWish.jsp?cid=" + cid + "&email="+email,
+		success: function(data){
+			if(data == 1){
+				alert('위시리스트에서 삭제 되었습니다');
+			} else {
+				alert('위시리스트에서 삭제 중 오류가 발생했습니다');							
+			}
+		}
+	}); */
+	
+	
+});
 </script>
 </head>
 <body>
@@ -906,7 +956,13 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+												<div id="<%= vo.getCid() %>" class="email_chk" style="display: none;"><%= email %></div>
+												<div id="<%= vo.getCid() %>" class="cid" style="display: none;"><%= cid %></div>
+												<% if(wishCheck == 0){ %>
+												<button type="button" name="add" id="<%= vo.getCid() %>" class="wish_add_btn"></button> 
+												<% } else { %>
+												<button class="on" type="button" name="add" id="<%= vo.getCid() %>" class="wish_remove_btn"></button>
+												<% } %>
 										    </li>
 										<% } %>    
 										</ul>

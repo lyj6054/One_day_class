@@ -29,6 +29,9 @@
 	 list3 = dao.getIndexList4();
 	 
 	 list4 = dao.indexRecent(); 
+	 
+	// SessionVO svo = (SessionVO)session.getAttribute("svo");
+	 
 %>     
 <!DOCTYPE html>
 <html>
@@ -803,7 +806,7 @@
 											%>
 											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid()%>">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>');">
+										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>')">
 										            </div>
 										            <h3 class="talent_title"><%=vo.getTitle() %></h3>
 										            <div class="talent_info">					    
@@ -850,7 +853,7 @@
 										%>
 											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid()%>">
-										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>');">
+										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>')">
 										            </div>
 										            <h3 class="talent_title"><%= vo.getTitle() %></h3>
 										            <div class="talent_info">					    

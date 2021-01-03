@@ -8,6 +8,7 @@ import com.one_day_class.vo.ClassVO;
 
 public class ClassDAO extends DBConn{
 	
+	
 	/**
 	 * index : 검색어
 	 */
@@ -78,7 +79,6 @@ public class ClassDAO extends DBConn{
 		
 		return list4;
 	}
-	
 	/**
 	 * index : MD 추천 클래스
 	 */
@@ -470,7 +470,7 @@ public class ClassDAO extends DBConn{
 			while(rs.next()){
 				ClassVO vo=new ClassVO();
 				vo.setCno(rs.getInt(1));
-				vo.setCid(rs.getString(2));
+				vo.setCid(rs.getString(2));                     
 				vo.setTitle(rs.getString(3));
 				vo.setCdate(rs.getString(4));
 				
