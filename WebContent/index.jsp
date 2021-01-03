@@ -577,7 +577,7 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="index_header.jsp"></jsp:include>
+	<jsp:include page="index_header2.jsp"></jsp:include>
 
 	<!-- content -->
 	<main class="i_content">
