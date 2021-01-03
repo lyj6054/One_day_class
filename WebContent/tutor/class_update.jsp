@@ -567,7 +567,7 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 									<input type="text" name="videos" class="basic len786" 
 										placeholder="예) https://youtu.be/1sboNBkTMuU" value="<%=vo.getVideos()%>"
 										style="margin-bottom: 10px; width: 100%;">
-								<% }else{ %>
+								<% }else{  %>
 								<input type="text" name="videos" class="basic len786"
 									placeholder="예) https://youtu.be/1sboNBkTMuU"
 									style="margin-bottom: 10px; width: 100%;">

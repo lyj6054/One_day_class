@@ -56,45 +56,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="info-text bar" style="margin-bottom:30px">
-				<h2 style="margin-bottom:0">이 주의 Best Tutors!</h2>
-			</div>
-						<div class="my-class-list">		
-							<div class="class-box" style="display: none;">
-					<div class="class-info">
-						<div class="image" style="background-image:url('//s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Cover/s_d57c0fcbad8df2d05224eee2fb38533a61f740b1.png')" onclick=location.href="/Talent/Detail/11491"></div>
-						<div class="information-box">
-							<p>참여인원 : <font class="pink">6413명</font></p>
-							<h3 onclick=location.href="/Talent/Detail/11491" style="cursor:pointer;">[탈잉 마케팅1위] 인스타그램 팔로워/좋아요의 비밀 (+수업 후 성장지원✨)11/23(월)</h3>
-							<div class="name" style="color:#333;margin-top:10px" > 엠마 튜터</div>
-							<div class="price" style="margin-top:30px" ><font>￦</font> 25,000</div>
-						</div>
-					</div>				
-				</div>
-							<div class="class-box" style="display: block;">
-					<div class="class-info">
-						<div class="image" style="background-image:url('//img.taling.me/Content/Uploads/Cover/s_e967a862ef0dcbe744f8774ea8de4148e368d43a.jpg')" onclick=location.href="/Talent/Detail/5271"></div>
-						<div class="information-box">
-							<p>참여인원 : <font class="pink">8350명</font></p>
-							<h3 onclick=location.href="/Talent/Detail/5271" style="cursor:pointer;">[전자책+녹화영상/ 무료이벤트] 집이 없어도 소액으로 시작하는 에어비앤비 호스트!</h3>
-							<div class="name" style="color:#333;margin-top:10px" > 쪼미 튜터</div>
-							<div class="price" style="margin-top:30px" ><font>￦</font> 30,000</div>
-						</div>
-					</div>				
-				</div>
-							<div class="class-box" style="display: block;">
-					<div class="class-info">
-						<div class="image" style="background-image:url('//img.taling.me/Content/Uploads/Cover/s_f3f9959db818dd1325c2705661603b1c7929c406.png')" onclick=location.href="/Talent/Detail/3913"></div>
-						<div class="information-box">
-							<p>참여인원 : <font class="pink">4104명</font></p>
-							<h3 onclick=location.href="/Talent/Detail/3913" style="cursor:pointer;">⭐영어회화 하지 마세요⭐ 이 강의를 듣기 전에!</h3>
-							<div class="name" style="color:#333;margin-top:10px" > 민경원 튜터</div>
-							<div class="price" style="margin-top:30px" ><font>￦</font> 13,000</div>
-						</div>
-					</div>				
-				</div>
-			
-			</div>
 		</div>
 		<div style="padding-top:200px"></div>
 	</div>
