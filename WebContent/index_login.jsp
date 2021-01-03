@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.*"
     %>
+    <% 	request.setCharacterEncoding("utf-8"); %>
 <%
 		SessionVO svo = (SessionVO)session.getAttribute("svo");
 		String email = svo.getEmail();
@@ -924,13 +925,13 @@ $(document).on('click', '.wish_remove_btn', function() {
 										<% for(ClassVO vo : list4) { 
 											i++;
 											String[] pic_array=vo.getSpicture().split(",");
-											
+											String[] sch_array=vo.getSchedule().split(",");
 											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid()); 
-											String date = vo.getSchedule();
-											int day_idx = date.indexOf("일");
+											//String date = vo.getSchedule();
+											int day_idx = sch_array[0].indexOf("일");
 											String day = "";
 											if(day_idx>0) {
-												//day=date.substring(day_idx-6, day_idx+1);
+												day=sch_array[0].substring(day_idx-6, day_idx);
 											} else {
 												day="협의 후 날짜 시간 결정";
 											}
@@ -956,12 +957,12 @@ $(document).on('click', '.wish_remove_btn', function() {
 								                        </span>				
 										            </div>
 										        </a>
-												<div id="<%= vo.getCid() %>" class="email_chk" style="display: none;"><%= email %></div>
-												<div id="<%= vo.getCid() %>" class="cid" style="display: none;"><%= cid %></div>
+												<div id="email" style="display: none;"><%= email %></div>
+												<div id="cid" style="display: none;"><%= cid %></div>
 												<% if(wishCheck == 0){ %>
-												<button type="button" name="add" id="<%= vo.getCid() %>" class="wish_add_btn"></button> 
+													<button type="button" name="add" id="wish_add_btn"></button> 
 												<% } else { %>
-												<button class="on" type="button" name="add" id="<%= vo.getCid() %>" class="wish_remove_btn"></button>
+													<button class="on" type="button" name="add" id="wish_remove_btn"></button>
 												<% } %>
 										    </li>
 										<% } %>    
