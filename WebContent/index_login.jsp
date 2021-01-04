@@ -931,7 +931,7 @@ $(document).on('click', '.wish_remove_btn', function() {
 											int day_idx = sch_array[0].indexOf("일");
 											String day = "";
 											if(day_idx>0) {
-												day=sch_array[0].substring(day_idx-6, day_idx);
+												//day=sch_array[0].substring(day_idx-6, day_idx);
 											} else {
 												day="협의 후 날짜 시간 결정";
 											}
