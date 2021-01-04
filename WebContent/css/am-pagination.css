@@ -108,3 +108,17 @@
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
 }
+.am-pagination-default > .active > a {
+       background-color:#ff0045;
+       border-color: #ff0045;
+   }
+   .am-pagination-default > .active > a:hover {
+       background-color:#ff0045;
+       border-color: #ff0045;
+   }
+   .am-pagination-default > li > a {
+      color:#666;
+   }
+   .am-pagination-default > .disabled > a {
+      color:#ccc;
+   }

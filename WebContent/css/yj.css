@@ -1339,6 +1339,10 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button
     height: 160px;
     font-size: 19px;
     letter-spacing: -0.5px;
+    margin-bottom: 20px;
+}
+.container.info-page .icon-box.refund .box .cir-box .under {
+   margin-top: 20px;
 }
 .container.info-page .icon-box.refund .box .cir {
     width: 130px;
