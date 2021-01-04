@@ -5,8 +5,10 @@
 <%
 		SessionVO svo = (SessionVO)session.getAttribute("svo");
 		String email = svo.getEmail();
+		//String cid = request.getParameter("cid");
 		
 		ClassDAO dao = new ClassDAO();
+		
 		sh_ReviewDAO dao_review = new sh_ReviewDAO();
 		
 		TutorDAO dao_tutor = new TutorDAO();
@@ -15,27 +17,32 @@
 		TuteeDAO dao_tutee = new TuteeDAO();
 		TuteeVO vo_tutee = dao_tutee.getIndexProfile(email); 
 		
+		sh_WishListDAO dao_wishList = new sh_WishListDAO();
+		
 		int i=0;
 		
 		//영화
 		ArrayList<ClassVO> list =new ArrayList<ClassVO>();
 		ArrayList<ClassVO> list4 =new ArrayList<ClassVO>();
+		ArrayList<ClassVO> list5 =new ArrayList<ClassVO>();
+		
 		//영재
 		ArrayList<ClassVO> list2 =new ArrayList<ClassVO>();
 		ArrayList<ClassVO> list3 =new ArrayList<ClassVO>();
 		
-		
-		
 		//영화
-		list = dao.indexRecommend(); 
+		list = dao.indexRecommend(email); 
 		
 		//영재
-		 list2 = dao.getIndexList3();
+		 list2 = dao.getIndexList3(email);
 		 list3 = dao.getIndexList4();
 		 
-		 list4 = dao.indexRecent(); 
-		
-		if(svo != null) {
+		 list4 = dao.indexRecent(email); 
+		 list5 = dao.indexWishlist(email);
+
+		 //int wishCheck = dao_wishList.getWishCheck(cid, email); 
+		 
+		 if(svo != null) {
 %>	
 <!DOCTYPE html>
 <html>
@@ -44,6 +51,7 @@
 <title>index_login</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
 	*{
 		box-sizing: border-box;
@@ -566,7 +574,7 @@
 	    width: 14px;
 	    height: 14px;
 	}
-	.talent_list .btn_wish {
+	/* .talent_list .btn_wish {
 	    position: absolute;
 	    right: 6px;
 	    top: 6px;
@@ -574,9 +582,30 @@
 	    height: 46px;
 	    background: url('http://localhost:9000/One_day_class/images/icon_wish.png') no-repeat center/46px;
 	}
-	.talent_list .btn_wish.on {
-	    background-image: url('http://localhost:9000/One_day_class/images/icon_wish_clicked.png');
+	.talent_list .btn_wish_on {
+	 	position: absolute;
+	    right: 6px;
+	    top: 6px;
+	    width: 46px;
+	    height: 46px;
+	    background-image: url('http://localhost:9000/One_day_class/images/icon_wish_clicked.png') no-repeat center/46px;
+	} */
+	
+	.talent_list button {
+		position: absolute;
+	    right: 6px;
+	    top: 6px;
+		width: 46px;
+	    height: 46px;
+		background: url("http://localhost:9000/One_day_class/images/icon_wish.png");
+		background-size: cover;
+		border-radius: 6px;
+		cursor: pointer;
 	}
+	.talent_list button.on {
+		background-image: url("http://localhost:9000/One_day_class/images/icon_wish_clicked.png");
+	}
+	
 	.talent_list .btn_swiper, .high_score .btn_swiper {
 	    top: -42px;
 	    width: 25px;
@@ -635,31 +664,76 @@
 	}
 </style>
 <script>
-	$(document).ready(function(){
-		$('.btn_category').click(function() {
-			$("#all_category").addClass("on");
-		});
-		
-		$('.btn_close').click(function() {
-			$("#all_category").removeClass("on");
-		});
+
+$(document).ready(function(){
+	$('.btn_category').click(function() {
+		$("#all_category").addClass("on");
 	});
-	function addWish(obj){
-		var $this = $(obj);
-		var on = $this.hasClass('on');
+	
+	$('.btn_close').click(function() {
+		$("#all_category").removeClass("on");
+	});
+	
+	$("button[name='add']").click(function(){		
 		
-		$this.addClass('on');
-		alert('위시리스트에 등록 되었습니다');
-		$this.attr('onclick',"deleteWish(this)");
-	}
-	function deleteWish(obj){
-		var $this = $(obj);
-		var on = $this.hasClass('on');
+		var cid = $(this).attr("id");
+		var email = $("#email").text();
+		var check = $(this).attr("class");
+		var check2 = check.substring(0,1);
 		
-		$this.removeClass('on');
-		alert('위시리스트에 삭제 되었습니다');
-		$this.attr('onclick',"addWish(this)");
-	}
+		//alert(check);
+		//alert(check2);
+		<% if(svo.getIdentity().equals("튜티")) { %>
+		if(check2 == 'a') {
+			$.ajax({
+				url: "wishCheck.jsp?cid=" + cid + "&email="+email,
+				success: function(data){
+					if(data == 1){
+						//alert('이미 추가 되었습니다');
+						//$("."+cid+"_wish_add_btn").attr('class', cid +'_wish_remove_btn').addClass('on');
+					} else {
+						//alert('위시리스트에서 등록 중 오류가 발생했습니다');	
+						if(email != "null"){
+							$.ajax({
+								url: "classAddWish.jsp?cid=" + cid + "&email="+email,
+								success: function(data){
+									if(data == 1){
+										alert('위시리스트에 추가 되었습니다');
+										$(".a_"+cid+"_wish_add_btn").attr('class', 'r_'+ cid +'_wish_remove_btn').addClass('on');
+									} else {
+										alert('위시리스트에서 등록 중 오류가 발생했습니다');							
+									}
+								}
+							});
+							
+						} else {
+							alert('로그인이 필요합니다');
+						}
+					}
+				}
+			});
+		} else {
+			$.ajax({
+				url: "classDeleteWish.jsp?cid=" + cid + "&email="+email,
+				success: function(data){
+					if(data == 1){
+						$(".r_"+cid+"_wish_remove_btn").attr("class", "a_" + cid +"_wish_add_btn").removeClass('on');
+						alert('위시리스트에서 삭제 되었습니다');
+					} else {
+						alert('위시리스트에서 삭제 중 오류가 발생했습니다');							
+					}
+				}
+		});
+		}
+		
+		<% } else {%>
+			alert("튜티만 선택이 가능합니다.");
+		<% } %>
+		
+	});
+	
+	
+});
 </script>
 </head>
 <body>
@@ -673,7 +747,7 @@
 				<div class="roll_visual swiper-container swiper1">
 					<ul class="swiper-wrapper">
 						<li class="swiper-slide" 
-						style="background-color: rgb(255, 204, 249); width: 830px; 
+						style="background-color: rgb(255, 204, 249); width: 830px;  
 						background-image: url('http://localhost:9000/One_day_class/images/carousel_img1.png');">
 							<a href="">
 		                        <h3>일상에 지쳤다면<br>잊고있던 감성충전</h3>
@@ -874,13 +948,13 @@
 										<% for(ClassVO vo : list4) { 
 											i++;
 											String[] pic_array=vo.getSpicture().split(",");
-											
+											String[] sch_array=vo.getSchedule().split(",");
 											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid()); 
-											String date = vo.getSchedule();
-											int day_idx = date.indexOf("일");
+											//String date = vo.getSchedule();
+											int day_idx = sch_array[0].indexOf("일");
 											String day = "";
 											if(day_idx>0) {
-												//day=date.substring(day_idx-6, day_idx+1);
+												//day=sch_array[0].substring(day_idx-6, day_idx);
 											} else {
 												day="협의 후 날짜 시간 결정";
 											}
@@ -906,7 +980,13 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+												<div id="cid" style="display: none;"><%= vo.getCid() %></div>
+												<div id="email" style="display: none;"><%= email %></div>
+													<% if(vo.getWish_chk() == null){ %>
+														<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
+													<% } else { %>
+														<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
+													<% } %> 
 										    </li>
 										<% } %>    
 										</ul>
@@ -914,8 +994,60 @@
 										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
 									</div>
 								</div>
+								<div class="talent_box">
+									<h2 class="main_title">유저들이 가장 많이 찾는 수업</h2>
+									<div class="talent_list swiper-container swiper2">
+										<ul class="swiper-wrapper">
+										<%for(ClassVO vo : list5){
+											String[] pic_array=vo.getSpicture().split(",");
+											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid());  
+											String date=vo.getSchedule();
+											int day_idx=date.indexOf("일");
+											String day="";
+											if(day_idx>0) {
+												//day=date.substring(day_idx-6,day_idx+1);
+											}else {
+												day="협의 후 날짜 시간 결정";
+											}
+											%>
+											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
+										        <a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid()%>">
+										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>')">
+										            </div>
+										            <h3 class="talent_title"><%=vo.getTitle() %></h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/upload/<%=vo_tutor_index.getSprofile_img()%>">
+										            	</span>					    
+										            	<span class="name"><%= vo_tutor_index.getName()%></span>						
+										            	<span class="d_day"><%= day %></span>						
+										            	<span class="location"><%= vo.getRegionmain() %></span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total"><%= dao_review.getReviewScore(vo.getCid()) %><span>(<%=dao_review.getReviewCnt(vo.getCid()) %>)</span></span>
+								                        </span>				
+										            </div>
+										        </a>
+										       <div id="cid" style="display: none;"><%= vo.getCid() %></div>
+												<div id="email" style="display: none;"><%= email %></div>
+												<% if(vo.getWish_chk() == null){ %>
+													<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
+												<% } else { %>
+													<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
+												<% } %> 
+										    </li>
+										    <% } %>
+										  
+										</ul>
+										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
+										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
+									</div>
+								</div>
+								
 									<div class="talent_box">
-									<h2 class="main_title">튜터들이 많이 찾는 수업</h2>
+									<h2 class="main_title">튜티들이 많이 찾는 수업</h2>
 									<div class="talent_list swiper-container swiper2">
 										<ul class="swiper-wrapper">
 											<% for(ClassVO vo:list2){ i++;
@@ -950,7 +1082,13 @@
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this,<%=vo.getCid()%>);"></button>
+										        <div id="cid" style="display: none;"><%= vo.getCid() %></div>
+												<div id="email" style="display: none;"><%= email %></div>
+												<% if(vo.getWish_chk() == null){ %>
+													<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
+												<% } else { %>
+													<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
+												<% } %> 
 										    </li>
 										    <%} %>
 										</ul>
@@ -964,7 +1102,7 @@
 										<ul class="swiper-wrapper">
 										<% for(ClassVO vo : list) {
 											i++;
-											String[] pic_array=vo.getPicture().split(",");
+											String[] pic_array=vo.getSpicture().split(",");
 											
 											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid());
 											String date = vo.getSchedule();
@@ -997,7 +1135,13 @@
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="<%= vo.getCid()%>" id="btn_wish"></button>
+										       <div id="cid" style="display: none;"><%= vo.getCid() %></div>
+												<div id="email" style="display: none;"><%= email %></div>
+												<% if(vo.getWish_chk() == null){ %>
+													<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
+												<% } else { %>
+													<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
+												<% } %>  
 										    </li>
 										<% } %>
 										</ul>

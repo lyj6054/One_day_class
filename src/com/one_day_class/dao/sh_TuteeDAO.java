@@ -29,11 +29,11 @@ public class sh_TuteeDAO extends DBConn {
 	
 	/* select : 전제 리스트  */
 	public ArrayList<sh_TuteeVO> getTuteeList() {
-		ArrayList<sh_TuteeVO> list = new ArrayList<sh_TuteeVO>();
+		ArrayList<sh_TuteeVO> list_tutee = new ArrayList<sh_TuteeVO>();
 		
 		try {
-			String sql = " select rownum rno, name, gender, email, phone, age, area, hope_class, to_char(edate, 'yyyy.mm.dd') edate "
-					+ " from (select * from one_tutee order by edate) order by rno desc";
+			String sql = " select rownum rno, name, gender, email, phone, age, area, hope_class, to_char(rdate, 'yyyy.mm.dd') rdate " + 
+					" from (select * from one_tutee order by rdate) order by rno desc";
 			getPreparedStatement(sql);
 			
 			ResultSet rs = pstmt.executeQuery();
@@ -47,16 +47,16 @@ public class sh_TuteeDAO extends DBConn {
 				vo.setAge(rs.getString(6));
 				vo.setArea(rs.getString(7));
 				vo.setHope_class(rs.getString(8));
-				vo.setEdate(rs.getString(9));
+				vo.setRdate(rs.getString(9));
 				
-				list.add(vo);
+				list_tutee.add(vo);
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return list;
+		return list_tutee;
 	}
 	
 	/* select : 전제 리스트  */

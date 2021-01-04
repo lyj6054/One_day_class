@@ -5,8 +5,8 @@ public class ClassVO {
 	//수업이름, 가격, 카테고리, 상세카테고리, 인원수, 
 	//수업일정, 장소, 평점, 리뷰, 수업사진)
 	String cid,email,regionmain,regionsub,catemain,catesub,ctype,title,picture,spicture,
-		videos,schedule,tutornotice,tutorinfo,introduction,target,curriculum,cdate;
-	int person,price,time,wish_cnt,cstatus,cno;
+		videos,schedule,tutornotice,tutorinfo,introduction,target,curriculum,cdate,wish_chk;
+	int person,price,time,wish_cnt,cstatus,cno,cnt;
 	
 	
 	public int getCno() {
@@ -152,6 +152,18 @@ public class ClassVO {
 	}
 	public void setCstatus(int cstatus) {
 		this.cstatus = cstatus;
+	}
+	public String getWish_chk() {
+		return wish_chk;
+	}
+	public void setWish_chk(String wish_chk) {
+		this.wish_chk = wish_chk;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 	
 	

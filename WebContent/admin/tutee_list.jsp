@@ -453,7 +453,7 @@
 							<li class="cont-6"><%=vo.getAge() %></li>
 							<li class="cont-7"><%=vo.getArea() %></li>
 							<li class="cont-8"><%=vo.getHope_class() %></li>
-							<li class="cont-9"><%=vo.getEdate() %></li>
+							<li class="cont-9"><%=vo.getRdate() %></li>
 						</ul>
 					</a>
 					<% } %>
