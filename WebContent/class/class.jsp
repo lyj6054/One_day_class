@@ -224,13 +224,14 @@
 		</div>
 		<% } %>
 		<div class="idx dance-box3-1">
-			<span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
-			<div class="dance-b6">
+			<span class="dance-b4" id="dance-b4-1">실제 수강생의<br>리뷰입니다.
 				<div class="review_sum">
                     <ul class="review_list">
-                        <li>평점<span class="avg"><%= score %></span></li>
+                        <li><span>평점 </span><span class="avg"><%= score %></span></li>
                     </ul>
                 </div>
+            </span>
+			<div class="dance-b6">
 			</div>
 		</div>
 		<div class="dance-box4">
@@ -243,9 +244,7 @@
 						</span>
 						<span class="dance-b8"><%= list_tutee.get(i).getName() %></span><br>
 						<span class="dance-b9"><%= list_review.get(i).getRdate() %></span>
-						<div>
-							<p><%= list_review.get(i).getRcontent() %></p>
-						</div>
+							<p class="review_p"><%= list_review.get(i).getRcontent() %></p>
 					</div>
 				</li>
 				<% } %>

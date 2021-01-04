@@ -11,15 +11,14 @@ public class ClassDAO extends DBConn{
 	/**
 	 * index : 검색어
 	 */
-	public ArrayList<ClassVO> SearchList(String inp_sch) {
+	public ArrayList<ClassVO> SearchList(String inp_sch ,int start, int end) {
 		ArrayList<ClassVO> search_list = new ArrayList<ClassVO>();
 		
 		try {
 			getStatement();
-			String sql = "select cid, email, regionmain, catemain, catesub, price, picture, "
-					+ " schedule, title from one_class where title "
-					+ " like '%" +inp_sch+ "%' or catemain like '%" + inp_sch +"%' or catesub like '%" + inp_sch + "%'"; 
-			System.out.println(sql);
+			String sql = "select * from(select cid, email, regionmain, catemain, catesub, price, picture, "
+					+ " schedule, title , rownum rno from one_class where   title "
+					+ " like '%" +inp_sch+ "%' or catemain like '%" + inp_sch +"%' or catesub like '%" + inp_sch + "%') where rno between "+start+" and "+end+" "; 
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) {
 				ClassVO vo = new ClassVO();
@@ -112,6 +111,26 @@ public class ClassDAO extends DBConn{
 	/**
 	 *  전체 리스트 카운트
 	 */
+	public int getListCount2(String inp_sch) {
+		int result =0;
+		try {
+			getStatement();
+			String sql = "select count(*) from(select cid, email, regionmain, catemain, catesub, price, picture, "
+					+ " schedule, title , rownum  from one_class where title "
+					+ " like '%" +inp_sch+ "%' or catemain like '%" + inp_sch +"%' or catesub like '%" + inp_sch + "%')"; 
+			ResultSet rs=stmt.executeQuery(sql);
+			if(rs.next()) result= rs.getInt(1);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	/**
+	 *  전체 리스트 카운트
+	 */
 	public int getListCount() {
 		int result =0;
 		try {
@@ -165,13 +184,6 @@ public class ClassDAO extends DBConn{
 			
 			int val=pstmt.executeUpdate();
 			if(val!=0) result=true;
-			System.out.println( vo.getTutorinfo());
-			System.out.println(vo.getIntroduction());
-			System.out.println(vo.getTarget());
-			System.out.println(vo.getCurriculum());
-			System.out.println(vo.getCid());
-			
-			System.out.println("결과 :"+result);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -220,7 +232,6 @@ public class ClassDAO extends DBConn{
 			pstmt.setString(8, vo.getPicture());
 			pstmt.setString(9, vo.getSpicture());
 			pstmt.setString(10, vo.getVideos());
-			System.out.println(sql);
 			int val = pstmt.executeUpdate();
 			if(val!=0) {result=true;}
 		}catch(Exception e) {
@@ -252,7 +263,7 @@ public class ClassDAO extends DBConn{
 	public ArrayList<ClassVO> getCList4(int start, int end,String cateMain){
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		try {
-			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain from (select * from one_class where cstatus=1 and catemain=? order by cdate desc)) where cno between ? and ? ";
+			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain,catemain from (select * from one_class where cstatus=1 and catemain=? order by cdate desc)) where cno between ? and ? ";
 			getPreparedStatement(sql);
 			pstmt.setString(1, cateMain);
 			pstmt.setInt(2, start);
@@ -266,6 +277,7 @@ public class ClassDAO extends DBConn{
 				vo.setPicture(rs.getString(4));
 				vo.setPrice(rs.getInt(5));
 				vo.setRegionmain(rs.getString(6));
+				vo.setCatemain(rs.getString(7));
 				
 				list.add(vo);
 			}
@@ -284,7 +296,7 @@ public class ClassDAO extends DBConn{
 	public ArrayList<ClassVO> getCList3(int start, int end,String cateSub){
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		try {
-			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain from (select * from one_class where cstatus=1 and catesub=? order by cdate desc)) where cno between ? and ? ";
+			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain,catemain from (select * from one_class where cstatus=1 and catesub=? order by cdate desc)) where cno between ? and ? ";
 			getPreparedStatement(sql);
 			pstmt.setString(1,cateSub);
 			pstmt.setInt(2, start);
@@ -298,6 +310,7 @@ public class ClassDAO extends DBConn{
 				vo.setPicture(rs.getString(4));
 				vo.setPrice(rs.getInt(5));
 				vo.setRegionmain(rs.getString(6));
+				vo.setCatemain(rs.getString(7));
 				
 				list.add(vo);
 			}
@@ -316,7 +329,7 @@ public class ClassDAO extends DBConn{
 	public ArrayList<ClassVO> getCList2(int start, int end){
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		try {
-			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain from (select * from one_class where cstatus=1 order by cdate desc)) where cno between ? and ? ";
+			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain,catemain from (select * from one_class where cstatus=1 order by cdate desc)) where cno between ? and ? ";
 			getPreparedStatement(sql);
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
@@ -329,6 +342,7 @@ public class ClassDAO extends DBConn{
 				vo.setPicture(rs.getString(4));
 				vo.setPrice(rs.getInt(5));
 				vo.setRegionmain(rs.getString(6));
+				vo.setCatemain(rs.getString(7));
 				
 				list.add(vo);
 			}
