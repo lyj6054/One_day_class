@@ -343,17 +343,21 @@ public class ms_TutorclassDAO extends DBConn {
 	public ms_TutorclassVO getMyclass(String cid){
 			ms_TutorclassVO vo = new ms_TutorclassVO();
 		try {
-			String sql = " SELECT CID, EMAIL, TITLE,PICTURE,SPICTURE,TO_CHAR(CDATE,'YYYY-MM-DD') CDATE FROM ONE_CLASS WHERE CID=? ";
+			String sql = " SELECT CID,NAME, ONC.EMAIL, TITLE,CATEMAIN,CATESUB,PICTURE,SPICTURE,TO_CHAR(CDATE,'YYYY-MM-DD') CDATE, CSTATUS FROM ONE_CLASS ONC, ONE_TUTOR OTR WHERE ONC.EMAIL=OTR.EMAIL AND CID=? ";
 			getPreparedStatement(sql);
 			pstmt.setString(1, cid);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				vo.setCid(rs.getString(1));
-				vo.setEmail(rs.getString(2));
-				vo.setTitle(rs.getString(3));
-				vo.setPicture(rs.getString(4));
-				vo.setSpicture(rs.getString(5));
-				vo.setCdate(rs.getString(6));
+				vo.setName(rs.getString(2));
+				vo.setEmail(rs.getString(3));
+				vo.setTitle(rs.getString(4));
+				vo.setCatemain(rs.getString(5));
+				vo.setCatesub(rs.getString(6));
+				vo.setPicture(rs.getString(7));
+				vo.setSpicture(rs.getString(8));
+				vo.setCdate(rs.getString(9));
+				vo.setCstatus(rs.getInt(10));
 				
 			}
 			
