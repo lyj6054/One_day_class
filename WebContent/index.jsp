@@ -803,13 +803,12 @@
 										<% for(ClassVO vo : list4) { 
 											i++;
 											String[] pic_array=vo.getSpicture().split(",");
-											String[] sch_array=vo.getSchedule().split(",");
+											String date=vo.getSchedule();
 											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid()); 
-											//String date = vo.getSchedule();
-											int day_idx = sch_array[0].indexOf("일");
+											int day_idx = date.indexOf("일");
 											String day = "";
 											if(day_idx>0) {
-												//day=sch_array[0].substring(day_idx-6, day_idx);
+												//day=date.substring(day_idx-6,day_idx+1);
 											} else {
 												day="협의 후 날짜 시간 결정";
 											}
@@ -856,7 +855,7 @@
 											int day_idx=date.indexOf("일");
 											String day="";
 											if(day_idx>0) {
-												//day=date.substring(day_idx-6,day_idx+1);
+												day=date.substring(day_idx-6,day_idx+1);
 											}else {
 												day="협의 후 날짜 시간 결정";
 											}
@@ -908,7 +907,7 @@
 												int day_idx=date.indexOf("일");
 												String day="";
 												if(day_idx>0) {
-												//day=date.substring(day_idx-6,day_idx+1);
+												day=date.substring(day_idx-6,day_idx+1);
 												}else {
 												day="협의 후 날짜 시간 결정";
 												}
@@ -954,17 +953,15 @@
 										<% for(ClassVO vo : list) {
 											i++;
 											String[] pic_array=vo.getSpicture().split(",");
-											
 											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid());
 											String date = vo.getSchedule();
 											int day_idx = date.indexOf("일");
 											String day = "";
 											if(day_idx>0) {
-												//day=date.substring(day_idx-6, day_idx+1);
+												day=date.substring(day_idx-5, day_idx+1);
 											} else {
 												day="협의 후 날짜 시간 결정";
 											}
-
 										%>
 											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
 										        <a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid()%>">

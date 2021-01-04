@@ -28,7 +28,7 @@
 	if(inp_sch==null){
 		dbCount = dao.getListCount();// DB연동 후 전체로우수 출력
 	}else{
-		dbCount = dao.getListCount2(inp_sch);
+		dbCount = dao.getListCount2(inp_sch); 
 		System.out.println("디비 : "+dbCount);
 	}
 	int reqPage = 1;//요청페이지
