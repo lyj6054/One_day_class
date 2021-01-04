@@ -35,7 +35,7 @@ public class TutorDAO extends DBConn {
 		TutorVO vo = new TutorVO();
 		
 		try {
-			String sql = "select name, profile_img from one_tutor "
+			String sql = "select name, sprofile_img from one_tutor "
 					+ " where email=(select email from one_class where cid=?)";
 			getPreparedStatement(sql);
 			pstmt.setString(1, cid);
@@ -43,7 +43,7 @@ public class TutorDAO extends DBConn {
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				vo.setName(rs.getString(1));
-				vo.setProfile_img(rs.getString(2));
+				vo.setSprofile_img(rs.getString(2));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
