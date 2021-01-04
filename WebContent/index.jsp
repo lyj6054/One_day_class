@@ -808,7 +808,7 @@
 											int day_idx = date.indexOf("일");
 											String day = "";
 											if(day_idx>0) {
-												//day=date.substring(day_idx-6,day_idx+1);
+												day=date.substring(day_idx-6,day_idx+1);
 											} else {
 												day="협의 후 날짜 시간 결정";
 											}
@@ -958,7 +958,7 @@
 											int day_idx = date.indexOf("일");
 											String day = "";
 											if(day_idx>0) {
-												day=date.substring(day_idx-5, day_idx+1);
+												day=date.substring(day_idx-6, day_idx+1);
 											} else {
 												day="협의 후 날짜 시간 결정";
 											}

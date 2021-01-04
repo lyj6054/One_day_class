@@ -7,7 +7,7 @@
 	String cid = request.getParameter("cid");
 	ms_TutorclassDAO dao = new ms_TutorclassDAO();
 	boolean result = dao.getClassdel(cid);
-
+	System.out.println(cid);
 	if(result){
 		response.sendRedirect("../index_login.jsp");
 	}else{
