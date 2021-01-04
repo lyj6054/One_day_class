@@ -8,8 +8,8 @@
 	int i=0;
 	ArrayList<ClassVO> list =new ArrayList<ClassVO>();
 	ArrayList<ClassVO> list2 =new ArrayList<ClassVO>();
-	 list = dao.getIndexList3();
-	 list2=dao.getIndexList4();
+	/*  list = dao.getIndexList3();
+	 list2=dao.getIndexList4(); */
 %>
 <!DOCTYPE html>
 <html>
