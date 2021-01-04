@@ -138,14 +138,13 @@ button {
 }
 
 .block {
-	margin: 17px 0 0 50px;
+	margin: 15px 0 0 50px;
 	border: 1px solid #ff005a;
 	
-	padding: 0 5px;
 	overflow: hidden;
 	background: #fff;
 	width: 250px;
-	height:36px;
+	height:46px;
 	font-family: Gulim;
 	font-size: 12px;
 	border-radius: 5px;
@@ -155,21 +154,27 @@ button {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	overflow: hidden;
 }
 .block li a {
 	display: block;
-	height: 36px;
-	line-height: 36px;
+	height: 26px;
+	line-height: 26px;
 	color: #555;
 	text-decoration: none;
 }
 
 .block li span {
-	padding: 2px 5px;
+	padding: 0px 5px;
 	background: #ff005a;
 	color: #fff;
 	font-weight: bold;
 	margin:0 15px 0 15px;
+}
+.text_1{
+	text-align:center;
+	color: #fff;
+	background: #ff005a;
 }
 </style>
 <script>
@@ -291,6 +296,9 @@ button {
 					</div>
 				</div>
 				<div class="block">
+				<div class="text_1">
+					실시간 인기 검색어
+				</div>
 					<ul id="ticker">
 						<%for(String word : list){ i++;%>
 						<li><a href="#"><span><%=i %></span> <%=word%></a></li>

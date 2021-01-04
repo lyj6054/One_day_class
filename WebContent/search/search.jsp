@@ -12,9 +12,6 @@
 	// 검색어
 	String inp_sch = request.getParameter("inp_sch");
 	
-	ArrayList<ClassVO> search_list = new ArrayList<ClassVO>();
-	search_list = dao.SearchList(inp_sch);
-	System.out.println(search_list.size());
 	
 	String cateMain= request.getParameter("cateMain");
 	String cateSub= request.getParameter("cateSub");
@@ -27,7 +24,13 @@
 	int end=0;
 	int pageSize=6; //한 페이지당 출력되는 row
 	int pageCount = 1;//전체 페이지수 : 전체 리스트 row / 한 페이지당 출력되는 row
-	int dbCount = dao.getListCount();// DB연동 후 전체로우수 출력
+	int dbCount =0;
+	if(inp_sch==null){
+		dbCount = dao.getListCount();// DB연동 후 전체로우수 출력
+	}else{
+		dbCount = dao.getListCount2(inp_sch);
+		System.out.println("디비 : "+dbCount);
+	}
 	int reqPage = 1;//요청페이지
 	
 	//2-2. 전체페이지 수 구하기
@@ -47,15 +50,19 @@
 		start = reqPage;
 		end = pageSize;
 	}
-		ArrayList<ClassVO> list =new ArrayList<ClassVO>();
+	
+	ArrayList<ClassVO> search_list = new ArrayList<ClassVO>();
+	search_list = dao.SearchList(inp_sch,start,end);
+	System.out.println(search_list.size());
+	System.out.println(start);
+	System.out.println(end);
+	
+	ArrayList<ClassVO> list =new ArrayList<ClassVO>();
  	if(cateMain==null&&cateSub==null){
- 		System.out.println("1");
 		 list = dao.getCList2(start,end);
 	}else if(cateMain==null&&cateSub!=null){
- 		System.out.println("2");
 		list = dao.getCList3(start,end,cateSub);
 	}else if(cateMain!=null&&cateSub==null){
- 		System.out.println("3");
 		list = dao.getCList4(start,end,cateMain);
 	}
 	int i=0;
@@ -89,8 +96,12 @@ $(document).ready(function(){
 	
 	jQuery("#ampaginationsm").on('am.pagination.change',function(e){
 		//var para[] = document.location.href.split("?");
-		$(location).attr('href','http://localhost:9000/One_day_class/search/search.jsp?rpage='+e.page); 
-
+		var a= "<%=inp_sch%>";
+		if(a==""){
+			$(location).attr('href','http://localhost:9000/One_day_class/search/search.jsp?rpage='+e.page); 
+		}else{
+			$(location).attr('href','http://localhost:9000/One_day_class/search/search.jsp?rpage='+e.page+'&inp_sch='+a); 
+		}
 		//location.href('이동페이지')';
 	});
 	
@@ -282,7 +293,7 @@ $(document).ready(function(){
 										<div class="name"><%=vo_tutor.getName() %> 튜터</div>
 										<div class="nick">tutor</div>
 									</div>
-									<div class="title"><%=vo.getTitle() %></div>
+									<div class="title">[<%=vo.getCatemain()%>]<%=vo.getTitle() %></div>
 									<div class="price">
 										<div class="price2">
 											<span>￦<span><span><%=vo.getPrice() %> 원/시간<span>
@@ -319,7 +330,7 @@ $(document).ready(function(){
 									<div class="name"><%=vo_tutor.getName() %> 튜터</div>
 									<div class="nick">tutor</div>
 								</div>
-								<div class="title"><%=vo.getTitle() %></div>
+								<div class="title">[<%=vo.getCatemain()%>]<%=vo.getTitle() %></div>
 								<div class="price">
 									<div class="price2">
 										<span>￦<span><span><%=vo.getPrice() %> 원/시간<span>
