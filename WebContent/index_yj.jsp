@@ -957,7 +957,7 @@
 									<h2 class="main_title">튜터들이 많이 찾는 수업</h2>
 									<div class="talent_list swiper-container swiper2">
 										<ul class="swiper-wrapper">
-											<% for(ClassVO vo:list){ i++;
+											<% for(ClassVO vo:list2){ i++;
 																					String[] pic_array=vo.getSpicture().split(",");
 																					sh_TutorVO vo_tutor = dao_tutor.getTutorInfo(vo.getCid());
 																					String date=vo.getSchedule();
