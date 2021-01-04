@@ -754,19 +754,30 @@
 		border-bottom:3px solid gray;
 		padding-bottom:13px;
 	}
+	.review_p{
+	margin-left:100px;
+	}
+	div.dance>div.dance-box3-1>span#dance-b4-1{
+	width:200px;
+	border-bottom: none;
+	}
 	div.dance>div.dance-box3>div.dance-b5 {
 		border:1px solid rgb(250,250,250);
 		border-radius:3px;
 		float:left;
 		width:720px;  
-		height:120px;
+		height:auto;
 		background-color:rgb(250,250,250);
 		font-size:14px;
+		padding-left:20px;
+/* 		overflow:hidden */
 	}
 	div.dance>div.dance-box3-1>div.dance-b6>iframe {
 		margin-left:50px;
 	}
 	div.dance>div.dance-box3-1>div.dance-b6>p {
+		background-color:rgb(250,250,250);
+		padding:20px ;
 		margin-left:224px;
 		font-size:16px;
 	}
@@ -790,6 +801,7 @@
 		vertical-align:top;
 	}
 	div.dance>div.dance-box3>div.dance-b5>img {
+		margin: 7px 0px 0 0;
 		float:right;
 	}
 	div.dance>div.dance-box1>span.dance-b3 {
@@ -842,6 +854,7 @@
 		background-size: cover;
 		border-radius: 6px;
 		cursor: pointer;
+		border:none;
 	}
 	div.dance>aside.d-side>div.d-side-box5 button.on {
 		background-image: url("http://localhost:9000/One_day_class/images/icon_wish_clicked.png");
@@ -893,11 +906,11 @@
 		color:#999;
 	}
 	.review_sum {
+		margin-top:10px;
 		display: inline-block;
-		width: 720px;
-	    padding: 26px 40px 22px;
-	    border: 1px solid #ddd;
-	    border-radius: 6px;
+		width: 200px;
+	    padding: 15px 40px 22px;
+	    border-top: 3px solid gray;
 	}
 	.review_sum .review_list {
 	    display: flex;
@@ -907,7 +920,7 @@
 	    flex-wrap: wrap;
 	}
 	.review_sum .review_list li {
-	    width: 22%;
+	    width: 100px;
 	    margin-right: 17%;
 	    font-size: 15px;
 	    line-height: 19px;

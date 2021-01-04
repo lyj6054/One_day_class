@@ -508,6 +508,30 @@
 	</style>
 <script>
 	$(document).ready(function(){
+		/* 체크박스 체크시 전체선택 체크 여부 */
+		function oneCheckFunc(obj) {
+			var allObj = $("[name=checkAll]");
+			var objName = $(obj).attr("name");
+
+			if($(obj).prop("checked")){
+				checkBoxLength = $("[name="+ objName +"]").length;
+				checkedLength = $("[name="+ objName +"]:checked").length;                
+
+				if(checkBoxLength == checkedLength){
+					allObj.prop("checked", true);    
+				}else{
+					allObj.prop("checked", false);
+				}
+			}else{
+				allObj.prop("checked", false); 
+			}
+		}
+		
+		$("[name=checkTerms]").each(function(){
+			$(this).click(function(){
+				oneCheckFunc($(this));
+			});                
+		});
 		//open/close 변경
 		$("img[name=open]").click(function(){
 			var i=$(this).attr("id");
@@ -559,6 +583,10 @@
 		 document.getElementById("cid_1").value()=document.getElementById("selectbox").value();
 	}
 	
+	
+
+
+	
 	function allCheck() { 
 		var all = document.getElementById("checkAll");
 		/* var chk = document.getElementById("check1");
@@ -594,8 +622,8 @@
 	                }
 	                 if(cnt == 0)  all.checked = false;
 		}
-
-	} */
+	*/
+	
 </script>
 </head>
 <body>

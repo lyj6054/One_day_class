@@ -10,6 +10,29 @@ public class ms_TutorclassDAO extends DBConn {
 	
 	
 	/**
+	 *  cid값이 null일때 받아오는 로직
+	 */
+	public String getCidnull(String email) {
+			String cid ="";
+		try {
+			String sql =" select * from (select rownum rno, cid, cdate, email from (select cid,cdate,email from one_class order by cdate desc) where email=?) where rno='1'";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) cid = rs.getString(2);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return cid;
+	}
+	
+	
+	
+	/**
 	 * 수업 수정시 내용 불러오기 
 	 */
 	public ms_TutorclassVO getSelectclass(String cid){
@@ -347,22 +370,20 @@ public class ms_TutorclassDAO extends DBConn {
 	 * 리뷰작성한 /학생 리스트
 	 */
 	
-	  public ArrayList<ms_TutorclassVO> getTutorList(String email,String cid){
+	  public ArrayList<ms_TutorclassVO> getTutorList(String cid){
 	  ArrayList<ms_TutorclassVO> list = new ArrayList<ms_TutorclassVO>(); 
 	  try { 
 
-		  String sql = "select rownum rno, cid, name, schedule, rcontent, to_char(rdate,'YYYY-MM-DD') rdate " + 
-		  		" from (select cid, name, schedule, rcontent, ord.rdate " + 
-		  		"        from (select od.cid, schedule,orr.email, orr.rcontent, orr.rdate " + 
-		  		"                from (select oc.cid, schedule from one_tutor ot, one_class oc" + 
-		  		"                        where ot.email = oc.email and ot.email=? ) od , one_review orr " + 
-		  		"                where od.cid = orr.cid) ord, one_tutee ot" + 
-		  		"        where ord.email = ot.email" + 
-		  		"        order by ord.rdate desc)" + 
-		  		" where cid=?";
+		  String sql = " select rownum rno, cid, name, email, aschedule, aperson, astatus, rcontent, rdate " + 
+		  		" from (select  cid, name, email, aschedule, aperson, astatus, rcontent, to_char(rdate,'YYYY-MM-DD') rdate " + 
+		  		"		  		from (select oac.cid, ot.email, ot.name, orr.rcontent, orr.rdate,oac.aschedule,oac.aperson,oac.astatus " + 
+		  		"              from one_tutee ot,one_review orr,one_apply_class oac " + 
+		  		"               where ot.email = orr.email and orr.email(+) = oac.email and oac.email = ot.email and orr.cid=? order by orr.rdate desc" + 
+		  		"              )  " + 
+		  		" where cid=?)";
 	  getPreparedStatement(sql);
 	  
-	  pstmt.setString(1, email);
+	  pstmt.setString(1, cid);
 	  pstmt.setString(2, cid);
 	  ResultSet rs = pstmt.executeQuery();
 	  
@@ -371,9 +392,12 @@ public class ms_TutorclassDAO extends DBConn {
 	  vo.setRno(rs.getInt(1)); 
 	  vo.setCid(rs.getString(2));
 	  vo.setName(rs.getString(3));
-	  vo.setSchedule(rs.getString(4));
-	  vo.setRcontent(rs.getString(5));
-	  vo.setRdate(rs.getString(6));
+	  vo.setEmail(rs.getString(4));
+	  vo.setAschedule(rs.getString(5));
+	  vo.setAperson(rs.getInt(6));
+	  vo.setAstatus(rs.getInt(7));
+	  vo.setRcontent(rs.getString(8));
+	  vo.setRdate(rs.getString(9));
 	  
 	  
 	  list.add(vo); 

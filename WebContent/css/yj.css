@@ -1588,7 +1588,7 @@ a:link {
 }
 .main3_cont .catesub_list {
     position: static;
-    height: 217px;
+    height: 73px;
     z-index: 10;
 }
 .main3_cont .catesub_list .main {
@@ -1694,7 +1694,7 @@ a:link {
     margin:auto;
 }
 .cont2 .cont2_class {
-    height: 450px;
+    height: 410px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     width: calc(40%);
@@ -1746,8 +1746,11 @@ a:link {
     margin-left: 290px;
     position: absolute;
     height: 180px;
-    margin-top: 75px;
+    margin-top: 35px;
     text-align: center;
+}
+profile_box{
+	
 }
 .cont2 .cont2_class .profile {
     width: 55px;
@@ -1768,15 +1771,15 @@ a:link {
     width: 64%;
     margin-left: 5%;
     margin-top: 20px;
-    height: 40px;
-    font-size: 14px;
+    height: 43px;
+    font-size: 16px;
     overflow: hidden;
     color: black;
     font-weight: bold;
     line-height: 1.4;
 }
 .cont2 .cont2_class .price {
-    margin-top: 90px;
+    margin-top: 75px;
     padding: 0 0 0px 15px;
 }
 .cont2 .cont2_class .price .sale {
@@ -1804,7 +1807,7 @@ a:link {
     display: inline;
 }
 .cont2 .cont2_class .info .info2 {
-    padding: 35px 5px 5px 5px;
+    padding: 10px 5px 5px 5px;
     overflow: hidden;
     padding-left: 15px;
     position: absolute;

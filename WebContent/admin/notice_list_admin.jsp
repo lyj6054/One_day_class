@@ -700,6 +700,7 @@
 			</ul>
 			<div id="nesListNew">
 			<% for(BoardVO vo : list) { %>
+			
 				<ul class="section2-cont">
 					<li class="cont-0">
 						<input class="blind inp_label" type="checkbox" name="checkTerms" id="<%= vo.getBid()%>">
