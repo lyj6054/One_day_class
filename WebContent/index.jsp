@@ -25,10 +25,10 @@
 	list = dao.indexRecommend(); 
 	
 	//영재
-	 list2 = dao.getIndexList3();
+	 list2 = dao.getIndexList3(email);
 	 list3 = dao.getIndexList4();
 	 
-	 list4 = dao.indexRecent(); 
+	 list4 = dao.indexRecent(email); 
 	 
 	// SessionVO svo = (SessionVO)session.getAttribute("svo");
 	 
@@ -749,7 +749,7 @@
 											i++;
 											String[] pic_array=vo.getSpicture().split(",");
 											
-											TutorVO vo_tutor = dao_tutor.getTutorInfo(vo.getCid());
+											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid());
 											String date = vo.getSchedule();
 											int day_idx = date.indexOf("일");
 											String day = "";
@@ -767,9 +767,9 @@
 										            <h3 class="talent_title"><%= vo.getTitle() %></h3>
 										            <div class="talent_info">					    
 										            	<span class="profile">
-										            		<img class="roundImg" src="http://localhost:9000/One_day_class/upload/<%=vo_tutor.getSprofile_img()%>">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/upload/<%=vo_tutor_index.getSprofile_img()%>">
 										            	</span>					    
-										            	<span class="name"><%= vo_tutor.getName()%></span>						
+										            	<span class="name"><%= vo_tutor_index.getName()%></span>						
 										            	<span class="d_day"><%= day %></span>						
 										            	<span class="location"><%= vo.getRegionmain() %></span>	
 										            	<span class="review">
@@ -788,6 +788,40 @@
 										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
 									</div>
 								</div>
+								<%-- <div class="talent_box">
+									<h2 class="main_title">유저들이 가장 많이 찾는 수업</h2>
+									<div class="talent_list swiper-container swiper2">
+										<ul class="swiper-wrapper">
+										<%for(ms_indexVO vo : list1){ %>
+											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
+										        <a href="">
+										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=vo.getPicture()%>');">
+										            </div>
+										            <h3 class="talent_title"><%=vo.getTitle() %></h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/upload/<%=vo.getProfile_img()%>">
+										            	</span>					    
+										            	<span class="name"><%=vo.getName() %></span>						
+										            	<span class="d_day"><%=vo.getSchedule() %></span>						
+										            	<span class="location"><%=vo.getRegionmain() %></span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total">5.0<span>(<%=vo.getWish_cnt() %>)</span></span>
+								                        </span>				
+										            </div>
+										        </a>
+										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this);"></button>
+										    </li>
+										    <% } %>
+										  
+										</ul>
+										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
+										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
+									</div>
+								</div> --%>
 									<div class="talent_box">
 									<h2 class="main_title">튜터들이 많이 찾는 수업</h2>
 									<div class="talent_list swiper-container swiper2">

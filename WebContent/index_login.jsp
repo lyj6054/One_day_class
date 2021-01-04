@@ -2,11 +2,10 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.*"
     %>
-    <% 	request.setCharacterEncoding("utf-8"); %>
 <%
 		SessionVO svo = (SessionVO)session.getAttribute("svo");
 		String email = svo.getEmail();
-		String cid = request.getParameter("cid");
+		//String cid = request.getParameter("cid");
 		
 		ClassDAO dao = new ClassDAO();
 		
@@ -25,21 +24,23 @@
 		//영화
 		ArrayList<ClassVO> list =new ArrayList<ClassVO>();
 		ArrayList<ClassVO> list4 =new ArrayList<ClassVO>();
+		ArrayList<ClassVO> list5 =new ArrayList<ClassVO>();
 		
 		//영재
 		ArrayList<ClassVO> list2 =new ArrayList<ClassVO>();
 		ArrayList<ClassVO> list3 =new ArrayList<ClassVO>();
 		
 		//영화
-		list = dao.indexRecommend(); 
+		list = dao.indexRecommend(email); 
 		
 		//영재
-		 list2 = dao.getIndexList3();
+		 list2 = dao.getIndexList3(email);
 		 list3 = dao.getIndexList4();
 		 
-		 list4 = dao.indexRecent(); 
+		 list4 = dao.indexRecent(email); 
+		 list5 = dao.indexWishlist(email);
 
-		 int wishCheck = dao_wishList.getWishCheck(cid, email);
+		 //int wishCheck = dao_wishList.getWishCheck(cid, email); 
 		 
 		 if(svo != null) {
 %>	
@@ -663,51 +664,63 @@
 	}
 </style>
 <script>
-$(document).on('click', '.wish_add_btn', function() {
-	var cid = $(".cid").text();
-	var email_chk = $(".email_chk").text();
-	
-	alert(cid);
-	alert(email_chk);
-	
-	/* if(email != "null"){
-		$("#wish_add_btn").attr('id', 'wish_remove_btn').addClass('on');
-		$.ajax({
-			url: "classAddWish.jsp?cid=" + cid + "&email="+email,
-			success: function(data){
-				if(data == 1){
-					alert('위시리스트에 추가 되었습니다');
-				} else {
-					alert('위시리스트에서 등록 중 오류가 발생했습니다');							
-				}
-			}
-		});
-		
-	} else {
-		alert('로그인이 필요합니다');
-	} */
-    
-});
 
-$(document).on('click', '.wish_remove_btn', function() {
-	var cid = $(".cid").attr("id");
-	var email_chk = $(".email_chk").text();
-	
-	alert(cid);
-	alert(email_chk);
-	
-	/* $("#wish_remove_btn").attr("id", "wish_add_btn").removeClass('on');
-	
-	$.ajax({
-		url: "classDeleteWish.jsp?cid=" + cid + "&email="+email,
-		success: function(data){
-			if(data == 1){
-				alert('위시리스트에서 삭제 되었습니다');
-			} else {
-				alert('위시리스트에서 삭제 중 오류가 발생했습니다');							
-			}
+$(document).ready(function(){
+	$("button[name='add']").click(function(){		
+		
+		var cid = $(this).attr("id");
+		var email = $("#email").text();
+		var check = $(this).attr("class");
+		var check2 = check.substring(0,1);
+		
+		//alert(check);
+		//alert(check2);
+		
+		if(check2 == 'a') {
+			$.ajax({
+				url: "wishCheck.jsp?cid=" + cid + "&email="+email,
+				success: function(data){
+					if(data == 1){
+						//alert('이미 추가 되었습니다');
+						//$("."+cid+"_wish_add_btn").attr('class', cid +'_wish_remove_btn').addClass('on');
+					} else {
+						//alert('위시리스트에서 등록 중 오류가 발생했습니다');	
+						if(email != "null"){
+							$.ajax({
+								url: "classAddWish.jsp?cid=" + cid + "&email="+email,
+								success: function(data){
+									if(data == 1){
+										alert('위시리스트에 추가 되었습니다');
+										$(".a_"+cid+"_wish_add_btn").attr('class', 'r_'+ cid +'_wish_remove_btn').addClass('on');
+									} else {
+										alert('위시리스트에서 등록 중 오류가 발생했습니다');							
+									}
+								}
+							});
+							
+						} else {
+							alert('로그인이 필요합니다');
+						}
+					}
+				}
+			});
+		} else {
+			$.ajax({
+				url: "classDeleteWish.jsp?cid=" + cid + "&email="+email,
+				success: function(data){
+					if(data == 1){
+						$(".r_"+cid+"_wish_remove_btn").attr("class", "a_" + cid +"_wish_add_btn").removeClass('on');
+						alert('위시리스트에서 삭제 되었습니다');
+					} else {
+						alert('위시리스트에서 삭제 중 오류가 발생했습니다');							
+					}
+				}
+		});
 		}
-	}); */
+		
+		
+		
+	});
 	
 	
 });
@@ -957,13 +970,13 @@ $(document).on('click', '.wish_remove_btn', function() {
 								                        </span>				
 										            </div>
 										        </a>
+												<div id="cid" style="display: none;"><%= vo.getCid() %></div>
 												<div id="email" style="display: none;"><%= email %></div>
-												<div id="cid" style="display: none;"><%= cid %></div>
-												<% if(wishCheck == 0){ %>
-													<button type="button" name="add" id="wish_add_btn"></button> 
+												<% if(vo.getWish_chk() == null){ %>
+													<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
 												<% } else { %>
-													<button class="on" type="button" name="add" id="wish_remove_btn"></button>
-												<% } %>
+													<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
+												<% } %> 
 										    </li>
 										<% } %>    
 										</ul>
@@ -971,8 +984,60 @@ $(document).on('click', '.wish_remove_btn', function() {
 										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
 									</div>
 								</div>
+								<div class="talent_box">
+									<h2 class="main_title">유저들이 가장 많이 찾는 수업</h2>
+									<div class="talent_list swiper-container swiper2">
+										<ul class="swiper-wrapper">
+										<%for(ClassVO vo : list5){
+											String[] pic_array=vo.getSpicture().split(",");
+											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid());  
+											String date=vo.getSchedule();
+											int day_idx=date.indexOf("일");
+											String day="";
+											if(day_idx>0) {
+												//day=date.substring(day_idx-6,day_idx+1);
+											}else {
+												day="협의 후 날짜 시간 결정";
+											}
+											%>
+											<li class="swiper-slide" style="width: 326px; margin-right: 32px;">
+										        <a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid()%>">
+										            <div class="thumb" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>')">
+										            </div>
+										            <h3 class="talent_title"><%=vo.getTitle() %></h3>
+										            <div class="talent_info">					    
+										            	<span class="profile">
+										            		<img class="roundImg" src="http://localhost:9000/One_day_class/upload/<%=vo_tutor_index.getSprofile_img()%>">
+										            	</span>					    
+										            	<span class="name"><%= vo_tutor_index.getName()%></span>						
+										            	<span class="d_day"><%= day %></span>						
+										            	<span class="location"><%= vo.getRegionmain() %></span>	
+										            	<span class="review">
+								                            <span class="star_img">
+								                                <img src="http://localhost:9000/One_day_class/images/star_act.png">
+								                            </span>
+								                            <span class="grade_total"><%= dao_review.getReviewScore(vo.getCid()) %><span>(<%=dao_review.getReviewCnt(vo.getCid()) %>)</span></span>
+								                        </span>				
+										            </div>
+										        </a>
+										       <div id="cid" style="display: none;"><%= vo.getCid() %></div>
+												<div id="email" style="display: none;"><%= email %></div>
+												<% if(vo.getWish_chk() == null){ %>
+													<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
+												<% } else { %>
+													<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
+												<% } %> 
+										    </li>
+										    <% } %>
+										  
+										</ul>
+										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
+										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
+									</div>
+								</div>
+								
 									<div class="talent_box">
-									<h2 class="main_title">튜터들이 많이 찾는 수업</h2>
+									<h2 class="main_title">튜티들이 많이 찾는 수업</h2>
 									<div class="talent_list swiper-container swiper2">
 										<ul class="swiper-wrapper">
 											<% for(ClassVO vo:list2){ i++;
@@ -1007,7 +1072,13 @@ $(document).on('click', '.wish_remove_btn', function() {
 								                        </span>				
 										            </div>
 										        </a>
-										        <button type="button" class="btn_wish" id="btn_wish" onclick="addWish(this,<%=vo.getCid()%>);"></button>
+										        <div id="cid" style="display: none;"><%= vo.getCid() %></div>
+												<div id="email" style="display: none;"><%= email %></div>
+												<% if(vo.getWish_chk() == null){ %>
+													<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
+												<% } else { %>
+													<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
+												<% } %> 
 										    </li>
 										    <%} %>
 										</ul>
@@ -1021,7 +1092,7 @@ $(document).on('click', '.wish_remove_btn', function() {
 										<ul class="swiper-wrapper">
 										<% for(ClassVO vo : list) {
 											i++;
-											String[] pic_array=vo.getPicture().split(",");
+											String[] pic_array=vo.getSpicture().split(",");
 											
 											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid());
 											String date = vo.getSchedule();
@@ -1054,7 +1125,13 @@ $(document).on('click', '.wish_remove_btn', function() {
 								                        </span>					
 										            </div>
 										        </a>
-										        <button type="button" class="<%= vo.getCid()%>" id="btn_wish"></button>
+										       <div id="cid" style="display: none;"><%= vo.getCid() %></div>
+												<div id="email" style="display: none;"><%= email %></div>
+												<% if(vo.getWish_chk() == null){ %>
+													<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
+												<% } else { %>
+													<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
+												<% } %>  
 										    </li>
 										<% } %>
 										</ul>
