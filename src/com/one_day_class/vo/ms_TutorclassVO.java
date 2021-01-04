@@ -1,7 +1,7 @@
 package com.one_day_class.vo;
 
 public class ms_TutorclassVO {
-	int rno,aperson, astatus, person,price,time;
+	int rno,aperson, astatus, person,price,time,cstatus;
 	String email, name, aschedule, rcontent, rdate ,cid ,title, picture, spicture ,aid ,sysdate,schedule ,adate, cdate,
 			regionmain, regionsub, catemain,catesub,videos,tutorinfo,introduction,curriculum,tutornotice,target;
 
@@ -12,6 +12,14 @@ public class ms_TutorclassVO {
 	
 	
 	
+	public int getCstatus() {
+		return cstatus;
+	}
+
+	public void setCstatus(int cstatus) {
+		this.cstatus = cstatus;
+	}
+
 	public String getTarget() {
 		return target;
 	}

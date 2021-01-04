@@ -1013,6 +1013,8 @@
     .apply_title {
       font-size:18px;
       margin-bottom:20px;
+      font-weight:bold;
+      margin-left:100px;
    }
    div.apply {
       width:1050px;
@@ -1020,9 +1022,8 @@
    }
    div.right {
       display:inline-block;
-      float:right;
-      margin-top:150px;
-      width:400px;
+      margin-top:50px;
+      width:360px;
    }
    div.right>button.r-btn3 {
       width:398px; height:48px;
@@ -1032,6 +1033,8 @@
       color:white;
       cursor: pointer;
       margin-top: 30px;
+      margin-left:17px;
+      margin-bottom:50px;
    }
    div.right>h3 {
       display:inline-block;
@@ -1085,16 +1088,16 @@
    }
    div.left {
        display:inline-block;
-       width:400px;
-       clear:left;
-       margin-bottom:450px;
+       width:800px;
+       margin-left:300px;
+       margin-bottom:100px;
    }
    .left-box {
       border:1px solid lightgray;
       border-radius:8px;
-      clear:left;
       width:400px;
       height:500px;
+      margin-left:15px;
    }
    .left-box .left-box-span {
       display: block;
@@ -1119,9 +1122,11 @@
    }
    span.a-title {
       display:inline-block;
-      font-size:20px;
+      font-size:30px;
       font-weight:bold;
       margin-top:60px;
+      margin-left:150px;
+      margin-bottom:20px;
    }
    hr.a-bar {
       width:1045px;
@@ -1130,11 +1135,10 @@
       margin-bottom:30px;
    }
    .a-left {
-      display: flex;
-      align-items: center;
+      display:block;
       margin-bottom: 20px;
    }
-   .a-left   .a-left-1 {
+  /*  .a-left   .a-left-1 {
        width: 111px;
        height: 85px;
        margin-right: 14px;
@@ -1145,18 +1149,22 @@
        height: 100%;
        object-fit: cover;
        object-position: center;
-   }
-   .a-left .a-title-1 {
-       font-size: 15px;
+   } */
+    .a-title-1 {
+       font-size: 20px;
        line-height: 24px;
        letter-spacing: -0.38px;
        word-break: break-all;
        margin-bottom:-10px;
+       margin-left:20px;
        
+   } 
+   .a-left-1 {
+      width:800px;
+      height:300px;
    }
-   div.a-left-1 {
-      width:400px;
-      height:100px;
+   .a-left-2{
+   	  width:424px;
    }
    .a-left-2 .star_box {
 	    display: inline-block;
@@ -1167,11 +1175,12 @@
 	    vertical-align: middle;
 	    background: url(http://localhost:9000/One_day_class/images/star.png) repeat-x;
 	    background-size: 14px 13px;
+	    margin-left:20px;
 	}
 	.a-left-2 .star_box .star {
 	    display: inline-block;
 	    overflow: hidden;
-	    height: 13px;
+	    height: 12px;
 	    line-height: 0;
 	    vertical-align: top;
 	    background-image: url(http://localhost:9000/One_day_class/images/star_act.png);
@@ -1189,8 +1198,8 @@
       vertical-align: top;
        line-height: 0;
    }
-   div.a-left>div.a-left-1>img {
-      width:100.06; height:83px;
+   .a-left-1>img {
+      width:500; height:300px;
       float:left;
       border-radius:8px;
    }

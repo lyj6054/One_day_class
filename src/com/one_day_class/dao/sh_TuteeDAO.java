@@ -32,8 +32,8 @@ public class sh_TuteeDAO extends DBConn {
 		ArrayList<sh_TuteeVO> list_tutee = new ArrayList<sh_TuteeVO>();
 		
 		try {
-			String sql = " select rownum rno, name, gender, email, phone, age, area, hope_class, to_char(rdate, 'yyyy.mm.dd') rdate " + 
-					" from (select * from one_tutee order by rdate) order by rno desc";
+			String sql = " select rownum rno, name, gender, email, phone, age, area, hope_class, to_char(rdate, 'yyyy.mm.dd') rdate "
+					+ " from (select * from one_tutee order by rdate) order by rno desc";
 			getPreparedStatement(sql);
 			
 			ResultSet rs = pstmt.executeQuery();
@@ -64,8 +64,8 @@ public class sh_TuteeDAO extends DBConn {
 		ArrayList<sh_TuteeVO> list = new ArrayList<sh_TuteeVO>();
 		
 		try {
-			String sql = " select * from (select rownum rno, name, gender, email, phone, age, area, hope_class, to_char(edate, 'yyyy.mm.dd') edate "
-					+ " from (select * from one_tutee order by edate) order by rno)"
+			String sql = " select * from (select rownum rno, name, gender, email, phone, age, area, hope_class, to_char(rdate, 'yyyy.mm.dd') rdate "
+					+ " from (select * from one_tutee order by rdate) order by rno)"
 					+ " where rno between ? and ?";
 			getPreparedStatement(sql);
 			pstmt.setInt(1, start);
@@ -82,7 +82,7 @@ public class sh_TuteeDAO extends DBConn {
 				vo.setAge(rs.getString(6));
 				vo.setArea(rs.getString(7));
 				vo.setHope_class(rs.getString(8));
-				vo.setEdate(rs.getString(9));
+				vo.setRdate(rs.getString(9));
 				
 				list.add(vo);
 			}
@@ -99,7 +99,7 @@ public class sh_TuteeDAO extends DBConn {
 		sh_TuteeVO vo = new sh_TuteeVO();
 		
 		try {
-			String sql = "select email, name, to_char(edate, 'yyyy.mm.dd') edate, phone, age, area, profile_img, sprofile_img, pr "
+			String sql = "select email, name, to_char(rdate, 'yyyy.mm.dd') rdate, phone, age, area, profile_img, sprofile_img, pr "
 					+ " from one_tutee where email=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, email);
@@ -108,7 +108,7 @@ public class sh_TuteeDAO extends DBConn {
 			while(rs.next()) {
 				vo.setEmail(rs.getString(1));
 				vo.setName(rs.getString(2));
-				vo.setEdate(rs.getString(3));
+				vo.setRdate(rs.getString(3));
 				vo.setPhone(rs.getString(4));
 				vo.setAge(rs.getString(5));
 				vo.setArea(rs.getString(6));

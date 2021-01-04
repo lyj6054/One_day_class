@@ -32,18 +32,20 @@
 <body>
 	<!--header -->
 	<jsp:include page="../header.jsp" />
+	
+	
+	<hr class="a-bar">
 	<form action="classApplyProc.jsp" method="POST" id="class_apply">
 		<input type="hidden" name="cid" value="<%=cid%>">
 		<input type="hidden" name="email" value="<%=email%>">
 		<div class="apply">
 			<div class="left">
 				<span class="a-title">수업신청</span>
-				<hr class="a-bar">
 				<div class="a-left">
 					<div class="a-left-1">
 						<img src="http://localhost:9000/One_day_class/upload/<%= pic_array[0]%>">
 					</div>
-					<div class="a-left-2" style="width:281px;">
+					<div class="a-left-2">
 						<p class="a-title-1"><%= vo_class.getTitle() %></p><br>
 						<span class="star_box">
 							<span class="star" style="width: 100%"></span>
@@ -66,7 +68,6 @@
 			         </ul>
 				</div>
 				<div id="checked"></div>
-			</div>
 			<div class="right">
 				<h3 class="apply_title">신청 인원</h3>
 				<div class="r-box">
@@ -79,6 +80,7 @@
 				<% } else { %>
 				<button type="button" class="r-btn3" onclick="rejectMsg()">신청하기</button>
 				<% } %>
+			</div>
 			</div>
 		</div>
 	</form>

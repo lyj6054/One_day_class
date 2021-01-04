@@ -26,6 +26,7 @@
 		ArrayList<ms_TutorclassVO> list2= dao.getMyList(email);
 		int j=0;
 		System.out.println(cid);
+		System.out.println("cstats ="+vo.getCstatus());
 %>
 
 <!DOCTYPE html>
@@ -91,8 +92,14 @@
 	
 </script>
 <style>
+
  * {
      font-family: 'Noto Sans KR';
+   }
+   #selectbox{
+   		font-weight:bold;
+   		font-size:16px;
+   		color:black;
    }
 	div.new_class{
 		width:1200px;
@@ -105,19 +112,20 @@
 		margin-left:40px;
 	}
 	div.static-box {
-		height:300px;
+		height:400px;
 		margin-left:40px;
 	}
 	div.static-box>div.box {
-		width:700px;
-		height:200px;
+		width:500px;
+		height:300px;
 		vertical-align:top;
+		margin-left:30px;
 		float:left;
 	}
 	div.static-box>div.box>div.box1 {
 		display:inline-block;
-		width:600px;
-		height:120px;
+		width:490px;
+		height:230px;
 		padding-left:40px;
 	}
 	div.static-box>div.box>div.box1>span.red {
@@ -126,40 +134,51 @@
 	}
 	div.static-box>div.box>div.box1>h3 {
 		font-weight:bold;
-		font-size:20px;
-		margin-bottom:-3px;
+		font-size:30px;
+		margin-bottom:35px;
+		color:#ff0045;
+	}
+	.sim {
+		color:#ff0045;
+	}
+	.pink {
+		color:#ff0045;
+	}
+	.mid,.sim,.simsa{
+		font-size:18px;
+		font-weight:bold;
 	}
 	
 	div.static-box>div.box>div.box2 {
 		display:inline-block;
-		width:600px; height:40px;
-		margin-left:38px;
+		width:490px; height:70px;
 	}
 	div.static-box>div.box>div.box2>button.btn1:hover,
 	div.static-box>div.box>div.box2>a>button.btn1:hover,
 	div.static-box>div.box>div.box2>a>button.btn3:hover,
 	.con2_btn>button:hover {
-		background-color:lightgray;
-		border:1px solid lightgray;
-		color:black;
+		background-color:white;
+		border:1px solid rgb(73,56,245);
+		color:rgb(73,56,245);
 	}
 	div.static-box>div.box>div.box2>button.btn1,
 	div.static-box>div.box>div.box2>a>button.btn1 {
-		margin:5px 5px 50px 5px;
-		width:100px; height:40px;
-		background-color:rgb(85,85,85);
-		color:white;
-		border:1px solid rgb(85,85,85);
-		border-radius:3px;
+		margin:20px 5px 50px 40px;
+		width:170px; height:40px;
+		background-color:white;
+		color:#ff0045;
+		border:1px solid #ff0045;
+		border-radius:6px;
+		
 	}
 	div.static-box>div.image {
 		display:inline-block;
+		width:500px;
 		margin-left:30px;
 		float:left;
 	}
 	div.static-box>div.image>img {
-		width:283px; height:200px;
-		
+		width:500px; height:300px;
 	}
 	div>h1.tt {
 		display:inline-block;
@@ -194,13 +213,16 @@
 	}
 	div.container3 {
 		margin-left:40px;
+		border:1px solid white;
 	}
 	div.static-box h3.tt1 {
-		font-size:25px;
+		font-size:30px;
 	}
 	div.container3>h3.tt2 {
 		font-size:25px;
 		margin-right:40px;
+		margin-top:70px;
+		display:block;
 	}
 	div.container2 {
 		display:inline-block;
@@ -225,11 +247,12 @@
 		border:1px solid black;
 	}
 	/** apply공간 **/
+	
 	hr {
 		opacity:0.4;
 	}
 	.con2-1 {
-		border:1px solid lightgray;
+		border:2px solid lightgray;
 		border-radius:5px;
 		width:800px; height:210px;
 		margin-left:65px;
@@ -242,18 +265,21 @@
 		margin-bottom:7px;
 	}
 	.con2 {
-		border:1px solid lightgray;
+		border:2px solid lightgray;
 		border-radius:5px;
 		display:inline-block;
-		width:790px;
+		width:800px;
 		height:200px;
 		margin-left:25px;
 		padding:10px 0 10px 5px;
 		text-align:center;
 		overflow: auto;
 	}
+	.con2::-webkit-scrollbar{width: 4px;}
+	.con2::-webkit-scrollbar-thumb {background-color:gray;}
+	
 	.con2-1>.ul_title1 {
-		border-bottom:1px solid lightgray;
+		border-bottom:2px solid lightgray;
 		padding-bottom:5px;
 	}
 	.con2>ul>li,
@@ -266,27 +292,39 @@
 	}
 	.con2>ul.ul_title>li,
 	.con2-1>.ul_title1>li {
-		font-size:18px;
+		font-size:19px;
 		font-weight:bold;
 		color:black;
 	}
 	.con2_btn>button {
 		margin-top:20px;
 		float:right;
-		margin-right:50px;
-		width:70px; height:30px;
+		margin-right:10px;
+		width:170px; height:40px;
 		display:inline-block;
-		background-color:rgb(85,85,85);
-		color:white;
-		border-radius:3px;
-		border:1px solid rgb(85,85,85);
+		background-color:white;
+		color:#ff0045;
+		border-radius:6px;
+		border:1px solid #ff0045;
 	}
 	.container3 {
 		width:840px;
 		height:350px;
 		margin-bottom:30px;
 	}
+	.inp_chkbox{
+		zoom:1.5;
 	
+	}
+	
+	.sinbar{
+		height:3px;
+		background-color:lightgray;
+		border-radius:9px;
+	}
+	.bar{
+		width:730px;
+	}
 	.ut1,
 	.ut2,
 	.ut4{
@@ -360,17 +398,29 @@
 		</div>
 		<hr class="line">
 		<div class="static-box">
-			<h3 class="tt1">심사중</h3>
+		<%if(vo.getCstatus() != 0){ %>
+			<h3 class="tt1">수업 심사완료</h3>
+			<%}else{ %>
+			<h3 class="tt1">수업 심사중</h3>
+			<%} %>
 			<div class="image">
 				<img src="http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>"> <!-- <--%=pic_array[0]%>  -->
 			</div>
 			<div class="box">
 				<div class="box1">
-					<h3><%=vo.getTitle()%></h3>
+					<h3>[<%=vo.getCatemain()%>] <%=vo.getCatesub() %></h3>
+					<span class="mid">[ <%=vo.getName() %> ] 튜터 님!<br><br></span>
+				<%if(vo.getCstatus() != 0){ %>
+					<span class="mid">수업 심사가 드디어 완료됐습니다!<br></span>
+					<span class="simsa">튜터님의 재능으로 <span class="pink">오늘도 즐거운'탈멍' 하세요:)</span></span></span>
+				<%}else{ %>
+					<span class="mid">즐거운 '탈멍'을 위해서는 수업 심사가 필요합니다.<br></span>
+					<span class="sim">심사가 진행 중이니 조금만 기다려주세요:)</span>
+				<%} %>
 				</div>
 				<div class="box2">
-					<a href="http://localhost:9000/One_day_class/tutor/new_classDeleteProc.jsp?cid=<%=vo.getCid()%>"><button class="btn1" id="simsa" name="simsa"><span>수업 취소</span></button></a>
-					<a href="http://localhost:9000/One_day_class/tutor/class_update.jsp?cid=<%=vo.getCid()%>"><button class="btn1"><span>수업 수정</span></button></a>
+					<a href="http://localhost:9000/One_day_class/tutor/new_classDeleteProc.jsp?cid=<%=vo.getCid()%>"><button class="btn1" id="simsa" name="simsa"><span>신청 취소하기</span></button></a>
+					<a href="http://localhost:9000/One_day_class/tutor/class_update.jsp?cid=<%=vo.getCid()%>"><button class="btn1"><span>신청 수정하기</span></button></a>
 				</div>
 			</div>
 		</div>
@@ -379,7 +429,7 @@
 			<h3 class="tt2">신청 현황</h3>
 			<div class="con2">
 				<ul class="ul_title">
-					<input type="checkbox"  id="all" class="blind inp_label">
+					<input  type="checkbox"  id="all" class="blind inp_label">
 					<label for="all" class="inp_chkbox"></label>
 					<li class="ut1">번호</li>
 					<li class="ut2">이름</li>
@@ -387,7 +437,7 @@
 					<li class="ut4">인원수</li>
 					<li class="ut5">상태</li>
 				</ul>
-				<hr>
+				<hr class="sinbar">
 			<form name="class_check" action="new_classProc.jsp?cid=<%=vo.getCid()%>" method="get" class="class_check">
 			<input type="hidden" name="cid1" value="<%=cid%>">
 				<input type="hidden" name="classbtn" value="" id="classbtn" class="blind inp_label">
@@ -399,7 +449,7 @@
 					} 
 				%>
 				
-				<ul>
+				<ul class="sin">
 					<input type="checkbox" name="chk" class="blind inp_label" id="chk<%=vo2.getRno() %>" value="<%=vo2.getEmail()%>"> <!-- 원래 cid값을 받아옴-->
 					<label for="chk<%=vo2.getRno() %>" class="inp_chkbox"></label>
 					<li class="ut1"><%=vo2.getRno() %></li>
@@ -408,13 +458,14 @@
 					<li class="ut4"><%=vo2.getAperson() %></li>
 					<li class="ut5"><%=i%></li>
 				</ul>
+				<hr class="bar">
 				<% } %>
 				<input type="hidden" name="idx" value="<%=j %>">
 				</form>
 			</div>
 			<div class="con2_btn">
-				<button type="button" class="fail" id="fail">거절</button>
-				<button type="button" class="true" id="true">수락</button>
+				<button type="button" class="fail" id="fail">신청 거절하기</button>
+				<button type="button" class="true" id="true">신청 수락하기</button>
 			</div>
 		</div>
 		<div class="container2">
@@ -440,7 +491,7 @@
 					<li class="ut4-1"><%=vo1.getRcontent() %></li>
 					<li class="ut5"><%=vo1.getRdate() %></li>
 				</ul>
-			
+				<hr class="bar">
 				<% } %>
 				 
 				

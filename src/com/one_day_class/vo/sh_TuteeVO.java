@@ -2,9 +2,19 @@ package com.one_day_class.vo;
 
 public class sh_TuteeVO {
 	int rno;
-	String email, password, name, gender, age, phone, area, hope_class, profile_img, sprofile_img, pr, 
-		edate, rdate;
+	String email, password, name, gender, age, phone, area, hope_class, profile_img, sprofile_img, pr, rdate;
 	
+	
+	
+	
+	
+	
+	public String getRdate() {
+		return rdate;
+	}
+	public void setRdate(String rdate) {
+		this.rdate = rdate;
+	}
 	public String getSprofile_img() {
 		return sprofile_img;
 	}
@@ -76,18 +86,6 @@ public class sh_TuteeVO {
 	}
 	public void setPr(String pr) {
 		this.pr = pr;
-	}
-	public String getRdate() {
-		return rdate;
-	}
-	public void setRdate(String rdate) {
-		this.rdate = rdate;
-	}
-	public String getEdate() {
-		return edate;
-	}
-	public void setEdate(String edate) {
-		this.edate = edate;
 	}
 	
 	
