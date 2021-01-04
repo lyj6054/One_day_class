@@ -683,7 +683,7 @@ $(document).ready(function(){
 		
 		//alert(check);
 		//alert(check2);
-		
+		<% if(svo.getIdentity().equals("튜티")) { %>
 		if(check2 == 'a') {
 			$.ajax({
 				url: "wishCheck.jsp?cid=" + cid + "&email="+email,
@@ -726,7 +726,9 @@ $(document).ready(function(){
 		});
 		}
 		
-		
+		<% } else {%>
+			alert("튜티만 선택이 가능합니다.");
+		<% } %>
 		
 	});
 	
@@ -980,11 +982,11 @@ $(document).ready(function(){
 										        </a>
 												<div id="cid" style="display: none;"><%= vo.getCid() %></div>
 												<div id="email" style="display: none;"><%= email %></div>
-												<% if(vo.getWish_chk() == null){ %>
-													<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
-												<% } else { %>
-													<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
-												<% } %> 
+													<% if(vo.getWish_chk() == null){ %>
+														<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
+													<% } else { %>
+														<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
+													<% } %> 
 										    </li>
 										<% } %>    
 										</ul>
