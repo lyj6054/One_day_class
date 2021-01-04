@@ -563,11 +563,11 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 						</div>
 						<div class="inner1">
 							<div class="vdo">
-						<% if(vo.getVideos() != null) { %>
+						<% if(vo.getVideos() != null ) { System.out.println(vo.getVideos());%>
 									<input type="text" name="videos" class="basic len786" 
 										placeholder="예) https://youtu.be/1sboNBkTMuU" value="<%=vo.getVideos()%>"
 										style="margin-bottom: 10px; width: 100%;">
-								<% }else{ %>
+								<% }else{ System.out.println("유튜브 널일때");%>
 								<input type="text" name="videos" class="basic len786"
 									placeholder="예) https://youtu.be/1sboNBkTMuU"
 									style="margin-bottom: 10px; width: 100%;">

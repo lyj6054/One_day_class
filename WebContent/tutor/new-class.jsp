@@ -4,21 +4,28 @@
     
     
 <%SessionVO svo=(SessionVO)session.getAttribute("svo"); %>
-<%if(svo != null){  if(svo.getIdentity().equals("튜터")){String email = svo.getEmail();
+
+<% if(svo != null){  if(svo.getIdentity().equals("튜터")){
+	String email = svo.getEmail();
 		
-		/* String cid = request.getParameter("cid"); */
 	
 		
-		/* String email ="alstndkrl@naver.com"; */
     	ms_TutorclassDAO dao = new ms_TutorclassDAO();
-    	String cid = dao.getCid1(email);
-		if(cid == null) cid = "C_1";
-		ms_TutorclassVO vo = dao.getMyclass(cid);
-		ArrayList<ms_TutorclassVO> list = dao.getTutorList(email,cid);
+		/* String email ="alstndkrl@naver.com"; */
+    	/* String cid = dao.getCid1(email); */
+    	String cid = "";
+		if(request.getParameter("cid") != null){
+			cid = request.getParameter("cid");
+		}else{
+			 cid = dao.getCidnull(email);
+		}
+		ms_TutorclassVO vo = dao.getMyclass(cid); //cid값이 변경되면 그 변경된값의 내용을 가져온다
+		String[] pic_array = vo.getSpicture().split(",");
+		ArrayList<ms_TutorclassVO> list = dao.getTutorList(cid);
         ArrayList<ms_TutorclassVO> list1 = dao.getClassList(cid);
 		ArrayList<ms_TutorclassVO> list2= dao.getMyList(email);
 		int j=0;
-		
+		System.out.println(cid);
 %>
 
 <!DOCTYPE html>
@@ -67,15 +74,16 @@
 		
 	$("#selectbox").change(function(){
 		$(location).attr('href','http://localhost:9000/One_day_class/tutor/new-class.jsp?cid='+$(this).val()); 
+		System.out.println(cid);
 		/* $(this).attr('text','$("#selectbox").text()+$(this).val())'; */
 	});
 
 	
-	$("#selectbox").change(function(){
+	/* $("#selectbox").change(function(){
 		$("$cid_1").text()
 		
 		
-	});
+	}); */
 	
 	
 	 
@@ -340,8 +348,7 @@
 	
 	
 	<div class="new_class">
-	<!--header -->
-	<jsp:include page="../header.jsp" />
+	
 		<hr class="top-hr">
 		<div class="title-box">
 		<h1 class="tt">내 수업</h1>
@@ -355,7 +362,7 @@
 		<div class="static-box">
 			<h3 class="tt1">심사중</h3>
 			<div class="image">
-				<img src="http://localhost:9000/One_day_class/upload/<%=vo.getPicture()%>">
+				<img src="http://localhost:9000/One_day_class/upload/<%=pic_array[0]%>"> <!-- <--%=pic_array[0]%>  -->
 			</div>
 			<div class="box">
 				<div class="box1">
@@ -381,7 +388,7 @@
 					<li class="ut5">상태</li>
 				</ul>
 				<hr>
-			<form name="class_check" action="new_classProc.jsp" method="get" class="class_check">
+			<form name="class_check" action="new_classProc.jsp?cid=<%=vo.getCid()%>" method="get" class="class_check">
 			<input type="hidden" name="cid1" value="<%=cid%>">
 				<input type="hidden" name="classbtn" value="" id="classbtn" class="blind inp_label">
 				<% for(ms_TutorclassVO vo2 : list1) { j++;  String  i ="" ;
@@ -429,7 +436,7 @@
  			<ul>
 					<li class="ut1"><%=vo1.getRno() %></li>
 					<li class="ut2"><%=vo1.getName() %></li>
-					<li class="ut3-1"><%=vo1.getSchedule() %></li>
+					<li class="ut3-1"><%=vo1.getAschedule() %></li>
 					<li class="ut4-1"><%=vo1.getRcontent() %></li>
 					<li class="ut5"><%=vo1.getRdate() %></li>
 				</ul>
@@ -446,7 +453,7 @@
 	
 </body>
 </html>
-<%}}else{%>
+< <%}}else{%>
 <script>
 	alert(" 튜터로 로그인을 진행하셔야 접근이 가능합니다.");
 	location.href="../index.jsp";

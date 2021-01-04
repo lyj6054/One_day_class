@@ -17,13 +17,13 @@
 			 System.out.println(email);
 			 dao.updateStatus1(cid,email); 
 		}
-		 response.sendRedirect("new-class.jsp");  
+		 response.sendRedirect("new-class.jsp"+"?cid="+cid);  
 	}else if(classbtn.equals("fail")){
 		for(String email:emails){
 			 System.out.println(cid);
 			 System.out.println(email);
 			 dao.updateStatus2(cid,email); 
 		}
-		 response.sendRedirect("new-class.jsp"); 
+		 response.sendRedirect("new-class.jsp"+"?cid="+cid); 
 	} 
 %> 
