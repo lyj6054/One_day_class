@@ -666,6 +666,14 @@
 <script>
 
 $(document).ready(function(){
+	$('.btn_category').click(function() {
+		$("#all_category").addClass("on");
+	});
+	
+	$('.btn_close').click(function() {
+		$("#all_category").removeClass("on");
+	});
+	
 	$("button[name='add']").click(function(){		
 		
 		var cid = $(this).attr("id");
