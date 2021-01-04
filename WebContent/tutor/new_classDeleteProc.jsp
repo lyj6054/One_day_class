@@ -9,7 +9,7 @@
 	boolean result = dao.getClassdel(cid);
 
 	if(result){
-		response.sendRedirect("../index_ms.jsp");
+		response.sendRedirect("../index_login.jsp");
 	}else{
 		response.sendRedirect("../errorPage.jsp");
 	}
