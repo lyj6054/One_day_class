@@ -4,6 +4,18 @@
 <%
 	SessionVO svo=(SessionVO)session.getAttribute("svo");
 	//String email = request.getParameter("email");
+	/* String email = svo.getEmail();
+	sh_TutorDAO dao_tutor = new sh_TutorDAO();
+	ArrayList<sh_TutorVO> list_tutor = dao_tutor.getMyclassForm(email);
+
+	sh_ClassDAO dao_class = new sh_ClassDAO();
+	ArrayList<sh_ClassVO> list_class = dao_class.getMyclassForm(email);
+
+	sh_ApplyClassDAO dao_applyClass = new sh_ApplyClassDAO();
+	ArrayList<sh_ApplyClassVO> list_applyClass = dao_applyClass.getMyclassForm(email); */
+	
+%>    
+<%if(svo != null&& svo.getIdentity().equals("튜티")){
 	String email = svo.getEmail();
 	sh_TutorDAO dao_tutor = new sh_TutorDAO();
 	ArrayList<sh_TutorVO> list_tutor = dao_tutor.getMyclassForm(email);
@@ -13,9 +25,7 @@
 
 	sh_ApplyClassDAO dao_applyClass = new sh_ApplyClassDAO();
 	ArrayList<sh_ApplyClassVO> list_applyClass = dao_applyClass.getMyclassForm(email);
-	
-%>    
-<%if(svo != null&& svo.getIdentity().equals("튜티")){  %>
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,8 +102,8 @@
 <% }else{%>
 <script>
 	alert(" 튜티로 로그인을 진행하셔야 접근이 가능합니다.");
-	if(<%= svo.getIdentity().equals("튜터")%>){
-		location.href="../index_login.jsp";
+	if(<%=svo%> != null){
+			location.href="../index_login.jsp";
 	}else{
 		location.href="../index.jsp";
 	}

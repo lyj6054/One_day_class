@@ -4,7 +4,29 @@
 <%
 	SessionVO svo=(SessionVO)session.getAttribute("svo");
 	//String email = request.getParameter("email");
-	String email = svo.getEmail();
+	/* String email = svo.getEmail();
+	
+	sh_ClassDAO dao_class = new sh_ClassDAO();
+	ArrayList<sh_ClassVO> list_class = dao_class.getMyclassList(email);
+	
+	ArrayList<String> pic_array = new ArrayList<String>();
+	for(int i = 0; i < list_class.size(); i++){
+		String[] pic_array2 = list_class.get(i).getSpicture().split(",");	
+		pic_array.add(i, pic_array2[0]);
+	}
+
+	sh_ApplyClassDAO dao_applyClass = new sh_ApplyClassDAO();
+	ArrayList<sh_ApplyClassVO> list_applyClass = dao_applyClass.getMyclassList(email);
+	
+	sh_ReviewDAO dao_review = new sh_ReviewDAO();
+	ArrayList<sh_ReviewVO> list_review = dao_review.getMyclassList(email);
+	
+	sh_TuteeDAO dao_tutee = new sh_TuteeDAO();
+	sh_TuteeVO vo_tutee = dao_tutee.getMyclassList(email); */
+	
+%>      
+<%if(svo != null&& svo.getIdentity().equals("튜티")){
+String email = svo.getEmail();
 	
 	sh_ClassDAO dao_class = new sh_ClassDAO();
 	ArrayList<sh_ClassVO> list_class = dao_class.getMyclassList(email);
@@ -23,9 +45,7 @@
 	
 	sh_TuteeDAO dao_tutee = new sh_TuteeDAO();
 	sh_TuteeVO vo_tutee = dao_tutee.getMyclassList(email);
-	
-%>      
-<%if(svo != null&& svo.getIdentity().equals("튜티")){  %>
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -224,8 +244,8 @@
 <% }else{%>
 <script>
 	alert(" 튜티로 로그인을 진행하셔야 접근이 가능합니다.");
-	if(<%= svo.getIdentity().equals("튜터")%>){
-		location.href="../index_login.jsp";
+	if(<%=svo%> != null){
+			location.href="../index_login.jsp";
 	}else{
 		location.href="../index.jsp";
 	}
