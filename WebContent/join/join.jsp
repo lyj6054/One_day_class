@@ -61,6 +61,36 @@
 	 	border:none;
 		border-bottom:1px solid #ccc;
 	}
+	.box_inp .line_inp .email_div {
+		/* border:1px solid red; */
+		height:45px;
+	}
+	.box_inp .line_inp #emailCheck {
+		border:1px solid #ff0045;
+		position:relative;
+		left:137px;
+		bottom:40px;
+		padding: 5px 10px;
+		margin-bottom:-50px;
+		border-radius:10px;
+		color:#ff0045; 
+	}
+	.box_inp .line_inp #emailCheck:focus {
+		border:1px solid #ff0045;
+		position:relative;
+		left:137px;
+		bottom:40px;
+		padding: 5px 10px;
+		margin-bottom:-50px;
+		border-radius:10px;
+		color:#ff0045; 
+		outline:none;
+	}
+	.box_inp .line_inp #emailCheck:hover {
+		background-color:#ff0045;
+		color:white; 
+	}
+	
 	input {
 		font-size : 14px;
 		font-weight : 400;
@@ -354,10 +384,17 @@
 						<p class="info_error" id="nameError1">이름(실명)을 입력해주세요</p>
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp">
-						<img src="http://localhost:9000/One_day_class/images/email.png">
-						<input type="text" name="email" id="userEmail" placeholder="이메일 주소를 입력해주세요" > <!-- onblur="emailCheck()" -->
+						<div class="email_div">
+							<img src="http://localhost:9000/One_day_class/images/email.png" style="margin-left:-325px; margin-top:10px;">
+							<div class="email_div" style="margin-top:-30px;margin-left:20px;">
+								<input type="text" name="email" id="userEmail" placeholder="이메일 주소를 입력해주세요">
+								<button type="button" id="emailCheck">중복확인</button> <!-- onblur="emailCheck()" -->
+							</div>
+						</div>
 						<p class="info_error" id="emailError1">이메일 형식에 맞지 않습니다</p>
 						<p class="info_error" id="emailError2">이메일 주소를 입력해주세요</p>
+						<p class="info_error" id="emailError3">이미 존재하는 이메일 입니다</p>
+						<p class="info_error" id="confirmError3">사용 가능한 이메일 입니다</p>
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp line_pw">
 						<img src="http://localhost:9000/One_day_class/images/password.png" style="width:22px; height:22px;">
@@ -470,6 +507,8 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 	
 	<script>
+	
+	
 	 $(".btn_submit").click(function(){
 		 var emailErrCheck= /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
 		 var passErrCheck = /^[a-zA-Z0-9]{8,30}$/;
@@ -653,6 +692,32 @@
 			 			$("#userPassword_check").focus();
 			 			return false;
 					} */
+				}
+			});
+			
+			
+			$("#emailCheck").click(function(){
+				alert("click");
+				alert($("#userEmail").val());
+				if($("#userEmail").val() != "") {
+					
+					$.ajax({
+						url:"emailCheck.jsp?email="+$("#userEmail").val(),
+						success:function(result) {
+							alert(result);
+							if(result == 1) {
+								$("#emailError3").addClass('error');
+								$("#userEmail").text("");
+								$("#userEmail").focus();
+							} else {
+								$("#emailError3").removeClass('error');
+								$("#confirmError3").addClass('error');
+							}
+						}	
+						
+					});
+				} else {
+					alert("이메일을 입력해주세요");
 				}
 			});
 		});

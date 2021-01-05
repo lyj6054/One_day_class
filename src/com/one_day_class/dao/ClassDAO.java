@@ -19,7 +19,7 @@ public class ClassDAO extends DBConn{
 			getStatement();
 			String sql = "select * from(select cid, email, regionmain, catemain, catesub, price, picture, "
 					+ " schedule, title , rownum rno,spicture from one_class where   title "
-					+ " like '%" +inp_sch+ "%' or catemain like '%" + inp_sch +"%' or catesub like '%" + inp_sch + "%') where rno between "+start+" and "+end+" "; 
+					+ " like '%" +inp_sch+ "%' or catemain like '%" + inp_sch +"%' or catesub like '%" + inp_sch + "%') where rno between "+start+" and "+end+"  "; 
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) {
 				ClassVO vo = new ClassVO();
@@ -88,19 +88,19 @@ public class ClassDAO extends DBConn{
 	}
 	
 	/**
-	 * index : 최근 등록 순
+	 * index : 최근 등록 순 // 확인완료
 	 */
 	public ArrayList<ClassVO> indexRecent(String email) {
 		ArrayList<ClassVO> list4 = new ArrayList<ClassVO>();
 		
 		try {
-			String sql = "select cno, a.cid, email, picture, spicture, title, schedule, regionmain, wish_chk from " + 
-					"(select rownum cno, cid, email, picture, spicture, title, schedule, regionmain " + 
-					"from(select cid, email, picture, spicture, title, schedule, regionmain " + 
+			String sql = "select cno, a.cid, email, picture, spicture, title, schedule, regionmain, wish_chk, cstatus from " + 
+					"(select rownum cno, cid, email, picture, spicture, title, schedule, regionmain, cstatus " + 
+					"from(select cid, email, picture, spicture, title, schedule, regionmain, cstatus " + 
 					"from one_class " + 
 					"order by cdate desc) " + 
 					"where rownum between 1 and 4) a, (select cid, cid wish_chk from one_wishlist where email=?) b " + 
-					"where a.cid = b.cid(+) "
+					"where a.cid = b.cid(+) and cstatus =1 "
 					+ "order by cid desc";
 			getPreparedStatement(sql);
 			pstmt.setString(1, email);
@@ -116,6 +116,7 @@ public class ClassDAO extends DBConn{
 				vo.setSchedule(rs.getString(7));
 				vo.setRegionmain(rs.getString(8));
 				vo.setWish_chk(rs.getString(9));
+				vo.setCstatus(rs.getInt(10));
 				
 				list4.add(vo);
 				

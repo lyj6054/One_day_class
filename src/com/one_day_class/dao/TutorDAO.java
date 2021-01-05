@@ -8,6 +8,46 @@ import com.one_day_class.vo.sh_TutorVO;
 
 public class TutorDAO extends DBConn {
 
+	
+	/** email 중복 체크 */
+	public String getEmailCheck(String email) {
+		String result = "";
+		
+		try {
+			String sql = "select email from one_tutor where email = ?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) result = rs.getString(1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	/* email 가져오기 */
+	public TutorVO  getEmail(String email) {
+		TutorVO vo = new TutorVO();
+		
+		try {
+			String sql = "select count(*) from one_tutor where email = ?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) 
+				vo.setEmail(rs.getString(1));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
+	}
+	
+	
 	/** index에서 프로필사진 불러오기 */
 	public TutorVO getIndexProfile(String email) {
 		TutorVO vo = new TutorVO();
