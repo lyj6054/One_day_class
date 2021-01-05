@@ -10,6 +10,7 @@
 	sh_ClassDAO dao_class = new sh_ClassDAO();
 	ArrayList<sh_ClassVO> list_apply_class = dao_class.getApplyClass(email);
 	ArrayList<sh_ClassVO> list_ing_class = dao_class.getIngClass(email);
+	ArrayList<sh_ClassVO> list_wish_class = dao_class.getMywishList(email);
 %>
     
 <!DOCTYPE html>
@@ -41,7 +42,8 @@
 	/* aside */
    .admin_main {
       float:left;
-      width:220px; height:460px;
+      width:220px; 
+      height:762px;
       background-color:#eee;
       padding:20px 0 0 15px;
    }
@@ -125,13 +127,21 @@
 		padding: 0;
 	}
 	table.admin_member_content tr:last-child td a > button{
-		font-size: 12px;
-		width: 70px;
-		padding: 5px 0;
-		border-radius: 4px;
-		margin-right: 5px;
+		font-size: 14px;
+		width: 80px;
+		padding:4px 10px;
+		border-radius: 5px;
+		margin-right: 6px;
 		cursor: pointer;
 		font-weight:bold;
+		border:none;
+	}
+	table.admin_member_content tr:last-child td a > button:hover {
+		background-color:#333;
+		color:white;
+	}
+	table.admin_member_content tr:last-child td a > button:focus {
+		outline:none;
 	}
 	table.admin_member_content tr:last-child td {
 		text-align: right;
@@ -168,30 +178,32 @@
 			<table class="admin_member_content">
 				<tr>
 					<th>아이디</th>
-					<td><%= vo_tutee.getEmail() %></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;<%= vo_tutee.getEmail() %></td>
 					<th>성명</th>
-					<td><%= vo_tutee.getName() %></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;<%= vo_tutee.getName() %></td>
 					<th>가입일</th>
-					<td><%= vo_tutee.getRdate() %></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;<%= vo_tutee.getRdate() %></td>
 				</tr>
 				<tr>
 					<th>전화번호</th>
-					<td><%= vo_tutee.getPhone() %></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;<%= vo_tutee.getPhone() %></td>
 					<th>나이</th>
-					<td><%= vo_tutee.getAge() %></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;<%= vo_tutee.getAge() %></td>
 					<th>거주지역</th>
-					<td><%= vo_tutee.getArea() %></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;<%= vo_tutee.getArea() %></td>
 				</tr>
 				<tr>
 					<th>신청한 수업</th>
 					<% if(list_apply_class.size() != 0){ %>
 					<td colspan="5">
 					<% for(sh_ClassVO vo : list_apply_class){ %>
-					- <%= vo.getTitle() %><br>
+						<img  src="http://localhost:9000/One_day_class/images/admin_list.png" style="width:15px; height:15px; margin:0 5px;">
+							<span style="color:#ff0045; font-weight:bold;">|<%= vo.getCatemain() %>|</span> 
+							<br> <span style="margin:0 10px;">- </span> <%= vo.getTitle() %><br>
 					<%} %>
 					</td>
 					<%} else { %>
-					<td colspan="5">신청한 수업이 없습니다.</td>
+					<td colspan="5">&nbsp;&nbsp;&nbsp;&nbsp;신청한 수업이 없습니다.</td>
 					<%} %>
 				</tr>
 				<tr>
@@ -199,20 +211,32 @@
 					<% if(list_ing_class.size() != 0){ %>
 					<td colspan="5">
 					<% for(sh_ClassVO vo : list_ing_class){ %>
-					- <%= vo.getTitle() %><br>
+						<img  src="http://localhost:9000/One_day_class/images/admin_list.png" style="width:15px; height:15px; margin:0 5px;">
+							<span style="color:#ff0045; font-weight:bold;">|<%= vo.getCatemain() %>|</span> 
+							<br> <span style="margin:0 10px;">- </span> <%= vo.getTitle() %><br>
 					<%} %>
 					</td>
 					<%} else { %>
-					<td colspan="5">수강중인 수업이 없습니다.</td>
+					<td colspan="5">&nbsp;&nbsp;&nbsp;&nbsp;수강중인 수업이 없습니다.</td>
 					<%} %>
 				</tr>
 				<tr>
-					<th>개설한 수업</th>
-					<td colspan="5">개설한 수업이 없습니다.</td>
+					<th>위시리스트</th>
+					<% if(list_wish_class.size() != 0) {  %>
+						<td colspan="5">
+						<% for(sh_ClassVO vo : list_wish_class){ %>
+						<img  src="http://localhost:9000/One_day_class/images/admin_list.png" style="width:15px; height:15px; margin:0 5px;">
+							<span style="color:#ff0045; font-weight:bold;">|<%= vo.getCatemain() %>|</span> 
+							<br> <span style="margin:0 10px;">- </span> <%= vo.getTitle() %><br>
+						<%} %>	
+						</td>
+					<% } else { %>
+						<td colspan="5">&nbsp;&nbsp;&nbsp;&nbsp;개설한 수업이 없습니다.</td>
+					<% } %>
 				</tr>
 				<tr>
 					<td colspan="6">
-						<a href="member_list.jsp"><button type="button" class="btn_style">목록으로</button></a>
+						<a href="tutee_list.jsp"><button type="button" class="btn_style">목록으로</button></a>
 					</td>
 				</tr>
 			</table>

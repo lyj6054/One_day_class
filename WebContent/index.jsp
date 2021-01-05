@@ -341,6 +341,14 @@
 	    background-color: #ff0045;
 	    width:143px;
 	}
+	.login_box .link_login:focus {
+	    outline:none;
+	}
+	.login_box .link_login:hover {
+	    background-color: white;
+	    color: #ff0045;
+	    border: 1px solid  #ff0045;
+	}
 	.login_box .box_btns {
 	    display: flex;
 	   	margin-top:-80px;

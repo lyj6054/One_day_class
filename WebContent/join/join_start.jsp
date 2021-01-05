@@ -200,6 +200,14 @@
 		background-color:#ff0045;
 		margin-bottom:10px;
 	}
+	.btn_submit:focus {
+		outline:none;
+	}
+	.btn_submit:hover {
+		background-color: white;
+	    color: #ff0045;
+	    border: 1px solid  #ff0045;
+	}
 
 	button {
 		margin: 0;
@@ -246,7 +254,7 @@
 						<div class="label_wrap" >
 							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsService" value="termsService" > <!-- onchange="partCheck()" -->
 							<label for="termsService" class="inp_chkbox">서비스 이용약관 (필수)</label>
-							<a href="#" class="link_more" target="_blank">보기</a>
+							<a href="http://localhost:9000/One_day_class/support/rule.jsp" class="link_more" target="_blank">보기</a>
 						</div>
 						<article>
 							<p>탈잉 서비스 이용과 관련하여 회사 및 이용자간의 권리, 의미 등을 안내해 드립니다</p>
@@ -256,7 +264,7 @@
 						<div class="label_wrap" >
 							<input class="blind inp_label" type="checkbox" name="checkTerms" id="termsPrivacy" value="termsPrivacy"  > <!-- onchange="partCheck()" -->
 							<label for="termsPrivacy" class="inp_chkbox">개인정보처리방침 (필수)</label>
-							<a href="#" class="link_more" target="_blank">보기</a>
+							<a href="http://localhost:9000/One_day_class/support/privacy.jsp" class="link_more" target="_blank">보기</a>
 						</div>
 						<article>
 							<p>서비스 이용과 관련하여 수집 이용하는 개인정보를 안내해드립니다.</p>

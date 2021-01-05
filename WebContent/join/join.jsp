@@ -188,6 +188,14 @@
 		background-color:#ff0045;
 		margin-bottom:10px;
 	}
+	.btn_submit:focus {
+		outline:none;
+	}
+	.btn_submit:hover {
+		background-color: white;
+	    color: #ff0045;
+	    border: 1px solid  #ff0045;
+	}
 
 	button {
 		margin: 0;
@@ -380,14 +388,14 @@
 				<div class="box_inp">
 					<div class="line_inp">
 						<img src="http://localhost:9000/One_day_class/images/id.png">
-						<input type="text" name="name" id="userName" placeholder="이름(실명)을 입력해주세요">
+						<input type="text" name="name" id="userName" placeholder="이름(실명)을 입력해주세요" autocomplete="off">
 						<p class="info_error" id="nameError1">이름(실명)을 입력해주세요</p>
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp">
 						<div class="email_div">
 							<img src="http://localhost:9000/One_day_class/images/email.png" style="margin-left:-325px; margin-top:10px;">
 							<div class="email_div" style="margin-top:-30px;margin-left:20px;">
-								<input type="text" name="email" id="userEmail" placeholder="이메일 주소를 입력해주세요">
+								<input type="text" name="email" id="userEmail" placeholder="이메일 주소를 입력해주세요" autocomplete="off">
 								<button type="button" id="emailCheck">중복확인</button> <!-- onblur="emailCheck()" -->
 							</div>
 						</div>
@@ -398,14 +406,14 @@
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp line_pw">
 						<img src="http://localhost:9000/One_day_class/images/password.png" style="width:22px; height:22px;">
-						<input type="password" name="password" id="userPassword" placeholder="비밀번호를 입력해주세요">
+						<input type="password" name="password" id="userPassword" placeholder="비밀번호를 입력해주세요" autocomplete="off">
 						<button type="button" class="type_pwd hide"></button> <!-- 패스워드 확인할지 말지 -->
 						<p class="info_error" id="passError1">비밀번호는 영문 숫자조합 8자리 이상 입력해주세요</p>
 						<p class="info_error" id="passError2">비밀번호를 입력해주세요</p>
 					</div> <!-- class="line_inp line_pw" -->
 					<div class="line_inp line_pw">
 						<img src="http://localhost:9000/One_day_class/images/password.png" style="width:22px; height:22px;">
-						<input type="password" name="password2" id="userPassword_check" placeholder="비밀번호를 재입력해주세요" >
+						<input type="password" name="password2" id="userPassword_check" placeholder="비밀번호를 재입력해주세요" autocomplete="off">
 						<button type="button" class="type_pwd hide"></button>
 						<p class="info_error" id="confirmError1">입력하신 비밀번호가 서로 다릅니다</p>
 						<p class="info_error" id="confirmError2">비밀번호가 일치합니다.</p>
@@ -459,8 +467,8 @@
 									<option value="017" >017</option>
 									<option value="018" >018</option>
 								</select><span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-								<input type="text" name="hp2" id="hp2"><span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-								<input type="text" name="hp3" id="hp3" >
+								<input type="text" name="hp2" id="hp2" autocomplete="off"><span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+								<input type="text" name="hp3" id="hp3" autocomplete="off">
 							</div>
 						</div>
 						<p class="info_error" id="phoneError1">연락처를 입력해주세요</p>

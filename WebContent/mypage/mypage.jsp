@@ -90,7 +90,7 @@
 						<div class="p_info">
 							<div class="p_label">ID</div>
 							<div class="p_contents"><%= vo_tutor.getEmail()%></div>
-						</div>
+						</div> 
 						<div class="p_info">
 							<div class="p_label">비밀번호</div>
 							<div class="p_passedit">

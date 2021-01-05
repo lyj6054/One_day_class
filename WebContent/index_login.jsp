@@ -433,6 +433,12 @@
 		position: relative;
    		font-weight: 500;
 	}
+	.status_logon .lnb a:hover {
+		margin-bottom:25px;
+		position: relative;
+   		font-weight: 500;
+   		color: #ff005a;
+	}
 	.status_logon .lnb a:first-child {
 		border-left:0;
 	}
@@ -726,12 +732,16 @@ $(document).ready(function(){
 		});
 		}
 		
+		
 		<% } else {%>
 			alert("튜티만 선택이 가능합니다.");
 		<% } %>
 		
 	});
 	
+	$("#myClass").click(function(){
+		alert("아직 등록한 수업이 없습니다. 등록부터 진행해주세요");
+	});
 	
 });
 </script>
@@ -928,7 +938,11 @@ $(document).ready(function(){
 				        			 <li><a href="http://localhost:9000/One_day_class/admin/class_list.jsp">수업관리</a></li>
 						     	 	 <li class="admin"><a href="http://localhost:9000/One_day_class/admin/member_list.jsp">회원관리</a></li>
 				        		<% } else { %>
-					        		 <li><a href="http://localhost:9000/One_day_class/tutor/new-class.jsp">내 수업</a></li>
+				        			<% if(vo_tutor.getSprofile_img() != null) { %> 
+					        			<li><a href="http://localhost:9000/One_day_class/tutor/new-class.jsp">내 수업</a></li>
+				        			<% } else { %>
+					        			<li ><button id="myClass">내 수업</button></li>
+				        			<% } %>
 					        		 <li><a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp">수업등록</a></li>
 							     	 <li class="admin"><a href="http://localhost:9000/One_day_class/mywishlist/mywishlist.jsp">튜터가이드</a></li>
 				        		<% } }%>

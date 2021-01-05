@@ -17,9 +17,11 @@ public class ClassDAO extends DBConn{
 		
 		try {
 			getStatement();
-			String sql = "select * from(select cid, email, regionmain, catemain, catesub, price, picture, "
-					+ " schedule, title , rownum rno,spicture from one_class where   title "
-					+ " like '%" +inp_sch+ "%' or catemain like '%" + inp_sch +"%' or catesub like '%" + inp_sch + "%') where rno between "+start+" and "+end+"  "; 
+			String sql = "select * from"
+					+ " (select cid, email, regionmain, catemain, catesub, price, picture, schedule, title , rownum rno,spicture, cstatus "
+					+ " from(select cid, email, regionmain, catemain, catesub, price, picture, "
+					+ " schedule, title , rownum rno,spicture, cstatus from one_class where   title "
+					+ " like '%" +inp_sch+ "%' or catemain like '%" + inp_sch +"%' or catesub like '%" + inp_sch + "%') where cstatus=1) where rno between "+start+" and "+end+"  "; 
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) {
 				ClassVO vo = new ClassVO();
@@ -97,10 +99,10 @@ public class ClassDAO extends DBConn{
 			String sql = "select cno, a.cid, email, picture, spicture, title, schedule, regionmain, wish_chk, cstatus from " + 
 					"(select rownum cno, cid, email, picture, spicture, title, schedule, regionmain, cstatus " + 
 					"from(select cid, email, picture, spicture, title, schedule, regionmain, cstatus " + 
-					"from one_class " + 
+					"from one_class where cstatus = 1 " + 
 					"order by cdate desc) " + 
-					"where rownum between 1 and 4) a, (select cid, cid wish_chk from one_wishlist where email=?) b " + 
-					"where a.cid = b.cid(+) and cstatus =1 "
+					"where rownum between 1 and 5) a, (select cid, cid wish_chk from one_wishlist where email=?) b " + 
+					"where a.cid = b.cid(+)  "
 					+ "order by cid desc";
 			getPreparedStatement(sql);
 			pstmt.setString(1, email);
@@ -135,11 +137,11 @@ public class ClassDAO extends DBConn{
 		
 		try {
 			String sql = "select cno, a.cid, email, spicture, title, schedule, regionmain, wish_chk from " + 
-					"(select rownum cno, cid, email, picture, spicture, title, schedule, regionmain, cdate " + 
-					"from(select cid, email, picture, spicture, title, schedule, regionmain, cdate from one_class " + 
+					"(select rownum cno, cid, email, picture, spicture, title, schedule, regionmain, cdate, cstatus " + 
+					"from(select cid, email, picture, spicture, title, schedule, regionmain, cdate, cstatus from one_class " + 
 					"where videos IS NOT NULL order by cdate desc) where rownum between 1 and 4) a, "
 					+ "(select cid, cid wish_chk from one_wishlist where email=?) b " + 
-					"where a.cid = b.cid(+) " + 
+					"where a.cid = b.cid(+) and cstatus=1" + 
 					"order by cdate desc";
 			getPreparedStatement(sql);
 			pstmt.setString(1, email);

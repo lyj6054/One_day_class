@@ -135,6 +135,7 @@
 		height:45px;
 	 	border:none;
 		border-bottom:1px solid #ccc;
+		
 	}
 	/* 틀렸을 때 */
 	.box_inp .line_inp input.error {
@@ -155,6 +156,14 @@
 		line-height:48px;
 		background-color:#ff0045;
 		margin-bottom:10px;
+	}
+	.btn_submit:focus {
+		outline:none;
+	}
+	.btn_submit:hover {
+		background-color: white;
+	    color: #ff0045;
+	    border: 1px solid  #ff0045;
 	}
 
 	button {
@@ -283,20 +292,20 @@
 					</div>
 					<div class="line_inp">
 						<img class="id_img" src="http://localhost:9000/One_day_class/images/id.png">
-						<input type="text" id="email" name="email" placeholder="이메일 주소를 입력해주세요"> <!--  class="error" -->
+						<input type="text" id="email" name="email" placeholder="이메일 주소를 입력해주세요" autocomplete="off"> <!--  class="error" -->
 						<p class="info_error" id="emailError1">이메일을 입력해주세요</p>
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp line_pw">
 						<img class="pw_img" src="http://localhost:9000/One_day_class/images/password.png">
-						<input type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요">
+						<input type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요" autocomplete="off">
 						<p class="info_error" id="passError1">비밀번호를 입력해주세요</p>
 						<p class="info_error2" id="passError2">이메일 또는 비밀번호를 확인해주세요</p>
 					</div> <!-- class="line_inp line_pw" -->
 				</div> <!-- class="box_inp" -->
 				<div class="box_btn">
-					<button class="btn_submit" type="submit" id="login_btn">로그인 하기</button>
-					<a class="btn" href="email_login.jsp">로그인</a>
-					<a class="btn" href="../join/join.jsp">회원가입</a>
+					<button class="btn_submit" type="submit" id="login_btn" >로그인 하기</button>
+					<!-- <a class="btn" href="email_login.jsp">로그인</a>
+					<a class="btn" href="../join/join.jsp">회원가입</a> -->
 				</div> <!-- class="box_btn" -->
 			</div> <!-- class="box_login login_email" -->
 			<input type="hidden" name="redirectUrl" id="redirectUrl" value="https://taling.me/"> <!-- 뭔지 모르지만 일단 넣다 ㅇㅅㅇ -->

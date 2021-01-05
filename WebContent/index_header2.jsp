@@ -245,6 +245,18 @@ margin: 2px 0 ;
 							}
 						}); */
 				 
+						$("#btn_sch").click(function(){
+							if($("#inp_sch").val() == "") {
+								alert("검색할 데이터를 입력해주세요");
+								$("#inp_sch").focus();
+								return false;
+							} else {
+								var inp_sch = $("#inp_sch").val();
+								var btn_sch = $("#btn_sch").val();
+								$(location).attr('href',"http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="+inp_sch); 
+								
+							}
+						}); 		
 					
 					$("#ticker").click(function(){
 						var i = $(this).attr("id");
@@ -290,11 +302,8 @@ margin: 2px 0 ;
 					%>
 				</h1>
 				<div class="box_sch" id="box_sch">
-					<form method="get" action="indexProc.jsp" name="index_search">
-						<input type="text" class="inp_sch" name="inp_sch" id="inp_sch"
-							placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off">
-					</form>
-					<button class="btn_sch" id="btn_sch"></button>
+					 <input type="text" class="inp_sch" name="inp_sch" id="inp_sch" placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off">
+                    <button class="btn_sch" id="btn_sch"></button>
 					<div class="Search_Container" id="bar_true_list"
 						style="display: none;">
 						<div class="Search_Container_Header" id="bar_true_text">

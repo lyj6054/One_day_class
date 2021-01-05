@@ -14,7 +14,7 @@
 	int i=0;
 	
 	ArrayList<ClassVO> list =new ArrayList<ClassVO>();
-	list = dao.indexRecommend(); 
+	/* list = dao.indexRecommend();  */
 %> 
 <!DOCTYPE html> 
 <html>

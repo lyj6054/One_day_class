@@ -3,6 +3,7 @@
     import="com.one_day_class.dao.*, com.one_day_class.vo.*,java.util.*"%>
 <%
 	 ClassDAO dao = new ClassDAO();
+	TutorDAO dao_tutor = new TutorDAO();	
 	
 	//1. 선택한 페이지값
 	String rpage= request.getParameter("rpage");
@@ -188,6 +189,9 @@
 	    background-position: 0 bottom;
 	    background-image: url(http://localhost:9000/One_day_class/images/newsroom201301_dot.gif);
     	background-repeat: repeat-x;
+	}
+	.main-section2 .section2-cont:hover {
+		background-color: #e9e9e9;
 	}
 	.main-section2 .section2-cont li {
 		float: left;
@@ -385,7 +389,8 @@
 	}
 	.content .admin_main {
 		float:left;
-		width:220px; height:970px;
+		width:220px; 
+		height:970px;
 		background-color:#eee;
 		padding:20px 0 0 15px;
 	}
@@ -439,18 +444,18 @@
 	.main-section3 .admin_btn {
 		float:right;
 		margin-top:0px;
-		margin-right:17px;
+		margin-right:25px;
 	}
 	.main-section3 .admin_btn:hover {
 		float:right;
 	}
 	.accept, .reject {
-    margin: 10px;
+    margin:5px 0;
     width:55px;
     height:35px;
     color:white;
      border:none;
-     font-size:16px;
+     font-size:14px;
      border-radius: 5px;
      border:3px solid white;
 	}
@@ -667,13 +672,16 @@
 				</li>
 				<li class="title-1">번호</li>
 				<li class="title-2">제목</li>
-				<li class="title-3">담당</li>
+				<li class="title-3">튜터</li>
 				<li class="title-4">작성일</li>
 			</ul>
 			<div id="nesListNew">
 			<form name="ClassMForm" action="class_listProc.jsp" method="get" class="join">
-				<input type="hidden" name="wbutton" value="" id="wbutton">
-				<% for(ClassVO vo:list){ i++;%>
+			<% 
+				for(ClassVO vo:list){ i++;
+				TutorVO vo_tutor = dao_tutor.getTutorInfo(vo.getCid()); 
+				System.out.println(vo_tutor.getName());
+				%>
 					<ul class="section2-cont">
 						<li class="cont-0">
 							<input class="blind inp_label" type="checkbox" name="checkTerms"
@@ -693,7 +701,8 @@
 						<li class="cont-4">
 							<a href="http://localhost:9000/One_day_class/admin/class_content.jsp?cid=<%=vo.getCid()%>"><%=vo.getTitle()%></a>
 						</li>
-						<li class="cont-5">탈멍</li>
+						
+						<li class="cont-5"><%=vo_tutor.getName()%></li>
 						<li class="cont-6"><%=vo.getCdate()%></li>
 						<li class="cont-8" id="cont-8-<%=i%>" >
 							<%-- <div class="cont8-wrap" id="cont8-wrap-<%=i%>" ></div> --%>

@@ -156,7 +156,9 @@
       
    }
    div.static-box {
-      height:400px;
+   	 border-bottom:1px solid lightgray;
+      height:450px;
+      width:95%;
       margin-left:40px;
    }
    div.static-box>div.box {
@@ -255,17 +257,34 @@
       margin-top:20px;
       width:1120px;
    }
-   div.container3 {
+   
+   div.static-box {
+   	 border-bottom:1px solid lightgray;
+      height:450px;
+      width:95%;
       margin-left:40px;
-      border:1px solid white;
+   }
+   div.container3 {
+    width:95%;
+    height:400px;
+    border-bottom:1px solid lightgray;
+      margin-left:40px;
    }
    div.static-box h3.tt1 {
-      font-size:30px;
+      font-size:28px;
+       border-bottom:4px solid #ff0045;
+       width:220px;
+       padding-left:20px;
+       padding-bottom:10px;
+      
    }
    div.container3>h3.tt2 {
-      font-size:25px;
+      font-size:28px;
+      border-bottom:4px solid #ff0045;
+       width:220px;
+       padding-left:20px;
+       padding-bottom:10px;
       margin-right:40px;
-      margin-top:70px;
       display:block;
    }
    div.container2 {
@@ -274,7 +293,11 @@
       
    }
    div.container2>div.con3>h3.tt3 {
-      font-size:25px;
+       font-size:28px;
+       border-bottom:4px solid #ff0045;
+       width:220px;
+       padding-left:20px;
+       padding-bottom:10px;
    }
    div.container2>div.con3>div.con4 {
       font-size:15px;
@@ -359,7 +382,6 @@
    .container3 {
       width:840px;
       height:350px;
-      margin-bottom:30px;
    }
    .inp_chkbox{
       zoom:1.5;

@@ -40,7 +40,7 @@ public class sh_ClassDAO extends DBConn {
 		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
 		
 		try {
-			String sql = "select email, title from one_class where email=?";
+			String sql = "select email, title, catemain from one_class where email=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, email);
 			
@@ -49,6 +49,55 @@ public class sh_ClassDAO extends DBConn {
 				sh_ClassVO vo = new sh_ClassVO();
 				vo.setEmail(rs.getString(1));
 				vo.setTitle(rs.getString(2));
+				vo.setCatemain(rs.getString(3));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	public ArrayList<sh_ClassVO> getMakeClassOpen(String email) {
+		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
+		
+		try {
+			String sql = "select email, title, catemain from one_class "
+					+ " where email= ? and cstatus = 1";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_ClassVO vo = new sh_ClassVO();
+				vo.setEmail(rs.getString(1));
+				vo.setTitle(rs.getString(2));
+				vo.setCatemain(rs.getString(3));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	public ArrayList<sh_ClassVO> getMakeClassWait(String email) {
+		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
+		
+		try {
+			String sql = "select email, title, catemain from one_class "
+					+ " where email= ? and cstatus = 0";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				sh_ClassVO vo = new sh_ClassVO();
+				vo.setEmail(rs.getString(1));
+				vo.setTitle(rs.getString(2));
+				vo.setCatemain(rs.getString(3));
 				
 				list.add(vo);
 			}

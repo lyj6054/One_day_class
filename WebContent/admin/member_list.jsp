@@ -203,7 +203,7 @@
 	    height: 19px;
 	    padding-top: 5px;
 	    text-align: center;
-	    color: #999;
+	    color: black;
 	    font-size: 11px;
 	}
 	.ad_member_list .member_list_title li.title-1 {
@@ -240,7 +240,7 @@
 	    padding: 10px 0;
 	}
 	.ad_member_list .member_list_cont:hover {
-		background-color: lightgray;
+		background-color: #e9e9e9;
 	}
 	.ad_member_list .member_list_cont li {
 	    float: left;
