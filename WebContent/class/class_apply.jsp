@@ -41,11 +41,6 @@
 		<div class="apply">
 			<div class="left">
 				<span class="a-title">수업신청</span>
-					<div class="a-left-1">
-						<img src="http://localhost:9000/One_day_class/upload/<%= pic_array[0]%>">
-				</div>
-			</div>
-			<div class="right">
 					<div class="a-left-2">
 						<p class="a-title-1"><%= vo_class.getTitle() %></p><br>
 						<span class="star_box">
@@ -53,6 +48,11 @@
 						</span>
 						<span class="a-title-2"><%= score %></span>
 			   		</div>
+					<div class="a-left-1">
+						<img src="http://localhost:9000/One_day_class/upload/<%= pic_array[0]%>">
+				</div>
+			</div>
+			<div class="right">
 				<h3 class="apply_title1">수업 일정을 먼저 선택해주세요.</h3>
 				<div class="left-box scroll-box">
 					<ul>

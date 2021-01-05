@@ -33,8 +33,6 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 	<% } %>
 
 
-	<!--  header  -->
-	<jsp:include page="../header.jsp" />
 
 	<!--  content  -->
 	<div class="content">

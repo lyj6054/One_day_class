@@ -1095,7 +1095,7 @@
    div.left {
        display:inline-block;
        width:600px;
-       margin-top:90px;
+       margin-top:20px;
        margin-bottom:100px;
        float:left;
    }
@@ -1163,10 +1163,10 @@
        word-break: break-all;
        margin-bottom:-10px;
        margin-left:20px;
-       
    } 
    .a-left-2{
-   	  width:424px;
+   	  width:600px;
+   	  margin-bottom:10px;
    }
    .a-left-2 .star_box {
 	    display: inline-block;
