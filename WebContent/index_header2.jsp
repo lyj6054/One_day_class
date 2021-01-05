@@ -160,10 +160,13 @@ button {
 }
 
 .block ul, .block li {
-	margin: 0;
+	margin: 0 ;
 	padding: 0;
 	list-style: none;
 	overflow: hidden;
+}
+.block li{
+margin: 2px 0 ;
 }
 .block li a {
 	display: block;
@@ -173,14 +176,14 @@ button {
 	text-decoration: none;
 }
 
-.block li span {
+.block li span.num {
 	padding: 0 10px;
 	background: #ff005a;
 	color: #fff;
 	font-weight: bold;
 	margin: 0 15px;
 	height:10px;
-	border-radius:20%S;
+	border-radius:5px;
 }
 .block li .word {
 	background: white;
