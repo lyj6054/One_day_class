@@ -41,10 +41,11 @@
 		<div class="apply">
 			<div class="left">
 				<span class="a-title">수업신청</span>
-				<div class="a-left">
 					<div class="a-left-1">
 						<img src="http://localhost:9000/One_day_class/upload/<%= pic_array[0]%>">
-					</div>
+				</div>
+			</div>
+			<div class="right">
 					<div class="a-left-2">
 						<p class="a-title-1"><%= vo_class.getTitle() %></p><br>
 						<span class="star_box">
@@ -52,8 +53,7 @@
 						</span>
 						<span class="a-title-2"><%= score %></span>
 			   		</div>
-				</div>
-				<h3 class="apply_title">수업 일정을 먼저 선택해주세요.</h3>
+				<h3 class="apply_title1">수업 일정을 먼저 선택해주세요.</h3>
 				<div class="left-box scroll-box">
 					<ul>
 			      		<% for(int i = 0; i < schedule_array.length; i++){ %>
@@ -68,19 +68,17 @@
 			         </ul>
 				</div>
 				<div id="checked"></div>
-			<div class="right">
-				<h3 class="apply_title">신청 인원</h3>
-				<div class="r-box">
-					<button type="button" class="r-btn" id="btn-minus" name="btn_minus disabled" disabled="disabled"></button>
-					<input type="text" value="1" id="rtext" name="aperson" readonly>
-					<button type="button" class="r-btn1" id="btn-plus" name="btn_plus" ></button>
-				</div>
+					<h3 class="apply_title">신청 인원</h3>
+					<div class="r-box">
+						<button type="button" class="r-btn" id="btn-minus" name="btn_minus disabled" disabled="disabled"></button>
+						<input type="text" value="1" id="rtext" name="aperson" readonly>
+						<button type="button" class="r-btn1" id="btn-plus" name="btn_plus" ></button>
+					</div>
 				<% if(applyCheck == 0) {%>
 				<button type="button" class="r-btn3" id="submit_class">신청하기</button>
 				<% } else { %>
 				<button type="button" class="r-btn3" onclick="rejectMsg()">신청하기</button>
 				<% } %>
-			</div>
 			</div>
 		</div>
 	</form>
