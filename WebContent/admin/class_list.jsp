@@ -438,20 +438,21 @@
 	/* 버튼 */
 	.main-section3 .admin_btn {
 		float:right;
-		margin-top:-22px;
+		margin-top:0px;
 		margin-right:17px;
 	}
 	.main-section3 .admin_btn:hover {
 		float:right;
-		margin-top:-22px;
 	}
 	.accept, .reject {
     margin: 10px;
-    width:85px;
-    height:45px;
+    width:55px;
+    height:35px;
     color:white;
      border:none;
-     font-size:20px;
+     font-size:16px;
+     border-radius: 5px;
+     border:3px solid white;
 	}
 	.accept:hover, .reject:hover{
     border:3px solid #999;
@@ -503,6 +504,7 @@
 	    background-size: 13px;
 	}
 	#ampaginationsm{
+		margin:30px 0 0 200px;
 		text-align: center;
 	}
 	</style>
@@ -706,12 +708,12 @@
 			</div>
 		</div>
 		<div class="main-section3">
-			<div id="ampaginationsm"></div>
 			<div class="admin_btn">
 					<button type="button" class="accept" id="accept">수락</button>
 					<button type="button" class="reject" id="reject">거절</button>
-				</div>
 			</div>
+			<div id="ampaginationsm"></div>
+		</div>
 			
 		</div>
 	</div>
