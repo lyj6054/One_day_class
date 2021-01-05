@@ -172,7 +172,7 @@
 					<th>성명</th>
 					<td><%= vo_tutee.getName() %></td>
 					<th>가입일</th>
-					<td><%= vo_tutee.getEdate() %></td>
+					<td><%= vo_tutee.getRdate() %></td>
 				</tr>
 				<tr>
 					<th>전화번호</th>

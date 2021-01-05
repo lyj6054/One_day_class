@@ -298,15 +298,20 @@
    .con2-1 {
       border:2px solid lightgray;
       border-radius:5px;
-      width:800px; height:210px;
+      width:1000px; height:210px;
       margin-left:65px;
       margin-bottom:100px;
       padding:15px 0 10px;
-      text-align:center;
+      overflow: auto;
    
    }
+   
+   .con2-1::-webkit-scrollbar{width: 4px;}
+   .con2-1::-webkit-scrollbar-thumb {background-color:gray;}
+   
    .con2-1>ul {
       margin-bottom:7px;
+      margin-left:10px;
    }
    .con2 {
       border:2px solid lightgray;
@@ -385,6 +390,22 @@
    }
    .ut4-1 {
       width:300px;
+   }
+   .ut6,
+   .ut7{
+   	  width:100px;
+   }
+   .ut8{
+   	  width:220px;
+   }
+   .ut9{
+   	  width:400px;
+   }
+   .ut10{
+   	  width:100px;
+   }
+   .bar1{
+   	  width:950px;
    }
    /** 체크분홍 **/
    
@@ -519,23 +540,23 @@
       </div>
       <div class="con2-1">
             <ul class="ul_title1">
-               <li class="ut1">번호</li>
-               <li class="ut2">이름</li>
-               <li class="ut3-1">일정</li>
-               <li class="ut4-1">리뷰내용</li>
-               <li class="ut5">작성날짜</li>
+               <li class="ut6">번호</li>
+               <li class="ut7">이름</li>
+               <li class="ut8">일정</li>
+               <li class="ut9">리뷰내용</li>
+               <li class="ut10">작성날짜</li>
             </ul>
             <%
                for(ms_TutorclassVO vo1 : list) {
             %>
           <ul>
-               <li class="ut1"><%=vo1.getRno() %></li>
-               <li class="ut2"><%=vo1.getName() %></li>
-               <li class="ut3-1"><%=vo1.getAschedule() %></li>
-               <li class="ut4-1"><%=vo1.getRcontent() %></li>
-               <li class="ut5"><%=vo1.getRdate() %></li>
+               <li class="ut6"><%=vo1.getRno() %></li>
+               <li class="ut7"><%=vo1.getName() %></li>
+               <li class="ut8"><%=vo1.getAschedule() %></li>
+               <li class="ut9"><%=vo1.getRcontent() %></li>
+               <li class="ut10"><%=vo1.getRdate() %></li>
             </ul>
-            <hr class="bar">
+            <hr class="bar1">
             <% } %>
              
             
