@@ -658,6 +658,7 @@
 	 .text_area {
 	 	font-size:16px;
 	 	width: 650px;
+	 	display:block;
 	 }
 	div.dance {
 		width:1400px;
@@ -774,6 +775,7 @@
 	}
 	div.dance>div.dance-box3-1>div.dance-b6>iframe {
 		margin-left:50px;
+		display:block;
 	}
 	div.dance>div.dance-box3-1>div.dance-b6>p {
 		background-color:rgb(250,250,250);

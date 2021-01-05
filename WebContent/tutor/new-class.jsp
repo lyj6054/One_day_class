@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>\
+    import="com.one_day_class.vo.*, com.one_day_class.dao.*, java.util.ArrayList"%>
     
     
 <%SessionVO svo=(SessionVO)session.getAttribute("svo"); %>
