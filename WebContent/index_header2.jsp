@@ -3,9 +3,18 @@
 	import="com.one_day_class.vo.*, com.one_day_class.dao.*,java.util.*"%>
 <%
 	SessionVO svo = (SessionVO) session.getAttribute("svo");
+
+	//String inp_sch = request.getParameter(i)
+	
 	SearchDAO dao=new SearchDAO();
+	ClassDAO dao_search = new ClassDAO();
+	
 	ArrayList<String> list=new ArrayList<String>();
+	ArrayList<ClassVO> search_list = new ArrayList<ClassVO>();
+	
 	list=dao.getList();
+	//search_list =  dao_search.SearchList(inp_sch, start, end);
+	
 	int i=0;
 %>
 <!DOCTYPE html>
@@ -158,18 +167,26 @@ button {
 }
 .block li a {
 	display: block;
-	height: 26px;
+	height: 15px;
 	line-height: 26px;
 	color: #555;
 	text-decoration: none;
 }
 
 .block li span {
-	padding: 0px 5px;
+	padding: 0 10px;
 	background: #ff005a;
 	color: #fff;
 	font-weight: bold;
-	margin:0 15px 0 15px;
+	margin: 0 15px;
+	height:10px;
+	border-radius:20%S;
+}
+.block li .word {
+	background: white;
+	color: #555;
+	font-weight : 400;
+	margin: 0;
 }
 .text_1{
 	text-align:center;
@@ -204,9 +221,9 @@ button {
 				       }
 				    });
 				 }
-				 */
+				 
 
-				$("#btn_sch").click(
+			 	$("#btn_sch").click(
 						function() {
 							if ($("#inp_sch").val() == "") {
 								alert("검색할 데이터를 입력해주세요");
@@ -220,10 +237,22 @@ button {
 										'href',
 										"http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="
 												+ inp_sch);
-								 */
+								 
 
 							}
-						});
+						}); */
+				 
+					
+					$("#ticker").click(function(){
+						var i = $(this).attr("id");
+						var inp_sch = $("#inp_sch_list").text();
+							
+							
+							alert(inp_sch);
+							$(location).attr('href',"http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="+inp_sch); 
+							
+						
+					}); 
 			});
 </script>
 </head>
@@ -301,7 +330,10 @@ button {
 				</div>
 					<ul id="ticker">
 						<%for(String word : list){ i++;%>
-						<li><a href="#"><span><%=i %></span> <%=word%></a></li>
+							<li>
+								<span class="num"><%=i %></span>
+								<span class="word" id="inp_sch_list"><%=word%></span>
+							</li>
 						<%} %>
 					</ul>
 				</div>

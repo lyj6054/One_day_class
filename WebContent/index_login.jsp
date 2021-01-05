@@ -950,11 +950,11 @@ $(document).ready(function(){
 											String[] pic_array=vo.getSpicture().split(",");
 											String[] sch_array=vo.getSchedule().split(",");
 											TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid()); 
-											//String date = vo.getSchedule();
-											int day_idx = sch_array[0].indexOf("일");
+											String date = vo.getSchedule();
+											int day_idx = date.indexOf("일");
 											String day = "";
 											if(day_idx>0) {
-												//day=sch_array[0].substring(day_idx-6, day_idx);
+												day=date.substring(day_idx-6,day_idx+1);
 											} else {
 												day="협의 후 날짜 시간 결정";
 											}
@@ -1005,7 +1005,7 @@ $(document).ready(function(){
 											int day_idx=date.indexOf("일");
 											String day="";
 											if(day_idx>0) {
-												//day=date.substring(day_idx-6,day_idx+1);
+												day=date.substring(day_idx-6,day_idx+1);
 											}else {
 												day="협의 후 날짜 시간 결정";
 											}
@@ -1057,7 +1057,7 @@ $(document).ready(function(){
 												int day_idx=date.indexOf("일");
 												String day="";
 												if(day_idx>0) {
-												//day=date.substring(day_idx-6,day_idx+1);
+												 day=date.substring(day_idx-6,day_idx+1);
 												}else {
 												day="협의 후 날짜 시간 결정";
 												}
@@ -1109,7 +1109,7 @@ $(document).ready(function(){
 											int day_idx = date.indexOf("일");
 											String day = "";
 											if(day_idx>0) {
-												//day=date.substring(day_idx-6, day_idx+1);
+												day=date.substring(day_idx-6, day_idx+1);
 											} else {
 												day="협의 후 날짜 시간 결정";
 											}
