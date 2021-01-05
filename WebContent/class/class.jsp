@@ -21,7 +21,6 @@
 	if(vo_class.getVideos() != null){
 		videos_array = vo_class.getVideos().split(",");		
 	}
-
 	sh_TutorDAO dao_tutor = new sh_TutorDAO();
 	sh_TutorVO vo_tutor = dao_tutor.getTutorInfo(cid);
 	

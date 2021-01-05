@@ -836,9 +836,13 @@
 										        </a>
 												<div id="cid" style="display: none;"><%= vo.getCid() %></div>
 												<div id="email" style="display: none;"><%= email %></div>
+												<% if(vo.getWish_chk() == null){ %>
 													<button type="button" name="add" class="a_<%=vo.getCid() %>_wish_add_btn" id="<%=vo.getCid()%>"></button> 
-												<% } %> 
+												<% } else { %>
+													<button class="r_<%=vo.getCid() %>_wish_remove_btn on" type="button" name="add"  id="<%=vo.getCid()%>"></button>
+												<% } %>  
 										    </li>
+												<% } %> 
 										</ul>
 										<button type="button" class="btn_swiper swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></button>
 										<button type="button" class="btn_swiper swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
