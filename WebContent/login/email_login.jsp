@@ -311,7 +311,7 @@
 	$(document).ready(function(){
 		$("#login_btn").click(function(){
 			if(CheckCount("identity") == 0) {
-	 			alert("aaaaa");
+	 			//alert("aaaaa");
 	 			$("#selectError1").addClass('error');
 	 			$("#userSelect").focus();
 	 			return false;
@@ -344,7 +344,6 @@
 								 		$("#email").focus();
 								 		return false;
 							 		} else {
-							 			$("#passError2").removeClass('error');
 							 			loginForm.submit();
 							 			
 							 		}

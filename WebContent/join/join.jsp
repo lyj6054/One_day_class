@@ -556,7 +556,7 @@
 															$("#classError1").removeClass('error');
 															//location.href="http://localhost:9000/One_day_class/join/join_start.jsp";
 															if($("[name=identity]:checked").val() == "튜터") {
-																alert("check");
+																//alert("check");
 																$("#frm-join").attr("action", "joinProc.jsp");
 																joinForm.submit();
 															} else {
@@ -596,7 +596,7 @@
 			} */
 		
 			$("[name=identity]").click(function(){
-				alert($("[name=identity]:checked").val());
+				//alert($("[name=identity]:checked").val());
 			});
 			
 			//비밀번호 숨기기
