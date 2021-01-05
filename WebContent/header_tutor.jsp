@@ -301,6 +301,9 @@
 		display: block;
 		position: absolute;
 	}
+	.myclass1{
+		height:36px;
+	}
 </style>
 <script>
 $(document).ready(function(){
@@ -395,25 +398,15 @@ $(document).ready(function(){
 						<p role="button" ><a href="#">튜터</a></p>
 						<div class="profile_list_container" id="profile_list_container2">
 							<ul class="profile_list">
-								<li><a href="http://localhost:9000/One_day_class/tutor/new-class.jsp">나의수업</a></li>
 								<li><a href="http://localhost:9000/One_day_class/tutor/tutor_guide.jsp">튜터가이드</a></li>
-								<li><a href="http://localhost:9000/One_day_class/tutor/tutor_reg.jsp">튜터등록</a></li>
-								<li><a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp">새로운 수업 추가</a></li>
+								<li><a href="http://localhost:9000/One_day_class/tutor/tutor_reg_1.jsp">수업 등록</a></li>
 								<%-- <% if(svo.getName().equals("탈멍"))  { %>
 								<li><a href="http://localhost:9000/One_day_class/admin/notice_list_admin.jsp">탈멍관리</a></li>
 								<% } %> --%>
 							</ul>
 						</div>
 					</li>
-					<li class="depth_my_page">
-						<a href="http://localhost:9000/One_day_class/myclassform/myclassform.jsp">수업신청서</a>
-					</li>
-					<li class="depth_my_page">
-						<a href="http://localhost:9000/One_day_class/myclasslist/myclasslist.jsp">수강목록</a>
-					</li>
-					<li class="depth_my_page">
-						<a href="http://localhost:9000/One_day_class/mywishlist/mywishlist.jsp">위시리스트</a>
-					</li>
+					<li class="depth_my_page"><a  href="http://localhost:9000/One_day_class/tutor/new-class.jsp">나의수업</a></li>
 					<li class="depth_my_page" id="depth_my_page" onclick="depth()" >
 						<p role="button" class="p_btn">
 							<% if(svo.getIdentity().equals("튜터")) { %>
