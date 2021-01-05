@@ -243,22 +243,15 @@ button {
 						}); */
 				 
 					
-					$("li").click(function(){
-						var inp_sch = $("#inp_sch").text();
-						/* if($("#inp_sch").text() == "") {
-							alert("검색할 데이터를 입력해주세요");
-							$("#inp_sch").focus();
-							return false;
-						} else {
+					$("#ticker").click(function(){
+						var i = $(this).attr("id");
+						var inp_sch = $("#inp_sch_list").text();
 							
-							var inp_sch = $("#inp_sch").text();
-							var btn_sch = $("#btn_sch").val();
 							
 							alert(inp_sch);
 							$(location).attr('href',"http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="+inp_sch); 
 							
-						} */
-						alert(inp_sch);
+						
 					}); 
 			});
 </script>
@@ -339,7 +332,7 @@ button {
 						<%for(String word : list){ i++;%>
 							<li>
 								<span class="num"><%=i %></span>
-								<span class="word" id="inp_sch"><%=word%></span>
+								<span class="word" id="inp_sch_list"><%=word%></span>
 							</li>
 						<%} %>
 					</ul>
