@@ -160,8 +160,8 @@
 	    height: 19px;
 	    padding: 10px 3px 5px 5px;
 	    text-align: center;
-	    color: #999;
-	    font-size: 11px;
+	    color: black;
+	    font-size: 12px;
 	}
 	.main-section2 .section2-title .title-0 {
 		width:40px;
@@ -697,7 +697,7 @@
 						<li class="cont-6"><%=vo.getCdate()%></li>
 						<li class="cont-8" id="cont-8-<%=i%>" >
 							<%-- <div class="cont8-wrap" id="cont8-wrap-<%=i%>" ></div> --%>
-							<iframe width="800px"  height="800px"  src="class_iframe.jsp?cid=<%=vo.getCid()%>">
+							<iframe width="855px"  height="800px"  frameborder=0  src="class_iframe.jsp?cid=<%=vo.getCid()%>">
 							</iframe>
 						</li>
 					</ul>
