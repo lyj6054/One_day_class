@@ -42,24 +42,35 @@
       
       
          //전체체크 선택
-      $("#all").change(function(){
+      /*  $("#all").change(function(){
          if($(this).is(":checked")){
             $("input[name='chk']").prop("checked",true)
          }else{
             $("input[name='chk']").prop("checked",false)
          }
          
+      });  */
          
-      });
+         
          
       $("#true").click(function(){
+    	  if($("[name=chk]:checked").val() != null){
           $("#classbtn").val("true");
           class_check.submit(); 
+    	  }else{
+    		  alert("신청수락할 튜티를 선택해주세요.");
+    		  return false;
+    	  }
        });
        
        $("#fail").click(function(){
+    	   if($("[name=chk]:checked").val() != null){
           $("#classbtn").val("fail");
           class_check.submit(); 
+    	   }else{
+     		  alert("신청거절할 튜티를 선택해주세요.");
+     		  return false;
+     	  }
        });   
          
       
@@ -80,11 +91,43 @@
    });
 
    
-   /* $("#selectbox").change(function(){
-      $("$cid_1").text()
-      
-      
-   }); */
+   
+ //체크박스        
+	function allCheckFunc(obj) {
+		$("[name=chk]").prop("checked", $(obj).prop("checked"));
+		//alert($("[name=checkAll]:checked").val());
+		
+	}
+	/* 체크박스 체크시 전체선택 체크 여부 */
+	function oneCheckFunc(obj) {
+		var allObj = $("[name=all]");
+		var objName = $(obj).attr("name");
+
+		if($(obj).prop("checked")){
+			checkBoxLength = $("[name="+ objName +"]").length;
+			checkedLength = $("[name="+ objName +"]:checked").length;                
+
+			if(checkBoxLength == checkedLength){
+				allObj.prop("checked", true);    
+			}else{
+				allObj.prop("checked", false);
+			}
+		}else{
+			allObj.prop("checked", false); 
+		}
+	}
+   
+	$(function(){
+		$("[name=all]").click(function(){
+			allCheckFunc(this);
+				});
+		});
+		$("[name=chk]").each(function(){
+			$(this).click(function(){
+				oneCheckFunc($(this));
+			});                
+		});
+   
    
    
     
@@ -429,7 +472,7 @@
          <h3 class="tt2">신청 현황</h3>
          <div class="con2">
             <ul class="ul_title">
-               <input  type="checkbox"  id="all" class="blind inp_label">
+               <input  type="checkbox"  id="all" class="blind inp_label" name="all">
                <label for="all" class="inp_chkbox"></label>
                <li class="ut1">번호</li>
                <li class="ut2">이름</li>

@@ -9,16 +9,12 @@
 	
 	SessionVO svo = (SessionVO)session.getAttribute("svo");
 	
-	String cateMain= request.getParameter("cateMain");
-	String cateSub= request.getParameter("cateSub");
-	
 	// 검색어
 	String inp_sch = request.getParameter("inp_sch");
-	if(cateMain!=null){
-		inp_sch=cateMain;
-	}
 	
 	
+	String cateMain= request.getParameter("cateMain");
+	String cateSub= request.getParameter("cateSub");
 	//1. 선택한 페이지값
 	String rpage= request.getParameter("rpage");
 	
@@ -57,6 +53,9 @@
 	
 	ArrayList<ClassVO> search_list = new ArrayList<ClassVO>();
 	search_list = dao.SearchList(inp_sch,start,end);
+	System.out.println(search_list.size());
+	System.out.println(start);
+	System.out.println(end);
 	
 	ArrayList<ClassVO> list =new ArrayList<ClassVO>();
  	if(cateMain==null&&cateSub==null){
@@ -64,7 +63,7 @@
 	}else if(cateMain==null&&cateSub!=null){
 		list = dao.getCList3(start,end,cateSub);
 	}else if(cateMain!=null&&cateSub==null){
-		list = dao.SearchList(inp_sch,start,end);
+		list = dao.getCList4(start,end,cateMain);
 	}
 	int i=0;
 %>
