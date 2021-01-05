@@ -18,7 +18,7 @@ public class ClassDAO extends DBConn{
 		try {
 			getStatement();
 			String sql = "select * from(select cid, email, regionmain, catemain, catesub, price, picture, "
-					+ " schedule, title , rownum rno from one_class where   title "
+					+ " schedule, title , rownum rno,spicture from one_class where   title "
 					+ " like '%" +inp_sch+ "%' or catemain like '%" + inp_sch +"%' or catesub like '%" + inp_sch + "%') where rno between "+start+" and "+end+" "; 
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -32,6 +32,7 @@ public class ClassDAO extends DBConn{
 				vo.setPicture(rs.getString(7));
 				vo.setSchedule(rs.getString(8));
 				vo.setTitle(rs.getString(9));
+				vo.setSpicture(rs.getString(11));
 				
 				
 				search_list.add(vo);
@@ -347,7 +348,7 @@ public class ClassDAO extends DBConn{
 	public ArrayList<ClassVO> getCList4(int start, int end,String cateMain){
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		try {
-			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain,catemain from (select * from one_class where cstatus=1 and catemain=? order by cdate desc)) where cno between ? and ? ";
+			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain,catemain,spicture from (select * from one_class where cstatus=1 and catemain=? order by cdate desc)) where cno between ? and ? ";
 			getPreparedStatement(sql);
 			pstmt.setString(1, cateMain);
 			pstmt.setInt(2, start);
@@ -362,6 +363,7 @@ public class ClassDAO extends DBConn{
 				vo.setPrice(rs.getInt(5));
 				vo.setRegionmain(rs.getString(6));
 				vo.setCatemain(rs.getString(7));
+				vo.setSpicture(rs.getString(8));
 				
 				list.add(vo);
 			}
@@ -380,7 +382,7 @@ public class ClassDAO extends DBConn{
 	public ArrayList<ClassVO> getCList3(int start, int end,String cateSub){
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		try {
-			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain,catemain from (select * from one_class where cstatus=1 and catesub=? order by cdate desc)) where cno between ? and ? ";
+			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain,catemain,spicture from (select * from one_class where cstatus=1 and catesub=? order by cdate desc)) where cno between ? and ? ";
 			getPreparedStatement(sql);
 			pstmt.setString(1,cateSub);
 			pstmt.setInt(2, start);
@@ -395,6 +397,7 @@ public class ClassDAO extends DBConn{
 				vo.setPrice(rs.getInt(5));
 				vo.setRegionmain(rs.getString(6));
 				vo.setCatemain(rs.getString(7));
+				vo.setSpicture(rs.getString(8));
 				
 				list.add(vo);
 			}
@@ -413,7 +416,7 @@ public class ClassDAO extends DBConn{
 	public ArrayList<ClassVO> getCList2(int start, int end){
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		try {
-			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain,catemain from (select * from one_class where cstatus=1 order by cdate desc)) where cno between ? and ? ";
+			String sql = "select * from (select rownum cno,cid,title,picture,price,regionmain,catemain,spicture from (select * from one_class where cstatus=1 order by cdate desc)) where cno between ? and ? ";
 			getPreparedStatement(sql);
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
@@ -427,6 +430,7 @@ public class ClassDAO extends DBConn{
 				vo.setPrice(rs.getInt(5));
 				vo.setRegionmain(rs.getString(6));
 				vo.setCatemain(rs.getString(7));
+				vo.setSpicture(rs.getString(8));
 				
 				list.add(vo);
 			}
