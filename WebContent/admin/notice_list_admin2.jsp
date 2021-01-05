@@ -16,7 +16,7 @@
 		int end = 0;
 		int pageSize = 7; // 한페이지당 출력되는 row
 		int pageCount = 1; // 전체 페이지 수 : 전체 리스트 row / 한 페이지당 출력되는 row
-		int dbCount = dao.getListCount(); //DB연동 후 전체로우수 출력 
+		int dbCount = dao.getListCount(bpart); //DB연동 후 전체로우수 출력  
 		int reqPage = 1; //요청페이지
 		
 		//2-2. 전체페이지 수 구하기 - 화면출력
@@ -288,7 +288,7 @@
 	    width: 831px;
 	    height: 430px;
 	    overflow-y: auto !important;
-	    margin-left:120px;
+	    margin-left:20px;
 	}
 	.main-section2 .section2-cont li.cont-8 .cont8-wrap {
 	    margin: 20px 0;
@@ -536,28 +536,29 @@
 				}
 		});
 		
-		 //페이지 번호 및  링크
-		var pager = jQuery("#ampaginationsm").pagination({
-			maxSize : 7,
-			totals : '<%=dbCount%>',
-			pageSize : '<%=pageSize%>',
-			page : '<%=reqPage%>',
 			
-			//alert(maxSize + "," + totals + "," + pageSize + "," + page);
+			 //페이지 번호 및  링크
+			var pager = jQuery("#ampaginationsm").pagination({
+				maxSize : 7,
+				totals : '<%=dbCount%>',
+				pageSize : '<%=pageSize%>',
+				page : '<%=reqPage%>',
+				
+				//alert(maxSize + "," + totals + "," + pageSize + "," + page);
+				
+				lastText : '&raquo;&raquo;',
+				firstText : '&laquo;&laquo;',
+				preTest : '&laquo;',
+				nextTest : '&raquo;',
+				
+				btnSize : 'sm'
+			});
 			
-			lastText : '&raquo;&raquo;',
-			firstText : '&laquo;&laquo;',
-			preTest : '&laquo;',
-			nextTest : '&raquo;',
-			
-			btnSize : 'sm'
-		});
-		
-		//
-		jQuery("#ampaginationsm").on('am.pagination.change',function(e){
-			$(location).attr('href','http://localhost:9000/One_day_class/admin/notice_list_admin2.jsp?bpart=event&rpage='+e.page); 
-			//location.href('이동페이지');
-		});
+			//
+			jQuery("#ampaginationsm").on('am.pagination.change',function(e){
+				$(location).attr('href','http://localhost:9000/One_day_class/admin/notice_list_admin2.jsp?bpart=event&rpage='+e.page); 
+				//location.href('이동페이지');
+			});
 		
 		//체크박스        
 		function allCheckFunc(obj) {

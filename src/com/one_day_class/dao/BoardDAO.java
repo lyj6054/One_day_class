@@ -72,11 +72,20 @@ public class BoardDAO extends DBConn {
 	
 	
 	/** 전체 리스트 카운트 */
-	public int getListCount() {
+	public int getListCount(String bpart) {
 		int result = 0;
 		
 		try {
-			String sql = "select count(*) from one_board";
+			String str = "";
+			if(bpart == null) {
+				str = "where bpart like '%공지사항%'";
+			} else if(bpart.equals("event")) {
+				str = "where bpart = '이벤트'";
+			} else {
+				str = "where bpart like '%공지사항%'";
+			}
+			
+			String sql = "select count(*) from one_board " + str;
 			getPreparedStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) result = rs.getInt(1);
@@ -88,6 +97,7 @@ public class BoardDAO extends DBConn {
 		
 		return result;
 	}
+	
 	
 	
 	/* Update :조회수 업데이트 */
