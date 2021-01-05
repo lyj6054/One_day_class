@@ -38,14 +38,6 @@
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
 </head>
 <body>
-	<div class="nav">
-		<ul>
-			<li class="active" id="nav_li1"><a href="javascript:;">튜터소개</a></li>
-			<li id="nav_li2"><a href="javascript:">수업소개</a></li>
-			<li id="nav_li3"><a href="javascript:;">커리큘럼</a></li>
-			<li id="nav_li4"><a href="javascript:;">수업리뷰</a></li>
-		</ul>
-	</div>
 	<div class="dance">
 		<aside class="d-side">
 			<h1>수업일정</h1>
@@ -137,46 +129,8 @@
 			</div>
 		</div>
 		<% } %>
-		<div class="idx dance-box3-1">
-			<span class="dance-b4">실제 수강생의<br>리뷰입니다.</span>
-			<div class="dance-b6">
-				<div class="review_sum">
-                    <ul class="review_list">
-                        <li>평점<span class="avg"><%= score %></span></li>
-                    </ul>
-                </div>
-				<div class="dance-b6-1">
-					<button class="dance-btn1" onclick="review()">리뷰 작성하기</button>
-				</div>
-			</div>
-		</div>
-		<div class="dance-box4">
-			<ul>
-				<% for (int i = 0; i < list_review.size(); i++){ %>
-				<li>
-					<div class="review_box_all">
-						<span class="dance-b7">
-							<img src="http://localhost:9000/One_day_class/upload/<%= list_tutee.get(i).getSprofile_img() %>">
-						</span>
-						<span class="dance-b8"><%= list_tutee.get(i).getName() %></span><br>
-						<span class="dance-b9"><%= list_review.get(i).getRdate() %></span>
-						<div>
-							<p><%= list_review.get(i).getRcontent() %></p>
-						</div>
-					</div>
-				</li>
-				<% } %>
-			</ul>
-			<div class="dance-box4-1">
-				<a class="bottom"><</a>
-				<a class="bottom1">1</a>
-				<a class="bottom2">2</a>
-				<a class="bottom2">3</a>
-				<a class="bottom2">4</a>
-				<a class="bottom2">5</a>
-				<a class="bottom">></a>
-			</div>
-		</div>
+	</div>
+	<div class="space" >
 	</div>
 </body>
 </html>

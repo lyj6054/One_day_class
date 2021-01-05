@@ -6,17 +6,19 @@
 	System.out.println(wbutton);
 	String[ ] cids=request.getParameterValues("checkTerms");
 	ClassDAO dao=new ClassDAO();
-	if(wbutton.equals("accept")){
-		System.out.println(wbutton);
-		for(String cid:cids){
-			dao.updateStatus1(cid);
+	if(cids!=null){
+		if(wbutton.equals("accept")){
+			for(String cid:cids){
+				dao.updateStatus1(cid);
+			}
+			response.sendRedirect("class_list.jsp"); 
+		}else if(wbutton.equals("reject")){
+			for(String cid:cids){
+				dao.updateStatus2(cid);
+			}
+			response.sendRedirect("class_list.jsp"); 
 		}
-		response.sendRedirect("class_list.jsp"); 
-	}else if(wbutton.equals("reject")){
-		System.out.println(wbutton);
-		for(String cid:cids){
-			dao.updateStatus2(cid);
-		}
+	}else{
 		response.sendRedirect("class_list.jsp"); 
 	}
 %>

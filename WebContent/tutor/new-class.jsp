@@ -153,6 +153,7 @@
       text-align:center;
       margin-top:50px;
       margin-left:40px;
+      
    }
    div.static-box {
       height:400px;
@@ -234,7 +235,7 @@
    }
    div>select.title {
       border:1px solid gray;
-      width:450px; height:50px;
+      width:700px; height:50px;
       float:right;
       margin-bottom:10px;
       border-radius:5px;
