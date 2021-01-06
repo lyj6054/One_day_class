@@ -20,6 +20,7 @@
 <meta charset="UTF-8">
 <title>member_content</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
+<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <style>
 	*{
 		box-sizing: border-box;

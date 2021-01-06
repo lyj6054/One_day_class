@@ -19,6 +19,7 @@
 <meta charset="UTF-8">
 <title>member_content</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
+<script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <style>
 	*{
 		box-sizing: border-box;
@@ -231,7 +232,7 @@
 						<%} %>	
 						</td>
 					<% } else { %>
-						<td colspan="5">&nbsp;&nbsp;&nbsp;&nbsp;개설한 수업이 없습니다.</td>
+						<td colspan="5">&nbsp;&nbsp;&nbsp;&nbsp;추가된 위시리스트가 존재하지 않습니다.</td>
 					<% } %>
 				</tr>
 				<tr>

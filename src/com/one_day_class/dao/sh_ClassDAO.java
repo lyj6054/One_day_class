@@ -113,8 +113,8 @@ public class sh_ClassDAO extends DBConn {
 		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
 		
 		try {
-			String sql = "select title "
-						+ " from (select title "
+			String sql = "select title, catemain "
+						+ " from (select title, catemain "
 								+ " from one_apply_class a, one_class c "
 								+ " where a.cid=c.cid and a.astatus=0 and a.email=?)";
 			getPreparedStatement(sql);
@@ -124,6 +124,7 @@ public class sh_ClassDAO extends DBConn {
 			while(rs.next()) {
 				sh_ClassVO vo = new sh_ClassVO();
 				vo.setTitle(rs.getString(1));
+				vo.setCatemain(rs.getString(2));
 				
 				list.add(vo);
 			}
@@ -139,8 +140,8 @@ public class sh_ClassDAO extends DBConn {
 		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
 		
 		try {
-			String sql = "select title "
-						+ " from (select title "
+			String sql = "select title, catemain "
+						+ " from (select title, catemain "
 								+ " from one_apply_class a, one_class c "
 								+ " where a.cid=c.cid and a.astatus=1 and a.email=?)";
 			getPreparedStatement(sql);
@@ -150,6 +151,7 @@ public class sh_ClassDAO extends DBConn {
 			while(rs.next()) {
 				sh_ClassVO vo = new sh_ClassVO();
 				vo.setTitle(rs.getString(1));
+				vo.setCatemain(rs.getString(2));
 				
 				list.add(vo);
 			}

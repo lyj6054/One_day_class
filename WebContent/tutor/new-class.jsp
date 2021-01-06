@@ -54,23 +54,23 @@
          
          
       $("#true").click(function(){
-    	  if($("[name=chk]:checked").val() != null){
+         if($("[name=chk]:checked").val() != null){
           $("#classbtn").val("true");
           class_check.submit(); 
-    	  }else{
-    		  alert("신청수락할 튜티를 선택해주세요.");
-    		  return false;
-    	  }
+         }else{
+            alert("신청수락할 튜티를 선택해주세요.");
+            return false;
+         }
        });
        
        $("#fail").click(function(){
-    	   if($("[name=chk]:checked").val() != null){
+          if($("[name=chk]:checked").val() != null){
           $("#classbtn").val("fail");
           class_check.submit(); 
-    	   }else{
-     		  alert("신청거절할 튜티를 선택해주세요.");
-     		  return false;
-     	  }
+          }else{
+             alert("신청거절할 튜티를 선택해주세요.");
+             return false;
+          }
        });   
          
       
@@ -93,40 +93,40 @@
    
    
  //체크박스        
-	function allCheckFunc(obj) {
-		$("[name=chk]").prop("checked", $(obj).prop("checked"));
-		//alert($("[name=checkAll]:checked").val());
-		
-	}
-	/* 체크박스 체크시 전체선택 체크 여부 */
-	function oneCheckFunc(obj) {
-		var allObj = $("[name=all]");
-		var objName = $(obj).attr("name");
+   function allCheckFunc(obj) {
+      $("[name=chk]").prop("checked", $(obj).prop("checked"));
+      //alert($("[name=checkAll]:checked").val());
+      
+   }
+   /* 체크박스 체크시 전체선택 체크 여부 */
+   function oneCheckFunc(obj) {
+      var allObj = $("[name=all]");
+      var objName = $(obj).attr("name");
 
-		if($(obj).prop("checked")){
-			checkBoxLength = $("[name="+ objName +"]").length;
-			checkedLength = $("[name="+ objName +"]:checked").length;                
+      if($(obj).prop("checked")){
+         checkBoxLength = $("[name="+ objName +"]").length;
+         checkedLength = $("[name="+ objName +"]:checked").length;                
 
-			if(checkBoxLength == checkedLength){
-				allObj.prop("checked", true);    
-			}else{
-				allObj.prop("checked", false);
-			}
-		}else{
-			allObj.prop("checked", false); 
-		}
-	}
+         if(checkBoxLength == checkedLength){
+            allObj.prop("checked", true);    
+         }else{
+            allObj.prop("checked", false);
+         }
+      }else{
+         allObj.prop("checked", false); 
+      }
+   }
    
-	$(function(){
-		$("[name=all]").click(function(){
-			allCheckFunc(this);
-				});
-		});
-		$("[name=chk]").each(function(){
-			$(this).click(function(){
-				oneCheckFunc($(this));
-			});                
-		});
+   $(function(){
+      $("[name=all]").click(function(){
+         allCheckFunc(this);
+            });
+      });
+      $("[name=chk]").each(function(){
+         $(this).click(function(){
+            oneCheckFunc($(this));
+         });                
+      });
    
    
    
@@ -156,7 +156,7 @@
       
    }
    div.static-box {
-   	 border-bottom:1px solid lightgray;
+       border-bottom:1px solid lightgray;
       height:450px;
       width:95%;
       margin-left:40px;
@@ -259,7 +259,7 @@
    }
    
    div.static-box {
-   	 border-bottom:1px solid lightgray;
+       border-bottom:1px solid lightgray;
       height:450px;
       width:95%;
       margin-left:40px;
@@ -416,19 +416,19 @@
    }
    .ut6,
    .ut7{
-   	  width:100px;
+        width:100px;
    }
    .ut8{
-   	  width:220px;
+        width:220px;
    }
    .ut9{
-   	  width:400px;
+        width:400px;
    }
    .ut10{
-   	  width:100px;
+        width:100px;
    }
    .bar1{
-   	  width:950px;
+        width:950px;
    }
    /** 체크분홍 **/
    

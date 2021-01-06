@@ -52,7 +52,13 @@
 		</aside>
 		<!-- board_ newsroom201301 -->
 		<div id="newsroom-main" class="interpark-board2013">
-			<div class="main-section1">수업관리
+			<div class="main-section1" style="
+					    height: 35px;
+					    font-size: 16px;
+					    font-weight: bold;
+					    text-align: center;
+					    color: #333;
+					    border: 1px solid lightgray;">수업관리
 			</div>
 
 			<div class="main-section2" id="section2">
