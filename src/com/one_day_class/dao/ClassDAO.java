@@ -195,9 +195,8 @@ public class ClassDAO extends DBConn{
 			e.printStackTrace();
 		}
 	}
-	
 	/**
-	 *  전체 리스트 카운트
+	 *  전체 리스트 카운트2
 	 */
 	public int getListCount2(String inp_sch) {
 		int result =0;

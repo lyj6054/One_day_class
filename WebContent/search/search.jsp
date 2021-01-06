@@ -16,6 +16,8 @@
 	String inp_sch = request.getParameter("inp_sch");
 	if(cateMain!=null){
 		inp_sch=cateMain;
+	}else if(cateSub!=null){
+		inp_sch=cateSub;
 	}
 	
 	
@@ -31,7 +33,10 @@
 	int dbCount =0;
 	if(inp_sch==null){
 		dbCount = dao.getListCount();// DB연동 후 전체로우수 출력
-	}else{
+	}else if(inp_sch!=null && cateMain!=null){
+		dbCount = dao.getListCount2(inp_sch); 
+		System.out.println("디비 : "+dbCount);
+	}else if(inp_sch!=null && cateSub!=null){
 		dbCount = dao.getListCount2(inp_sch); 
 		System.out.println("디비 : "+dbCount);
 	}
@@ -62,7 +67,7 @@
  	if(cateMain==null&&cateSub==null){
 		 list = dao.getCList2(start,end);
 	}else if(cateMain==null&&cateSub!=null){
-		list = dao.getCList3(start,end,cateSub);
+		list = dao.SearchList(inp_sch,start,end);
 	}else if(cateMain!=null&&cateSub==null){
 		list = dao.SearchList(inp_sch,start,end);
 	}

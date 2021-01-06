@@ -309,10 +309,11 @@ $(document).ready(function(){
 			$("#inp_sch").focus();
 			return false;
 		} else {
-			var inp_sch = $("#inp_sch").val();
+			index_search.submit();
+			/* var inp_sch = $("#inp_sch").val();
 			var btn_sch = $("#btn_sch").val();
 			$(location).attr('href',"http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="+inp_sch); 
-			
+			 */
 		}
 	}); 
 });
@@ -333,8 +334,10 @@ $(document).ready(function(){
 								<!-- <input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
 										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox" id="inp_sch" >
 								<button class=search_btn type="submit" id="btn_sch"></button> -->
+								<form method="get" action="indexProc.jsp" name="index_search">
 								<input type="text" class="inp_sch" name="inp_sch" id="inp_sch" 
 								placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off"><button class="btn_sch" id="btn_sch"></button>
+								</form>
 							</fieldset>
 					</div> <!-- hd_search_box -->
 							<div class="Search_Container" id="bar_true_list" >
