@@ -324,15 +324,14 @@
 	    float: right;
 	}
 	.login_box .login_msg {
-	    margin-bottom: 22px;
+	    margin-bottom: 30px;
 	    font-weight: bold;
 	    font-size: 18px;
 	    line-height: 25px;
 	    text-align:center;
 	}
 	.login_box .link_login {
-	    display: inline-block;
-	    padding: 12px 0;
+	    padding: 12px 35px;
 	    border-radius: 6px;
 	    text-align: center;
 	    color: #fff;
@@ -340,6 +339,9 @@
 	    line-height: 24px;
 	    background-color: #ff0045;
 	    width:143px;
+	    position:relative;
+	    margin-left: 2px;
+	    paddint-top:5px;
 	}
 	.login_box .link_login:focus {
 	    outline:none;
