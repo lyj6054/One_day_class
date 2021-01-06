@@ -258,7 +258,7 @@ public class sh_ClassDAO extends DBConn {
 		ArrayList<sh_ClassVO> list = new ArrayList<sh_ClassVO>();
 		
 		try {
-			String sql = "select c.cid, spicture, title, price "
+			String sql = "select c.cid, spicture, title, price, catemain "
 					+ " from one_class c, one_wishlist w where c.cid=w.cid and w.email=? "
 					+ " order by wdate desc";
 			getPreparedStatement(sql);
@@ -271,6 +271,7 @@ public class sh_ClassDAO extends DBConn {
 				vo.setSpicture(rs.getString(2));
 				vo.setTitle(rs.getString(3));
 				vo.setPrice(rs.getInt(4));
+				vo.setCatemain(rs.getString(5));
 				
 				list.add(vo);
 			}
