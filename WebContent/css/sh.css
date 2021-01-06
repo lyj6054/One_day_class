@@ -1045,6 +1045,15 @@
       margin-top: 10px;
       margin-left:17px;
       margin-bottom:50px;
+      font-size:15px;
+   }
+   div.right>button.r-btn3:focus {
+     outline:none;
+   }
+   div.right>button.r-btn3:hover {
+     background-color:white;
+     color:rgb(255,0,69);
+     border:1px solid rgb(255,0,69);;
    }
    div.right>h3 {
       display:inline-block;
@@ -1135,6 +1144,10 @@
       font-size:30px;
       font-weight:bold;
       margin-bottom:20px;
+      padding-bottom:10px;
+      border-bottom:4px solid #ff005a;
+      margin-top:-13px;
+      width:25%;
    }
    hr.a-bar {
       width:1045px;
@@ -1164,8 +1177,10 @@
        line-height: 24px;
        letter-spacing: -0.38px;
        word-break: break-all;
-       margin-bottom:-10px;
-       margin-left:20px;
+       margin-bottom:-5px;
+       padding:10px 0;
+       margin-top:-10px;
+       
    } 
    .a-left-2{
    	  width:600px;
@@ -1180,7 +1195,7 @@
 	    vertical-align: middle;
 	    background: url(http://localhost:9000/One_day_class/images/star.png) repeat-x;
 	    background-size: 14px 13px;
-	    margin-left:20px;
+	    margin-bottom:5px;
 	}
 	.a-left-2 .star_box .star {
 	    display: inline-block;
