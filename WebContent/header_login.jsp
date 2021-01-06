@@ -19,6 +19,8 @@
 <head>
 <meta charset="UTF-8">
 <title>header_login</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <style>
 	* {
 		box-sizing: border-box;
@@ -334,7 +336,7 @@ $(document).ready(function(){
 								<!-- <input class="inp" type="text" name="query" autocomplete="off" maxlength="100"
 										placeholder="배우고 싶은 것이 있나요?" tabindex="1" class="SearchInputBox" id="inp_sch" >
 								<button class=search_btn type="submit" id="btn_sch"></button> -->
-								<form method="get" action="indexProc.jsp" name="index_search">
+								<form method="post" action="indexProc.jsp" name="index_search">
 								<input type="text" class="inp_sch" name="inp_sch" id="inp_sch" 
 								placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off"><button class="btn_sch" id="btn_sch"></button>
 								</form>

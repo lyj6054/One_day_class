@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <style>
 	* {
 		box-sizing: border-box;
@@ -171,8 +173,8 @@ $(document).ready(function(){
 					<div class="hd_search_box">
 							<fieldset>
 								<form method="get" action="indexProc.jsp" name="index_search">
-								<input type="text" class="inp_sch" name="inp_sch" id="inp_sch" 
-								placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off"><button class="btn_sch" id="btn_sch"></button>
+									<input type="text" class="inp_sch" name="inp_sch" id="inp_sch" 
+									placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off"><button class="btn_sch" id="btn_sch"></button>
 								</form>
 							</fieldset>
 					</div>
