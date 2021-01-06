@@ -62,7 +62,7 @@
 			</div>
 
 			<div class="main-section2" id="section2">
-				<iframe width="800px"  height="800px"  src="class_iframe.jsp?cid=<%=cid%>">
+				<iframe width="800px"  height="800px" src="class_iframe.jsp?cid=<%=cid%>">
 				</iframe>
 				<div class="main-section3">
 				<button type=button  class="accept" id="accept">수락</button>

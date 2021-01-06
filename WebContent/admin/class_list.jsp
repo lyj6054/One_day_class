@@ -346,6 +346,9 @@
 	    border: 0;
 	    background-color: #fff;
 	}
+	.cont-8:hover {
+		background-color:white;
+	}
 	.paging-page a {
     	display: inline-block;
 	    height: 17px;

@@ -433,10 +433,14 @@
    }
    /** 수정본  **/
    .udp_text{
-   	height:auto;
+   	height:600px;
    	width:810px;
-   	overflow: hidden;
+   	overflow: auto;
    }
+   .udp_text::-webkit-scrollbar{width: 7px;}
+   .udp_text::-webkit-scrollbar-thumb {background-color:lightgray;}
+   
+   
    .udp_title1{
 		display:inline-block;
 		width:800px;
@@ -482,6 +486,7 @@
 		text-align:left;
 		margin-left:50px;
 		margin-top:20px;
+		overflow: auto;
 		}
 	/** 버튼 **/
 	.udp_btnbox {

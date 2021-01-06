@@ -200,6 +200,9 @@
 	.main-section2 .section2-cont:hover {
 		background-color: #e9e9e9;  
 	}
+	.cont-8:hover{
+		background-color:white;
+	}
 	.main-section2 .section2-cont li {
 		float: left;
 	    /* text-align: center; */
