@@ -1,4 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	import="com.one_day_class.vo.*"
+%>
+<%
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +12,17 @@
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
 </head>
 <body>
-	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+		<!-- header -->
+	<% if(svo != null) { %>
+		<% if(svo.getIdentity().equals("튜터")) { %>
+			<jsp:include page="../header_tutor.jsp" />
+		<% } else if(svo.getIdentity().equals("튜티")) {%>
+			<jsp:include page="../header_login.jsp" />
+	<% } %>
+	<% } else {%>
+		<jsp:include page="../header.jsp" />
+	<% } %>
+
 
 	<div class="cen_container">
 		<div class="center">

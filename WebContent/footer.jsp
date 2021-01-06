@@ -144,7 +144,7 @@
 					<li class="depth1 tc">
 						<p class="title">TALING CENTER</p>
 						<ul class="depth2">
-							<li><a href="http://localhost:9000/One_day_class/support/notice.jsp" style="color:#ff005a">공지사항</a></li>
+							<li><a href="http://localhost:9000/One_day_class/notice/notice_list.jsp" style="color:#ff005a">공지사항</a></li>
 							<li>
 								<p>운영시간</p>
 								<p>평일 오전 10시 ~ 오후 5시  점심 오후 1시 ~ 2시</p>
