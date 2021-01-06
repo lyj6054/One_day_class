@@ -253,7 +253,7 @@ margin: 2px 0 ;
 							} else {
 								var inp_sch = $("#inp_sch").val();
 								var btn_sch = $("#btn_sch").val();
-								$(location).attr('href',"http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="+inp_sch); 
+								$(location).attr('href',"http://localhost:9000/One_day_class/indexProc2.jsp?&inp_sch="+inp_sch); 
 								
 							}
 						}); 		
