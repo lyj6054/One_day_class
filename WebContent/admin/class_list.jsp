@@ -677,6 +677,7 @@
 			</ul>
 			<div id="nesListNew">
 			<form name="ClassMForm" action="class_listProc.jsp" method="get" class="join">
+			<input type="hidden" name="wbutton" value="" id="wbutton">
 			<% 
 				for(ClassVO vo:list){ i++;
 				TutorVO vo_tutor = dao_tutor.getTutorInfo(vo.getCid()); 
