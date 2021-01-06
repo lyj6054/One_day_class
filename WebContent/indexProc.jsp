@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*, com.one_day_class.vo.*"%>
 <%
+	request.setCharacterEncoding("UTF-8");	
+
 	String inp_sch=request.getParameter("inp_sch");
 	SearchDAO dao=new SearchDAO();
 	

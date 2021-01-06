@@ -301,8 +301,11 @@ margin: 2px 0 ;
 					%>
 				</h1>
 				<div class="box_sch" id="box_sch">
-					 <input type="text" class="inp_sch" name="inp_sch" id="inp_sch" placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off">
-                    <button class="btn_sch" id="btn_sch"></button>
+					 <form method="get" action="indexProc.jsp" name="index_search">
+						<input type="text" class="inp_sch" name="inp_sch" id="inp_sch"
+							placeholder="배우고 싶은 재능이나 튜터를 검색해보세요." autocomplete="off">
+					</form>
+					<button class="btn_sch" id="btn_sch"></button>
 					<div class="Search_Container" id="bar_true_list"
 						style="display: none;">
 						<div class="Search_Container_Header" id="bar_true_text">
