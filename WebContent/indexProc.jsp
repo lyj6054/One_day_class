@@ -6,7 +6,8 @@
 	SearchDAO dao=new SearchDAO();
 	
 	if(dao.insertWord(inp_sch)){
-	response.sendRedirect("http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="+ inp_sch);
+	response.sendRedirect("http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="
+			+ inp_sch);
 	}else{
 		response.sendRedirect("errorPage.jsp");
 	}
