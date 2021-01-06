@@ -139,11 +139,21 @@
          <div class="d-side-box5">
             <div id="cid" style="display: none;"><%= cid %></div>
             <div id="email" style="display: none;"><%= email %></div>
-            <% if(wishCheck == 0){ %>
-            <button type="button" name="add" id="wish_add_btn"></button>
-            <% } else { %>
-            <button class="on" type="button" name="add" id="wish_remove_btn"></button>
+            <% if(email.equals("guest")) { %>
+            	<button type="button" name="add" id="wish_add_btn_none" onclick="loginMsg()"></button>
+            <% } else { 
+            		if(svo.getIdentity().equals("튜터")) {%>
+            			<button type="button" name="add" id="wish_add_btn_none" onclick="loginMsg()"></button>
+            		<%} else { %>
+            			 <% if(wishCheck == 0){ %>
+			            <button type="button" name="add" id="wish_add_btn"></button>
+			            <% } else { %>
+			            <button class="on" type="button" name="add" id="wish_remove_btn"></button>
+			            <% } %>
+            		<% } %>
             <% } %>
+           
+            
             <% if(email != null && !email.equals("guest")&& !svo.getIdentity().equals("튜터")) {%>
             <a href="class_apply.jsp?cid=<%= cid%>&email=<%= email%>">
                <img src="http://localhost:9000/One_day_class/images/dance-btn.png">

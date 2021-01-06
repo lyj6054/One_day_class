@@ -1,8 +1,15 @@
 	/* class beauty 상세페이지 */
 	function loginMsg(){
-		alert('로그인이 필요합니다');
+		alert('튜터로 로그인이 필요합니다');
 	}
+/*	$(document).ready(function(){
+		$("#wish_add_btn_none").click(function(){
+		
+		alert("튜터로 로그인이 필요합니다");
+	});
+	});*/
 
+	
 	$(document).ready(function(){
 		var p2pGnb = $('.nav ul li')
 		var p2pCont = $('.dance > .idx')
