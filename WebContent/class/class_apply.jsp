@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"
     import="com.one_day_class.dao.*, com.one_day_class.vo.*, java.util.*"%>
 <%
+	SessionVO svo=(SessionVO)session.getAttribute("svo");
 	String cid = request.getParameter("cid");
 	String email = request.getParameter("email");
 	
@@ -31,8 +32,15 @@
 </head>
 <body>
 	<!--header -->
-	<jsp:include page="../header.jsp" />
-	
+   <% if(svo != null) { %>
+      <% if(svo.getIdentity().equals("튜터")) { %>
+         <jsp:include page="../header_tutor.jsp" />
+      <% } else if(svo.getIdentity().equals("튜티")) {%>
+         <jsp:include page="../header_login.jsp" />
+   <% } %>
+   <% } else {%>
+      <jsp:include page="../header.jsp" />
+   <% } %>
 	
 	<hr class="a-bar">
 	<form action="classApplyProc.jsp" method="POST" id="class_apply">

@@ -1016,7 +1016,7 @@
 										
 											<%for(ClassVO vo:list3){  i++; TutorVO vo_tutor_index = dao_tutor.getTutorInfo(vo.getCid());%>
 												<li class="swiper-slide" style="width: 123px; margin-right: 60px;">
-													<a href="">
+													<a href="http://localhost:9000/One_day_class/search/search.jsp?cateMain=<%=vo.getCatemain()%>">
 														<div class="profile" style="background-image: url('http://localhost:9000/One_day_class/upload/<%=vo_tutor_index.getSprofile_img()%>');"></div>
 														<p class="cate_main"><%= vo.getCatemain()%></p>
 														<p class="name"><%= vo_tutor_index.getName()%></p>
