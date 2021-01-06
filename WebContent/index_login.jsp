@@ -920,7 +920,7 @@ $(document).ready(function(){
 					        	<% } %>
 					        	
 				        	</b>
-				        	<span>반가워요!<br>오늘도 색다른 탈잉을 즐겨봐요:)</span>
+				        	<span>반가워요!<br>오늘도 색다른 탈멍을 즐겨봐요:)</span>
 				     	</div> <!-- class="logon_msg" -->
 				      </div> <!-- class="area_info_top" -->
 				     <div class="area_info_bottom">

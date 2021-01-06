@@ -789,8 +789,8 @@
 	            	</div>
 	            </div>
 	            <div class="login_box">
-				    <p class="login_msg">안녕하세요:)<br>로그인 하시고 탈잉의<br>"다양한 튜터"를 만나보세요.</p>
-					    <a class="link_login" href="http://localhost:9000/One_day_class/login/email_login.jsp">탈잉 로그인</a>
+				    <p class="login_msg">안녕하세요:)<br>로그인 하시고 탈멍의br>"다양한 튜터"를 만나보세요.</p>
+					    <a class="link_login" href="http://localhost:9000/One_day_class/login/email_login.jsp">탈멍 로그인</a>
 					    <a class="link_login" href="http://localhost:9000/One_day_class/join/join.jsp">회원가입</a>
 				    <div class="box_btns">
 				        <!-- <a class="find_id" href="http://localhost:9000/One_day_class/login/find_id.jsp">아이디 찾기</a>
