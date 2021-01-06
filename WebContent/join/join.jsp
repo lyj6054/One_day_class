@@ -392,17 +392,12 @@
 						<p class="info_error" id="nameError1">이름(실명)을 입력해주세요</p>
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp">
-						<div class="email_div">
 							<img src="http://localhost:9000/One_day_class/images/email.png" style="margin-left:-325px; margin-top:10px;">
 							<div class="email_div" style="margin-top:-30px;margin-left:20px;">
 								<input type="text" name="email" id="userEmail" placeholder="이메일 주소를 입력해주세요" autocomplete="off">
-								<button type="button" id="emailCheck">중복확인</button> <!-- onblur="emailCheck()" -->
 							</div>
-						</div>
 						<p class="info_error" id="emailError1">이메일 형식에 맞지 않습니다</p>
 						<p class="info_error" id="emailError2">이메일 주소를 입력해주세요</p>
-						<p class="info_error" id="emailError3">이미 존재하는 이메일 입니다</p>
-						<p class="info_error" id="confirmError3">사용 가능한 이메일 입니다</p>
 					</div> <!-- class="line_inp" -->
 					<div class="line_inp line_pw">
 						<img src="http://localhost:9000/One_day_class/images/password.png" style="width:22px; height:22px;">
