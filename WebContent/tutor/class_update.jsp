@@ -14,7 +14,7 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 - 수업 등록하기1</title>
+<title>탈멍 - 수업 수정하기1</title>
 <link rel="stylesheet"
 	href="http://localhost:9000/One_day_class/css/yj.css">
 <script
@@ -68,7 +68,7 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 			</div>
 			<div class="tutor_cont">
 				<div class="title_box">
-					<h3>수업등록</h3>
+					<h3>수업수정</h3>
 					<div class="steps">
 						<li class="on"><b>01</b>제목/이미지</li> <img
 							src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_next.png">
