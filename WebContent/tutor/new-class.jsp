@@ -361,6 +361,7 @@
       text-align:center;
       font-size:15px;
       color:rgb(85,85,85);
+      vertical-align:middle;
    }
    .con2>ul.ul_title>li,
    .con2-1>.ul_title1>li {
