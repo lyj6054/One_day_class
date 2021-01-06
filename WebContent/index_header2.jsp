@@ -263,7 +263,6 @@ margin: 2px 0 ;
 						var inp_sch = $("#inp_sch_list").text();
 							
 							
-							alert(inp_sch);
 							$(location).attr('href',"http://localhost:9000/One_day_class/search/search.jsp?&inp_sch="+inp_sch); 
 							
 						

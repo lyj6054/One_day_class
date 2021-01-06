@@ -204,7 +204,6 @@
       </div>
    </div>
    <div class="button_box">
-      <a href="/Talent/Detail/31465" target="_blank"><div class="next button prev">미리보기</div></a>
       <div class="next button on"  id="btnReg2">저장 후 다음단계 (2/3)</div>
    </div>
 

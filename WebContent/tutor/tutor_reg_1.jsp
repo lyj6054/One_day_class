@@ -92,7 +92,7 @@
 						</select> 
 						<input type="text" class="basic nick"  id="regionSub" name="regionsub" 
 							value=""  placeholder="상세지역"
-							style="margin-bottom: 10px; margin-top: 10px; width: 100%;">
+							style="margin-bottom: 10px; margin-top: 10px; width: 100%;" autocomplete="off">
 					</div>
 				</div>
 
@@ -189,7 +189,7 @@
 						</div>
 						<div class="inner1">
 							<input type="text" class="basic nick" id="Title" name="title"
-								value="" placeholder="수강생을 끌어당길 수 있는 개성넘치는 제목을 만들어 보세요.">
+								value="" placeholder="수강생을 끌어당길 수 있는 개성넘치는 제목을 만들어 보세요." autocomplete="off">
 						</div>
 					</div>
 				</div>
@@ -557,7 +557,7 @@
 							<div class="vdo">
 								<input type="text" name="videos" class="basic len786"
 									placeholder="예) https://youtu.be/1sboNBkTMuU"
-									style="margin-bottom: 10px; width: 100%;">
+									style="margin-bottom: 10px; width: 100%;"autocomplete="off">
 							</div>
 						</div>
 						<script>
