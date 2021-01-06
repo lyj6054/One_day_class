@@ -293,7 +293,7 @@
 	    width: 831px;
 	    height: 430px;
 	    overflow-y: auto !important;
-	    margin-left:120px;
+	    margin-left:20px;
 	}
 	.main-section2 .section2-cont li.cont-8 .cont8-wrap {
 	    margin: 20px 0;

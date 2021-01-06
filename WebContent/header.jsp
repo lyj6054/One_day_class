@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <style>
 	* {
 		box-sizing: border-box;
@@ -152,6 +150,7 @@ $(document).ready(function(){
 			$("#inp_sch").focus();
 			return false;
 		} else {
+			//ystem.out.println(index_search);
 			index_search.submit();
 			/* var inp_sch = $("#inp_sch").val();
 			var btn_sch = $("#btn_sch").val();
