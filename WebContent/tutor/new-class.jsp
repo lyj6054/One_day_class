@@ -340,7 +340,7 @@
       border:2px solid lightgray;
       border-radius:5px;
       display:inline-block;
-      width:800px;
+      width:1000px;
       height:200px;
       margin-left:25px;
       padding:10px 0 10px 5px;
@@ -394,18 +394,18 @@
       border-radius:9px;
    }
    .bar{
-      width:730px;
+      width:950px;
    }
    .ut1,
    .ut2,
    .ut4{
-      width:70px;
+      width:130px;
    }
    .ut5 {
-      width:110px;
+      width:150px;
    }
    .ut3 {
-      width:300px;
+      width:350px;
    }
    .ut3-1{
       width:170px;
