@@ -81,8 +81,13 @@
 	}
 	
 	if(result){
-		svo.setName(vo_tutor.getName());
-		response.sendRedirect("../index_login.jsp");
+		if(svo.getIdentity().equals("튜터")) {
+			svo.setName(vo_tutor.getName());
+			response.sendRedirect("../index_login.jsp");
+		} else {
+			svo.setName(vo_tutee.getName());
+			response.sendRedirect("../index_login.jsp");
+		}
 	} else {
 		response.sendRedirect("../errorPage.jsp");
 		
