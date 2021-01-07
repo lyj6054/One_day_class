@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"
 	import="com.one_day_class.dao.*, com.one_day_class.vo.*,java.util.*"%>
 <%
+	
 	ClassDAO dao = new ClassDAO();
 	sh_ReviewDAO dao_review = new sh_ReviewDAO();
 	sh_TutorDAO dao_tutor = new sh_TutorDAO();
