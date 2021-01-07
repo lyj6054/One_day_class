@@ -190,9 +190,9 @@
 	    background-image: url(http://localhost:9000/One_day_class/images/newsroom201301_dot.gif);
     	background-repeat: repeat-x;
 	}
-	.main-section2 .section2-cont:hover {
+	/* .main-section2 .section2-cont:hover {
 		background-color: #e9e9e9;
-	}
+	} */
 	.main-section2 .section2-cont li {
 		float: left;
 	    text-align: center;
