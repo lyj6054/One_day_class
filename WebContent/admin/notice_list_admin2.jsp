@@ -524,7 +524,6 @@
 		//open/close 변경
 		$(".open").click(function(){
 				var bid = $(this).attr("id");
-				alert(bid);
 				var status = $(this).attr("src");
 				if(status == "http://localhost:9000/One_day_class/images/notice_open.png") {
 					$("li#"+bid).css("display","block");

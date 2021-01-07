@@ -239,9 +239,9 @@
 	    width: 820px;
 	    padding: 10px 0;
 	}
-	.ad_member_list .member_list_cont:hover {
+	/* .ad_member_list .member_list_cont:hover {
 		background-color: #e9e9e9;
-	}
+	} */
 	.ad_member_list .member_list_cont li {
 	    float: left;
 	    text-align: center;
