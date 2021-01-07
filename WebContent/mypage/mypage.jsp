@@ -102,19 +102,19 @@
 						</div>
 						<div class="p_info">
 							<div class="p_label">전화번호</div>
-							<input type="text" id="phone" class="full" name="phone" value="<%= vo_tutor.getPhone()%>">
+							<input type="text" id="phone" class="full" name="phone" value="<%= vo_tutor.getPhone()%>" autocomplete="off">
 						</div>
 						<div class="p_info">
 							<div class="p_label">이름</div>
-							<input type="text" id="name" class="full" name="name" value="<%= vo_tutor.getName() %>">
+							<input type="text" id="name" class="full" name="name" value="<%= vo_tutor.getName() %>" autocomplete="off">
 						</div>
 						<div class="p_info">
 							<div class="p_label">나이</div>
-							<input type="text" id="age" class="full" name="age" value="<%= vo_tutor.getAge()%>">
+							<input type="text" id="age" class="full" name="age" value="<%= vo_tutor.getAge()%>" autocomplete="off">
 						</div>
 						<div class="p_info">
 							<div class="p_label">거주지역</div>
-							<input type="text" id="area" class="full" name="area" value="<%= vo_tutor.getArea()%>">
+							<input type="text" id="area" class="full" name="area" value="<%= vo_tutor.getArea()%>" autocomplete="off"> 
 						</div>
 						<div class="p_info">
 							<div class="p_label">내소개</div>
@@ -165,19 +165,19 @@
 					</div>
 					<div class="p_info">
 						<div class="p_label">전화번호</div>
-						<input type="text" id="phone" class="full" name="phone" value="<%= vo_tutee.getPhone()%>">
+						<input type="text" id="phone" class="full" name="phone" value="<%= vo_tutee.getPhone()%>" autocomplete="off">
 					</div>
 					<div class="p_info">
 						<div class="p_label">이름</div>
-						<input type="text" id="name" class="full" name="name" value="<%= svo.getName()%>">
+						<input type="text" id="name" class="full" name="name" value="<%= svo.getName()%>" autocomplete="off">
 					</div>
 					<div class="p_info">
 						<div class="p_label">나이</div>
-						<input type="text" id="age" class="full" name="age" value="<%= vo_tutee.getAge()%>">
+						<input type="text" id="age" class="full" name="age" value="<%= vo_tutee.getAge()%>" autocomplete="off">
 					</div>
 					<div class="p_info">
 						<div class="p_label">거주지역</div>
-						<input type="text" id="area" class="full" name="area" value="<%= vo_tutee.getArea()%>">
+						<input type="text" id="area" class="full" name="area" value="<%= vo_tutee.getArea()%>" autocomplete="off">
 					</div>
 					<div class="p_info">
 						<div class="p_label">내소개</div>

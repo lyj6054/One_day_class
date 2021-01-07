@@ -196,7 +196,7 @@ String email = svo.getEmail();
 					
 					<div class="my_review" id="m_w_<%=i%>">
 							<textarea  class="review_textarea_reg " placeholder=" 리뷰를 입력해주세요."   id="review_textarea_reg<%=i%>" name="rcontent_insert<%=i%>"></textarea>
-							<input  class = "star_point"  type="text"  placeholder="평점(1~5)" id="review_starpoint<%=i%>"name="star_point<%=i%>"> 
+							<input  class = "star_point"  type="text"  placeholder="평점(1~5)" id="review_starpoint<%=i%>"name="star_point<%=i%>" autocomplete="off"> 
 							<button type="button"  class="insert_button" id="insert_button<%=i%>"  name="<%=i%>" >등록 완료</button>
 					</div>
 				<% } %>
