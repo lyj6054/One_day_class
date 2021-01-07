@@ -938,7 +938,7 @@ $(document).ready(function(){
 				        			 <li><a href="http://localhost:9000/One_day_class/admin/class_list.jsp">수업관리</a></li>
 						     	 	 <li class="admin"><a href="http://localhost:9000/One_day_class/admin/member_list.jsp">회원관리</a></li>
 				        		<% } else { %>
-				        			<% if(vo_tutor.getSprofile_img() != null) { %> 
+				        			<% if(dao.getMyList(email)!= 0) { %> 
 					        			<li><a href="http://localhost:9000/One_day_class/tutor/new-class.jsp">내 수업</a></li>
 				        			<% } else { %>
 					        			<li ><button id="myClass">내 수업</button></li>
