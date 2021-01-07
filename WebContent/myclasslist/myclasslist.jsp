@@ -179,10 +179,10 @@ String email = svo.getEmail();
 								</font>
 							</div>
 							<div class="r_cont">
-								<p id="review_p<%=i%>" >
+								<p id="review_p<%=i%>"  >
 								<% for(int j = 0; j < list_review.size(); j++){ %>
 								<% if(list_review.get(j).getCid().equals(list_class.get(i).getCid())) { %>
-								<%= list_review.get(j).getRcontent() %>
+								<%= list_review.get(j).getRcontent().replaceAll("\n", "<br>") %>
 								<% } %> 
 								<% } %>
 								</p>

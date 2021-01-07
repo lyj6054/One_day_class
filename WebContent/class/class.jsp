@@ -253,7 +253,7 @@
                   </span>
                   <span class="dance-b8"><%= list_tutee.get(i).getName() %></span><br>
                   <span class="dance-b9"><%= list_review.get(i).getRdate() %></span>
-                     <p class="review_p"><%= list_review.get(i).getRcontent() %></p>
+                     <p class="review_p"><%= list_review.get(i).getRcontent().replaceAll("\n", "<br>")  %></p>
                </div>
             </li>
             <% } %>
