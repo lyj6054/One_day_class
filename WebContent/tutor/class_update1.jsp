@@ -9,7 +9,8 @@
 	String cid = request.getParameter("cid");
 	ms_TutorclassDAO dao = new ms_TutorclassDAO();
 	ms_TutorclassVO vo = dao.getSelectclass(cid);
-	
+	String[] schedules=vo.getSchedule().split(",");
+	int schedules_size=schedules.length;
 %>
 
 <%if(svo != null){  if(svo.getIdentity().equals("튜터")){String email = svo.getEmail();%>
@@ -24,7 +25,7 @@
    src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 <script>
 	$(document).ready(function(){
-		var idx=1;
+		var idx=<%=schedules_size%>;
 			$("#text_plus_btn").click(function(){
 				$("#text_plus").append('<input type="text" id="plan" name="schedule'+idx+'"  value="" class="basic phone" style="display:block;margin-bottom:5px;" placeholder="ex) 12월 31일 (목) 11:00-13:00">');
 				idx++;
@@ -83,9 +84,16 @@
          <div class="inner1">
             <div class="gray5 title">수업일정</div>         
                         <input type="text" id="plan" name="schedule" 
-                        value="<%=vo.getSchedule() %>" class="basic phone" placeholder="ex) 12월 31일 (목) 11:00-13:00"> 
+                        value="<%=schedules[0]%>" class="basic phone" placeholder="ex) 12월 31일 (목) 11:00-13:00"> 
                         <button type="button" id="text_plus_btn">일정 추가하기</button>
-                        <div id="text_plus"></div>
+                        <div id="text_plus">
+                        	<%if(schedules_size>1){
+                        			for(int i=1;i<schedules_size;i++){%>
+	                        	<input type="text" id="plan" name="schedule<%=i %>" value="<%=schedules[i] %>" 
+	                        		class="basic phone" style="display:block;margin-bottom:5px;" 
+	                        		placeholder="ex) 12월 31일 (목) 11:00-13:00">
+                        	<%}} %>
+                        </div>
               
          </div>
       </div>
