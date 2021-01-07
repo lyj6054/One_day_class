@@ -439,6 +439,17 @@
    		font-weight: 500;
    		color: #ff005a;
 	}
+	.status_logon .lnb #myClass {
+		margin-bottom:25px;
+		position: relative;
+   		font-weight: 500;
+	}
+	.status_logon .lnb #myClass:hover {
+		margin-bottom:25px;
+		position: relative;
+   		font-weight: 500;
+   		color: #ff005a;
+	}
 	.status_logon .lnb a:first-child {
 		border-left:0;
 	}

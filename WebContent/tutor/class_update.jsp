@@ -98,7 +98,7 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 						</select> 
 						<input type="text" class="basic nick"  id="regionSub" name="regionsub" 
 							value="<%=vo.getRegionsub()%>"  placeholder="상세지역"
-							style="margin-bottom: 10px; margin-top: 10px; width: 100%;">
+							style="margin-bottom: 10px; margin-top: 10px; width: 100%;"autocomplete="off" >
 					</div>
 				</div>
 
@@ -195,7 +195,7 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 						</div>
 						<div class="inner1">
 							<input type="text" class="basic nick" id="Title" name="title"
-								value="<%=vo.getTitle() %>" placeholder="수강생을 끌어당길 수 있는 개성넘치는 제목을 만들어 보세요.">
+								value="<%=vo.getTitle() %>" placeholder="수강생을 끌어당길 수 있는 개성넘치는 제목을 만들어 보세요." autocomplete="off">
 						</div>
 					</div>
 				</div>
@@ -220,7 +220,7 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 							<div class="right">
 								<input  type="file" id="imgnonefile" name="picture" accept="image/*"
 									style="margin-bottom: 10px ;position: absolute; opacity: 0; cursor: pointer;"
-									>
+									autocomplete="off">
 								<div class="plus button" id="imgUp" data-send="coverImage">
 									<img 
 										src="https://front-img.taling.me/Content/Images/Tutor/Images/icon_add_wh.png">
@@ -228,7 +228,7 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 								</div>
 								<br>
 								<input  type="file" id="imgnonefile2" name="picture2" accept="image/*"
-									style="position: absolute; opacity: 0; cursor: pointer;"
+									style="position: absolute; opacity: 0; cursor: pointer;" autocomplete="off"
 									>
 								<div class="plus button" id="imgUp2" data-send="coverImage">
 									<img 
@@ -237,7 +237,7 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 								</div>
 								<br>
 								<input type="file" id="imgnonefile3" name="picture3" accept="image/*"
-									style="position: absolute; opacity: 0; cursor: pointer;"
+									style="position: absolute; opacity: 0; cursor: pointer;" autocomplete="off"
 									>
 								<div class="plus button" id="imgUp3" data-send="coverImage">
 									<img 
@@ -245,7 +245,7 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 									<span id="img_3">이미지추가3</span>
 								</div>
 								<br>
-								<input  type="file"  id="imgnonefile4" name="picture4" accept="image/*"
+								<input  type="file"  id="imgnonefile4" name="picture4" accept="image/*" autocomplete="off"
 									style="position: absolute; opacity: 0; cursor: pointer;"
 									>
 								<div class="plus button" id="imgUp4" data-send="coverImage">
@@ -564,11 +564,11 @@ SessionVO svo=(SessionVO)session.getAttribute("svo");
 						<% if(vo.getVideos() != null ) { System.out.println(vo.getVideos());%>
 									<input type="text" name="videos" class="basic len786" 
 										placeholder="예) https://youtu.be/1sboNBkTMuU" value="<%=vo.getVideos()%>"
-										style="margin-bottom: 10px; width: 100%;">
+										style="margin-bottom: 10px; width: 100%;" autocomplete="off">
 								<% }else{  %>
 								<input type="text" name="videos" class="basic len786"
 									placeholder="예) https://youtu.be/1sboNBkTMuU"
-									style="margin-bottom: 10px; width: 100%;">
+									style="margin-bottom: 10px; width: 100%;" autocomplete="off">
 								<% } %>
 							</div>
 						</div>

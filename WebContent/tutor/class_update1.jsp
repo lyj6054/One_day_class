@@ -65,7 +65,8 @@
       <div class="cont">
          <div class="inner1" style="margin:0">
             <div class="gray5 title">가격</div>
-            <input type="text" id="price" name="price" value="<%=vo.getPrice() %>" class="basic phone" placeholder="가격을 입력하세요"> 원
+            <input type="text" id="price" name="price" value="<%=vo.getPrice() %>" class="basic phone" placeholder="가격을 입력하세요"
+             autocomplete="off"> 원
          </div>
          <div class="inner1">
             <div class="gray5 title">수업시간</div>
@@ -83,7 +84,7 @@
          <div class="inner1">
             <div class="gray5 title">수업일정</div>         
                         <input type="text" id="plan" name="schedule" 
-                        value="<%=vo.getSchedule() %>" class="basic phone" placeholder="ex) 12월 31일 (목) 11:00-13:00"> 
+                        value="<%=vo.getSchedule() %>" class="basic phone" placeholder="ex) 12월 31일 (목) 11:00-13:00"  autocomplete="off"> 
                         <button type="button" id="text_plus_btn">일정 추가하기</button>
                         <div id="text_plus"></div>
               
