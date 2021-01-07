@@ -49,7 +49,10 @@
 							<div class="cir">
 								<img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_class_view_01.png" style="width:45px">
 							</div>
-						수업소개 완성도
+						위시리스트
+						<div class="detail_1">
+							위시리스트에 많이 등록된 수업은 노출도가 상승합니다.
+						</div>
 						</div>
 					</div>
 					<div class="bar"></div>
@@ -58,7 +61,10 @@
 							<div class="cir" >
 								<img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_class_view_02.png" style="width:51px">
 							</div>
-						날짜-시간 설정여부
+						시간 설정여부
+						<div class="detail_1">
+							최근 등록된 수업은 노출도가 상승합니다.
+						</div>
 						</div>
 					</div>
 					<div class="bar"></div>
@@ -68,6 +74,9 @@
 								<img src="https://front-img.taling.me/Content/Images/guide/myPage/icon_class_view_03.png" style="width:51px">
 							</div>
 						리뷰 비율
+						<div class="detail_1">
+							리뷰가 많이 등록된 수업의 경우 노출도가 상승합니다.
+						</div>
 						</div>
 					</div>
 				</div>
