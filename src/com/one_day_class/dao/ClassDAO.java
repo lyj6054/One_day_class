@@ -4,11 +4,35 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.one_day_class.vo.ClassVO;
+import com.one_day_class.vo.ms_TutorclassVO;
 
 
 public class ClassDAO extends DBConn{
-	
-	
+	/**
+	 *  select : email을 받고 내수업이 몇개인지 확인
+	 */
+	/**
+	 * 내수업리스트  갯수 구하기
+	 */
+	public  int getMyList(String email){
+		int count=0;
+		try {
+			String sql="SELECT COUNT(*)  FROM (SELECT CID, EMAIL, TITLE,PICTURE,SPICTURE FROM (SELECT CID, OTR.EMAIL, TITLE,PICTURE,SPICTURE FROM ONE_CLASS ONEC, ONE_TUTOR OTR WHERE ONEC.EMAIL=OTR.EMAIL ORDER BY CID ASC)  WHERE EMAIL=?) ";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count=rs.getInt(1);
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 	/**
 	 * index : 검색어
 	 */
