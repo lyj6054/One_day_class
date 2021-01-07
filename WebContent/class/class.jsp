@@ -35,7 +35,7 @@
    //1페이지(1~10), 2페이지(11~20) ...
    int start = 0;
    int end = 0;
-   int pageSize = 5; // 한 페이지당 출력되는 row
+   int pageSize = 3; // 한 페이지당 출력되는 row
    int pageCount = 1; // 전체 페이지 수 : 전체 리스트 row / 한 페이지당 출력되는 row
    int dbCount = dao_review.getReviewCnt(cid); // DB연동 후 전체 row 수 출력
    int reqPage = 1; // 요청 페이지
@@ -71,7 +71,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>class</title>
+<title>탈멍 :: 튜터수업 </title>
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/One_day_class/js_sh/js_sh.js"></script>
 <script src="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.js"></script>
@@ -234,11 +234,11 @@
       <% } %>
       <div class="idx dance-box3-1">
          <span class="dance-b4" id="dance-b4-1">실제 수강생의<br>리뷰입니다.
-            <div class="review_sum">
+            <%-- <div class="review_sum">
                     <ul class="review_list">
                         <li><span>평점 </span><span class="avg"><%= score %></span></li>
                     </ul>
-                </div>
+                </div> --%>
             </span>
          <div class="dance-b6">
          </div>
@@ -253,7 +253,9 @@
                   </span>
                   <span class="dance-b8"><%= list_tutee.get(i).getName() %></span><br>
                   <span class="dance-b9"><%= list_review.get(i).getRdate() %></span>
+                    <div>
                      <p class="review_p"><%= list_review.get(i).getRcontent().replaceAll("\n", "<br>")  %></p>
+                    </div>
                </div>
             </li>
             <% } %>

@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 - 수업 등록하기1</title>
+<title>탈멍 [수업등록]</title>
 <link rel="stylesheet"
 	href="http://localhost:9000/One_day_class/css/yj.css">
 <script

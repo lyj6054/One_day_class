@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>mypassedit</title>
+<title>탈멍 [비밀번호변경]</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script>

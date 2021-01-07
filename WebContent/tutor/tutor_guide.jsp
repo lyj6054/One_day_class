@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>탈멍 [tutor_guide]</title>
 <link rel="stylesheet"
 	href="http://localhost:9000/One_day_class/css/yj.css">
 	<script

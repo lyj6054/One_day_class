@@ -33,7 +33,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index</title>
+<title>탈멍 [내수업]</title>
 <script src="http://localhost:9000/One_day_class/js_minsu/jquery-3.5.1.min.js"></script>
 <script>
    $(document).ready(function(){

@@ -48,7 +48,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index_login</title>
+<title>탈멍 ::탈출하자 멍떄리기</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.css">
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

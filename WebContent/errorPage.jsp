@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>탈멍 ::탈출하자 멍떄리기</title>
 <style>
 	*{
 		box-sizing: border-box;

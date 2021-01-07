@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>admin_notice_write</title>
+<title>탈멍 :: 공지사항/이벤트 - 작성</title>
 <script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <script>
 	$(document).ready(function(){
@@ -587,7 +587,7 @@
 					<ul>
 						<li class="udp_title1">
 							<label>작성자</label>
-							<input type="text" name="bcharge" id="bcharge" style="width:115px;">
+							<input type="text" name="bcharge" id="bcharge" style="width:115px;" autocomplete="off">
 						</li>
 						<li class="udp_title1">
 							<label>구분</label>
@@ -600,7 +600,7 @@
 						</li>
 						<li class="udp_title1">
 							<label >제목</label>
-							<input type="text" name="btitle" id="btitle" class="udp_t3">
+							<input type="text" name="btitle" id="btitle" class="udp_t3" autocomplete="off">
 						</li>
 						<li class="udp_text">
 							<label>내용</label>
