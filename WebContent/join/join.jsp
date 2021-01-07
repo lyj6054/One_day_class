@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 [회원가입]</title>
+<title>탈멍 :: 회원가입</title>
 <script src="http://localhost:9000/One_day_class/js_yh/jquery-3.5.1.min.js"></script>
 <style>
 * {

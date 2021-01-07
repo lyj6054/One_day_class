@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 [refund]</title>
+<title>탈멍 :: refund</title>
 <style>
 	div.refund {
 		width:1200px;

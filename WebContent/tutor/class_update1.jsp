@@ -17,7 +17,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 [수업수정]</title>
+<title>탈멍 :: 수업수정</title>
 <link rel="stylesheet"
    href="http://localhost:9000/One_day_class/css/yj.css">
 <script

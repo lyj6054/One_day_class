@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 [rule]</title>
+<title>탈멍 :: rule</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
 </head>
 <body>

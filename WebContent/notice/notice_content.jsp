@@ -15,7 +15,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 [공지사항/이벤트]</title>
+<title>탈멍 :: 공지사항/이벤트</title>
 <style>
   #newsroom-main {
 		display:inline-block;

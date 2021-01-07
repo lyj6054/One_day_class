@@ -168,7 +168,7 @@ public class sh_ClassDAO extends DBConn {
 		
 		try {
 			String sql = "select cid, ctype, regionmain, person, title, spicture, schedule, regionsub, price, time, "
-					+ " tutornotice, tutorinfo, introduction, target, curriculum, videos "
+					+ " tutornotice, tutorinfo, introduction, target, curriculum, videos, catemain, catesub "
 					+ " from one_class where cid=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, cid);
@@ -191,6 +191,8 @@ public class sh_ClassDAO extends DBConn {
 				vo.setTarget(rs.getString(14));
 				vo.setCurriculum(rs.getString(15));
 				vo.setVideos(rs.getString(16));
+				vo.setCatemain(rs.getString(17));
+				vo.setCatesub(rs.getString(18));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

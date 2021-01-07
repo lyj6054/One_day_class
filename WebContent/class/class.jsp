@@ -71,7 +71,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 :: 튜터수업 </title>
+<title>탈멍 :: 튜터수업 - <%= vo_class.getCatesub() %> </title>
 <script src="http://localhost:9000/One_day_class/js_sh/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/One_day_class/js_sh/js_sh.js"></script>
 <script src="http://localhost:9000/One_day_class/js_sh/swiper-bundle.min.js"></script>
@@ -193,7 +193,7 @@
       </div>
       <div class="dance-box3">
          <span class="dance-b4">수업 전<br> 숙지해주세요!</span>
-         <div class="dance-b5">
+         <div class="dance-b5" style="margin-left:60px;">
             <img src="http://localhost:9000/One_day_class/images/dance3.png">
             <p class="text_area"><%=vo_class.getTutornotice().replaceAll("\r\n", "<br>") %></p>
          </div>

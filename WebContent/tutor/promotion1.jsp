@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 [promotion]</title>
+<title>탈멍 :: promotion</title>
 <style>
 	div.promotion {
 		width:1200px;

@@ -26,7 +26,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 [위시리스트]</title>
+<title>탈멍 :: 위시리스트</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/sh.css">
 <style>
 	.c_container .myclass .class:nth-child(even) {
