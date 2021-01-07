@@ -14,6 +14,8 @@
 		//System.out.println(svo.getEmail());
 		//System.out.println(svo.getIdentity());
 		
+	
+		
 	if(svo != null) {
 
 %>    
@@ -94,7 +96,7 @@
 						<div class="p_info">
 							<div class="p_label">비밀번호</div>
 							<div class="p_passedit">
-								<a href="http://localhost:9000/One_day_class/mypassedit/mypassedit.jsp?email=<%= email %>&type=1" class="pass_edit" style="padding: 11px 18px;">비밀번호 변경하기
+								<a href="http://localhost:9000/One_day_class/mypassedit/mypassedit.jsp?email=<%= svo.getName() %>&type=1" class="pass_edit" style="padding: 11px 18px;">비밀번호 변경하기
 								</a>
 		                </div>
 						</div>
@@ -104,7 +106,7 @@
 						</div>
 						<div class="p_info">
 							<div class="p_label">이름</div>
-							<input type="text" id="name" class="full" name="name" value="<%= vo_tutor.getName()%>">
+							<input type="text" id="name" class="full" name="name" value="<%= vo_tutor.getName() %>">
 						</div>
 						<div class="p_info">
 							<div class="p_label">나이</div>
@@ -167,7 +169,7 @@
 					</div>
 					<div class="p_info">
 						<div class="p_label">이름</div>
-						<input type="text" id="name" class="full" name="name" value="<%= vo_tutee.getName()%>">
+						<input type="text" id="name" class="full" name="name" value="<%= svo.getName()%>">
 					</div>
 					<div class="p_info">
 						<div class="p_label">나이</div>

@@ -22,6 +22,8 @@
 	TuteeDAO dao_tutee = new TuteeDAO();
 	TutorVO vo_tutor = new TutorVO();
 	TutorDAO dao_tutor = new TutorDAO();
+	
+	SessionVO svo = (SessionVO)session.getAttribute("svo"); 
 	boolean result = false;
 	
 	switch(Integer.parseInt(multi.getParameter("type"))){
@@ -79,6 +81,7 @@
 	}
 	
 	if(result){
+		svo.setName(vo_tutor.getName());
 		response.sendRedirect("../index_login.jsp");
 	} else {
 		response.sendRedirect("../errorPage.jsp");
