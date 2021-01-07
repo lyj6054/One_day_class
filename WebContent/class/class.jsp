@@ -97,7 +97,7 @@
       });
       
       jQuery("#ampaginationsm").on('am.pagination.change',function(e){
-         $(location).attr('href','http://localhost:9000/One_day_class/class/class.jsp?rpage=' + e.page);
+         $(location).attr('href','http://localhost:9000/One_day_class/class/class.jsp?&cid=<%= cid%>&rpage=' + e.page);
       });
    });
 </script>
@@ -234,11 +234,11 @@
       <% } %>
       <div class="idx dance-box3-1">
          <span class="dance-b4" id="dance-b4-1">실제 수강생의<br>리뷰입니다.
-            <%-- <div class="review_sum">
+            <div class="review_sum">
                     <ul class="review_list">
                         <li><span>평점 </span><span class="avg"><%= score %></span></li>
                     </ul>
-                </div> --%>
+                </div> 
             </span>
          <div class="dance-b6">
          </div>
@@ -253,7 +253,7 @@
                   </span>
                   <span class="dance-b8"><%= list_tutee.get(i).getName() %></span><br>
                   <span class="dance-b9"><%= list_review.get(i).getRdate() %></span>
-                    <div>
+                    <div style="height:auto; overflow:hidden;">
                      <p class="review_p"><%= list_review.get(i).getRcontent().replaceAll("\n", "<br>")  %></p>
                     </div>
                </div>
