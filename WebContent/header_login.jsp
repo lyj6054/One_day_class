@@ -243,7 +243,6 @@
 	p {
 	   margin: 0px;
 	    padding: 0px;
-		font-weight: bold;
 		display:inline-block;
 		font-size:13px;
 		line-height:21px;

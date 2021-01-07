@@ -140,17 +140,17 @@
             <div id="cid" style="display: none;"><%= cid %></div>
             <div id="email" style="display: none;"><%= email %></div>
             <% if(email.equals("guest")) { %>
-            	<button type="button" name="add" id="wish_add_btn_none" onclick="loginMsg()"></button>
+               <button type="button" name="add" id="wish_add_btn_none" onclick="loginMsg()"></button>
             <% } else { 
-            		if(svo.getIdentity().equals("튜터")) {%>
-            			<button type="button" name="add" id="wish_add_btn_none" onclick="loginMsg()"></button>
-            		<%} else { %>
-            			 <% if(wishCheck == 0){ %>
-			            <button type="button" name="add" id="wish_add_btn"></button>
-			            <% } else { %>
-			            <button class="on" type="button" name="add" id="wish_remove_btn"></button>
-			            <% } %>
-            		<% } %>
+                  if(svo.getIdentity().equals("튜터")) {%>
+                     <button type="button" name="add" id="wish_add_btn_none" onclick="loginMsg()"></button>
+                  <%} else { %>
+                      <% if(wishCheck == 0){ %>
+                     <button type="button" name="add" id="wish_add_btn"></button>
+                     <% } else { %>
+                     <button class="on" type="button" name="add" id="wish_remove_btn"></button>
+                     <% } %>
+                  <% } %>
             <% } %>
            
             

@@ -60,7 +60,7 @@ public class ClassDAO extends DBConn{
 					"from(select  a.cid, email, picture, spicture, title, schedule, regionmain, cnt " + 
 					"from one_class a, (select count(*) cnt, cid from one_wishlist group by cid) b " + 
 					"where a.cid = b.cid " + 
-					"order by cnt desc)) a, (select distinct cid, cid wish_chk from one_wishlist where email=?) b " + 
+					"order by cnt desc) where rownum between 1 and 6) a, (select distinct cid, cid wish_chk from one_wishlist where email=?) b " + 
 					"where a.cid = b.cid(+) order by cno asc";
 			getPreparedStatement(sql); 
 			pstmt.setString(1, email);
@@ -101,7 +101,7 @@ public class ClassDAO extends DBConn{
 					"from(select cid, email, picture, spicture, title, schedule, regionmain, cstatus " + 
 					"from one_class where cstatus = 1 " + 
 					"order by cdate desc) " + 
-					"where rownum between 1 and 5) a, (select cid, cid wish_chk from one_wishlist where email=?) b " + 
+					"where rownum between 1 and 6) a, (select cid, cid wish_chk from one_wishlist where email=?) b " + 
 					"where a.cid = b.cid(+)  "
 					+ "order by cid desc";
 			getPreparedStatement(sql);
@@ -139,7 +139,7 @@ public class ClassDAO extends DBConn{
 			String sql = "select cno, a.cid, email, spicture, title, schedule, regionmain, wish_chk from " + 
 					"(select rownum cno, cid, email, picture, spicture, title, schedule, regionmain, cdate, cstatus " + 
 					"from(select cid, email, picture, spicture, title, schedule, regionmain, cdate, cstatus from one_class " + 
-					"where videos IS NOT NULL order by cdate desc) where rownum between 1 and 4) a, "
+					"where videos IS NOT NULL order by cdate desc) where rownum between 1 and 6) a, "
 					+ "(select cid, cid wish_chk from one_wishlist where email=?) b " + 
 					"where a.cid = b.cid(+) and cstatus=1" + 
 					"order by cdate desc";
@@ -507,7 +507,7 @@ public class ClassDAO extends DBConn{
 			String sql = "select cno, a.cid, email, spicture, title, schedule, regionmain, wish_chk from " + 
 					" (select rownum cno, cid,email,title,regionmain,schedule,spicture from one_class where cid in (select cid from(select rownum cno, cid, count1 " + 
 					" from(select cid ,count(*) count1 from one_apply_class group by cid " + 
-					" order by count1 desc,sysdate desc)where rownum between 1 and 4))) a, (select cid, cid wish_chk from one_wishlist where email=?) b " + 
+					" order by count1 desc,sysdate desc)where rownum between 1 and 6))) a, (select cid, cid wish_chk from one_wishlist where email=?) b " + 
 					" where a.cid = b.cid(+) order by cno asc";
 			getPreparedStatement(sql);
 			pstmt.setString(1, email);
