@@ -178,11 +178,14 @@
       color:red;
       font-size:13px;
    }
-   div.static-box>div.box>div.box1>h3 {
+   div.static-box>div.box>div.box1>a>h3 {
       font-weight:bold;
       font-size:30px;
       margin-bottom:35px;
       color:#ff0045;
+   }
+   div.static-box>div.box>div.box1>a{
+   	text-decoration: none;
    }
    .sim {
       color:#ff0045;
@@ -496,7 +499,7 @@
          </div>
          <div class="box">
             <div class="box1">
-               <h3>[<%=vo.getCatemain()%>] <%=vo.getCatesub() %></h3>
+              <a href="http://localhost:9000/One_day_class/class/class.jsp?cid=<%=vo.getCid()%>"><h3>[<%=vo.getCatemain()%>] <%=vo.getCatesub() %></h3></a> 
                <span class="mid">[ <%=vo.getName() %> ] 튜터 님!<br><br></span>
             <%if(vo.getCstatus() != 0){ %>
                <span class="mid">수업 심사가 드디어 완료됐습니다!<br></span>
