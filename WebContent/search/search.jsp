@@ -78,7 +78,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈멍 :: 수업검색 - <%= cateMain%></title>
+<title>탈멍 :: 수업 카테고리</title>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/yj.css">
 <script src="http://localhost:9000/One_day_class/js_yj/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" href="http://localhost:9000/One_day_class/css/am-pagination.css">
