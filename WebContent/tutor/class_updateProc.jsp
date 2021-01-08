@@ -62,7 +62,8 @@
 		//DB연동 --> 새로운 파일 있는 경우
 		System.out.println("---------> 파일이 있는 경우(새로운 파일)");
 		result = dao.UpdatePage1(vo);
-		String cid=dao.getCid1(vo.getEmail());
+		//String cid=dao.getCid1(vo.getEmail());
+		String cid=multi.getParameter("cid");
 		System.out.println(vo.getEmail());
 	if(result){
 		System.out.println(vo.getEmail());
